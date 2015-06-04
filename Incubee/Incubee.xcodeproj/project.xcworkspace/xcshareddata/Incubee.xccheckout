@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>16349C6C-0BE9-438E-88DB-2A349670F491</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Incubee</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>15DDC2D3E0B41946140D1AA0B6656D6C5FF16A95</key>
 		<string>https://github.com/incubee/ios_incubee</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Incubee/Incubee.xcodeproj/project.xcworkspace</string>
+	<string>Incubee/Incubee.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>15DDC2D3E0B41946140D1AA0B6656D6C5FF16A95</key>

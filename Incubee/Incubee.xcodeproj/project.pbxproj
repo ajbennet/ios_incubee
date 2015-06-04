@@ -17,6 +17,7 @@
 		5741C04D1B10C0060044CC29 /* SearchingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5741C04B1B10C0060044CC29 /* SearchingViewController.m */; };
 		5741C0501B10C03A0044CC29 /* MessagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5741C04F1B10C03A0044CC29 /* MessagingViewController.m */; };
 		5741C0531B10C0490044CC29 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5741C0521B10C0490044CC29 /* ProfileViewController.m */; };
+		57F29B491B1EB177009B9B9C /* intialData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57F29B481B1EB177009B9B9C /* intialData.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		5741C0511B10C0490044CC29 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = Source/ProfileViewController.h; sourceTree = "<group>"; };
 		5741C0521B10C0490044CC29 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = Source/ProfileViewController.m; sourceTree = "<group>"; };
 		5741C0551B10C3BD0044CC29 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Source/Utilities/Constants.h; sourceTree = "<group>"; };
+		57F29B481B1EB177009B9B9C /* intialData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = intialData.plist; path = Resource/intialData.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		5741C01D1B10BEF80044CC29 /* Incubee */ = {
 			isa = PBXGroup;
 			children = (
+				57F29B471B1EB15B009B9B9C /* Resource */,
 				5741C0471B10BFF50044CC29 /* Source */,
 				5741C0221B10BEF80044CC29 /* AppDelegate.h */,
 				5741C0231B10BEF80044CC29 /* AppDelegate.m */,
@@ -150,6 +153,14 @@
 				5741C0551B10C3BD0044CC29 /* Constants.h */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		57F29B471B1EB15B009B9B9C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				57F29B481B1EB177009B9B9C /* intialData.plist */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5741C02D1B10BEF80044CC29 /* Main.storyboard in Resources */,
+				57F29B491B1EB177009B9B9C /* intialData.plist in Resources */,
 				5741C0321B10BEF80044CC29 /* LaunchScreen.xib in Resources */,
 				5741C02F1B10BEF80044CC29 /* Images.xcassets in Resources */,
 			);
@@ -454,6 +466,7 @@
 				5741C0431B10BEF80044CC29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5741C0441B10BEF80044CC29 /* Build configuration list for PBXNativeTarget "IncubeeTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +475,7 @@
 				5741C0461B10BEF80044CC29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
