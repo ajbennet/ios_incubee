@@ -10,6 +10,21 @@
 
 @interface HomeViewController : UIViewController
 
+@property(nonatomic,strong)NSArray *projectList;
+
+@property (weak, nonatomic) IBOutlet UIView *cardA;
+
+@property (weak, nonatomic) IBOutlet UIView *cardAmediaView;
+
+@property (weak, nonatomic) IBOutlet UILabel *caedAtitleLable;
+
+@property (weak, nonatomic) IBOutlet UILabel *cardADesc;
+
+@property (weak, nonatomic) IBOutlet UIImageView *mediaImageView;
+
+@property (weak, nonatomic) IBOutlet UIView *mediaMoviePlayerView;
+
+- (IBAction)nextCardTapped:(id)sender;
 
 @end
 

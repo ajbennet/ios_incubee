@@ -58,6 +58,24 @@
 	</dict>
 	<dict>
 		<key>ProjectName</key>
+		<string>KLD</string>
+		<key>FollowedBy</key>
+		<integer>124</integer>
+		<key>MediaType</key>
+		<string>Image</string>
+		<key>MediaURL</key>
+		<string>http://thumbs.dreamstime.com/x/electric-circuit-2947480.jpg</string>
+		<key>ProjectTeam</key>
+		<string>kld.Inc</string>
+		<key>Rating</key>
+		<integer>3</integer>
+		<key>Favorite</key>
+		<true/>
+		<key>ProjectId</key>
+		<string>ACS035</string>
+	</dict>
+	<dict>
+		<key>ProjectName</key>
 		<string>Malibu</string>
 		<key>FollowedBy</key>
 		<integer>124</integer>
@@ -67,6 +85,24 @@
 		<string>https://www.youtube.com/watch?v=LkYDs-q50mY</string>
 		<key>ProjectTeam</key>
 		<string>Malibu Team</string>
+		<key>Rating</key>
+		<integer>3</integer>
+		<key>Favorite</key>
+		<true/>
+		<key>ProjectId</key>
+		<string>ACS036</string>
+	</dict>
+	<dict>
+		<key>ProjectName</key>
+		<string>Gosl</string>
+		<key>FollowedBy</key>
+		<integer>124</integer>
+		<key>MediaType</key>
+		<string>Video</string>
+		<key>MediaURL</key>
+		<string>https://www.youtube.com/watch?v=LkYDs-q50mY</string>
+		<key>ProjectTeam</key>
+		<string>Gosl GoslInc</string>
 		<key>Rating</key>
 		<integer>3</integer>
 		<key>Favorite</key>
