@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mediaImageView;
 
 @property (weak, nonatomic) IBOutlet UIView *mediaMoviePlayerView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *cardAactivityIndicator;
 
 - (IBAction)nextCardTapped:(id)sender;
 

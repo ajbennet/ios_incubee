@@ -10,7 +10,7 @@
 		<key>MediaType</key>
 		<string>Image</string>
 		<key>MediaURL</key>
-		<string>https://pmcdeadline2.files.wordpress.com/2011/06/camelot_20110630203219.jpg</string>
+		<string>http://p1.pichost.me/i/11/1339811.jpg</string>
 		<key>ProjectTeam</key>
 		<string>Camelot Team</string>
 		<key>Rating</key>
@@ -28,7 +28,7 @@
 		<key>MediaType</key>
 		<string>Image</string>
 		<key>MediaURL</key>
-		<string>http://www.wallpapermay.com/thumbnails/detail/20120605/poke%20balls%20god%20of%20war%20digital%20art%201920x1200%20wallpaper_www.wallpapermay.com_77.jpg</string>
+		<string>http://fc09.deviantart.net/images/i/2002/33/c/0/Elements_4-28-02.jpg</string>
 		<key>ProjectTeam</key>
 		<string>Fusion Team</string>
 		<key>Rating</key>
@@ -46,7 +46,7 @@
 		<key>MediaType</key>
 		<string>Image</string>
 		<key>MediaURL</key>
-		<string>http://thumbs.dreamstime.com/x/electric-circuit-2947480.jpg</string>
+		<string>http://i.imgur.com/9FN8NQE.png</string>
 		<key>ProjectTeam</key>
 		<string>Kryptonite Team</string>
 		<key>Rating</key>
@@ -54,7 +54,7 @@
 		<key>Favorite</key>
 		<true/>
 		<key>ProjectId</key>
-		<string>ACS035</string>
+		<string>ACS036</string>
 	</dict>
 	<dict>
 		<key>ProjectName</key>
@@ -64,7 +64,7 @@
 		<key>MediaType</key>
 		<string>Image</string>
 		<key>MediaURL</key>
-		<string>http://thumbs.dreamstime.com/x/electric-circuit-2947480.jpg</string>
+		<string>http://magic-class.ru/images/elemental_magic.jpg</string>
 		<key>ProjectTeam</key>
 		<string>kld.Inc</string>
 		<key>Rating</key>
@@ -72,7 +72,7 @@
 		<key>Favorite</key>
 		<true/>
 		<key>ProjectId</key>
-		<string>ACS035</string>
+		<string>ACS037</string>
 	</dict>
 	<dict>
 		<key>ProjectName</key>
@@ -90,7 +90,7 @@
 		<key>Favorite</key>
 		<true/>
 		<key>ProjectId</key>
-		<string>ACS036</string>
+		<string>ACS038</string>
 	</dict>
 	<dict>
 		<key>ProjectName</key>
@@ -108,7 +108,115 @@
 		<key>Favorite</key>
 		<true/>
 		<key>ProjectId</key>
-		<string>ACS036</string>
+		<string>ACS039</string>
+	</dict>
+	<dict>
+		<key>ProjectName</key>
+		<string>Plapse</string>
+		<key>FollowedBy</key>
+		<integer>124</integer>
+		<key>MediaType</key>
+		<string>Video</string>
+		<key>MediaURL</key>
+		<string>https://www.youtube.com/watch?v=LkYDs-q50mY</string>
+		<key>ProjectTeam</key>
+		<string>Plapse Inc</string>
+		<key>Rating</key>
+		<integer>3</integer>
+		<key>Favorite</key>
+		<true/>
+		<key>ProjectId</key>
+		<string>ACS040</string>
+	</dict>
+	<dict>
+		<key>ProjectName</key>
+		<string>Blongeme</string>
+		<key>FollowedBy</key>
+		<integer>124</integer>
+		<key>MediaType</key>
+		<string>Video</string>
+		<key>MediaURL</key>
+		<string>https://www.youtube.com/watch?v=LkYDs-q50mY</string>
+		<key>ProjectTeam</key>
+		<string>Blongeme</string>
+		<key>Rating</key>
+		<integer>3</integer>
+		<key>Favorite</key>
+		<true/>
+		<key>ProjectId</key>
+		<string>ACS041</string>
+	</dict>
+	<dict>
+		<key>ProjectName</key>
+		<string>Weludes</string>
+		<key>FollowedBy</key>
+		<integer>124</integer>
+		<key>MediaType</key>
+		<string>Image</string>
+		<key>MediaURL</key>
+		<string>http://thumbs.dreamstime.com/z/vector-design-elements-nature-signs-27762304.jpg</string>
+		<key>ProjectTeam</key>
+		<string>Weludes T</string>
+		<key>Rating</key>
+		<integer>3</integer>
+		<key>Favorite</key>
+		<true/>
+		<key>ProjectId</key>
+		<string>ACS042</string>
+	</dict>
+	<dict>
+		<key>ProjectName</key>
+		<string>Ambtains</string>
+		<key>FollowedBy</key>
+		<integer>124</integer>
+		<key>MediaType</key>
+		<string>Image</string>
+		<key>MediaURL</key>
+		<string>http://hdcoolwallpapers.com/wp-content/uploads/2015/01/HD-3D-Abstract-Wallpapers-601.jpg</string>
+		<key>ProjectTeam</key>
+		<string>Ambtains LLC</string>
+		<key>Rating</key>
+		<integer>3</integer>
+		<key>Favorite</key>
+		<true/>
+		<key>ProjectId</key>
+		<string>ACS043</string>
+	</dict>
+	<dict>
+		<key>ProjectName</key>
+		<string>Shangine</string>
+		<key>FollowedBy</key>
+		<integer>124</integer>
+		<key>MediaType</key>
+		<string>Image</string>
+		<key>MediaURL</key>
+		<string>http://www.wall321.com/thumbnails/detail/20120608/water%20fire%20earth%20elements%20avatar%20the%20last%20airbender%20air%20korra%20symbols%202560x1440%20wallpaper_www.wall321.com_48.jpg</string>
+		<key>ProjectTeam</key>
+		<string>Gosl Shangine</string>
+		<key>Rating</key>
+		<integer>3</integer>
+		<key>Favorite</key>
+		<true/>
+		<key>ProjectId</key>
+		<string>ACS044</string>
+	</dict>
+	<dict>
+		<key>ProjectName</key>
+		<string>Narvier</string>
+		<key>FollowedBy</key>
+		<integer>35</integer>
+		<key>MediaType</key>
+		<string>Image</string>
+		<key>MediaURL</key>
+		<string>http://magic-class.ru/images/elemental_magic.jpg</string>
+		<key>ProjectTeam</key>
+		<string>Gosl Narvier</string>
+		<key>Rating</key>
+		<integer>3</integer>
+		<key>Favorite</key>
+		<true/>
+		<key>ProjectId</key>
+		<string>ACS045</string>
 	</dict>
 </array>
 </plist>

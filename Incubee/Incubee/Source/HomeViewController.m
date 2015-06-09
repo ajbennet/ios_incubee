@@ -27,6 +27,12 @@
     
     [self showCardA:[_projectList objectAtIndex:0]];
     
+    
+    _cardA.layer.borderColor = [UIColor grayColor].CGColor;
+    _cardA.layer.borderWidth = 2.0f;
+    _cardA.layer.cornerRadius = 5.0f;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,7 +56,6 @@
     {
         _mediaImageView.hidden = NO;
         _mediaMoviePlayerView.hidden = YES;
-        
         {
             
             NSData *imageData =[[ICImageManager sharedInstance] getImage:[inCard valueForKey:@"MediaURL"]];
@@ -58,9 +63,20 @@
             if (imageData)
             {
                 _mediaImageView.image = [UIImage imageWithData:imageData];
+                
+                _cardAactivityIndicator.hidden = YES;
+                
+                [_cardAactivityIndicator stopAnimating];
+
             }
             else
             {
+                _mediaImageView.image = nil;
+                
+                _cardAactivityIndicator.hidden = NO;
+                
+                [_cardAactivityIndicator startAnimating];
+                
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
                     
                     NSString *urlString = [inCard valueForKey:@"MediaURL"];
@@ -70,23 +86,29 @@
                     NSError *error = nil;
                     
                     NSData* downloadedData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString] options:NSDataReadingUncached error:&error];
-                    if (error) {
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                        _cardAactivityIndicator.hidden = YES;
+                        
+                        [_cardAactivityIndicator stopAnimating];
+
+                    if (error)
+                    {
                         NSLog(@"%@", [error localizedDescription]);
-                    } else {
-                        NSLog(@"Data has loaded successfully.");
+                    }
+                    else
+                    {
+                        if (downloadedData) {
+                            
+                            [[ICImageManager sharedInstance] setData:downloadedData withKey:urlString];
+                            
+                                _mediaImageView.image = [UIImage imageWithData:downloadedData];
+    
+                        }
                     }
                     
-                    
-                    if (downloadedData) {
-                        
-                        [[ICImageManager sharedInstance] setData:downloadedData withKey:urlString];
-                        
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            
-                        _mediaImageView.image = [UIImage imageWithData:downloadedData];
-                            
-                        });
-                    }
+                    });
                 });
             }
         }
