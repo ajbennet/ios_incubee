@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		571605A21B2B55E900BE2D9D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 571605A11B2B55E900BE2D9D /* Podfile */; };
+		573C77071B2B56E100A63FC8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 573C77061B2B56E100A63FC8 /* HomeViewController.m */; };
+		573C770F1B2B575100A63FC8 /* ICLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 573C770E1B2B575100A63FC8 /* ICLoginViewController.m */; };
+		573C77111B2B576700A63FC8 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 573C77101B2B576700A63FC8 /* LoginStoryboard.storyboard */; };
 		5741C0211B10BEF80044CC29 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5741C0201B10BEF80044CC29 /* main.m */; };
 		5741C0241B10BEF80044CC29 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5741C0231B10BEF80044CC29 /* AppDelegate.m */; };
 		5741C02D1B10BEF80044CC29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5741C02B1B10BEF80044CC29 /* Main.storyboard */; };
 		5741C02F1B10BEF80044CC29 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5741C02E1B10BEF80044CC29 /* Images.xcassets */; };
 		5741C0321B10BEF80044CC29 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5741C0301B10BEF80044CC29 /* LaunchScreen.xib */; };
 		5741C03E1B10BEF80044CC29 /* IncubeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5741C03D1B10BEF80044CC29 /* IncubeeTests.m */; };
-		5741C04C1B10C0060044CC29 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5741C0491B10C0060044CC29 /* HomeViewController.m */; };
 		5741C04D1B10C0060044CC29 /* SearchingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5741C04B1B10C0060044CC29 /* SearchingViewController.m */; };
 		5741C0501B10C03A0044CC29 /* MessagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5741C04F1B10C03A0044CC29 /* MessagingViewController.m */; };
 		5741C0531B10C0490044CC29 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5741C0521B10C0490044CC29 /* ProfileViewController.m */; };
 		576A018C1B221E840083819A /* ICImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 576A018B1B221E840083819A /* ICImageManager.m */; };
 		57F29B491B1EB177009B9B9C /* intialData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57F29B481B1EB177009B9B9C /* intialData.plist */; };
+		C89D7CBBCC33209DF8D8BC38 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D783BF93DD9FCFEAFD84E8AA /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +36,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		309EDBD15D97499B88AC1F27 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		571605A11B2B55E900BE2D9D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		573C77051B2B56E100A63FC8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Source/Home/HomeViewController.h; sourceTree = "<group>"; };
+		573C77061B2B56E100A63FC8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Source/Home/HomeViewController.m; sourceTree = "<group>"; };
+		573C770D1B2B575100A63FC8 /* ICLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICLoginViewController.h; path = Source/Login/ICLoginViewController.h; sourceTree = "<group>"; };
+		573C770E1B2B575100A63FC8 /* ICLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICLoginViewController.m; path = Source/Login/ICLoginViewController.m; sourceTree = "<group>"; };
+		573C77101B2B576700A63FC8 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LoginStoryboard.storyboard; path = Source/Login/LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		5741C01B1B10BEF80044CC29 /* Incubee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Incubee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5741C01F1B10BEF80044CC29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5741C0201B10BEF80044CC29 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,8 +54,6 @@
 		5741C0371B10BEF80044CC29 /* IncubeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncubeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5741C03C1B10BEF80044CC29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5741C03D1B10BEF80044CC29 /* IncubeeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IncubeeTests.m; sourceTree = "<group>"; };
-		5741C0481B10C0060044CC29 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Source/HomeViewController.h; sourceTree = "<group>"; };
-		5741C0491B10C0060044CC29 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Source/HomeViewController.m; sourceTree = "<group>"; };
 		5741C04A1B10C0060044CC29 /* SearchingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchingViewController.h; path = Source/SearchingViewController.h; sourceTree = "<group>"; };
 		5741C04B1B10C0060044CC29 /* SearchingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchingViewController.m; path = Source/SearchingViewController.m; sourceTree = "<group>"; };
 		5741C04E1B10C03A0044CC29 /* MessagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagingViewController.h; path = Source/MessagingViewController.h; sourceTree = "<group>"; };
@@ -55,6 +64,8 @@
 		576A018A1B221E840083819A /* ICImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICImageManager.h; path = Source/Utilities/ICImageManager.h; sourceTree = "<group>"; };
 		576A018B1B221E840083819A /* ICImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICImageManager.m; path = Source/Utilities/ICImageManager.m; sourceTree = "<group>"; };
 		57F29B481B1EB177009B9B9C /* intialData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = intialData.plist; path = Resource/intialData.plist; sourceTree = "<group>"; };
+		CE9C53356CB62C17B52BD644 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D783BF93DD9FCFEAFD84E8AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C89D7CBBCC33209DF8D8BC38 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,12 +87,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		573C77041B2B56CF00A63FC8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				573C77051B2B56E100A63FC8 /* HomeViewController.h */,
+				573C77061B2B56E100A63FC8 /* HomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		573C770A1B2B571500A63FC8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				573C770D1B2B575100A63FC8 /* ICLoginViewController.h */,
+				573C770E1B2B575100A63FC8 /* ICLoginViewController.m */,
+				573C77101B2B576700A63FC8 /* LoginStoryboard.storyboard */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		5741C0121B10BEF80044CC29 = {
 			isa = PBXGroup;
 			children = (
+				571605A11B2B55E900BE2D9D /* Podfile */,
 				5741C01D1B10BEF80044CC29 /* Incubee */,
 				5741C03A1B10BEF80044CC29 /* IncubeeTests */,
 				5741C01C1B10BEF80044CC29 /* Products */,
+				EB20EF598C1DDC541E70C3DE /* Pods */,
+				C2297CB4A7B0E6DD2317F9E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,9 +171,9 @@
 		5741C0471B10BFF50044CC29 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				573C770A1B2B571500A63FC8 /* Login */,
+				573C77041B2B56CF00A63FC8 /* Home */,
 				5741C0541B10C37E0044CC29 /* Utilities */,
-				5741C0481B10C0060044CC29 /* HomeViewController.h */,
-				5741C0491B10C0060044CC29 /* HomeViewController.m */,
 				5741C04A1B10C0060044CC29 /* SearchingViewController.h */,
 				5741C04B1B10C0060044CC29 /* SearchingViewController.m */,
 				5741C04E1B10C03A0044CC29 /* MessagingViewController.h */,
@@ -168,6 +202,23 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
+		C2297CB4A7B0E6DD2317F9E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D783BF93DD9FCFEAFD84E8AA /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB20EF598C1DDC541E70C3DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE9C53356CB62C17B52BD644 /* Pods.debug.xcconfig */,
+				309EDBD15D97499B88AC1F27 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,9 +226,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5741C0411B10BEF80044CC29 /* Build configuration list for PBXNativeTarget "Incubee" */;
 			buildPhases = (
+				87DDADBBF3F98348687BAC3D /* Check Pods Manifest.lock */,
 				5741C0171B10BEF80044CC29 /* Sources */,
 				5741C0181B10BEF80044CC29 /* Frameworks */,
 				5741C0191B10BEF80044CC29 /* Resources */,
+				B6AEC639411A37E5CE3E417E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -248,8 +301,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				571605A21B2B55E900BE2D9D /* Podfile in Resources */,
 				5741C02D1B10BEF80044CC29 /* Main.storyboard in Resources */,
 				57F29B491B1EB177009B9B9C /* intialData.plist in Resources */,
+				573C77111B2B576700A63FC8 /* LoginStoryboard.storyboard in Resources */,
 				5741C0321B10BEF80044CC29 /* LaunchScreen.xib in Resources */,
 				5741C02F1B10BEF80044CC29 /* Images.xcassets in Resources */,
 			);
@@ -264,6 +319,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		87DDADBBF3F98348687BAC3D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B6AEC639411A37E5CE3E417E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5741C0171B10BEF80044CC29 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -272,9 +360,10 @@
 				5741C0501B10C03A0044CC29 /* MessagingViewController.m in Sources */,
 				5741C0241B10BEF80044CC29 /* AppDelegate.m in Sources */,
 				5741C0211B10BEF80044CC29 /* main.m in Sources */,
-				5741C04C1B10C0060044CC29 /* HomeViewController.m in Sources */,
 				5741C0531B10C0490044CC29 /* ProfileViewController.m in Sources */,
 				5741C04D1B10C0060044CC29 /* SearchingViewController.m in Sources */,
+				573C77071B2B56E100A63FC8 /* HomeViewController.m in Sources */,
+				573C770F1B2B575100A63FC8 /* ICLoginViewController.m in Sources */,
 				576A018C1B221E840083819A /* ICImageManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +490,7 @@
 		};
 		5741C0421B10BEF80044CC29 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE9C53356CB62C17B52BD644 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Incubee/Info.plist;
@@ -411,6 +501,7 @@
 		};
 		5741C0431B10BEF80044CC29 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 309EDBD15D97499B88AC1F27 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Incubee/Info.plist;
