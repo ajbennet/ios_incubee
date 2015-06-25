@@ -10,31 +10,29 @@
 	<string>Incubee</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>15DDC2D3E0B41946140D1AA0B6656D6C5FF16A95</key>
+		<key>4e4821d5-a45d-deaf-5626-ce57b7db7bff</key>
 		<string>https://github.com/incubee/ios_incubee.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Incubee/Incubee.xcworkspace</string>
+	<string>trunk/Incubee/Incubee.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>15DDC2D3E0B41946140D1AA0B6656D6C5FF16A95</key>
-		<string>../..</string>
+		<key>4e4821d5-a45d-deaf-5626-ce57b7db7bff</key>
+		<string>../../..</string>
 	</dict>
-	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/incubee/ios_incubee.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>15DDC2D3E0B41946140D1AA0B6656D6C5FF16A95</string>
+	<string>4e4821d5-a45d-deaf-5626-ce57b7db7bff</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
+			<string>public.vcs.subversion</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>15DDC2D3E0B41946140D1AA0B6656D6C5FF16A95</string>
+			<string>4e4821d5-a45d-deaf-5626-ce57b7db7bff</string>
 			<key>IDESourceControlWCCName</key>
-			<string>incub.ee</string>
+			<string>ios_incubee.git</string>
 		</dict>
 	</array>
 </dict>
