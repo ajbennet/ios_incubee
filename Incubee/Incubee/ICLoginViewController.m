@@ -34,9 +34,9 @@
 
     
 //    if(_googleSignInButton.currentUser){
-    
-        [self signINSuccesfull];
-        
+//    
+//        [self signINSuccesfull];
+//        
 //    }
 }
 
