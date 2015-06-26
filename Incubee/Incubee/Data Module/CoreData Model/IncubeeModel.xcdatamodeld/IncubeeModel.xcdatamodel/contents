@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Project" representedClassName="Project" syncable="YES">
+        <attribute name="companyDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="companyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="companyUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contactEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="field" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="founder" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="funding" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="high_concept" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logo_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="project_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="twitter_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="video" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="videoUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="projImages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProjectImage" inverseName="project" inverseEntity="ProjectImage" syncable="YES"/>
+    </entity>
+    <entity name="ProjectImage" representedClassName="ProjectImage" syncable="YES">
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="projImages" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Project" positionX="-1566" positionY="-1116" width="128" height="283"/>
+        <element name="ProjectImage" positionX="-1152" positionY="-1098" width="128" height="73"/>
+    </elements>
+</model>

@@ -7,6 +7,7 @@
 //
 
 #import "ICLoginViewController.h"
+#import "ICDataManager.h"
 
 @interface ICLoginViewController ()
 
@@ -38,6 +39,9 @@
 //        [self signINSuccesfull];
 //        
 //    }
+    
+    
+    [ICDataManager sharedInstance];
 }
 
 // Stop the UIActivityIndicatorView animation that was started when the user

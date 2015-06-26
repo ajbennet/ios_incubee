@@ -14,6 +14,13 @@
 		570388EF1B31E67300BB9D40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570388EE1B31E67300BB9D40 /* Images.xcassets */; };
 		570388F21B31E67300BB9D40 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570388F01B31E67300BB9D40 /* LaunchScreen.xib */; };
 		570388FE1B31E67300BB9D40 /* IncubeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 570388FD1B31E67300BB9D40 /* IncubeeTests.m */; };
+		571F79421B3D222D008F727E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571F79411B3D222D008F727E /* CoreData.framework */; };
+		571F794F1B3D2362008F727E /* IncubeeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 571F794D1B3D2362008F727E /* IncubeeModel.xcdatamodeld */; };
+		571F79521B3D2386008F727E /* ICDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 571F79511B3D2386008F727E /* ICDataManager.m */; };
+		571F79541B3D2407008F727E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571F79531B3D2407008F727E /* UIKit.framework */; };
+		571F79561B3D2417008F727E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571F79551B3D2417008F727E /* Foundation.framework */; };
+		571F79591B3D279D008F727E /* ProjectImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 571F79581B3D279D008F727E /* ProjectImage.m */; };
+		571F795C1B3D279D008F727E /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 571F795B1B3D279D008F727E /* Project.m */; };
 		572F163B1B39C2380084B75F /* MessagingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F163A1B39C2380084B75F /* MessagingTableViewController.m */; };
 		572F16461B39D4D40084B75F /* ICCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F16451B39D4D40084B75F /* ICCardViewController.m */; };
 		572F16481B39D4E30084B75F /* CardViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 572F16471B39D4E30084B75F /* CardViewStoryboard.storyboard */; };
@@ -50,6 +57,16 @@
 		570388F71B31E67300BB9D40 /* IncubeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncubeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		570388FC1B31E67300BB9D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		570388FD1B31E67300BB9D40 /* IncubeeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IncubeeTests.m; sourceTree = "<group>"; };
+		571F79411B3D222D008F727E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		571F794E1B3D2362008F727E /* IncubeeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncubeeModel.xcdatamodel; sourceTree = "<group>"; };
+		571F79501B3D2386008F727E /* ICDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICDataManager.h; path = "Data Module/ICDataManager.h"; sourceTree = "<group>"; };
+		571F79511B3D2386008F727E /* ICDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICDataManager.m; path = "Data Module/ICDataManager.m"; sourceTree = "<group>"; };
+		571F79531B3D2407008F727E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		571F79551B3D2417008F727E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		571F79571B3D279D008F727E /* ProjectImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectImage.h; path = "Data Module/Managed Objects/ProjectImage.h"; sourceTree = "<group>"; };
+		571F79581B3D279D008F727E /* ProjectImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectImage.m; path = "Data Module/Managed Objects/ProjectImage.m"; sourceTree = "<group>"; };
+		571F795A1B3D279D008F727E /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = "Data Module/Managed Objects/Project.h"; sourceTree = "<group>"; };
+		571F795B1B3D279D008F727E /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = "Data Module/Managed Objects/Project.m"; sourceTree = "<group>"; };
 		572F16391B39C2380084B75F /* MessagingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagingTableViewController.h; sourceTree = "<group>"; };
 		572F163A1B39C2380084B75F /* MessagingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagingTableViewController.m; sourceTree = "<group>"; };
 		572F16441B39D4D40084B75F /* ICCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICCardViewController.h; sourceTree = "<group>"; };
@@ -69,6 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				571F79561B3D2417008F727E /* Foundation.framework in Frameworks */,
+				571F79541B3D2407008F727E /* UIKit.framework in Frameworks */,
+				571F79421B3D222D008F727E /* CoreData.framework in Frameworks */,
 				930CB1D550C9E950F61E556D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +127,7 @@
 		570388DD1B31E67300BB9D40 /* Incubee */ = {
 			isa = PBXGroup;
 			children = (
+				571F79341B3D0BE9008F727E /* Data Module */,
 				570388E21B31E67300BB9D40 /* AppDelegate.h */,
 				570388E31B31E67300BB9D40 /* AppDelegate.m */,
 				570388E51B31E67300BB9D40 /* HomeViewController.h */,
@@ -155,6 +176,36 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		571F79341B3D0BE9008F727E /* Data Module */ = {
+			isa = PBXGroup;
+			children = (
+				571F794C1B3D231F008F727E /* CoreData Model */,
+				571F793A1B3D1D4E008F727E /* Managed Objects */,
+				571F79501B3D2386008F727E /* ICDataManager.h */,
+				571F79511B3D2386008F727E /* ICDataManager.m */,
+			);
+			name = "Data Module";
+			sourceTree = "<group>";
+		};
+		571F793A1B3D1D4E008F727E /* Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				571F795A1B3D279D008F727E /* Project.h */,
+				571F795B1B3D279D008F727E /* Project.m */,
+				571F79571B3D279D008F727E /* ProjectImage.h */,
+				571F79581B3D279D008F727E /* ProjectImage.m */,
+			);
+			name = "Managed Objects";
+			sourceTree = "<group>";
+		};
+		571F794C1B3D231F008F727E /* CoreData Model */ = {
+			isa = PBXGroup;
+			children = (
+				571F794D1B3D2362008F727E /* IncubeeModel.xcdatamodeld */,
+			);
+			name = "CoreData Model";
+			sourceTree = "<group>";
+		};
 		70B51E13AD9040D6964063DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +218,9 @@
 		97C050AFCE99255923EDF539 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				571F79551B3D2417008F727E /* Foundation.framework */,
+				571F79531B3D2407008F727E /* UIKit.framework */,
+				571F79411B3D222D008F727E /* CoreData.framework */,
 				79BDB03A56CF3D54AE87702E /* libPods.a */,
 			);
 			name = Frameworks;
@@ -314,9 +368,13 @@
 			files = (
 				572F163B1B39C2380084B75F /* MessagingTableViewController.m in Sources */,
 				57F3AEF71B31EDA30005D964 /* ICLoginViewController.m in Sources */,
+				571F79521B3D2386008F727E /* ICDataManager.m in Sources */,
 				570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */,
+				571F795C1B3D279D008F727E /* Project.m in Sources */,
 				570388E71B31E67300BB9D40 /* HomeViewController.m in Sources */,
 				57DAD6C81B3475460040378E /* ProfileViewController.m in Sources */,
+				571F794F1B3D2362008F727E /* IncubeeModel.xcdatamodeld in Sources */,
+				571F79591B3D279D008F727E /* ProjectImage.m in Sources */,
 				572F16461B39D4D40084B75F /* ICCardViewController.m in Sources */,
 				570388E11B31E67300BB9D40 /* main.m in Sources */,
 			);
@@ -547,6 +605,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		571F794D1B3D2362008F727E /* IncubeeModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				571F794E1B3D2362008F727E /* IncubeeModel.xcdatamodel */,
+			);
+			currentVersion = 571F794E1B3D2362008F727E /* IncubeeModel.xcdatamodel */;
+			name = IncubeeModel.xcdatamodeld;
+			path = "Data Module/CoreData Model/IncubeeModel.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 570388D31B31E67300BB9D40 /* Project object */;
 }
