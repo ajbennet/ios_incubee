@@ -21,7 +21,12 @@
     self.navigationController.navigationBarHidden = NO;
     
     self.title = @"Login";
+    
+    _googleButton.layer.cornerRadius = _twitterButton.layer.cornerRadius = _loginButton.layer.cornerRadius = 5.0f;
+    
+    _googleButton.layer.borderColor = _twitterButton.layer.borderColor = _loginButton.layer.borderColor = [UIColor grayColor].CGColor;
 
+        _googleButton.layer.borderWidth = _twitterButton.layer.borderWidth = _loginButton.layer.borderWidth = 1.0f;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,4 +44,21 @@
 }
 */
 
+- (IBAction)googleLoginTapped:(id)sender {
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+
+}
+
+- (IBAction)twitterLoginTapped:(id)sender {
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+
+}
+
+- (IBAction)loginTapped:(id)sender {
+    
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
 @end

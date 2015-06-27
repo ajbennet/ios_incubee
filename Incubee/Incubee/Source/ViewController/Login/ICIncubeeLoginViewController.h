@@ -10,4 +10,14 @@
 
 @interface ICIncubeeLoginViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *googleButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *twitterButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+- (IBAction)googleLoginTapped:(id)sender;
+- (IBAction)twitterLoginTapped:(id)sender;
+
+- (IBAction)loginTapped:(id)sender;
 @end
