@@ -13,4 +13,10 @@
 
 @property (weak, nonatomic) IBOutlet GIDSignInButton *googleSignInButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+- (IBAction)loginButtonTapped:(id)sender;
+
+- (IBAction)noThanksTapped:(id)sender;
+
 @end

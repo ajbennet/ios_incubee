@@ -19,29 +19,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationController.navigationBarHidden = YES;
-    
     _googleSignInButton.style = kGIDSignInButtonStyleWide;
         
     [GIDSignIn sharedInstance].uiDelegate = self;
-    
-    [self.view setNeedsLayout];
-    
-    [self.view layoutIfNeeded];
-    
-    [_googleSignInButton setNeedsLayout];
-    
-    [_googleSignInButton layoutIfNeeded];
-
     
 //    if(_googleSignInButton.currentUser){
 //    
 //        [self signINSuccesfull];
 //        
 //    }
-    [self signINSuccesfull];
+//    [self signINSuccesfull];
     
     [ICDataManager sharedInstance];
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBarHidden = YES;
+
+    
 }
 
 // Stop the UIActivityIndicatorView animation that was started when the user
@@ -90,6 +90,8 @@ dismissViewController:(UIViewController *)viewController {
 
 -(void)signINSuccesfull{
 
+    return;
+    
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     UITabBarController *controller = [sb instantiateViewControllerWithIdentifier:@"TabbarControllerStoryboard"];
@@ -108,4 +110,24 @@ dismissViewController:(UIViewController *)viewController {
 }
 */
 
+- (IBAction)loginButtonTapped:(id)sender {
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ICLoginViewController" bundle:nil];
+    
+    UIViewController *controller = [sb instantiateViewControllerWithIdentifier:@"IncubeeLoginStoryBoard"];
+    
+    controller.modalPresentationStyle = UIModalPresentationCustom;
+    
+    [self.navigationController pushViewController:controller animated:YES];
+
+    
+}
+
+- (IBAction)noThanksTapped:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
 @end

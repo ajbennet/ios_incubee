@@ -10,6 +10,7 @@
 #import "ICCardViewController.h"
 #import "ICAppManager.h"
 #import "ICAppManager+Networking.h"
+#import "ICLoginViewController.h"
 
 
 @interface HomeViewController ()
@@ -17,6 +18,9 @@
 @end
 
 @implementation HomeViewController
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -114,9 +118,8 @@
     [_currentlyShowingVC.view layoutSubviews];
     
     [_secondViewC showProject];
-    [_secondViewC showProject];
-//    [_secondViewC showProject];
     
+    [self showLoginScreen];
     
 }
 
@@ -134,6 +137,8 @@
 
 -(void)followProject{
     NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    [self goNextProject:nil];
 
 }
 
@@ -195,11 +200,22 @@
     [self goNextProject:nil];
 }
 
-
-
 -(void)projectDataRefreshed:(ICRequest*)inRequest{
 
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
 }
+
+-(void)showLoginScreen{
+
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ICLoginViewController" bundle:nil];
+    
+    UINavigationController *loginNavigationController = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationStoryBoard"];
+    
+    loginNavigationController.modalPresentationStyle = UIModalPresentationCustom;
+    
+    [self presentViewController:loginNavigationController animated:YES completion:nil];
+        
+}
+
 @end

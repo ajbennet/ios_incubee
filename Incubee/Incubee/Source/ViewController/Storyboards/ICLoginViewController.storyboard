@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UXz-jC-dD3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
-        <scene sceneID="joN-RE-NvL">
+        <scene sceneID="XlB-dR-Bc6">
             <objects>
-                <navigationController id="UXz-jC-dD3" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U6W-b0-Tb8">
+                <navigationController storyboardIdentifier="LoginNavigationStoryBoard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hHe-b2-lLO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ifb-BL-iLh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="zye-kg-9dO" kind="relationship" relationship="rootViewController" id="TrY-Cf-bpS"/>
+                        <segue destination="zye-kg-9dO" kind="relationship" relationship="rootViewController" id="5Q2-0p-rof"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2te-jQ-0Rm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sY1-1Q-eN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-553" y="223"/>
+            <point key="canvasLocation" x="-709" y="242.25"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="gHN-qO-FFp">
             <objects>
-                <viewController id="zye-kg-9dO" customClass="ICLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginStoryBoard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zye-kg-9dO" customClass="ICLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lRL-L0-kVH"/>
                         <viewControllerLayoutGuide type="bottom" id="QTn-yX-cuY"/>
@@ -35,29 +34,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incubee" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="MAh-fB-F54">
-                                <rect key="frame" x="20" y="140" width="441" height="43"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Vu-dV-iAK">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="H7c-TC-6p1"/>
-                                    <constraint firstAttribute="width" constant="441" id="gb6-9u-CO5"/>
+                                    <constraint firstAttribute="height" constant="30" id="26l-dl-dTB">
+                                        <variation key="heightClass=regular" constant="100"/>
+                                    </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Login">
+                                            <attributes>
+                                                <color key="NSColor" red="0.92941176470588238" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="20" name="Menlo-Bold"/>
+                                                <integer key="NSLigature" value="0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="26.450000762939453"/>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content=" ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.63921568627450975" green="0.082352941176470587" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="20" name="Menlo-Bold"/>
+                                                <integer key="NSLigature" value="0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="26.450000762939453"/>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="if you already uploaded  your work at ">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="20" name="Menlo-Bold"/>
+                                                <integer key="NSLigature" value="0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="26.450000762939453"/>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="incub.ee">
+                                            <attributes>
+                                                <color key="NSColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="20" name="Menlo-Bold"/>
+                                                <integer key="NSLigature" value="0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="26.450000762939453"/>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="H7c-TC-6p1"/>
-                                        <exclude reference="gb6-9u-CO5"/>
+                                        <exclude reference="26l-dl-dTB"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular">
                                     <mask key="constraints">
-                                        <include reference="H7c-TC-6p1"/>
-                                        <include reference="gb6-9u-CO5"/>
+                                        <include reference="26l-dl-dTB"/>
                                     </mask>
                                 </variation>
-                            </label>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="zye-kg-9dO" eventType="touchUpInside" id="jFP-M5-x7g"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O3o-Kf-SDr">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
@@ -146,31 +196,48 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxD-JW-Qpn">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="No Thanks">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noThanksTapped:" destination="zye-kg-9dO" eventType="touchUpInside" id="lhv-AM-qW3"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="O3o-Kf-SDr" secondAttribute="centerX" id="1Zf-Lj-x1a"/>
                             <constraint firstItem="O3o-Kf-SDr" firstAttribute="width" secondItem="Mij-3p-oXr" secondAttribute="width" multiplier="0.8" id="ARk-qq-IgC"/>
                             <constraint firstItem="O3o-Kf-SDr" firstAttribute="width" secondItem="Mij-3p-oXr" secondAttribute="width" id="AoF-v9-BfP"/>
-                            <constraint firstAttribute="centerX" secondItem="MAh-fB-F54" secondAttribute="centerX" id="GiB-0C-R1L"/>
+                            <constraint firstAttribute="centerY" secondItem="7Vu-dV-iAK" secondAttribute="centerY" id="Dr5-eW-W0J"/>
+                            <constraint firstAttribute="centerX" secondItem="bxD-JW-Qpn" secondAttribute="centerX" id="EDf-Gp-I7a"/>
+                            <constraint firstItem="QTn-yX-cuY" firstAttribute="top" secondItem="bxD-JW-Qpn" secondAttribute="bottom" constant="385" id="JEZ-q7-f2y">
+                                <variation key="heightClass=regular" constant="10"/>
+                            </constraint>
+                            <constraint firstAttribute="width" secondItem="7Vu-dV-iAK" secondAttribute="width" id="Lty-HL-qy2"/>
                             <constraint firstItem="QTn-yX-cuY" firstAttribute="top" secondItem="O3o-Kf-SDr" secondAttribute="bottom" constant="100" id="Mac-wk-5O7"/>
                             <constraint firstAttribute="centerX" secondItem="O3o-Kf-SDr" secondAttribute="centerX" id="Nua-zR-ElR"/>
                             <constraint firstAttribute="bottomMargin" secondItem="O3o-Kf-SDr" secondAttribute="bottom" constant="100" id="Plb-BF-Grf">
-                                <variation key="heightClass=regular" constant="20"/>
+                                <variation key="heightClass=regular" constant="50"/>
                             </constraint>
                             <constraint firstAttribute="centerY" secondItem="O3o-Kf-SDr" secondAttribute="centerY" id="TJN-3q-XfP"/>
-                            <constraint firstAttribute="centerY" secondItem="MAh-fB-F54" secondAttribute="centerY" id="a6L-SB-FEx"/>
                             <constraint firstItem="O3o-Kf-SDr" firstAttribute="width" secondItem="Mij-3p-oXr" secondAttribute="width" id="bLX-xh-j13"/>
+                            <constraint firstAttribute="centerX" secondItem="7Vu-dV-iAK" secondAttribute="centerX" id="s15-wh-Km0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="MAh-fB-F54"/>
+                                <exclude reference="7Vu-dV-iAK"/>
                                 <exclude reference="O3o-Kf-SDr"/>
+                                <exclude reference="bxD-JW-Qpn"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Mac-wk-5O7"/>
-                                <exclude reference="GiB-0C-R1L"/>
-                                <exclude reference="a6L-SB-FEx"/>
+                                <exclude reference="Dr5-eW-W0J"/>
+                                <exclude reference="Lty-HL-qy2"/>
+                                <exclude reference="s15-wh-Km0"/>
+                                <exclude reference="EDf-Gp-I7a"/>
                                 <exclude reference="1Zf-Lj-x1a"/>
                                 <exclude reference="ARk-qq-IgC"/>
                                 <exclude reference="AoF-v9-BfP"/>
@@ -178,17 +245,21 @@
                                 <exclude reference="Plb-BF-Grf"/>
                                 <exclude reference="TJN-3q-XfP"/>
                                 <exclude reference="bLX-xh-j13"/>
+                                <exclude reference="JEZ-q7-f2y"/>
+                                <exclude reference="Mac-wk-5O7"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
-                                <include reference="MAh-fB-F54"/>
+                                <include reference="7Vu-dV-iAK"/>
                                 <include reference="O3o-Kf-SDr"/>
+                                <include reference="bxD-JW-Qpn"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Mac-wk-5O7"/>
-                                <include reference="GiB-0C-R1L"/>
-                                <include reference="a6L-SB-FEx"/>
+                                <include reference="Dr5-eW-W0J"/>
+                                <include reference="Lty-HL-qy2"/>
+                                <include reference="s15-wh-Km0"/>
+                                <include reference="EDf-Gp-I7a"/>
                                 <exclude reference="1Zf-Lj-x1a"/>
                                 <exclude reference="ARk-qq-IgC"/>
                                 <exclude reference="AoF-v9-BfP"/>
@@ -196,18 +267,38 @@
                                 <include reference="Plb-BF-Grf"/>
                                 <exclude reference="TJN-3q-XfP"/>
                                 <exclude reference="bLX-xh-j13"/>
+                                <include reference="JEZ-q7-f2y"/>
+                                <exclude reference="Mac-wk-5O7"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="o2M-5B-PAU"/>
                     <connections>
                         <outlet property="googleSignInButton" destination="sRY-zb-Xxm" id="Ojq-e3-Uvs"/>
+                        <outlet property="loginButton" destination="7Vu-dV-iAK" id="kdN-SA-y8M"/>
                         <outlet property="view" destination="Mij-3p-oXr" id="mvF-3N-0fD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alc-ma-8q5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="640" y="215.25"/>
+            <point key="canvasLocation" x="11" y="242.25"/>
+        </scene>
+        <!--Incubee Login View Controller-->
+        <scene sceneID="H0X-fU-hMS">
+            <objects>
+                <viewController storyboardIdentifier="IncubeeLoginStoryBoard" id="AQx-Oc-SIN" customClass="ICIncubeeLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UpS-ZZ-kfE"/>
+                        <viewControllerLayoutGuide type="bottom" id="f0M-f6-mQJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ogk-MV-2gc">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Urs-k8-yKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="681" y="242.25"/>
         </scene>
     </scenes>
 </document>

@@ -14,6 +14,7 @@
 		571F79421B3D222D008F727E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571F79411B3D222D008F727E /* CoreData.framework */; };
 		571F79541B3D2407008F727E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571F79531B3D2407008F727E /* UIKit.framework */; };
 		571F79561B3D2417008F727E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571F79551B3D2417008F727E /* Foundation.framework */; };
+		576C4DC11B3F1402008AA2EB /* ICIncubeeLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576C4DC01B3F1402008AA2EB /* ICIncubeeLoginViewController.m */; };
 		5780CAF91B3E831D0090ADCE /* CardViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5780CAF51B3E831D0090ADCE /* CardViewStoryboard.storyboard */; };
 		5780CAFA1B3E831D0090ADCE /* ICLoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5780CAF61B3E831D0090ADCE /* ICLoginViewController.storyboard */; };
 		5780CAFB1B3E831D0090ADCE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5780CAF71B3E831D0090ADCE /* LaunchScreen.xib */; };
@@ -65,6 +66,8 @@
 		571F79411B3D222D008F727E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		571F79531B3D2407008F727E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		571F79551B3D2417008F727E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		576C4DBF1B3F1402008AA2EB /* ICIncubeeLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICIncubeeLoginViewController.h; path = Source/ViewController/Login/ICIncubeeLoginViewController.h; sourceTree = "<group>"; };
+		576C4DC01B3F1402008AA2EB /* ICIncubeeLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICIncubeeLoginViewController.m; path = Source/ViewController/Login/ICIncubeeLoginViewController.m; sourceTree = "<group>"; };
 		5780CAF51B3E831D0090ADCE /* CardViewStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CardViewStoryboard.storyboard; path = Source/ViewController/Storyboards/CardViewStoryboard.storyboard; sourceTree = "<group>"; };
 		5780CAF61B3E831D0090ADCE /* ICLoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ICLoginViewController.storyboard; path = Source/ViewController/Storyboards/ICLoginViewController.storyboard; sourceTree = "<group>"; };
 		5780CAF71B3E831D0090ADCE /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Source/ViewController/Storyboards/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 			children = (
 				5780CB031B3E834F0090ADCE /* ICLoginViewController.h */,
 				5780CB041B3E834F0090ADCE /* ICLoginViewController.m */,
+				576C4DBF1B3F1402008AA2EB /* ICIncubeeLoginViewController.h */,
+				576C4DC01B3F1402008AA2EB /* ICIncubeeLoginViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -495,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576C4DC11B3F1402008AA2EB /* ICIncubeeLoginViewController.m in Sources */,
 				570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */,
 				5780CB0E1B3E83740090ADCE /* ICDataManager.m in Sources */,
 				5780CB0A1B3E835B0090ADCE /* HomeViewController.m in Sources */,
