@@ -95,7 +95,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
         
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"IncubeeDataModel.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"IncubeeModel.sqlite"];
     
     NSError *error = nil;
     

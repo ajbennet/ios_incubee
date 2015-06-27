@@ -9,25 +9,25 @@
 /* Begin PBXBuildFile section */
 		570388E11B31E67300BB9D40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 570388E01B31E67300BB9D40 /* main.m */; };
 		570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 570388E31B31E67300BB9D40 /* AppDelegate.m */; };
-		570388E71B31E67300BB9D40 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570388E61B31E67300BB9D40 /* HomeViewController.m */; };
-		570388ED1B31E67300BB9D40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570388EB1B31E67300BB9D40 /* Main.storyboard */; };
 		570388EF1B31E67300BB9D40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570388EE1B31E67300BB9D40 /* Images.xcassets */; };
-		570388F21B31E67300BB9D40 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570388F01B31E67300BB9D40 /* LaunchScreen.xib */; };
 		570388FE1B31E67300BB9D40 /* IncubeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 570388FD1B31E67300BB9D40 /* IncubeeTests.m */; };
 		571F79421B3D222D008F727E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571F79411B3D222D008F727E /* CoreData.framework */; };
-		571F794F1B3D2362008F727E /* IncubeeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 571F794D1B3D2362008F727E /* IncubeeModel.xcdatamodeld */; };
-		571F79521B3D2386008F727E /* ICDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 571F79511B3D2386008F727E /* ICDataManager.m */; };
 		571F79541B3D2407008F727E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571F79531B3D2407008F727E /* UIKit.framework */; };
 		571F79561B3D2417008F727E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571F79551B3D2417008F727E /* Foundation.framework */; };
-		571F79591B3D279D008F727E /* ProjectImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 571F79581B3D279D008F727E /* ProjectImage.m */; };
-		571F795C1B3D279D008F727E /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 571F795B1B3D279D008F727E /* Project.m */; };
-		572F163B1B39C2380084B75F /* MessagingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F163A1B39C2380084B75F /* MessagingTableViewController.m */; };
-		572F16461B39D4D40084B75F /* ICCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F16451B39D4D40084B75F /* ICCardViewController.m */; };
-		572F16481B39D4E30084B75F /* CardViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 572F16471B39D4E30084B75F /* CardViewStoryboard.storyboard */; };
-		57DAD6C81B3475460040378E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DAD6C71B3475460040378E /* ProfileViewController.m */; };
+		5780CAF91B3E831D0090ADCE /* CardViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5780CAF51B3E831D0090ADCE /* CardViewStoryboard.storyboard */; };
+		5780CAFA1B3E831D0090ADCE /* ICLoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5780CAF61B3E831D0090ADCE /* ICLoginViewController.storyboard */; };
+		5780CAFB1B3E831D0090ADCE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5780CAF71B3E831D0090ADCE /* LaunchScreen.xib */; };
+		5780CAFC1B3E831D0090ADCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5780CAF81B3E831D0090ADCE /* Main.storyboard */; };
+		5780CAFF1B3E833C0090ADCE /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CAFE1B3E833C0090ADCE /* ProfileViewController.m */; };
+		5780CB021B3E83460090ADCE /* MessagingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB011B3E83460090ADCE /* MessagingTableViewController.m */; };
+		5780CB051B3E834F0090ADCE /* ICLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB041B3E834F0090ADCE /* ICLoginViewController.m */; };
+		5780CB0A1B3E835B0090ADCE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB071B3E835B0090ADCE /* HomeViewController.m */; };
+		5780CB0B1B3E835B0090ADCE /* ICCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB091B3E835B0090ADCE /* ICCardViewController.m */; };
+		5780CB0E1B3E83740090ADCE /* ICDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB0D1B3E83740090ADCE /* ICDataManager.m */; };
+		5780CB131B3E83820090ADCE /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB101B3E83820090ADCE /* Project.m */; };
+		5780CB141B3E83820090ADCE /* ProjectImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB121B3E83820090ADCE /* ProjectImage.m */; };
+		5780CB171B3E84A00090ADCE /* IncubeeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB151B3E84A00090ADCE /* IncubeeModel.xcdatamodeld */; };
 		57F3AEF41B31EBE50005D964 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57F3AEF31B31EBE50005D964 /* GoogleService-Info.plist */; };
-		57F3AEF71B31EDA30005D964 /* ICLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F3AEF61B31EDA30005D964 /* ICLoginViewController.m */; };
-		57F3AEF91B31EDBF0005D964 /* ICLoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F3AEF81B31EDBF0005D964 /* ICLoginViewController.storyboard */; };
 		930CB1D550C9E950F61E556D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB03A56CF3D54AE87702E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -49,35 +49,35 @@
 		570388E01B31E67300BB9D40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		570388E21B31E67300BB9D40 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		570388E31B31E67300BB9D40 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		570388E51B31E67300BB9D40 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		570388E61B31E67300BB9D40 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		570388EC1B31E67300BB9D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		570388EE1B31E67300BB9D40 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		570388F11B31E67300BB9D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		570388F71B31E67300BB9D40 /* IncubeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncubeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		570388FC1B31E67300BB9D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		570388FD1B31E67300BB9D40 /* IncubeeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IncubeeTests.m; sourceTree = "<group>"; };
 		571F79411B3D222D008F727E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		571F794E1B3D2362008F727E /* IncubeeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncubeeModel.xcdatamodel; sourceTree = "<group>"; };
-		571F79501B3D2386008F727E /* ICDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICDataManager.h; path = "Data Module/ICDataManager.h"; sourceTree = "<group>"; };
-		571F79511B3D2386008F727E /* ICDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICDataManager.m; path = "Data Module/ICDataManager.m"; sourceTree = "<group>"; };
 		571F79531B3D2407008F727E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		571F79551B3D2417008F727E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		571F79571B3D279D008F727E /* ProjectImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectImage.h; path = "Data Module/Managed Objects/ProjectImage.h"; sourceTree = "<group>"; };
-		571F79581B3D279D008F727E /* ProjectImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectImage.m; path = "Data Module/Managed Objects/ProjectImage.m"; sourceTree = "<group>"; };
-		571F795A1B3D279D008F727E /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = "Data Module/Managed Objects/Project.h"; sourceTree = "<group>"; };
-		571F795B1B3D279D008F727E /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = "Data Module/Managed Objects/Project.m"; sourceTree = "<group>"; };
-		572F16391B39C2380084B75F /* MessagingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagingTableViewController.h; sourceTree = "<group>"; };
-		572F163A1B39C2380084B75F /* MessagingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagingTableViewController.m; sourceTree = "<group>"; };
-		572F16441B39D4D40084B75F /* ICCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICCardViewController.h; sourceTree = "<group>"; };
-		572F16451B39D4D40084B75F /* ICCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICCardViewController.m; sourceTree = "<group>"; };
-		572F16471B39D4E30084B75F /* CardViewStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CardViewStoryboard.storyboard; sourceTree = "<group>"; };
-		57DAD6C61B3475460040378E /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		57DAD6C71B3475460040378E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		5780CAF51B3E831D0090ADCE /* CardViewStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CardViewStoryboard.storyboard; path = Source/ViewController/Storyboards/CardViewStoryboard.storyboard; sourceTree = "<group>"; };
+		5780CAF61B3E831D0090ADCE /* ICLoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ICLoginViewController.storyboard; path = Source/ViewController/Storyboards/ICLoginViewController.storyboard; sourceTree = "<group>"; };
+		5780CAF71B3E831D0090ADCE /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Source/ViewController/Storyboards/LaunchScreen.xib; sourceTree = "<group>"; };
+		5780CAF81B3E831D0090ADCE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Source/ViewController/Storyboards/Main.storyboard; sourceTree = "<group>"; };
+		5780CAFD1B3E833C0090ADCE /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = Source/ViewController/Profile/ProfileViewController.h; sourceTree = "<group>"; };
+		5780CAFE1B3E833C0090ADCE /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = Source/ViewController/Profile/ProfileViewController.m; sourceTree = "<group>"; };
+		5780CB001B3E83460090ADCE /* MessagingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagingTableViewController.h; path = Source/ViewController/Messanger/MessagingTableViewController.h; sourceTree = "<group>"; };
+		5780CB011B3E83460090ADCE /* MessagingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagingTableViewController.m; path = Source/ViewController/Messanger/MessagingTableViewController.m; sourceTree = "<group>"; };
+		5780CB031B3E834F0090ADCE /* ICLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICLoginViewController.h; path = Source/ViewController/Login/ICLoginViewController.h; sourceTree = "<group>"; };
+		5780CB041B3E834F0090ADCE /* ICLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICLoginViewController.m; path = Source/ViewController/Login/ICLoginViewController.m; sourceTree = "<group>"; };
+		5780CB061B3E835B0090ADCE /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Source/ViewController/Home/HomeViewController.h; sourceTree = "<group>"; };
+		5780CB071B3E835B0090ADCE /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Source/ViewController/Home/HomeViewController.m; sourceTree = "<group>"; };
+		5780CB081B3E835B0090ADCE /* ICCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICCardViewController.h; path = Source/ViewController/Home/ICCardViewController.h; sourceTree = "<group>"; };
+		5780CB091B3E835B0090ADCE /* ICCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICCardViewController.m; path = Source/ViewController/Home/ICCardViewController.m; sourceTree = "<group>"; };
+		5780CB0C1B3E83740090ADCE /* ICDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICDataManager.h; path = "Source/Data Module/ICDataManager.h"; sourceTree = "<group>"; };
+		5780CB0D1B3E83740090ADCE /* ICDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICDataManager.m; path = "Source/Data Module/ICDataManager.m"; sourceTree = "<group>"; };
+		5780CB0F1B3E83820090ADCE /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = "Source/Data Module/Managed Objects/Project.h"; sourceTree = "<group>"; };
+		5780CB101B3E83820090ADCE /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = "Source/Data Module/Managed Objects/Project.m"; sourceTree = "<group>"; };
+		5780CB111B3E83820090ADCE /* ProjectImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectImage.h; path = "Source/Data Module/Managed Objects/ProjectImage.h"; sourceTree = "<group>"; };
+		5780CB121B3E83820090ADCE /* ProjectImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectImage.m; path = "Source/Data Module/Managed Objects/ProjectImage.m"; sourceTree = "<group>"; };
+		5780CB161B3E84A00090ADCE /* IncubeeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncubeeModel.xcdatamodel; sourceTree = "<group>"; };
 		57F3AEF31B31EBE50005D964 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		57F3AEF51B31EDA30005D964 /* ICLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICLoginViewController.h; sourceTree = "<group>"; };
-		57F3AEF61B31EDA30005D964 /* ICLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICLoginViewController.m; sourceTree = "<group>"; };
-		57F3AEF81B31EDBF0005D964 /* ICLoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ICLoginViewController.storyboard; sourceTree = "<group>"; };
 		79BDB03A56CF3D54AE87702E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,25 +127,12 @@
 		570388DD1B31E67300BB9D40 /* Incubee */ = {
 			isa = PBXGroup;
 			children = (
+				5780CAEC1B3E81800090ADCE /* Source */,
 				571F79341B3D0BE9008F727E /* Data Module */,
 				570388E21B31E67300BB9D40 /* AppDelegate.h */,
 				570388E31B31E67300BB9D40 /* AppDelegate.m */,
-				570388E51B31E67300BB9D40 /* HomeViewController.h */,
-				570388E61B31E67300BB9D40 /* HomeViewController.m */,
-				570388EB1B31E67300BB9D40 /* Main.storyboard */,
 				570388EE1B31E67300BB9D40 /* Images.xcassets */,
-				570388F01B31E67300BB9D40 /* LaunchScreen.xib */,
 				570388DE1B31E67300BB9D40 /* Supporting Files */,
-				57F3AEF51B31EDA30005D964 /* ICLoginViewController.h */,
-				57F3AEF61B31EDA30005D964 /* ICLoginViewController.m */,
-				57F3AEF81B31EDBF0005D964 /* ICLoginViewController.storyboard */,
-				57DAD6C61B3475460040378E /* ProfileViewController.h */,
-				57DAD6C71B3475460040378E /* ProfileViewController.m */,
-				572F16391B39C2380084B75F /* MessagingTableViewController.h */,
-				572F163A1B39C2380084B75F /* MessagingTableViewController.m */,
-				572F16441B39D4D40084B75F /* ICCardViewController.h */,
-				572F16451B39D4D40084B75F /* ICCardViewController.m */,
-				572F16471B39D4E30084B75F /* CardViewStoryboard.storyboard */,
 			);
 			path = Incubee;
 			sourceTree = "<group>";
@@ -179,10 +166,10 @@
 		571F79341B3D0BE9008F727E /* Data Module */ = {
 			isa = PBXGroup;
 			children = (
+				5780CB0C1B3E83740090ADCE /* ICDataManager.h */,
+				5780CB0D1B3E83740090ADCE /* ICDataManager.m */,
 				571F794C1B3D231F008F727E /* CoreData Model */,
 				571F793A1B3D1D4E008F727E /* Managed Objects */,
-				571F79501B3D2386008F727E /* ICDataManager.h */,
-				571F79511B3D2386008F727E /* ICDataManager.m */,
 			);
 			name = "Data Module";
 			sourceTree = "<group>";
@@ -190,10 +177,10 @@
 		571F793A1B3D1D4E008F727E /* Managed Objects */ = {
 			isa = PBXGroup;
 			children = (
-				571F795A1B3D279D008F727E /* Project.h */,
-				571F795B1B3D279D008F727E /* Project.m */,
-				571F79571B3D279D008F727E /* ProjectImage.h */,
-				571F79581B3D279D008F727E /* ProjectImage.m */,
+				5780CB0F1B3E83820090ADCE /* Project.h */,
+				5780CB101B3E83820090ADCE /* Project.m */,
+				5780CB111B3E83820090ADCE /* ProjectImage.h */,
+				5780CB121B3E83820090ADCE /* ProjectImage.m */,
 			);
 			name = "Managed Objects";
 			sourceTree = "<group>";
@@ -201,9 +188,86 @@
 		571F794C1B3D231F008F727E /* CoreData Model */ = {
 			isa = PBXGroup;
 			children = (
-				571F794D1B3D2362008F727E /* IncubeeModel.xcdatamodeld */,
+				5780CB151B3E84A00090ADCE /* IncubeeModel.xcdatamodeld */,
 			);
 			name = "CoreData Model";
+			sourceTree = "<group>";
+		};
+		5780CAEC1B3E81800090ADCE /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5780CAEE1B3E819D0090ADCE /* ViewControllers */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		5780CAEE1B3E819D0090ADCE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5780CAF41B3E82F20090ADCE /* Storyboards */,
+				5780CAF31B3E81C60090ADCE /* Search */,
+				5780CAF21B3E81C00090ADCE /* Profile */,
+				5780CAF11B3E81B70090ADCE /* Messanger */,
+				5780CAF01B3E81AF0090ADCE /* Login */,
+				5780CAEF1B3E81A90090ADCE /* Home */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5780CAEF1B3E81A90090ADCE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5780CB061B3E835B0090ADCE /* HomeViewController.h */,
+				5780CB071B3E835B0090ADCE /* HomeViewController.m */,
+				5780CB081B3E835B0090ADCE /* ICCardViewController.h */,
+				5780CB091B3E835B0090ADCE /* ICCardViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		5780CAF01B3E81AF0090ADCE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5780CB031B3E834F0090ADCE /* ICLoginViewController.h */,
+				5780CB041B3E834F0090ADCE /* ICLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		5780CAF11B3E81B70090ADCE /* Messanger */ = {
+			isa = PBXGroup;
+			children = (
+				5780CB001B3E83460090ADCE /* MessagingTableViewController.h */,
+				5780CB011B3E83460090ADCE /* MessagingTableViewController.m */,
+			);
+			name = Messanger;
+			sourceTree = "<group>";
+		};
+		5780CAF21B3E81C00090ADCE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5780CAFD1B3E833C0090ADCE /* ProfileViewController.h */,
+				5780CAFE1B3E833C0090ADCE /* ProfileViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		5780CAF31B3E81C60090ADCE /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		5780CAF41B3E82F20090ADCE /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5780CAF51B3E831D0090ADCE /* CardViewStoryboard.storyboard */,
+				5780CAF61B3E831D0090ADCE /* ICLoginViewController.storyboard */,
+				5780CAF71B3E831D0090ADCE /* LaunchScreen.xib */,
+				5780CAF81B3E831D0090ADCE /* Main.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		70B51E13AD9040D6964063DB /* Pods */ = {
@@ -310,11 +374,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				570388ED1B31E67300BB9D40 /* Main.storyboard in Resources */,
+				5780CAFB1B3E831D0090ADCE /* LaunchScreen.xib in Resources */,
 				57F3AEF41B31EBE50005D964 /* GoogleService-Info.plist in Resources */,
-				57F3AEF91B31EDBF0005D964 /* ICLoginViewController.storyboard in Resources */,
-				570388F21B31E67300BB9D40 /* LaunchScreen.xib in Resources */,
-				572F16481B39D4E30084B75F /* CardViewStoryboard.storyboard in Resources */,
+				5780CAF91B3E831D0090ADCE /* CardViewStoryboard.storyboard in Resources */,
+				5780CAFC1B3E831D0090ADCE /* Main.storyboard in Resources */,
+				5780CAFA1B3E831D0090ADCE /* ICLoginViewController.storyboard in Resources */,
 				570388EF1B31E67300BB9D40 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,17 +430,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				572F163B1B39C2380084B75F /* MessagingTableViewController.m in Sources */,
-				57F3AEF71B31EDA30005D964 /* ICLoginViewController.m in Sources */,
-				571F79521B3D2386008F727E /* ICDataManager.m in Sources */,
 				570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */,
-				571F795C1B3D279D008F727E /* Project.m in Sources */,
-				570388E71B31E67300BB9D40 /* HomeViewController.m in Sources */,
-				57DAD6C81B3475460040378E /* ProfileViewController.m in Sources */,
-				571F794F1B3D2362008F727E /* IncubeeModel.xcdatamodeld in Sources */,
-				571F79591B3D279D008F727E /* ProjectImage.m in Sources */,
-				572F16461B39D4D40084B75F /* ICCardViewController.m in Sources */,
+				5780CB0E1B3E83740090ADCE /* ICDataManager.m in Sources */,
+				5780CB0A1B3E835B0090ADCE /* HomeViewController.m in Sources */,
+				5780CB131B3E83820090ADCE /* Project.m in Sources */,
+				5780CAFF1B3E833C0090ADCE /* ProfileViewController.m in Sources */,
+				5780CB051B3E834F0090ADCE /* ICLoginViewController.m in Sources */,
+				5780CB0B1B3E835B0090ADCE /* ICCardViewController.m in Sources */,
+				5780CB021B3E83460090ADCE /* MessagingTableViewController.m in Sources */,
+				5780CB171B3E84A00090ADCE /* IncubeeModel.xcdatamodeld in Sources */,
 				570388E11B31E67300BB9D40 /* main.m in Sources */,
+				5780CB141B3E83820090ADCE /* ProjectImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,25 +461,6 @@
 			targetProxy = 570388F81B31E67300BB9D40 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		570388EB1B31E67300BB9D40 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				570388EC1B31E67300BB9D40 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		570388F01B31E67300BB9D40 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				570388F11B31E67300BB9D40 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		570388FF1B31E67300BB9D40 /* Debug */ = {
@@ -607,14 +652,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		571F794D1B3D2362008F727E /* IncubeeModel.xcdatamodeld */ = {
+		5780CB151B3E84A00090ADCE /* IncubeeModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				571F794E1B3D2362008F727E /* IncubeeModel.xcdatamodel */,
+				5780CB161B3E84A00090ADCE /* IncubeeModel.xcdatamodel */,
 			);
-			currentVersion = 571F794E1B3D2362008F727E /* IncubeeModel.xcdatamodel */;
+			currentVersion = 5780CB161B3E84A00090ADCE /* IncubeeModel.xcdatamodel */;
 			name = IncubeeModel.xcdatamodeld;
-			path = "Data Module/CoreData Model/IncubeeModel.xcdatamodeld";
+			path = "Source/Data Module/CoreData Model/IncubeeModel.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
