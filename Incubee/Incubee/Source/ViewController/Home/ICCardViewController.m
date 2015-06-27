@@ -51,7 +51,7 @@
 
 - (IBAction)shareToTapped:(id)sender {
     
-    NSArray * activityItems = @[[NSString stringWithFormat:@"This is Awesome Project."], [NSURL URLWithString:[_project valueForKey:@"company_url"]],[NSURL URLWithString:[_project valueForKey:@"twitter_url"]]];
+    NSArray * activityItems = @[[NSString stringWithFormat:@"This is Awesome Project."], [NSURL URLWithString:_project.companyUrl],[NSURL URLWithString:[_project valueForKey:@"twitter_url"]]];
     NSArray * applicationActivities =nil;
     NSArray * excludeActivities = @[UIActivityTypePostToWeibo,
                                     UIActivityTypeMessage,
