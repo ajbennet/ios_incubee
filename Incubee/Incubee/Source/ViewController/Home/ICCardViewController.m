@@ -121,10 +121,12 @@
     _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
     _moviePlayer.shouldAutoplay=YES;
     _moviePlayer.repeatMode = NO;
-    [_moviePlayer setFullscreen:YES animated:NO];
+    [_moviePlayer setFullscreen:NO animated:NO];
     _moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     
     [_moviePlayer prepareToPlay];
+    
+    [_moviePlayer pause];
     
     
     [_moviePlayer.view setBackgroundColor:[UIColor redColor]];

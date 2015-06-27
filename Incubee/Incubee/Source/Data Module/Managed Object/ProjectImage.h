@@ -2,7 +2,7 @@
 //  ProjectImage.h
 //  Incubee
 //
-//  Created by Rithesh Rao on 26/06/15.
+//  Created by Rithesh Rao on 27/06/15.
 //  Copyright (c) 2015 Incubee. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 @interface ProjectImage : NSManagedObject
 
 @property (nonatomic, retain) NSString * imageUrl;
+@property (nonatomic, retain) NSString * projectId;
 @property (nonatomic, retain) Project *project;
 
 @end

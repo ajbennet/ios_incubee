@@ -8,6 +8,10 @@
 
 #import "HomeViewController.h"
 #import "ICCardViewController.h"
+#import "ICAppManager.h"
+#import "ICAppManager+Networking.h"
+
+
 @interface HomeViewController ()
 
 @end
@@ -110,6 +114,8 @@
     [_currentlyShowingVC.view layoutSubviews];
     
     [_secondViewC showProject];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -168,6 +174,9 @@
 - (IBAction)addToCustomer:(id)sender {
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed"];
+
 
 }
 - (IBAction)saveProjTapped:(id)sender {
@@ -182,6 +191,13 @@
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
     [self goNextProject:nil];
+}
 
+
+
+-(void)projectDataRefreshed:(ICRequest*)inRequest{
+
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
 }
 @end

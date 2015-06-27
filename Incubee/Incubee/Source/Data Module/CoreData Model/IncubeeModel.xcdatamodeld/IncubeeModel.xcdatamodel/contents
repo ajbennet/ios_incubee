@@ -7,12 +7,13 @@
         <attribute name="contactEmail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="field" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="founder" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="funding" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="funding" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="high_concept" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="logo_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="project_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectFollowing" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="projectId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="twitter_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="video" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="videoUrl" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,10 +21,11 @@
     </entity>
     <entity name="ProjectImage" representedClassName="ProjectImage" syncable="YES">
         <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="projImages" inverseEntity="Project" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Project" positionX="-1566" positionY="-1116" width="128" height="283"/>
-        <element name="ProjectImage" positionX="-1152" positionY="-1098" width="128" height="73"/>
+        <element name="Project" positionX="-1566" positionY="-1116" width="128" height="300"/>
+        <element name="ProjectImage" positionX="-1152" positionY="-1098" width="128" height="90"/>
     </elements>
 </model>

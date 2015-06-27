@@ -1,0 +1,20 @@
+//
+//  PrefixHeader.pch
+//  Incubee
+//
+//  Created by Rithesh Rao on 27/06/15.
+//  Copyright (c) 2015 Incubee. All rights reserved.
+//
+
+#ifndef Incubee_PrefixHeader_pch
+#define Incubee_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "ICAppManager.h"
+#import "ICAppManager+Networking.h"
+#import "ICDataManager.h"
+
+
+#endif

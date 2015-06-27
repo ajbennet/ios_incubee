@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ICCardViewController.h"
+#import "ICRequest.h"
 
 @interface HomeViewController : UIViewController <ICCardViewDelegate>
 
@@ -34,5 +35,8 @@
 
 @property(nonatomic,strong)NSArray* dataArray;
 
+
+
+-(void)projectDataRefreshed:(ICRequest*)inRequest;
 @end
 

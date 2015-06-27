@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Project.h"
+#import "ProjectImage.h"
 
 @interface ICDataManager : NSObject
 
@@ -16,5 +18,8 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 +(ICDataManager*)sharedInstance;
+
+-(void)saveProjectList:(NSArray*)inArray;
+-(NSArray*)getAllProjects;
 
 @end

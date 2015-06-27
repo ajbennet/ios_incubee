@@ -39,7 +39,7 @@
 //        [self signINSuccesfull];
 //        
 //    }
-    
+    [self signINSuccesfull];
     
     [ICDataManager sharedInstance];
 }

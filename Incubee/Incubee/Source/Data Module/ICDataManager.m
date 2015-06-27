@@ -8,6 +8,9 @@
 
 #import "ICDataManager.h"
 
+#define NULL_TO_NIL(obj) ({ __typeof__ (obj) __obj = (obj); __obj == [NSNull null] ? nil : obj; })
+
+
 @implementation ICDataManager
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -144,5 +147,134 @@ static ICDataManager *sharedDataManagerInstance = nil;
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+-(void)saveProjectList:(NSArray*)inArray{
+    
+    NSLog(@"%@ : %@",NSStringFromSelector(_cmd),inArray);
 
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        for(NSDictionary *aDic in inArray)
+        {
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            
+            [request setEntity:[NSEntityDescription entityForName:@"Project" inManagedObjectContext:context]];
+            
+            NSError *errorDb = nil;
+            
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"projectId LIKE %@",[aDic objectForKey:@"id"]];
+            
+            [request setPredicate:predicate];
+            
+            NSArray *results = [context executeFetchRequest:request error:&errorDb];
+            
+            Project *aProject;
+            
+            if (results && [results count] > 0)
+            {
+                aProject = [results objectAtIndex:0];
+            }
+            else
+            {
+                aProject = [NSEntityDescription
+                            insertNewObjectForEntityForName:@"Project"
+                            inManagedObjectContext:context];
+            }
+
+            aProject.companyDescription = NULL_TO_NIL([aDic objectForKey:@"description"]);
+            aProject.companyName =  NULL_TO_NIL([aDic objectForKey:@"company_name"]);
+            aProject.companyUrl = NULL_TO_NIL([aDic objectForKey:@"company_url"]);
+            aProject.contactEmail = NULL_TO_NIL([aDic objectForKey:@"contact_email"]);
+            aProject.field = NULL_TO_NIL([aDic objectForKey:@"field"]);
+            aProject.founder = NULL_TO_NIL([aDic objectForKey:@"founder"]);
+            aProject.funding = [NSNumber numberWithBool:([aDic objectForKey:@"funding"])];
+            aProject.high_concept = NULL_TO_NIL([aDic objectForKey:@"high_concept"]);
+            aProject.projectId = NULL_TO_NIL([aDic objectForKey:@"id"]);
+            aProject.location = NULL_TO_NIL([aDic objectForKey:@"location"]);
+            aProject.logo_url = NULL_TO_NIL([aDic objectForKey:@"logo_url"]);
+            aProject.project_status = NULL_TO_NIL([aDic objectForKey:@"project_status"]);
+            aProject.twitter_url= NULL_TO_NIL([aDic objectForKey:@"twitter_url"]);
+            aProject.video= NULL_TO_NIL([aDic objectForKey:@"video"]);
+            aProject.videoUrl=NULL_TO_NIL([aDic objectForKey:@"video_url"]);
+            aProject.projectFollowing =[NSNumber numberWithBool:NO];
+            
+            if(NULL_TO_NIL([aDic valueForKey:@"images"]) != nil)
+            {
+                // Delete all Images belong to this projectID
+                
+                NSFetchRequest * fetchRequest = [[NSFetchRequest alloc] init];
+                
+                NSEntityDescription *entity = [NSEntityDescription entityForName:@"ProjectImage" inManagedObjectContext:context];
+
+                [fetchRequest setEntity:entity];
+                
+                NSPredicate *prd = [NSPredicate predicateWithFormat:@"(projectId LIKE %@)",aProject.projectId];
+                
+                [fetchRequest setPredicate:prd];
+                
+                NSArray * fetchResults = [context executeFetchRequest:fetchRequest error:nil];
+                
+                for(ProjectImage *pImage in fetchResults)
+                {
+                    [context deleteObject:pImage];
+                }
+                
+                // All Clear - InsertAll new Objects Here.
+                
+                NSArray *imArray = [aDic valueForKey:@"images"];
+                
+                for(NSString *imStringURL in imArray)
+                {
+                    ProjectImage *aProjectImage = aProjectImage = [NSEntityDescription
+                                                                   insertNewObjectForEntityForName:@"ProjectImage"
+                                                                   inManagedObjectContext:context];
+                    
+                    aProjectImage.imageUrl = imStringURL;
+                    
+                    aProjectImage.projectId = aProject.projectId;
+                    
+                    aProjectImage.project = aProject;
+                }
+            }
+            
+        }
+        NSError *dbError = nil;
+        
+        [context save:&dbError];
+        
+        if(dbError==nil)
+        {
+            NSLog(@"All Projects Saved!");
+        }
+        else
+        {
+            NSLog(@"Unable to save project : %@",dbError.localizedDescription);
+        }
+    }
+    
+}
+
+-(NSArray*)getAllProjects{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"Project" inManagedObjectContext:context]];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        if (results && [results count] > 0)
+        {
+            return results;
+        }
+    }
+    
+    return nil;
+}
 @end
