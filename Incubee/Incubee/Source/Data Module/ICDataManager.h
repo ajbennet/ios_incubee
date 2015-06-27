@@ -21,5 +21,6 @@
 
 -(void)saveProjectList:(NSArray*)inArray;
 -(NSArray*)getAllProjects;
+-(NSArray*)getImageURLs:(NSString*)inProjectId;
 
 @end

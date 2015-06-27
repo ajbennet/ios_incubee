@@ -277,4 +277,34 @@ static ICDataManager *sharedDataManagerInstance = nil;
     
     return nil;
 }
+
+-(NSArray*)getImageURLs:(NSString*)inProjectId{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"ProjectImage" inManagedObjectContext:context]];
+        
+        NSPredicate *prd = [NSPredicate predicateWithFormat:@"(projectId LIKE %@)",inProjectId];
+
+        [request setPredicate:prd];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        if (results && [results count] > 0)
+        {
+            return results;
+        }
+    }
+    
+    return nil;
+
+
+}
+
 @end

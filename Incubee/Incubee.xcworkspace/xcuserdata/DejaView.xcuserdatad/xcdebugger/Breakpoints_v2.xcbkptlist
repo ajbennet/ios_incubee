@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Home/HomeViewController.m"
-            timestampString = "457116630.605242"
+            timestampString = "457122791.77465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-projectDataRefreshed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -366,6 +366,22 @@
             startingLineNumber = "51"
             endingLineNumber = "51"
             landmarkName = "-signIn:didSignInForUser:withError:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Incubee/Source/ViewController/Home/ICCardViewController.m"
+            timestampString = "457122673.822146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-showProject"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

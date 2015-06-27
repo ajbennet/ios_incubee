@@ -123,21 +123,24 @@
 
 -(void)showProject{
     
-    _projectTitleLable.text = [_project valueForKey:@"company_name"];
+    _projectTitleLable.text = _project.companyName;
     
-    _projectOwnerLable.text = [_project valueForKey:@"founder"];
+    _projectOwnerLable.text = _project.founder;
     
-    _projectDescLable.text = [_project valueForKey:@"description"];
+    _projectDescLable.text = _project.companyDescription;
     
-    NSArray *imArray = [_project valueForKey:@"images"];
+    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_project.projectId];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
-    NSString *urlString1 = [imArray objectAtIndex:0];
-    NSString *urlString2 = [imArray objectAtIndex:1];
+    NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
         
-    NSData *downloadedData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString1]];
-    NSData *downloadedData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString2]];
+    NSString *urlString2 = ((ProjectImage*)[imArray objectAtIndex:1]).imageUrl;
+        
+
+        NSData *downloadedData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString1]];
+    
+        NSData *downloadedData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString2]];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -159,7 +162,7 @@
 
 -(void)showMovie{
     
-    _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:[_project valueForKey:@"video"]]];
+    _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_project.video]];
     
     [_moviePlayer.view setFrame:CGRectMake(0, 0, _moviePlayerView.frame.size.width, _moviePlayerView.frame.size.height)];
     _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;

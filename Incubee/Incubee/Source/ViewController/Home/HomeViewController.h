@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ICCardViewController.h"
 #import "ICRequest.h"
+#import "Project.h"
 
 @interface HomeViewController : UIViewController <ICCardViewDelegate>
 
@@ -20,23 +21,24 @@
 
 @property(nonatomic,strong)ICCardViewController *currentlyShowingVC;
 
+@property (weak, nonatomic) IBOutlet UIButton *dislikeProj;
+
+@property (weak, nonatomic) IBOutlet UIButton *saveProject;
 - (IBAction)goNextProject:(id)sender;
 
 - (IBAction)addToCustomer:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIButton *saveProject;
-
 - (IBAction)saveProjTapped:(id)sender;
-
-@property (weak, nonatomic) IBOutlet UIButton *dislikeProj;
 
 - (IBAction)dislikeProjTapped:(id)sender;
 
-
-@property(nonatomic,strong)NSArray* dataArray;
-
-
+@property(nonatomic,strong)NSArray *projectList;
 
 -(void)projectDataRefreshed:(ICRequest*)inRequest;
+
+@property(nonatomic,strong)Project *firstCard;
+
+@property(nonatomic,strong)Project *secondCard;
+
 @end
 

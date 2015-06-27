@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ICDataManager.h"
 #import <MediaPlayer/MPMoviePlayerController.h>
 #import <MediaPlayer/MPMoviePlayerViewController.h>
 #import <MediaPlayer/MediaPlayer.h>
-
+#import "Project.h"
+#import "ProjectImage.h"
 
 @protocol ICCardViewDelegate <NSObject>
 
@@ -36,7 +37,7 @@
 
 @property(nonatomic,assign)id<ICCardViewDelegate> delegate;
 
-@property(nonatomic,strong)NSDictionary *project;
+@property(nonatomic,strong)Project *project;
 
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 
