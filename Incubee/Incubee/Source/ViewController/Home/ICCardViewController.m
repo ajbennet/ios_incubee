@@ -45,9 +45,11 @@
 - (IBAction)twitterTapped:(id)sender {
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    [self shareToTapped:nil];
 }
 
-- (IBAction)facebookTapped:(id)sender {
+- (IBAction)shareToTapped:(id)sender {
     
     NSArray * activityItems = @[[NSString stringWithFormat:@"This is Awesome Project."], [NSURL URLWithString:[_project valueForKey:@"company_url"]],[NSURL URLWithString:[_project valueForKey:@"twitter_url"]]];
     NSArray * applicationActivities =nil;
@@ -65,6 +67,12 @@
     activityController.excludedActivityTypes = excludeActivities;
     
     [self presentViewController:activityController animated:YES completion:nil];
+    
+}
+
+- (IBAction)facebookTapped:(id)sender{
+
+    [self shareToTapped:nil];
     
 }
 

@@ -40,23 +40,26 @@
 
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 
-
-- (IBAction)twitterTapped:(id)sender;
-
-- (IBAction)facebookTapped:(id)sender;
-
 -(void)showProject;
 
 -(void)stopShowingProj;
 
 @property (weak, nonatomic) IBOutlet UILabel *projectTitleLable;
-@property (weak, nonatomic) IBOutlet UILabel *projectOwnerLable;
-@property (weak, nonatomic) IBOutlet UILabel *projectDescLable;
 
+@property (weak, nonatomic) IBOutlet UILabel *projectOwnerLable;
+
+@property (weak, nonatomic) IBOutlet UILabel *projectDescLable;
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *im1;
 
 @property (weak, nonatomic) IBOutlet UIImageView *im3;
+
+- (IBAction)twitterTapped:(id)sender;
+
+- (IBAction)facebookTapped:(id)sender;
+
+- (IBAction)shareToTapped:(id)sender;
+
 
 @end

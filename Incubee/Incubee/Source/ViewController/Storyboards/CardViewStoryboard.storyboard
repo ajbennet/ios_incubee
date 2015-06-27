@@ -167,6 +167,33 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvd-xN-HTM">
+                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Hb0-j6-Oyq"/>
+                                                    <constraint firstAttribute="width" constant="46" id="gjG-id-zdG">
+                                                        <variation key="heightClass=regular" constant="30"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="TwButton">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="Hb0-j6-Oyq"/>
+                                                        <exclude reference="gjG-id-zdG"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular">
+                                                    <mask key="constraints">
+                                                        <include reference="Hb0-j6-Oyq"/>
+                                                        <include reference="gjG-id-zdG"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="twitterTapped:" destination="Isy-dA-cCt" eventType="touchUpInside" id="maS-fE-6tV"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3v-2N-7LU">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                 <constraints>
@@ -175,7 +202,7 @@
                                                         <variation key="heightClass=regular" constant="30"/>
                                                     </constraint>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="TwButton">
+                                                <state key="normal" backgroundImage="FbButton">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <variation key="default">
@@ -190,6 +217,9 @@
                                                         <include reference="beD-NX-15h"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="facebookTapped:" destination="Isy-dA-cCt" eventType="touchUpInside" id="beZ-hR-UO9"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ab3-Ry-WhZ">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -201,7 +231,7 @@
                                                         <variation key="heightClass=regular" constant="30"/>
                                                     </constraint>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="FbButton">
+                                                <state key="normal" backgroundImage="ShareIcon">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <variation key="default">
@@ -217,7 +247,7 @@
                                                     </mask>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="facebookTapped:" destination="Isy-dA-cCt" eventType="touchUpInside" id="OHD-z8-5qH"/>
+                                                    <action selector="shareToTapped:" destination="Isy-dA-cCt" eventType="touchUpInside" id="sPK-Jz-czY"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -226,6 +256,10 @@
                                             <constraint firstItem="wAJ-ty-iyG" firstAttribute="width" secondItem="ZtJ-qz-uK4" secondAttribute="width" id="0AV-pJ-hTz"/>
                                             <constraint firstAttribute="bottom" secondItem="ysc-UT-2uu" secondAttribute="bottom" id="4RC-4x-dSW"/>
                                             <constraint firstItem="Ab3-Ry-WhZ" firstAttribute="bottom" secondItem="x3v-2N-7LU" secondAttribute="bottom" id="8dH-Yu-5AG"/>
+                                            <constraint firstItem="x3v-2N-7LU" firstAttribute="leading" secondItem="vvd-xN-HTM" secondAttribute="trailing" constant="22" id="Eh2-Tf-jVL">
+                                                <variation key="heightClass=regular" constant="0.0"/>
+                                            </constraint>
+                                            <constraint firstItem="Ab3-Ry-WhZ" firstAttribute="centerY" secondItem="x3v-2N-7LU" secondAttribute="centerY" id="K0A-IW-gTy"/>
                                             <constraint firstAttribute="centerX" secondItem="ysc-UT-2uu" secondAttribute="centerX" id="MaE-8z-4f5"/>
                                             <constraint firstAttribute="trailing" secondItem="ysc-UT-2uu" secondAttribute="trailing" constant="10" id="Pu8-2X-DyL"/>
                                             <constraint firstItem="wAJ-ty-iyG" firstAttribute="top" secondItem="ZtJ-qz-uK4" secondAttribute="top" id="Rbz-IR-p2S"/>
@@ -236,10 +270,17 @@
                                             <constraint firstAttribute="trailing" secondItem="wAJ-ty-iyG" secondAttribute="trailing" constant="10" id="fD9-Jp-wVN"/>
                                             <constraint firstAttribute="centerX" secondItem="wAJ-ty-iyG" secondAttribute="centerX" id="fdl-B3-tfa"/>
                                             <constraint firstItem="ysc-UT-2uu" firstAttribute="leading" secondItem="ZtJ-qz-uK4" secondAttribute="leading" constant="10" id="g5l-e3-eCJ"/>
+                                            <constraint firstItem="x3v-2N-7LU" firstAttribute="leading" secondItem="vvd-xN-HTM" secondAttribute="trailing" constant="490" id="hfl-ny-6Qs">
+                                                <variation key="heightClass=regular" constant="10"/>
+                                            </constraint>
                                             <constraint firstItem="ysc-UT-2uu" firstAttribute="height" secondItem="ZtJ-qz-uK4" secondAttribute="height" multiplier="0.5" id="hgY-1j-L4i"/>
                                             <constraint firstItem="wAJ-ty-iyG" firstAttribute="height" secondItem="ZtJ-qz-uK4" secondAttribute="height" multiplier="0.5" id="jYe-Zf-hMF"/>
                                             <constraint firstItem="Ab3-Ry-WhZ" firstAttribute="leading" secondItem="x3v-2N-7LU" secondAttribute="trailing" constant="237" id="ksB-zp-gbe">
                                                 <variation key="heightClass=regular" constant="10"/>
+                                            </constraint>
+                                            <constraint firstItem="Ab3-Ry-WhZ" firstAttribute="centerY" secondItem="vvd-xN-HTM" secondAttribute="centerY" id="lIk-75-fqZ"/>
+                                            <constraint firstItem="vvd-xN-HTM" firstAttribute="baseline" secondItem="x3v-2N-7LU" secondAttribute="baseline" constant="-1" id="m5z-Ih-UeP">
+                                                <variation key="heightClass=regular" constant="0.0"/>
                                             </constraint>
                                             <constraint firstItem="ysc-UT-2uu" firstAttribute="top" secondItem="wAJ-ty-iyG" secondAttribute="bottom" id="mca-wM-1Tp"/>
                                             <constraint firstItem="wAJ-ty-iyG" firstAttribute="leading" secondItem="ZtJ-qz-uK4" secondAttribute="leading" id="nxB-2M-4lW"/>
@@ -250,10 +291,12 @@
                                             <mask key="subviews">
                                                 <exclude reference="wAJ-ty-iyG"/>
                                                 <exclude reference="ysc-UT-2uu"/>
+                                                <exclude reference="vvd-xN-HTM"/>
                                                 <exclude reference="x3v-2N-7LU"/>
                                                 <exclude reference="Ab3-Ry-WhZ"/>
                                             </mask>
                                             <mask key="constraints">
+                                                <exclude reference="m5z-Ih-UeP"/>
                                                 <exclude reference="0AV-pJ-hTz"/>
                                                 <exclude reference="Rbz-IR-p2S"/>
                                                 <exclude reference="VgP-nd-rb0"/>
@@ -270,20 +313,26 @@
                                                 <exclude reference="hgY-1j-L4i"/>
                                                 <exclude reference="mca-wM-1Tp"/>
                                                 <exclude reference="qSG-Vh-PyW"/>
+                                                <exclude reference="Eh2-Tf-jVL"/>
+                                                <exclude reference="hfl-ny-6Qs"/>
                                                 <exclude reference="8dH-Yu-5AG"/>
+                                                <exclude reference="K0A-IW-gTy"/>
                                                 <exclude reference="UhZ-iO-Q6q"/>
                                                 <exclude reference="ark-H2-tdT"/>
                                                 <exclude reference="ksB-zp-gbe"/>
+                                                <exclude reference="lIk-75-fqZ"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular">
                                             <mask key="subviews">
                                                 <include reference="wAJ-ty-iyG"/>
                                                 <include reference="ysc-UT-2uu"/>
+                                                <include reference="vvd-xN-HTM"/>
                                                 <include reference="x3v-2N-7LU"/>
                                                 <include reference="Ab3-Ry-WhZ"/>
                                             </mask>
                                             <mask key="constraints">
+                                                <exclude reference="m5z-Ih-UeP"/>
                                                 <exclude reference="0AV-pJ-hTz"/>
                                                 <include reference="Rbz-IR-p2S"/>
                                                 <exclude reference="VgP-nd-rb0"/>
@@ -300,10 +349,14 @@
                                                 <include reference="hgY-1j-L4i"/>
                                                 <include reference="mca-wM-1Tp"/>
                                                 <exclude reference="qSG-Vh-PyW"/>
+                                                <exclude reference="Eh2-Tf-jVL"/>
+                                                <include reference="hfl-ny-6Qs"/>
                                                 <include reference="8dH-Yu-5AG"/>
+                                                <include reference="K0A-IW-gTy"/>
                                                 <include reference="UhZ-iO-Q6q"/>
                                                 <include reference="ark-H2-tdT"/>
                                                 <include reference="ksB-zp-gbe"/>
+                                                <include reference="lIk-75-fqZ"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -507,6 +560,7 @@
     </scenes>
     <resources>
         <image name="FbButton" width="23" height="23"/>
+        <image name="ShareIcon" width="23" height="23"/>
         <image name="TwButton" width="23" height="23"/>
     </resources>
 </document>
