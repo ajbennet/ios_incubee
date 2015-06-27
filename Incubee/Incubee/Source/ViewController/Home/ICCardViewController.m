@@ -114,27 +114,6 @@
 }
 
 -(void)showProject{
-
-    _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:[_project valueForKey:@"video"]]];
-    
-    [_moviePlayer.view setFrame:CGRectMake(0, 0, _moviePlayerView.frame.size.width, _moviePlayerView.frame.size.height)];
-    _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
-    _moviePlayer.shouldAutoplay=YES;
-    _moviePlayer.repeatMode = NO;
-    [_moviePlayer setFullscreen:NO animated:NO];
-    _moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    
-    [_moviePlayer prepareToPlay];
-    
-    [_moviePlayer pause];
-    
-    
-    [_moviePlayer.view setBackgroundColor:[UIColor redColor]];
-    
-    [self.moviePlayerView addSubview:_moviePlayer.view];
-
-//    [_moviePlayer play];
-    
     
     _projectTitleLable.text = [_project valueForKey:@"company_name"];
     
@@ -166,8 +145,36 @@
     });
 
     
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(showMovie) userInfo:nil repeats:NO];
 }
 
+
+-(void)showMovie{
+    
+    _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:[_project valueForKey:@"video"]]];
+    
+    [_moviePlayer.view setFrame:CGRectMake(0, 0, _moviePlayerView.frame.size.width, _moviePlayerView.frame.size.height)];
+    _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
+    _moviePlayer.shouldAutoplay=YES;
+    _moviePlayer.repeatMode = NO;
+    [_moviePlayer setFullscreen:NO animated:NO];
+    
+    //    _moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    
+    [_moviePlayer prepareToPlay];
+    
+    [_moviePlayer pause];
+    
+    [_moviePlayer.view setBackgroundColor:[UIColor grayColor]];
+    
+    [_moviePlayerView addSubview:_moviePlayer.view];
+    
+    [_moviePlayer.view layoutSubviews];
+    
+    [_moviePlayerView layoutSubviews];
+
+
+}
 
 -(void)stopShowingProj{
 

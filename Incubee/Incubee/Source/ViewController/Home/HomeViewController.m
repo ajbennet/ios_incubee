@@ -89,7 +89,7 @@
 
     [_firstViewC didMoveToParentViewController:self];
     
-    [_firstViewC.cardView setBackgroundColor:[UIColor clearColor]];
+//    [_firstViewC.cardView setBackgroundColor:[UIColor clearColor]];
 
     // Second View
     
@@ -107,13 +107,15 @@
     
     [_secondViewC didMoveToParentViewController:self];
     
-    [_secondViewC.cardView setBackgroundColor:[UIColor clearColor]];
+//    [_secondViewC.cardView setBackgroundColor:[UIColor clearColor]];
 
     _currentlyShowingVC = _secondViewC;
     
     [_currentlyShowingVC.view layoutSubviews];
     
     [_secondViewC showProject];
+    [_secondViewC showProject];
+//    [_secondViewC showProject];
     
     
 }

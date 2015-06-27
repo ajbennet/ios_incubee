@@ -22,7 +22,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xf0-YC-oOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-658.5"/>
+            <point key="canvasLocation" x="732" y="-886.5"/>
         </scene>
         <!--Home-->
         <scene sceneID="hNz-n2-bh7">
@@ -158,21 +158,38 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="pqa-jw-ugm" secondAttribute="bottom" constant="75" id="4tf-VC-faN">
+                                        <variation key="heightClass=regular" constant="52"/>
+                                    </constraint>
                                     <constraint firstAttribute="centerX" secondItem="bPp-3D-TrK" secondAttribute="centerX" constant="-60" id="7Mf-lt-V7l">
                                         <variation key="heightClass=regular" constant="-40"/>
                                     </constraint>
+                                    <constraint firstItem="pqa-jw-ugm" firstAttribute="bottom" secondItem="bPp-3D-TrK" secondAttribute="bottom" id="9Ar-dM-g8Z"/>
                                     <constraint firstItem="bPp-3D-TrK" firstAttribute="leading" secondItem="AR2-eV-eHU" secondAttribute="trailing" constant="20" id="EBO-vT-n4d"/>
                                     <constraint firstAttribute="centerY" secondItem="bPp-3D-TrK" secondAttribute="centerY" id="FRD-Et-3Yv"/>
+                                    <constraint firstItem="pqa-jw-ugm" firstAttribute="leading" secondItem="bPp-3D-TrK" secondAttribute="trailing" constant="-36" id="JQy-Mc-sW1">
+                                        <variation key="heightClass=regular" constant="30"/>
+                                    </constraint>
+                                    <constraint firstAttribute="centerX" secondItem="bPp-3D-TrK" secondAttribute="centerX" id="P4Y-af-qf9">
+                                        <variation key="heightClass=regular" constant="-50"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="AR2-eV-eHU" secondAttribute="trailing" constant="20" id="P8x-W6-6lb"/>
                                     <constraint firstItem="yND-uT-hmF" firstAttribute="leading" secondItem="2U0-PZ-PjK" secondAttribute="leading" constant="20" id="Rro-YJ-2BC"/>
                                     <constraint firstAttribute="centerX" secondItem="pqa-jw-ugm" secondAttribute="centerX" constant="30" id="StM-qs-plv">
                                         <variation key="heightClass=regular" constant="45"/>
                                     </constraint>
+                                    <constraint firstAttribute="centerX" secondItem="pqa-jw-ugm" secondAttribute="centerX" id="VSN-ZU-gVY"/>
+                                    <constraint firstAttribute="centerY" secondItem="bPp-3D-TrK" secondAttribute="centerY" id="Y6a-Y0-IUk"/>
+                                    <constraint firstAttribute="centerX" secondItem="bPp-3D-TrK" secondAttribute="centerX" id="cAs-tD-wqF"/>
                                     <constraint firstItem="yND-uT-hmF" firstAttribute="top" secondItem="2U0-PZ-PjK" secondAttribute="top" constant="20" id="jK1-AQ-jQn">
                                         <variation key="heightClass=regular" constant="10"/>
                                     </constraint>
+                                    <constraint firstAttribute="centerY" secondItem="pqa-jw-ugm" secondAttribute="centerY" id="wh9-Vq-AFA"/>
                                     <constraint firstItem="AR2-eV-eHU" firstAttribute="top" secondItem="2U0-PZ-PjK" secondAttribute="top" constant="20" id="xp8-oj-5iv">
                                         <variation key="heightClass=regular" constant="10"/>
+                                    </constraint>
+                                    <constraint firstAttribute="centerX" secondItem="pqa-jw-ugm" secondAttribute="centerX" id="z58-LP-zF7">
+                                        <variation key="heightClass=regular" constant="45"/>
                                     </constraint>
                                     <constraint firstAttribute="centerY" secondItem="pqa-jw-ugm" secondAttribute="centerY" id="zVu-Xc-IOE"/>
                                 </constraints>
@@ -186,11 +203,20 @@
                                     <mask key="constraints">
                                         <exclude reference="Rro-YJ-2BC"/>
                                         <exclude reference="jK1-AQ-jQn"/>
+                                        <exclude reference="4tf-VC-faN"/>
+                                        <exclude reference="9Ar-dM-g8Z"/>
+                                        <exclude reference="JQy-Mc-sW1"/>
                                         <exclude reference="StM-qs-plv"/>
+                                        <exclude reference="VSN-ZU-gVY"/>
+                                        <exclude reference="wh9-Vq-AFA"/>
+                                        <exclude reference="z58-LP-zF7"/>
                                         <exclude reference="zVu-Xc-IOE"/>
                                         <exclude reference="7Mf-lt-V7l"/>
                                         <exclude reference="EBO-vT-n4d"/>
                                         <exclude reference="FRD-Et-3Yv"/>
+                                        <exclude reference="P4Y-af-qf9"/>
+                                        <exclude reference="Y6a-Y0-IUk"/>
+                                        <exclude reference="cAs-tD-wqF"/>
                                         <exclude reference="P8x-W6-6lb"/>
                                         <exclude reference="xp8-oj-5iv"/>
                                     </mask>
@@ -205,11 +231,20 @@
                                     <mask key="constraints">
                                         <include reference="Rro-YJ-2BC"/>
                                         <include reference="jK1-AQ-jQn"/>
-                                        <include reference="StM-qs-plv"/>
-                                        <include reference="zVu-Xc-IOE"/>
-                                        <include reference="7Mf-lt-V7l"/>
+                                        <exclude reference="4tf-VC-faN"/>
+                                        <exclude reference="9Ar-dM-g8Z"/>
+                                        <exclude reference="JQy-Mc-sW1"/>
+                                        <exclude reference="StM-qs-plv"/>
+                                        <exclude reference="VSN-ZU-gVY"/>
+                                        <include reference="wh9-Vq-AFA"/>
+                                        <include reference="z58-LP-zF7"/>
+                                        <exclude reference="zVu-Xc-IOE"/>
+                                        <exclude reference="7Mf-lt-V7l"/>
                                         <exclude reference="EBO-vT-n4d"/>
-                                        <include reference="FRD-Et-3Yv"/>
+                                        <exclude reference="FRD-Et-3Yv"/>
+                                        <include reference="P4Y-af-qf9"/>
+                                        <include reference="Y6a-Y0-IUk"/>
+                                        <exclude reference="cAs-tD-wqF"/>
                                         <include reference="P8x-W6-6lb"/>
                                         <include reference="xp8-oj-5iv"/>
                                     </mask>
@@ -225,7 +260,7 @@
                             <constraint firstItem="2U0-PZ-PjK" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Kjx-aF-Ysc"/>
                             <constraint firstItem="2U0-PZ-PjK" firstAttribute="bottom" secondItem="tsR-hK-woN" secondAttribute="bottomMargin" id="OHK-SZ-hCo"/>
                             <constraint firstItem="2U0-PZ-PjK" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="PLu-6c-gt3"/>
-                            <constraint firstItem="2U0-PZ-PjK" firstAttribute="height" secondItem="tsR-hK-woN" secondAttribute="height" multiplier="0.15" id="cCb-M1-onp"/>
+                            <constraint firstItem="2U0-PZ-PjK" firstAttribute="height" secondItem="tsR-hK-woN" secondAttribute="height" multiplier="0.25" id="cCb-M1-onp"/>
                             <constraint firstAttribute="height" secondItem="2U0-PZ-PjK" secondAttribute="height" id="ehd-xf-qMB"/>
                             <constraint firstAttribute="trailing" secondItem="2U0-PZ-PjK" secondAttribute="trailing" id="ipj-cR-XaA"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="2U0-PZ-PjK" secondAttribute="bottom" constant="626" id="j66-9g-WZw">
@@ -238,6 +273,7 @@
                                 <exclude reference="2U0-PZ-PjK"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="j66-9g-WZw"/>
                                 <exclude reference="1b2-3d-ODt"/>
                                 <exclude reference="7Bs-gS-UJr"/>
                                 <exclude reference="GKp-1r-cwJ"/>
@@ -249,7 +285,6 @@
                                 <exclude reference="ehd-xf-qMB"/>
                                 <exclude reference="ipj-cR-XaA"/>
                                 <exclude reference="srT-mt-uYP"/>
-                                <exclude reference="j66-9g-WZw"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -257,6 +292,7 @@
                                 <include reference="2U0-PZ-PjK"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="j66-9g-WZw"/>
                                 <exclude reference="1b2-3d-ODt"/>
                                 <include reference="7Bs-gS-UJr"/>
                                 <exclude reference="GKp-1r-cwJ"/>
@@ -268,7 +304,6 @@
                                 <exclude reference="ehd-xf-qMB"/>
                                 <include reference="ipj-cR-XaA"/>
                                 <exclude reference="srT-mt-uYP"/>
-                                <include reference="j66-9g-WZw"/>
                             </mask>
                         </variation>
                     </view>
@@ -284,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1442" y="-658.5"/>
+            <point key="canvasLocation" x="1458" y="-880.5"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="WSd-wM-xtG">
@@ -311,7 +346,50 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBT-kl-uxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1570" y="-7.5"/>
+            <point key="canvasLocation" x="1542" y="-211.5"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="iak-k5-THI">
+            <objects>
+                <tableViewController id="Nva-NC-EfB" customClass="MessagingTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hhC-C6-w4E">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Nhs-Yd-xTJ">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nhs-Yd-xTJ" id="KK9-WL-cky">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Nva-NC-EfB" id="gl0-Zm-a4Y"/>
+                            <outlet property="delegate" destination="Nva-NC-EfB" id="Va7-GI-3KN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="hq5-oV-Sbm"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ikj-Jd-m1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1549" y="504.75"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="mc1-9r-kuQ">
+            <objects>
+                <navigationController id="Ryv-Rk-08c" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="SearchTabIcon" id="JhY-IX-gQT"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fdd-Bu-zCv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Nva-NC-EfB" kind="relationship" relationship="rootViewController" id="yPD-2N-oPr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ie8-q8-UNE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="738" y="510.75"/>
         </scene>
         <!--Messaging-->
         <scene sceneID="dAx-wN-OU9">
@@ -328,7 +406,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIC-7y-2md" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-7.5"/>
+            <point key="canvasLocation" x="738" y="-211.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="lOW-Ly-1cO">
@@ -350,7 +428,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDb-6q-qQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="737.25"/>
+            <point key="canvasLocation" x="726" y="1337.25"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -366,6 +444,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="ctq-YK-ceJ" kind="relationship" relationship="viewControllers" id="00N-Lf-mNf"/>
+                        <segue destination="Ryv-Rk-08c" kind="relationship" relationship="viewControllers" id="XmG-71-WJK"/>
                         <segue destination="fJO-yQ-I0a" kind="relationship" relationship="viewControllers" id="gal-VD-NxK"/>
                         <segue destination="u8x-yZ-MBt" kind="relationship" relationship="viewControllers" id="WWY-HP-lv1"/>
                     </connections>
@@ -382,6 +461,7 @@
         <image name="LikeButton" width="57" height="57"/>
         <image name="MsgTabIcon" width="27" height="26"/>
         <image name="ProfileTabIcon" width="25" height="25"/>
+        <image name="SearchTabIcon" width="26" height="25"/>
         <image name="first" width="30" height="30"/>
         <image name="goNextButton" width="55" height="55"/>
     </resources>

@@ -68,7 +68,7 @@
     NSHTTPURLResponse *response = nil;
     
     NSError *error = nil;
-
+    
     _request.responseRecivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     if(error)
