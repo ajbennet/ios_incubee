@@ -148,13 +148,9 @@
         
     NSString *urlString1 = [imArray objectAtIndex:0];
     NSString *urlString2 = [imArray objectAtIndex:1];
-    NSString *urlString3 = [imArray objectAtIndex:2];
-    NSString *urlString4 = [imArray objectAtIndex:3];
         
     NSData *downloadedData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString1]];
     NSData *downloadedData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString2]];
-    NSData *downloadedData3 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString3]];
-    NSData *downloadedData4 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString4]];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -162,23 +158,10 @@
             {
                 _im1.image = [UIImage imageWithData:downloadedData1];
             }
-            
             if (downloadedData2)
             {
-                _im2.image = [UIImage imageWithData:downloadedData2];
+                _im3.image = [UIImage imageWithData:downloadedData2];
             }
-
-            if (downloadedData3)
-            {
-                _im3.image = [UIImage imageWithData:downloadedData3];
-            }
-
-            if (downloadedData4)
-            {
-                _im4.image = [UIImage imageWithData:downloadedData4];
-            }
-
-            
         });
     });
 

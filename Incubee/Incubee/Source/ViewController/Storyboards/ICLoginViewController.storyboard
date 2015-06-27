@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UXz-jC-dD3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -167,6 +168,7 @@
                                 <exclude reference="O3o-Kf-SDr"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Mac-wk-5O7"/>
                                 <exclude reference="GiB-0C-R1L"/>
                                 <exclude reference="a6L-SB-FEx"/>
                                 <exclude reference="1Zf-Lj-x1a"/>
@@ -176,7 +178,6 @@
                                 <exclude reference="Plb-BF-Grf"/>
                                 <exclude reference="TJN-3q-XfP"/>
                                 <exclude reference="bLX-xh-j13"/>
-                                <exclude reference="Mac-wk-5O7"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -185,6 +186,7 @@
                                 <include reference="O3o-Kf-SDr"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Mac-wk-5O7"/>
                                 <include reference="GiB-0C-R1L"/>
                                 <include reference="a6L-SB-FEx"/>
                                 <exclude reference="1Zf-Lj-x1a"/>
@@ -194,7 +196,6 @@
                                 <include reference="Plb-BF-Grf"/>
                                 <exclude reference="TJN-3q-XfP"/>
                                 <exclude reference="bLX-xh-j13"/>
-                                <exclude reference="Mac-wk-5O7"/>
                             </mask>
                         </variation>
                     </view>

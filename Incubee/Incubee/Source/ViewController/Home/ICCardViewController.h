@@ -56,9 +56,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *im1;
 
-@property (weak, nonatomic) IBOutlet UIImageView *im2;
-
 @property (weak, nonatomic) IBOutlet UIImageView *im3;
-@property (weak, nonatomic) IBOutlet UIImageView *im4;
 
 @end
