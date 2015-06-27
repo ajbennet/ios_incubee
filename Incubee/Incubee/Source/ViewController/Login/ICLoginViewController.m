@@ -23,15 +23,7 @@
         
     [GIDSignIn sharedInstance].uiDelegate = self;
     
-//    if(_googleSignInButton.currentUser){
-//    
-//        [self signINSuccesfull];
-//        
-//    }
-//    [self signINSuccesfull];
-    
-    [ICDataManager sharedInstance];
-    
+    [GIDSignIn sharedInstance].delegate = self;
     
 }
 
@@ -48,21 +40,35 @@
 // pressed the Sign In button
 - (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error {
     
-    NSLog(@"%@",NSStringFromSelector(_cmd));
-//    [myActivityIndicator stopAnimating];
     
-    if(signIn.currentUser){
-    
-        [self signINSuccesfull];
-        
-    }
 }
 
 // Present a view that prompts the user to sign in with Google
 - (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error{
+
+    if(error==nil)
+    {
+        NSLog(@"%@",NSStringFromSelector(_cmd));
+
+        [self signInSuccesfull];
+    }
+    else
+    {
+    
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Google" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
+    }
+    
+}
+
+
+- (void)signIn:(GIDSignIn *)signIn
 presentViewController:(UIViewController *)viewController {
 
-        NSLog(@"%@",NSStringFromSelector(_cmd));
+    NSLog(@"%@",NSStringFromSelector(_cmd));
     
     [self presentViewController:viewController animated:YES completion:nil];
 }
@@ -71,15 +77,8 @@ presentViewController:(UIViewController *)viewController {
 - (void)signIn:(GIDSignIn *)signIn
 dismissViewController:(UIViewController *)viewController {
     
-        NSLog(@"%@",NSStringFromSelector(_cmd));
+    NSLog(@"%@",NSStringFromSelector(_cmd));
     
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-        if(signIn.currentUser)
-        {
-                [self signINSuccesfull];
-        }
-    }];
 }
 
 
@@ -88,15 +87,9 @@ dismissViewController:(UIViewController *)viewController {
     // Dispose of any resources that can be recreated.
 }
 
--(void)signINSuccesfull{
+-(void)signInSuccesfull{
 
-    return;
-    
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    UITabBarController *controller = [sb instantiateViewControllerWithIdentifier:@"TabbarControllerStoryboard"];
-    
-    [self.navigationController pushViewController:controller animated:NO];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
