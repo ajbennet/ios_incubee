@@ -38,7 +38,7 @@
     
     _firstViewC.delegate = self;
     
-    int r = arc4random()%_projectList.count;
+    int r = arc4random_uniform((int)_projectList.count);
     
     _firstCard = [_projectList objectAtIndex:r];
     
@@ -58,7 +58,7 @@
     
     _secondViewC.delegate = self;
     
-    r = arc4random()%_projectList.count;
+    r = arc4random_uniform((int)_projectList.count);
     
     _secondCard = [_projectList objectAtIndex:r];
 
@@ -113,7 +113,7 @@
     [_currentlyShowingVC stopShowingProj];
     
     
-    int r = arc4random()%_projectList.count;
+    int r = arc4random_uniform((int)_projectList.count);
     
     Project *randProj = [_projectList objectAtIndex:r];
 

@@ -280,6 +280,9 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 -(NSArray*)getImageURLs:(NSString*)inProjectId{
 
+    
+    if(inProjectId)
+    {
     NSManagedObjectContext *context = [self managedObjectContext];
     
     if(context)
@@ -301,7 +304,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
             return results;
         }
     }
-    
+    }
     return nil;
 
 
