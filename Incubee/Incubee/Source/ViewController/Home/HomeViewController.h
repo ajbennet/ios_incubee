@@ -11,7 +11,10 @@
 #import "ICRequest.h"
 #import "Project.h"
 
-@interface HomeViewController : UIViewController <ICCardViewDelegate>
+@interface HomeViewController : UIViewController <ICCardViewDelegate>{
+
+    BOOL isFirstTimeLoading;
+}
 
 @property(nonatomic,strong)IBOutlet UIView *v;
 
@@ -24,6 +27,25 @@
 @property (weak, nonatomic) IBOutlet UIButton *dislikeProj;
 
 @property (weak, nonatomic) IBOutlet UIButton *saveProject;
+
+@property(nonatomic,strong)NSArray *projectList;
+
+@property(nonatomic,strong)Project *firstCard;
+
+@property(nonatomic,strong)Project *secondCard;
+
+@property (weak, nonatomic) IBOutlet UILabel *projDescLable;
+
+
+#pragma mark - Activity View - 
+
+@property (weak, nonatomic) IBOutlet UIView *activityView;
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+@property (weak, nonatomic) IBOutlet UILabel *activityLable;
+
+
 - (IBAction)goNextProject:(id)sender;
 
 - (IBAction)addToCustomer:(id)sender;
@@ -32,13 +54,11 @@
 
 - (IBAction)dislikeProjTapped:(id)sender;
 
-@property(nonatomic,strong)NSArray *projectList;
 
--(void)projectDataRefreshed:(ICRequest*)inRequest;
+#pragma mark - Network Notifications -
 
-@property(nonatomic,strong)Project *firstCard;
+- (void)projectDataRefreshed:(ICRequest*)inRequest;
 
-@property(nonatomic,strong)Project *secondCard;
 
 @end
 

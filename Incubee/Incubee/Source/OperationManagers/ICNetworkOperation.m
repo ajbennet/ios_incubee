@@ -84,9 +84,22 @@
     {
         NSLog(@"Networking Operartions : Is%@ main thread", ([NSThread isMainThread] ?@"" : @" NOT"));
         
-        NSLog(@"%@",[NSString stringWithUTF8String:[_request.responseRecivedData bytes
-                                                    ]]);
-        _request.requestStatus.status = REQUEST_ON_DATAPARSING;
+        NSString *encodedStr = [[NSString alloc] initWithBytes:[_request.responseRecivedData bytes] length:_request.responseRecivedData.length encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"Response : %@",encodedStr);
+        
+        if(encodedStr==nil)
+        {
+            NSDictionary* details = [[NSDictionary alloc] initWithObjectsAndKeys:@"NSUTF8StringEncoding Error",NSLocalizedDescriptionKey,nil];
+            
+            _request.error = [NSError errorWithDomain:@"Incubee" code:200 userInfo:details];
+            
+            _request.requestStatus.status = REQUEST_FINISHED;
+        }
+        else
+        {
+            _request.requestStatus.status = REQUEST_ON_DATAPARSING;
+        }
     }
     else
     {

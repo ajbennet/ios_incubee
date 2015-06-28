@@ -37,20 +37,15 @@
 
 @property(nonatomic,assign)id<ICCardViewDelegate> delegate;
 
-@property(nonatomic,strong)Project *project;
+@property(nonatomic,strong,setter=setProject:)Project *project;
 
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
-
--(void)showProject;
-
--(void)stopShowingProj;
 
 @property (weak, nonatomic) IBOutlet UILabel *projectTitleLable;
 
 @property (weak, nonatomic) IBOutlet UILabel *projectOwnerLable;
 
 @property (weak, nonatomic) IBOutlet UILabel *projectDescLable;
-
 
 @property (weak, nonatomic) IBOutlet UIImageView *im1;
 
@@ -61,6 +56,12 @@
 - (IBAction)facebookTapped:(id)sender;
 
 - (IBAction)shareToTapped:(id)sender;
+
+- (void)setProject:(Project *)project;
+
+- (void)showProject;
+
+- (void)stopShowingProj;
 
 
 @end

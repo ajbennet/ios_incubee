@@ -28,9 +28,9 @@
     [super main];
     
     NSLog(@"Data Parsing Operartions : Is%@ main thread", ([NSThread isMainThread] ?@"" : @" NOT"));
-
-    NSString *json_string = [NSString stringWithUTF8String:[_request.responseRecivedData bytes]];
     
+    NSString *json_string = [[NSString alloc] initWithBytes:[_request.responseRecivedData bytes] length:_request.responseRecivedData.length encoding:NSUTF8StringEncoding];
+
     if(json_string)
     {
         NSError *error = nil;

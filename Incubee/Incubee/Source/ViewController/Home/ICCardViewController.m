@@ -93,7 +93,7 @@
         
         float dX = newCoord.x-_panCoord.x;
         
-        float dY = newCoord.y-_panCoord.y;
+//        float dY = newCoord.y-_panCoord.y;
         
         if(dX > SWIPE_MOVE)
         {
@@ -123,40 +123,40 @@
 
 -(void)showProject{
     
-    _projectTitleLable.text = _project.companyName;
+//    _projectTitleLable.text = _project.companyName;
+//    
+//    _projectOwnerLable.text = _project.founder;
+//    
+//    _projectDescLable.text = _project.companyDescription;
     
-    _projectOwnerLable.text = _project.founder;
-    
-    _projectDescLable.text = _project.companyDescription;
-    
-    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_project.projectId];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        
-    NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
-        
-    NSString *urlString2 = ((ProjectImage*)[imArray objectAtIndex:1]).imageUrl;
-        
+//    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_project.projectId];
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//        
+//    NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
+//        
+//    NSString *urlString2 = ((ProjectImage*)[imArray objectAtIndex:1]).imageUrl;
+//        
+//
+//        NSData *downloadedData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString1]];
+//    
+//        NSData *downloadedData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString2]];
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            
+//            if (downloadedData1)
+//            {
+//                _im1.image = [UIImage imageWithData:downloadedData1];
+//            }
+//            if (downloadedData2)
+//            {
+//                _im3.image = [UIImage imageWithData:downloadedData2];
+//            }
+//        });
+//    });
 
-        NSData *downloadedData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString1]];
     
-        NSData *downloadedData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString2]];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            if (downloadedData1)
-            {
-                _im1.image = [UIImage imageWithData:downloadedData1];
-            }
-            if (downloadedData2)
-            {
-                _im3.image = [UIImage imageWithData:downloadedData2];
-            }
-        });
-    });
-
-    
-    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(showMovie) userInfo:nil repeats:NO];
+//    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(showMovie) userInfo:nil repeats:NO];
 }
 
 
@@ -169,8 +169,6 @@
     _moviePlayer.shouldAutoplay=YES;
     _moviePlayer.repeatMode = NO;
     [_moviePlayer setFullscreen:NO animated:NO];
-    
-    //    _moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     
     [_moviePlayer prepareToPlay];
     
@@ -196,4 +194,46 @@
     _moviePlayer = nil;
 
 }
+
+- (void)setProject:(Project *)project{
+
+    _project = project;
+    
+    _projectTitleLable.text = _project.companyName;
+    
+    _projectOwnerLable.text = _project.founder;
+    
+    _projectDescLable.text = _project.companyDescription;
+    
+    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_project.projectId];
+    
+    NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
+    
+    NSString *urlString2 = ((ProjectImage*)[imArray objectAtIndex:1]).imageUrl;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        
+        
+        NSData *downloadedData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString1]];
+        
+        NSData *downloadedData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString2]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if (downloadedData1)
+            {
+                _im1.image = [UIImage imageWithData:downloadedData1];
+            }
+            if (downloadedData2)
+            {
+                _im3.image = [UIImage imageWithData:downloadedData2];
+            }
+        });
+        
+    });
+
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(showMovie) userInfo:nil repeats:NO];
+    
+}
+
 @end

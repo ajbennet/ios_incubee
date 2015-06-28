@@ -19,51 +19,68 @@
 
 @implementation HomeViewController
 
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed"];
+//    [self showActivity:YES withMsg:@"Fetching all projects"];
+
+    isFirstTimeLoading = YES;
+    
+//    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed:"];
     
     self.navigationController.navigationBarHidden = YES;
     
     _projectList = [[ICDataManager sharedInstance] getAllProjects];
+    
+    [self setupCards];
+    
+//    [self showLoginScreen];
+    
+    if(_projectList.count!=0)
+    {
+        int r1 = arc4random_uniform((int)_projectList.count);
+        
+        int r2 = arc4random_uniform((int)_projectList.count);
+    
+        _firstCard = [_projectList objectAtIndex:r1];
+        
+        _secondCard = [_projectList objectAtIndex:r2];
+        
+        [_firstViewC setProject:_firstCard];
+        
+        [_secondViewC setProject:_secondCard];
+        
+        [_currentlyShowingVC showProject];
+        
+    }
+    
+}
+
+-(void)setupCards{
 
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CardViewStoryboard" bundle:nil];
     
+    
+    // First Card
     _firstViewC = (ICCardViewController*)[sb instantiateViewControllerWithIdentifier:@"ICCardVCSB"];
     
     _firstViewC.delegate = self;
     
-    int r = arc4random_uniform((int)_projectList.count);
-    
-    _firstCard = [_projectList objectAtIndex:r];
-    
-    [_firstViewC setProject:_firstCard];
-    
     [_firstViewC willMoveToParentViewController:self];
-
+    
     [self addChildViewController:_firstViewC];
     
     [self.view addSubview:_firstViewC.view];
-
+    
     [_firstViewC didMoveToParentViewController:self];
     
-    // Second View
+    // Second Card
     
     _secondViewC = (ICCardViewController*)[sb instantiateViewControllerWithIdentifier:@"ICCardVCSB"];
     
     _secondViewC.delegate = self;
     
-    r = arc4random_uniform((int)_projectList.count);
-    
-    _secondCard = [_projectList objectAtIndex:r];
-
-    [_secondViewC setProject:_secondCard];
-
     [_secondViewC willMoveToParentViewController:self];
     
     [self addChildViewController:_secondViewC];
@@ -71,16 +88,14 @@
     [self.view addSubview:_secondViewC.view];
     
     [_secondViewC didMoveToParentViewController:self];
-    
+
     _currentlyShowingVC = _secondViewC;
     
     [_currentlyShowingVC.view layoutSubviews];
-    
-    [_secondViewC showProject];
-    
-    [self showLoginScreen];
+
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -135,6 +150,9 @@
         _currentlyShowingVC = _secondViewC;
     }
     
+    
+    _projDescLable.text = _currentlyShowingVC.project.companyDescription;
+    
     [_currentlyShowingVC showProject];
     
     [self.view bringSubviewToFront:_v];
@@ -145,7 +163,7 @@
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
-    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed"];
+    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed:"];
 
 
 }
@@ -163,16 +181,6 @@
     [self goNextProject:nil];
 }
 
--(void)projectDataRefreshed:(ICRequest*)inRequest{
-
-    NSLog(@"%@",NSStringFromSelector(_cmd));
-    
-    _projectList = [[ICDataManager sharedInstance] getAllProjects];
-    
-    [self goNextProject:nil];
-    
-}
-
 -(void)showLoginScreen{
 
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ICLoginViewController" bundle:nil];
@@ -185,4 +193,73 @@
         
 }
 
+-(void)showActivity:(BOOL)inShowActivity withMsg:(NSString*)inMsg{
+
+    if(inShowActivity)
+    {
+        _activityLable.text = inMsg;
+        
+        [_activityIndicator startAnimating];
+        
+        _activityView.hidden = NO;
+        
+        [self.view bringSubviewToFront:_activityView];
+    }
+    else
+    {
+        _activityView.hidden = YES;
+
+        [self.view sendSubviewToBack:_activityView];
+
+        [_activityIndicator stopAnimating];
+    
+        _activityLable.text  = nil;
+    }
+    
+}
+
+#pragma mark - Network Notifications -
+-(void)projectDataRefreshed:(ICRequest*)inRequest{
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+
+    [self showActivity:NO withMsg:nil];
+    
+    if(inRequest.error.localizedDescription == nil)
+    {
+        _projectList = [[ICDataManager sharedInstance] getAllProjects];
+
+        if(isFirstTimeLoading)
+        {
+            int r1 = arc4random_uniform((int)_projectList.count);
+            
+            int r2 = arc4random_uniform((int)_projectList.count);
+            
+            _firstCard = [_projectList objectAtIndex:r1];
+            
+            _secondCard = [_projectList objectAtIndex:r2];
+            
+            [_firstViewC setProject:_firstCard];
+            
+            [_secondViewC setProject:_secondCard];
+
+            [_currentlyShowingVC showProject];
+            
+            isFirstTimeLoading = NO;
+        }
+
+    }
+    else
+    {
+    
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
+        
+    }
+    
+    
+    
+    
+}
 @end

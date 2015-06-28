@@ -234,6 +234,8 @@
                                 <exclude reference="bxD-JW-Qpn"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="JEZ-q7-f2y"/>
+                                <exclude reference="Mac-wk-5O7"/>
                                 <exclude reference="Dr5-eW-W0J"/>
                                 <exclude reference="Lty-HL-qy2"/>
                                 <exclude reference="s15-wh-Km0"/>
@@ -245,8 +247,6 @@
                                 <exclude reference="Plb-BF-Grf"/>
                                 <exclude reference="TJN-3q-XfP"/>
                                 <exclude reference="bLX-xh-j13"/>
-                                <exclude reference="JEZ-q7-f2y"/>
-                                <exclude reference="Mac-wk-5O7"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -256,6 +256,8 @@
                                 <include reference="bxD-JW-Qpn"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="JEZ-q7-f2y"/>
+                                <exclude reference="Mac-wk-5O7"/>
                                 <include reference="Dr5-eW-W0J"/>
                                 <include reference="Lty-HL-qy2"/>
                                 <include reference="s15-wh-Km0"/>
@@ -267,8 +269,6 @@
                                 <include reference="Plb-BF-Grf"/>
                                 <exclude reference="TJN-3q-XfP"/>
                                 <exclude reference="bLX-xh-j13"/>
-                                <include reference="JEZ-q7-f2y"/>
-                                <exclude reference="Mac-wk-5O7"/>
                             </mask>
                         </variation>
                     </view>
@@ -292,6 +292,7 @@
                         <viewControllerLayoutGuide type="bottom" id="f0M-f6-mQJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ogk-MV-2gc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0n-Ll-KPT">
@@ -368,8 +369,7 @@
                                         <exclude reference="iLF-eK-bXx"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="192" y="186" width="216" height="30"/>
+                                <variation key="heightClass=regular">
                                     <mask key="constraints">
                                         <include reference="frb-97-u7d"/>
                                         <include reference="iLF-eK-bXx"/>
@@ -390,8 +390,7 @@
                                         <exclude reference="bRW-Al-zPx"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="192" y="235" width="216" height="30"/>
+                                <variation key="heightClass=regular">
                                     <mask key="constraints">
                                         <include reference="Bnq-LQ-QUn"/>
                                         <include reference="bRW-Al-zPx"/>
@@ -414,8 +413,7 @@
                                         <exclude reference="sM5-m3-lLg"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="192" y="285" width="216" height="30"/>
+                                <variation key="heightClass=regular">
                                     <mask key="constraints">
                                         <include reference="U8Q-Q4-uBF"/>
                                         <include reference="sM5-m3-lLg"/>
@@ -465,20 +463,20 @@
                                 <exclude reference="BQ5-SO-3Na"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="DCN-hh-onu"/>
-                                <exclude reference="qwX-9q-m1S"/>
-                                <exclude reference="0Vr-eY-lsc"/>
-                                <exclude reference="98i-dr-WPu"/>
-                                <exclude reference="GeG-5L-jeN"/>
-                                <exclude reference="Kt5-dZ-TmS"/>
-                                <exclude reference="1ik-bD-b5j"/>
-                                <exclude reference="gCZ-4z-qaS"/>
                                 <exclude reference="N6E-q6-fxj"/>
                                 <exclude reference="PUh-CM-d6b"/>
                                 <exclude reference="aQS-xU-zhQ"/>
                                 <exclude reference="vhX-GQ-QnV"/>
+                                <exclude reference="1ik-bD-b5j"/>
+                                <exclude reference="gCZ-4z-qaS"/>
+                                <exclude reference="GeG-5L-jeN"/>
+                                <exclude reference="Kt5-dZ-TmS"/>
                                 <exclude reference="Sxt-K5-0F7"/>
                                 <exclude reference="vnY-fn-N8J"/>
+                                <exclude reference="0Vr-eY-lsc"/>
+                                <exclude reference="98i-dr-WPu"/>
+                                <exclude reference="DCN-hh-onu"/>
+                                <exclude reference="qwX-9q-m1S"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -491,20 +489,20 @@
                                 <include reference="BQ5-SO-3Na"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="DCN-hh-onu"/>
-                                <include reference="qwX-9q-m1S"/>
-                                <include reference="0Vr-eY-lsc"/>
-                                <include reference="98i-dr-WPu"/>
-                                <include reference="GeG-5L-jeN"/>
-                                <include reference="Kt5-dZ-TmS"/>
-                                <include reference="1ik-bD-b5j"/>
-                                <include reference="gCZ-4z-qaS"/>
                                 <include reference="N6E-q6-fxj"/>
                                 <include reference="PUh-CM-d6b"/>
                                 <include reference="aQS-xU-zhQ"/>
                                 <include reference="vhX-GQ-QnV"/>
+                                <include reference="1ik-bD-b5j"/>
+                                <include reference="gCZ-4z-qaS"/>
+                                <include reference="GeG-5L-jeN"/>
+                                <include reference="Kt5-dZ-TmS"/>
                                 <include reference="Sxt-K5-0F7"/>
                                 <include reference="vnY-fn-N8J"/>
+                                <include reference="0Vr-eY-lsc"/>
+                                <include reference="98i-dr-WPu"/>
+                                <include reference="DCN-hh-onu"/>
+                                <include reference="qwX-9q-m1S"/>
                             </mask>
                         </variation>
                     </view>
