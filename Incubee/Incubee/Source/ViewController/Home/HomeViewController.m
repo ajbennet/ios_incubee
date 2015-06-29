@@ -23,11 +23,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-//    [self showActivity:YES withMsg:@"Fetching all projects"];
+    [self showActivity:YES withMsg:@"Fetching all projects"];
 
     isFirstTimeLoading = YES;
     
-//    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed:"];
+    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed:"];
     
     self.navigationController.navigationBarHidden = YES;
     
@@ -91,8 +91,6 @@
 
     _currentlyShowingVC = _secondViewC;
     
-    [_currentlyShowingVC.view layoutSubviews];
-
     
 }
 
@@ -104,20 +102,19 @@
 
 #pragma mark - ICCardViewDelegate - 
 
--(void)gotChanged{
-    NSLog(@"%@",NSStringFromSelector(_cmd));
+-(void)updateDescLable{
+
+    _projDescLable.text = _currentlyShowingVC.project.companyDescription;
 
 }
 
 -(void)followProject{
-    NSLog(@"%@",NSStringFromSelector(_cmd));
     
     [self goNextProject:nil];
 }
 
 -(void)dontFollowProject{
 
-    NSLog(@"%@",NSStringFromSelector(_cmd));
 
 }
 
@@ -125,7 +122,7 @@
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
-    [_currentlyShowingVC stopShowingProj];
+    [_currentlyShowingVC dismissShowing];
     
     
     int r = arc4random_uniform((int)_projectList.count);
@@ -149,10 +146,7 @@
         
         _currentlyShowingVC = _secondViewC;
     }
-    
-    
-    _projDescLable.text = _currentlyShowingVC.project.companyDescription;
-    
+        
     [_currentlyShowingVC showProject];
     
     [self.view bringSubviewToFront:_v];
@@ -161,7 +155,7 @@
 
 - (IBAction)addToCustomer:(id)sender {
     
-    NSLog(@"%@",NSStringFromSelector(_cmd));
+//    NSLog(@"%@",NSStringFromSelector(_cmd));
     
     [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed:"];
 
@@ -169,14 +163,14 @@
 }
 - (IBAction)saveProjTapped:(id)sender {
     
-    NSLog(@"%@",NSStringFromSelector(_cmd));
+//    NSLog(@"%@",NSStringFromSelector(_cmd));
     
     [self goNextProject:nil];
 
 }
 - (IBAction)dislikeProjTapped:(id)sender {
     
-    NSLog(@"%@",NSStringFromSelector(_cmd));
+//    NSLog(@"%@",NSStringFromSelector(_cmd));
     
     [self goNextProject:nil];
 }

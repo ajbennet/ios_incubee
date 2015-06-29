@@ -10,6 +10,10 @@
 
 #define SWIPE_MOVE 100.0f
 
+@implementation ICImageView
+
+
+@end
 
 @interface ICCardViewController ()
 
@@ -123,40 +127,10 @@
 
 -(void)showProject{
     
-//    _projectTitleLable.text = _project.companyName;
-//    
-//    _projectOwnerLable.text = _project.founder;
-//    
-//    _projectDescLable.text = _project.companyDescription;
+    [_moviePlayer play];
     
-//    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_project.projectId];
-//    
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-//        
-//    NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
-//        
-//    NSString *urlString2 = ((ProjectImage*)[imArray objectAtIndex:1]).imageUrl;
-//        
-//
-//        NSData *downloadedData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString1]];
-//    
-//        NSData *downloadedData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString2]];
-//        
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            
-//            if (downloadedData1)
-//            {
-//                _im1.image = [UIImage imageWithData:downloadedData1];
-//            }
-//            if (downloadedData2)
-//            {
-//                _im3.image = [UIImage imageWithData:downloadedData2];
-//            }
-//        });
-//    });
+    [_delegate updateDescLable];
 
-    
-//    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(showMovie) userInfo:nil repeats:NO];
 }
 
 
@@ -166,26 +140,23 @@
     
     [_moviePlayer.view setFrame:CGRectMake(0, 0, _moviePlayerView.frame.size.width, _moviePlayerView.frame.size.height)];
     _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
-    _moviePlayer.shouldAutoplay=YES;
+    
+    _moviePlayer.shouldAutoplay = NO;
+    
     _moviePlayer.repeatMode = NO;
+    
     [_moviePlayer setFullscreen:NO animated:NO];
     
     [_moviePlayer prepareToPlay];
-    
-    [_moviePlayer pause];
     
     [_moviePlayer.view setBackgroundColor:[UIColor grayColor]];
     
     [_moviePlayerView addSubview:_moviePlayer.view];
     
-    [_moviePlayer.view layoutSubviews];
-    
-    [_moviePlayerView layoutSubviews];
-
 
 }
 
--(void)stopShowingProj{
+-(void)dismissShowing{
 
     [_moviePlayer stop];
     
@@ -203,37 +174,48 @@
     
     _projectOwnerLable.text = _project.founder;
     
-    _projectDescLable.text = _project.companyDescription;
-    
     NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_project.projectId];
     
     NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
     
     NSString *urlString2 = ((ProjectImage*)[imArray objectAtIndex:1]).imageUrl;
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        
-        
-        NSData *downloadedData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString1]];
-        
-        NSData *downloadedData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString2]];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            if (downloadedData1)
-            {
-                _im1.image = [UIImage imageWithData:downloadedData1];
-            }
-            if (downloadedData2)
-            {
-                _im3.image = [UIImage imageWithData:downloadedData2];
-            }
-        });
-        
-    });
+    ICImageManager *im = [[ICImageManager alloc] init];
+    
+    [_im1 setImageUrl:urlString1];
 
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(showMovie) userInfo:nil repeats:NO];
+    [im getImage:urlString1 withDelegate:self];
+    
+    
+    ICImageManager *im2 = [[ICImageManager alloc] init];
+    
+    [_im3 setImageUrl:urlString2];
+
+    [im2 getImage:urlString2 withDelegate:self];
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(showMovie) userInfo:nil repeats:NO];
     
 }
 
+
+-(void)imageDataRecived:(NSData*)inImageData ofURL:(NSString *)inUrl{
+
+//    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+    if([_im1.imageUrl isEqualToString:inUrl])
+    {
+        _im1.image = [UIImage imageWithData:inImageData];
+    }
+    
+    if([_im3.imageUrl isEqualToString:inUrl])
+    {
+        _im3.image = [UIImage imageWithData:inImageData];
+    }
+        
+        
+    });
+    
+}
 @end

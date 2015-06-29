@@ -13,8 +13,10 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "Project.h"
 #import "ProjectImage.h"
+#import "ICImageManager.h"
 
-@protocol ICCardViewDelegate <NSObject>
+
+@protocol ICCardViewDelegate <NSObject,ICImageManagerDelegate>
 
 @required
 
@@ -22,8 +24,16 @@
 
 -(void)dontFollowProject;
 
+-(void)updateDescLable;
+
 @end
 
+
+@interface ICImageView : UIImageView
+
+@property(nonatomic,strong)NSString *imageUrl;
+
+@end
 
 @interface ICCardViewController : UIViewController
 
@@ -45,11 +55,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *projectOwnerLable;
 
-@property (weak, nonatomic) IBOutlet UILabel *projectDescLable;
+@property (weak, nonatomic) IBOutlet ICImageView *im1;
 
-@property (weak, nonatomic) IBOutlet UIImageView *im1;
-
-@property (weak, nonatomic) IBOutlet UIImageView *im3;
+@property (weak, nonatomic) IBOutlet ICImageView *im3;
 
 - (IBAction)twitterTapped:(id)sender;
 
@@ -61,7 +69,7 @@
 
 - (void)showProject;
 
-- (void)stopShowingProj;
+- (void)dismissShowing;
 
 
 @end
