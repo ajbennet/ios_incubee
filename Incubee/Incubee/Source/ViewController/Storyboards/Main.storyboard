@@ -374,7 +374,7 @@
                                         </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.51000000000000001" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="3T4-0w-LAJ" secondAttribute="centerY" id="1Ip-sc-5RF"/>
                                     <constraint firstItem="3T4-0w-LAJ" firstAttribute="top" secondItem="URg-dO-AUG" secondAttribute="top" constant="20" id="D26-JM-9AX">

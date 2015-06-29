@@ -155,22 +155,18 @@
 
 - (IBAction)addToCustomer:(id)sender {
     
-//    NSLog(@"%@",NSStringFromSelector(_cmd));
-    
+    [self showActivity:YES withMsg:@"Fetching new projects"];
+
     [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed:"];
 
 
 }
 - (IBAction)saveProjTapped:(id)sender {
     
-//    NSLog(@"%@",NSStringFromSelector(_cmd));
-    
     [self goNextProject:nil];
 
 }
 - (IBAction)dislikeProjTapped:(id)sender {
-    
-//    NSLog(@"%@",NSStringFromSelector(_cmd));
     
     [self goNextProject:nil];
 }

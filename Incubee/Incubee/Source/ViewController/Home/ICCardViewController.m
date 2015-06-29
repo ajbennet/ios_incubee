@@ -149,9 +149,11 @@
     
     [_moviePlayer prepareToPlay];
     
-    [_moviePlayer.view setBackgroundColor:[UIColor grayColor]];
+    [_moviePlayer.view setBackgroundColor:[UIColor clearColor]];
     
     [_moviePlayerView addSubview:_moviePlayer.view];
+    
+    [_moviePlayerView bringSubviewToFront:_moviePlayer.view];
     
 
 }
@@ -180,18 +182,39 @@
     
     NSString *urlString2 = ((ProjectImage*)[imArray objectAtIndex:1]).imageUrl;
     
-    ICImageManager *im = [[ICImageManager alloc] init];
+    NSString *urlString3 = ((ProjectImage*)[imArray objectAtIndex:2]).imageUrl;
     
-    [_im1 setImageUrl:urlString1];
+    NSString *urlString4 = ((ProjectImage*)[imArray objectAtIndex:3]).imageUrl;
+    
+    
+    ICImageManager *im1 = [[ICImageManager alloc] init];
+    
+    [_topLeftImageView setImageUrl:urlString1];
 
-    [im getImage:urlString1 withDelegate:self];
+    [im1 getImage:urlString1 withDelegate:self];
     
     
     ICImageManager *im2 = [[ICImageManager alloc] init];
     
-    [_im3 setImageUrl:urlString2];
+    [_topRightImageView setImageUrl:urlString2];
 
     [im2 getImage:urlString2 withDelegate:self];
+
+    
+    ICImageManager *im3 = [[ICImageManager alloc] init];
+    
+    [_bottomLeftImageView setImageUrl:urlString3];
+    
+    [im3 getImage:urlString3 withDelegate:self];
+
+
+    ICImageManager *im4 = [[ICImageManager alloc] init];
+    
+    [_bottomRightImageView setImageUrl:urlString4];
+    
+    [im4 getImage:urlString4 withDelegate:self];
+    
+    
     
     [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(showMovie) userInfo:nil repeats:NO];
     
@@ -199,21 +222,33 @@
 
 
 -(void)imageDataRecived:(NSData*)inImageData ofURL:(NSString *)inUrl{
-
-//    NSLog(@"%@",NSStringFromSelector(_cmd));
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
-    if([_im1.imageUrl isEqualToString:inUrl])
-    {
-        _im1.image = [UIImage imageWithData:inImageData];
-    }
-    
-    if([_im3.imageUrl isEqualToString:inUrl])
-    {
-        _im3.image = [UIImage imageWithData:inImageData];
-    }
+        if([_topLeftImageView.imageUrl isEqualToString:inUrl])
+        {
+            _topLeftImageView.image = [UIImage imageWithData:inImageData];
+            
+        }
         
+        if([_topRightImageView.imageUrl isEqualToString:inUrl])
+        {
+            _topRightImageView.image = [UIImage imageWithData:inImageData];
+            
+        }
+        
+        if([_bottomRightImageView.imageUrl isEqualToString:inUrl])
+        {
+            _bottomRightImageView.image = [UIImage imageWithData:inImageData];
+            
+        }
+        
+        
+        if([_bottomLeftImageView.imageUrl isEqualToString:inUrl])
+        {
+            _bottomLeftImageView.image = [UIImage imageWithData:inImageData];
+            
+        }
         
     });
     

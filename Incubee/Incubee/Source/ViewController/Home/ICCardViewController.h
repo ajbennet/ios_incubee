@@ -55,9 +55,12 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *projectOwnerLable;
 
-@property (weak, nonatomic) IBOutlet ICImageView *im1;
+@property (weak, nonatomic) IBOutlet ICImageView *bottomRightImageView;
+@property (weak, nonatomic) IBOutlet ICImageView *bottomLeftImageView;
 
-@property (weak, nonatomic) IBOutlet ICImageView *im3;
+@property (weak, nonatomic) IBOutlet ICImageView *topRightImageView;
+
+@property (weak, nonatomic) IBOutlet ICImageView *topLeftImageView;
 
 - (IBAction)twitterTapped:(id)sender;
 
