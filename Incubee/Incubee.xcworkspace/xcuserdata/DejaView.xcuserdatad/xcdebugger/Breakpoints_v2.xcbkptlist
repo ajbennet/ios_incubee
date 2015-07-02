@@ -372,15 +372,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Incubee/Source/ViewController/Home/HomeViewController.m"
-            timestampString = "457293442.286272"
+            filePath = "Incubee/Source/ViewController/Home/ICHomeViewController.m"
+            timestampString = "457551883.74876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "-projectDataRefreshed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -420,10 +420,10 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Incubee/Source/ViewController/Home/HomeViewController.m"
+            filePath = "Incubee/Source/ViewController/Home/ICHomeViewController.m"
             timestampString = "457286355.825941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -436,15 +436,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Home/ICCardViewController.m"
-            timestampString = "457293201.119343"
+            timestampString = "457381329.931254"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
             landmarkName = "-setProject:"
             landmarkType = "5">
          </BreakpointContent>
@@ -452,63 +452,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Home/ICCardViewController.m"
-            timestampString = "457293201.119343"
+            timestampString = "457381329.931254"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
             landmarkName = "-imageDataRecived:ofURL:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ICCardViewController imageDataRecived:ofURL:]"
-                  moduleName = "Incubee"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Macintosh%20HD%20II/Incubee/Repository/IncubeeMaster/Incubee/Incubee/Source/ViewController/Home/ICCardViewController.m"
-                  timestampString = "457291617.697504"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "205"
-                  endingLineNumber = "205"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__47-[ICCardViewController imageDataRecived:ofURL:]_block_invoke"
-                  moduleName = "Incubee"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Macintosh%20HD%20II/Incubee/Repository/IncubeeMaster/Incubee/Incubee/Source/ViewController/Home/ICCardViewController.m"
-                  timestampString = "457291617.697732"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "205"
-                  endingLineNumber = "205"
-                  offsetFromSymbolStart = "15">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Home/ICCardViewController.m"
-            timestampString = "457293201.119343"
+            timestampString = "457381329.931254"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
             landmarkName = "-imageDataRecived:ofURL:"
             landmarkType = "5">
          </BreakpointContent>

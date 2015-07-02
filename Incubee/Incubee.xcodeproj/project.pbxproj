@@ -22,7 +22,7 @@
 		5780CAFF1B3E833C0090ADCE /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CAFE1B3E833C0090ADCE /* ProfileViewController.m */; };
 		5780CB021B3E83460090ADCE /* MessagingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB011B3E83460090ADCE /* MessagingTableViewController.m */; };
 		5780CB051B3E834F0090ADCE /* ICLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB041B3E834F0090ADCE /* ICLoginViewController.m */; };
-		5780CB0A1B3E835B0090ADCE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB071B3E835B0090ADCE /* HomeViewController.m */; };
+		5780CB0A1B3E835B0090ADCE /* ICHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB071B3E835B0090ADCE /* ICHomeViewController.m */; };
 		5780CB0B1B3E835B0090ADCE /* ICCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB091B3E835B0090ADCE /* ICCardViewController.m */; };
 		5780CB0E1B3E83740090ADCE /* ICDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB0D1B3E83740090ADCE /* ICDataManager.m */; };
 		5780CB171B3E84A00090ADCE /* IncubeeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB151B3E84A00090ADCE /* IncubeeModel.xcdatamodeld */; };
@@ -97,8 +97,8 @@
 		5780CB011B3E83460090ADCE /* MessagingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagingTableViewController.m; path = Source/ViewController/Messanger/MessagingTableViewController.m; sourceTree = "<group>"; };
 		5780CB031B3E834F0090ADCE /* ICLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICLoginViewController.h; path = Source/ViewController/Login/ICLoginViewController.h; sourceTree = "<group>"; };
 		5780CB041B3E834F0090ADCE /* ICLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICLoginViewController.m; path = Source/ViewController/Login/ICLoginViewController.m; sourceTree = "<group>"; };
-		5780CB061B3E835B0090ADCE /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Source/ViewController/Home/HomeViewController.h; sourceTree = "<group>"; };
-		5780CB071B3E835B0090ADCE /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Source/ViewController/Home/HomeViewController.m; sourceTree = "<group>"; };
+		5780CB061B3E835B0090ADCE /* ICHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICHomeViewController.h; path = Source/ViewController/Home/ICHomeViewController.h; sourceTree = "<group>"; };
+		5780CB071B3E835B0090ADCE /* ICHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICHomeViewController.m; path = Source/ViewController/Home/ICHomeViewController.m; sourceTree = "<group>"; };
 		5780CB081B3E835B0090ADCE /* ICCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICCardViewController.h; path = Source/ViewController/Home/ICCardViewController.h; sourceTree = "<group>"; };
 		5780CB091B3E835B0090ADCE /* ICCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICCardViewController.m; path = Source/ViewController/Home/ICCardViewController.m; sourceTree = "<group>"; };
 		5780CB0C1B3E83740090ADCE /* ICDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICDataManager.h; path = "Source/Data Module/ICDataManager.h"; sourceTree = "<group>"; };
@@ -294,8 +294,8 @@
 		5780CAEF1B3E81A90090ADCE /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				5780CB061B3E835B0090ADCE /* HomeViewController.h */,
-				5780CB071B3E835B0090ADCE /* HomeViewController.m */,
+				5780CB061B3E835B0090ADCE /* ICHomeViewController.h */,
+				5780CB071B3E835B0090ADCE /* ICHomeViewController.m */,
 				5780CB081B3E835B0090ADCE /* ICCardViewController.h */,
 				5780CB091B3E835B0090ADCE /* ICCardViewController.m */,
 			);
@@ -605,7 +605,7 @@
 				570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */,
 				5780CB0E1B3E83740090ADCE /* ICDataManager.m in Sources */,
 				57E724E61B4063E90066C0A5 /* ICImageManager.m in Sources */,
-				5780CB0A1B3E835B0090ADCE /* HomeViewController.m in Sources */,
+				5780CB0A1B3E835B0090ADCE /* ICHomeViewController.m in Sources */,
 				5780CB5A1B3EB01F0090ADCE /* Project.m in Sources */,
 				5780CAFF1B3E833C0090ADCE /* ProfileViewController.m in Sources */,
 				5780CB3B1B3E8A250090ADCE /* ICOperationManager.m in Sources */,

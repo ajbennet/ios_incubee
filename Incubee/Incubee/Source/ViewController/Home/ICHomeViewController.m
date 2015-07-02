@@ -6,18 +6,18 @@
 //  Copyright (c) 2015 Incubee. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "ICHomeViewController.h"
 #import "ICCardViewController.h"
 #import "ICAppManager.h"
 #import "ICAppManager+Networking.h"
 #import "ICLoginViewController.h"
 
 
-@interface HomeViewController ()
+@interface ICHomeViewController ()
 
 @end
 
-@implementation HomeViewController
+@implementation ICHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -91,7 +91,6 @@
 
     _currentlyShowingVC = _secondViewC;
     
-    
 }
 
 
@@ -102,18 +101,18 @@
 
 #pragma mark - ICCardViewDelegate - 
 
--(void)updateDescLable{
+-(void)updateCurrentProjDescLable{
 
     _projDescLable.text = _currentlyShowingVC.project.companyDescription;
 
 }
 
--(void)followProject{
+-(void)followCurrentProject{
     
     [self goNextProject:nil];
 }
 
--(void)dontFollowProject{
+-(void)dontFollowCurrentProject{
 
 
 }
@@ -149,7 +148,7 @@
         
     [_currentlyShowingVC showProject];
     
-    [self.view bringSubviewToFront:_v];
+    [self.view bringSubviewToFront:_optionView];
 
 }
 

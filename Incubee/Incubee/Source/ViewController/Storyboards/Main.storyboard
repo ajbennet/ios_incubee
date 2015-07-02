@@ -13,11 +13,11 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="WcT-Ss-om0">
             <objects>
                 <navigationController storyboardIdentifier="HomeNavigationSb" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ctq-YK-ceJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="HomeTabIcon" id="qL1-uh-05b"/>
+                    <tabBarItem key="tabBarItem" title="" image="HomeTabIcon" id="qL1-uh-05b"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eIs-pK-MVF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -30,10 +30,10 @@
             </objects>
             <point key="canvasLocation" x="732" y="-886.5"/>
         </scene>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="ICHomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -471,6 +471,21 @@
                                 <exclude reference="URg-dO-AUG"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="CoQ-JC-LS2"/>
+                                <exclude reference="IBa-Bw-G5P"/>
+                                <exclude reference="j66-9g-WZw"/>
+                                <exclude reference="1b2-3d-ODt"/>
+                                <exclude reference="7Bs-gS-UJr"/>
+                                <exclude reference="GKp-1r-cwJ"/>
+                                <exclude reference="JVf-zb-AEb"/>
+                                <exclude reference="Kjx-aF-Ysc"/>
+                                <exclude reference="OHK-SZ-hCo"/>
+                                <exclude reference="PLu-6c-gt3"/>
+                                <exclude reference="cCb-M1-onp"/>
+                                <exclude reference="ehd-xf-qMB"/>
+                                <exclude reference="ipj-cR-XaA"/>
+                                <exclude reference="oRs-bL-zmi"/>
+                                <exclude reference="srT-mt-uYP"/>
                                 <exclude reference="IIT-xv-WkN"/>
                                 <exclude reference="Uur-Xg-97o"/>
                                 <exclude reference="VbD-TV-OxL"/>
@@ -486,21 +501,6 @@
                                 <exclude reference="UM3-iU-rqd"/>
                                 <exclude reference="nYq-EA-FJz"/>
                                 <exclude reference="sbG-ug-fB1"/>
-                                <exclude reference="1b2-3d-ODt"/>
-                                <exclude reference="7Bs-gS-UJr"/>
-                                <exclude reference="GKp-1r-cwJ"/>
-                                <exclude reference="JVf-zb-AEb"/>
-                                <exclude reference="Kjx-aF-Ysc"/>
-                                <exclude reference="OHK-SZ-hCo"/>
-                                <exclude reference="PLu-6c-gt3"/>
-                                <exclude reference="cCb-M1-onp"/>
-                                <exclude reference="ehd-xf-qMB"/>
-                                <exclude reference="ipj-cR-XaA"/>
-                                <exclude reference="oRs-bL-zmi"/>
-                                <exclude reference="srT-mt-uYP"/>
-                                <exclude reference="CoQ-JC-LS2"/>
-                                <exclude reference="IBa-Bw-G5P"/>
-                                <exclude reference="j66-9g-WZw"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -510,6 +510,21 @@
                                 <include reference="URg-dO-AUG"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="CoQ-JC-LS2"/>
+                                <exclude reference="IBa-Bw-G5P"/>
+                                <include reference="j66-9g-WZw"/>
+                                <exclude reference="1b2-3d-ODt"/>
+                                <include reference="7Bs-gS-UJr"/>
+                                <exclude reference="GKp-1r-cwJ"/>
+                                <exclude reference="JVf-zb-AEb"/>
+                                <include reference="Kjx-aF-Ysc"/>
+                                <exclude reference="OHK-SZ-hCo"/>
+                                <exclude reference="PLu-6c-gt3"/>
+                                <exclude reference="cCb-M1-onp"/>
+                                <exclude reference="ehd-xf-qMB"/>
+                                <include reference="ipj-cR-XaA"/>
+                                <include reference="oRs-bL-zmi"/>
+                                <exclude reference="srT-mt-uYP"/>
                                 <include reference="IIT-xv-WkN"/>
                                 <include reference="Uur-Xg-97o"/>
                                 <include reference="VbD-TV-OxL"/>
@@ -525,25 +540,10 @@
                                 <exclude reference="UM3-iU-rqd"/>
                                 <include reference="nYq-EA-FJz"/>
                                 <include reference="sbG-ug-fB1"/>
-                                <exclude reference="1b2-3d-ODt"/>
-                                <include reference="7Bs-gS-UJr"/>
-                                <exclude reference="GKp-1r-cwJ"/>
-                                <exclude reference="JVf-zb-AEb"/>
-                                <include reference="Kjx-aF-Ysc"/>
-                                <exclude reference="OHK-SZ-hCo"/>
-                                <exclude reference="PLu-6c-gt3"/>
-                                <exclude reference="cCb-M1-onp"/>
-                                <exclude reference="ehd-xf-qMB"/>
-                                <include reference="ipj-cR-XaA"/>
-                                <include reference="oRs-bL-zmi"/>
-                                <exclude reference="srT-mt-uYP"/>
-                                <exclude reference="CoQ-JC-LS2"/>
-                                <exclude reference="IBa-Bw-G5P"/>
-                                <include reference="j66-9g-WZw"/>
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="" image="first" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" id="LzG-cZ-neg"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
@@ -551,9 +551,9 @@
                         <outlet property="activityLable" destination="xY7-xm-9vg" id="EoQ-CX-CSM"/>
                         <outlet property="activityView" destination="URg-dO-AUG" id="Woc-pW-x4h"/>
                         <outlet property="dislikeProj" destination="pqa-jw-ugm" id="UWn-nE-3N5"/>
+                        <outlet property="optionView" destination="2U0-PZ-PjK" id="D9b-po-xMx"/>
                         <outlet property="projDescLable" destination="G4g-ZO-G6F" id="Ovg-xN-7Xa"/>
                         <outlet property="saveProject" destination="bPp-3D-TrK" id="nzm-8B-xeS"/>
-                        <outlet property="v" destination="2U0-PZ-PjK" id="Zpk-ks-3HA"/>
                         <outlet property="view" destination="tsR-hK-woN" id="NUY-Rk-Tg7"/>
                     </connections>
                 </viewController>
@@ -615,11 +615,11 @@
             </objects>
             <point key="canvasLocation" x="1549" y="504.75"/>
         </scene>
-        <!--Search-->
+        <!--Navigation Controller-->
         <scene sceneID="mc1-9r-kuQ">
             <objects>
                 <navigationController id="Ryv-Rk-08c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="SearchTabIcon" id="JhY-IX-gQT"/>
+                    <tabBarItem key="tabBarItem" title="" image="SearchTabIcon" id="JhY-IX-gQT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fdd-Bu-zCv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -632,11 +632,11 @@
             </objects>
             <point key="canvasLocation" x="738" y="510.75"/>
         </scene>
-        <!--Messaging-->
+        <!--Navigation Controller-->
         <scene sceneID="dAx-wN-OU9">
             <objects>
                 <navigationController id="fJO-yQ-I0a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Messaging" image="MsgTabIcon" id="Xpr-VG-pEL"/>
+                    <tabBarItem key="tabBarItem" title="" image="MsgTabIcon" id="Xpr-VG-pEL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="l0L-ov-wPc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -649,7 +649,7 @@
             </objects>
             <point key="canvasLocation" x="738" y="-211.5"/>
         </scene>
-        <!--Profile-->
+        <!--Profile View Controller-->
         <scene sceneID="lOW-Ly-1cO">
             <objects>
                 <viewController id="u8x-yZ-MBt" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -662,7 +662,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileTabIcon" id="QFe-wn-OZ5"/>
+                    <tabBarItem key="tabBarItem" title="" image="ProfileTabIcon" id="QFe-wn-OZ5"/>
                     <connections>
                         <outlet property="view" destination="o03-bf-LAA" id="cLs-r3-YjD"/>
                     </connections>

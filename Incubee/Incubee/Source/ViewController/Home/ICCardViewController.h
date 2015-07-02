@@ -20,11 +20,11 @@
 
 @required
 
--(void)followProject;
+-(void)followCurrentProject;
 
--(void)dontFollowProject;
+-(void)dontFollowCurrentProject;
 
--(void)updateDescLable;
+-(void)updateCurrentProjDescLable;
 
 @end
 
@@ -74,5 +74,7 @@
 
 - (void)dismissShowing;
 
+@property(nonatomic,assign)CGAffineTransform originalTransform;
+@property(nonatomic,assign)CGAffineTransform updatedTransform;
 
 @end

@@ -11,12 +11,12 @@
 #import "ICRequest.h"
 #import "Project.h"
 
-@interface HomeViewController : UIViewController <ICCardViewDelegate>{
+@interface ICHomeViewController : UIViewController <ICCardViewDelegate>{
 
     BOOL isFirstTimeLoading;
 }
 
-@property(nonatomic,strong)IBOutlet UIView *v;
+@property(nonatomic,strong)IBOutlet UIView *optionView;
 
 @property(nonatomic,strong)ICCardViewController *firstViewC;
 

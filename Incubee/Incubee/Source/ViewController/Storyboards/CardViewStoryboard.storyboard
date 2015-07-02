@@ -42,7 +42,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.1137254902" green="0.49803921569999998" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="iMM-to-mOK" secondAttribute="bottom" constant="86" id="1Ie-pf-icG">
                                                         <variation key="heightClass=regular" constant="0.0"/>
@@ -130,10 +130,10 @@
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="itA-la-RTe" customClass="ICImageView">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" red="0.1137254902" green="0.49803921569999998" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.13725490200000001" green="0.71372549019999998" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.1137254902" green="0.49803921569999998" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="itA-la-RTe" secondAttribute="trailing" id="70m-ez-jJA"/>
                                                     <constraint firstItem="qjf-W6-hSh" firstAttribute="height" secondItem="SAt-jD-4TO" secondAttribute="height" id="XYY-9w-lbZ"/>
