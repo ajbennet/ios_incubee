@@ -81,72 +81,17 @@
 }
 
 
-//-(void)dragging:(UIPanGestureRecognizer *)gesture
-//{
-//    if(gesture.state == UIGestureRecognizerStateBegan)
-//    {
-////        _panCoord = [gesture locationInView:self.view];
-////
-////        _originalFrame = _cardView.frame;
-//        
-////        _originalTransform = _cardView.transform;
-//
-//        
-//    }
-//    else if (gesture.state == UIGestureRecognizerStateEnded)
-//    {
-////        CGPoint newCoord = [gesture locationInView:self.view];
-////        
-////        float dX = newCoord.x-_panCoord.x;
-////        
-////        if(dX > SWIPE_MOVE)
-////        {
-////            [_delegate followProject];
-////        }
-////        else if( dX < (-(SWIPE_MOVE)))
-////        {
-////            [_delegate followProject];
-////        }
-////        _cardView.frame = _originalFrame;
-//        
-//    }
-//    else if(gesture.state == UIGestureRecognizerStateChanged)
-//    {
-////        CGPoint newCoord = [gesture locationInView:gesture.view];
-//////
-////        float dX = newCoord.x-_panCoord.x;
-////        
-////        float dY = newCoord.y-_panCoord.y;
-//////
-//////        _cardView.frame = CGRectMake(_cardView.frame.origin.x+dX, _cardView.frame.origin.y+dY, _cardView.frame.size.width, _cardView.frame.size.height);
-//
-//    
-//        _cardView.transform = CGAffineTransformTranslate(_cardView.transform, dX, dY);
-//
-//        _updatedTransform = _cardView.transform;
-        
-//        CGPoint translation = [gesture translationInView:self.view];
-//        
-//        gesture.view.center = CGPointMake(gesture.view.center.x + translation.x,
-//                                             gesture.view.center.y + translation.y);
-//
-//        
-//        
-
-//
-//        
-//    
-//    }
-//    
-//}
-//
 -(void)dragging:(UIPanGestureRecognizer *)gesture
 {
     if(gesture.state == UIGestureRecognizerStateBegan)
     {
         _panCoord = [gesture locationInView:self.view];
-        
+
         _originalFrame = _cardView.frame;
+        
+        _originalTransform = _cardView.transform;
+
+        
     }
     else if (gesture.state == UIGestureRecognizerStateEnded)
     {
@@ -156,100 +101,155 @@
         
         if(dX > SWIPE_MOVE)
         {
-            [UIView animateWithDuration: 0.5
-                                  delay: 0
-                                options: UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
-                             animations:^{
-                                 
-                                 CGRect r = CGRectMake(_originalFrame.origin.x, _originalFrame.origin.y, _originalFrame.size.width+100, _originalFrame.size.height);
-                                 
-                                 _cardView.frame = r;
-                                 
-                             }
-                             completion:^(BOOL finished) {
-                                 
-                                 _cardView.frame = _originalFrame;
-
-                                 [_delegate followCurrentProject];
-                                 
-
-                             }];
-
+            [_delegate followCurrentProject];
         }
         else if( dX < (-(SWIPE_MOVE)))
         {
-            [UIView animateWithDuration: 0.25
-                                  delay: 0
-                                options: UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
-                             animations:^{
-                                 
-                                 CGRect r = CGRectMake(_originalFrame.origin.x, _originalFrame.origin.y, _originalFrame.size.width-100, _originalFrame.size.height);
-                                 
-                                 _cardView.frame = r;
-
-                                 
-                             }
-                             completion:^(BOOL finished) {
-                                 
-                                 _cardView.frame = _originalFrame;
-
-                                 [_delegate followCurrentProject];
-                                 
-
-                             }];
+            [_delegate followCurrentProject];
         }
-        else
-        {
+        _cardView.frame = _originalFrame;
         
-            [UIView animateWithDuration: 0.25
-                                  delay: 0
-                                options: UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
-                             animations:^{
-                                 
-                                 CGRect r = CGRectMake(_originalFrame.origin.x, _originalFrame.origin.y, _originalFrame.size.width-100, _originalFrame.size.height);
-                                 
-                                 _cardView.frame = r;
-                                 
-                                 
-                             }
-                             completion:^(BOOL finished) {
-                                 
-                                 _cardView.frame = _originalFrame;
-                                 
-                                 [_delegate followCurrentProject];
-                                 
-                                 
-                             }];
-            
-        }
     }
-    else
+    else if(gesture.state == UIGestureRecognizerStateChanged)
     {
         CGPoint newCoord = [gesture locationInView:gesture.view];
-        
+//
         float dX = newCoord.x-_panCoord.x;
         
         float dY = newCoord.y-_panCoord.y;
-        
-        [UIView animateWithDuration: 0.25
-                              delay: 0
-                            options: UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
-                         animations:^{
-                             
-                             _cardView.frame = _originalFrame;
-                         }
-                         completion:nil];
+//
+        _cardView.frame = CGRectMake(_cardView.frame.origin.x+dX, _cardView.frame.origin.y+dY, _cardView.frame.size.width, _cardView.frame.size.height);
+
+    
+//        _cardView.transform = CGAffineTransformTranslate(_cardView.transform, dX, dY);
+//
+//        _updatedTransform = _cardView.transform;
+//        
+//        CGPoint translation = [gesture translationInView:self.view];
+//        
+//        gesture.view.center = CGPointMake(gesture.view.center.x + translation.x,
+//                                             gesture.view.center.y + translation.y);
+//
+//        
+//        
+
 
         
-        
+    
     }
     
 }
+//
+//-(void)dragging:(UIPanGestureRecognizer *)gesture
+//{
+//    if(gesture.state == UIGestureRecognizerStateBegan)
+//    {
+//        _panCoord = [gesture locationInView:self.view];
+//        
+//        _originalFrame = _cardView.frame;
+//    }
+//    else if (gesture.state == UIGestureRecognizerStateEnded)
+//    {
+//        CGPoint newCoord = [gesture locationInView:self.view];
+//        
+//        float dX = newCoord.x-_panCoord.x;
+//        
+//        if(dX > SWIPE_MOVE)
+//        {
+//            [UIView animateWithDuration: 0.5
+//                                  delay: 0
+//                                options: UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
+//                             animations:^{
+//                                 
+//                                 CGRect r = CGRectMake(_originalFrame.origin.x, _originalFrame.origin.y, _originalFrame.size.width+100, _originalFrame.size.height);
+//                                 
+//                                 _cardView.frame = r;
+//                                 
+//                             }
+//                             completion:^(BOOL finished) {
+//                                 
+//                                 _cardView.frame = _originalFrame;
+//
+//                                 [_delegate followCurrentProject];
+//                                 
+//
+//                             }];
+//
+//        }
+//        else if( dX < (-(SWIPE_MOVE)))
+//        {
+//            [UIView animateWithDuration: 0.25
+//                                  delay: 0
+//                                options: UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
+//                             animations:^{
+//                                 
+//                                 CGRect r = CGRectMake(_originalFrame.origin.x, _originalFrame.origin.y, _originalFrame.size.width-100, _originalFrame.size.height);
+//                                 
+//                                 _cardView.frame = r;
+//
+//                                 
+//                             }
+//                             completion:^(BOOL finished) {
+//                                 
+//                                 _cardView.frame = _originalFrame;
+//
+//                                 [_delegate followCurrentProject];
+//                                 
+//
+//                             }];
+//        }
+//        else
+//        {
+//        
+//            [UIView animateWithDuration: 0.25
+//                                  delay: 0
+//                                options: UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
+//                             animations:^{
+//                                 
+//                                 CGRect r = CGRectMake(_originalFrame.origin.x, _originalFrame.origin.y, _originalFrame.size.width-100, _originalFrame.size.height);
+//                                 
+//                                 _cardView.frame = r;
+//                                 
+//                                 
+//                             }
+//                             completion:^(BOOL finished) {
+//                                 
+//                                 _cardView.frame = _originalFrame;
+//                                 
+//                                 [_delegate followCurrentProject];
+//                                 
+//                                 
+//                             }];
+//            
+//        }
+//    }
+//    else
+//    {
+//        CGPoint newCoord = [gesture locationInView:gesture.view];
+//        
+//        float dX = newCoord.x-_panCoord.x;
+//        
+//        float dY = newCoord.y-_panCoord.y;
+//        
+//        [UIView animateWithDuration: 0.25
+//                              delay: 0
+//                            options: UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
+//                         animations:^{
+//                             
+//                             _cardView.frame = _originalFrame;
+//                         }
+//                         completion:nil];
+//
+//        
+//        
+//    }
+//    
+//}
 
 
 -(void)showProject{
     
-//    [_moviePlayer play];
+    [_moviePlayer play];
     
     [_delegate updateCurrentProjDescLable];
 
@@ -263,9 +263,11 @@
     [_moviePlayer.view setFrame:CGRectMake(0, 0, _moviePlayerView.frame.size.width, _moviePlayerView.frame.size.height)];
     _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
     
-    _moviePlayer.shouldAutoplay = NO;
+    _moviePlayer.shouldAutoplay = YES;
     
     _moviePlayer.repeatMode = NO;
+    
+    _moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
     
     [_moviePlayer setFullscreen:NO animated:NO];
     
@@ -284,9 +286,9 @@
 
     [_moviePlayer stop];
     
-    [_moviePlayer.view removeFromSuperview];
-    
-    _moviePlayer = nil;
+//    [_moviePlayer.view removeFromSuperview];
+//    
+//    _moviePlayer = nil;
 
 }
 
@@ -338,7 +340,7 @@
     
     
     
-    [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(showMovie) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(showMovie) userInfo:nil repeats:NO];
     
 }
 

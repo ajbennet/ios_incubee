@@ -20,15 +20,10 @@
 @implementation ICHomeViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    [self showActivity:YES withMsg:@"Fetching all projects"];
-
-    isFirstTimeLoading = YES;
-    
-    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed:"];
-    
     self.navigationController.navigationBarHidden = YES;
     
     _projectList = [[ICDataManager sharedInstance] getAllProjects];
@@ -39,22 +34,28 @@
     
     if(_projectList.count!=0)
     {
-        int r1 = arc4random_uniform((int)_projectList.count);
+        _firstCard = [_projectList objectAtIndex:0];
         
-        int r2 = arc4random_uniform((int)_projectList.count);
-    
-        _firstCard = [_projectList objectAtIndex:r1];
-        
-        _secondCard = [_projectList objectAtIndex:r2];
-        
-        [_firstViewC setProject:_firstCard];
+        _secondCard = [_projectList objectAtIndex:1];
         
         [_secondViewC setProject:_secondCard];
+
+        [_firstViewC setProject:_firstCard];        
+        
+        _currentlyShowingVC = _secondViewC;
         
         [_currentlyShowingVC showProject];
         
+        _currentlyShowingIndexoffset = 1;
+    }
+    else
+    {
+        isFirstTimeLoading = YES;
     }
     
+    [self showActivity:YES withMsg:@"Fetching all projects"];
+    
+    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed:"];
 }
 
 -(void)setupCards{
@@ -88,6 +89,8 @@
     [self.view addSubview:_secondViewC.view];
     
     [_secondViewC didMoveToParentViewController:self];
+    
+    //Setting Current Showing Project
 
     _currentlyShowingVC = _secondViewC;
     
@@ -109,7 +112,7 @@
 
 -(void)followCurrentProject{
     
-    [self goNextProject:nil];
+
 }
 
 -(void)dontFollowCurrentProject{
@@ -123,10 +126,7 @@
     
     [_currentlyShowingVC dismissShowing];
     
-    
-    int r = arc4random_uniform((int)_projectList.count);
-    
-    Project *randProj = [_projectList objectAtIndex:r];
+    Project *randProj = [_projectList objectAtIndex:0];
 
     if(_currentlyShowingVC == _secondViewC)
     {
@@ -154,20 +154,66 @@
 
 - (IBAction)addToCustomer:(id)sender {
     
-    [self showActivity:YES withMsg:@"Fetching new projects"];
-
-    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed:"];
-
 
 }
 - (IBAction)saveProjTapped:(id)sender {
     
-    [self goNextProject:nil];
+    [_currentlyShowingVC dismissShowing];
+    
+    if(_currentlyShowingVC == _secondViewC)
+    {
+        [self.view bringSubviewToFront:_firstViewC.view];
+        
+        _currentlyShowingVC = _firstViewC;
+        
+        
+        // now configre SecondView.
+        
+        _currentlyShowingIndexoffset++;
+        
+        _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+        
+        _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+        
+        [_secondViewC setProject:_secondCard];
+        
+    }
+    else if(_currentlyShowingVC == _firstViewC)
+    {
+        [self.view bringSubviewToFront:_secondViewC.view];
+        
+        _currentlyShowingVC = _secondViewC;
+        
+        
+        // now configre FirstView.
+        
+        _currentlyShowingIndexoffset++;
+        
+        _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+        
+        _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+        
+        [_firstViewC setProject:_firstCard];
+        
+    }
+    
+    [_currentlyShowingVC showProject];
+    
+    [self.view bringSubviewToFront:_optionView];
 
 }
+
 - (IBAction)dislikeProjTapped:(id)sender {
     
     [self goNextProject:nil];
+}
+
+- (IBAction)refreshView:(id)sender {
+    
+    [self showActivity:YES withMsg:@"Fetching new projects"];
+    
+    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed:"];
+
 }
 
 -(void)showLoginScreen{
@@ -214,19 +260,15 @@
 
     [self showActivity:NO withMsg:nil];
     
-    if(inRequest.error.localizedDescription == nil)
+    if(inRequest.error == nil)
     {
         _projectList = [[ICDataManager sharedInstance] getAllProjects];
 
         if(isFirstTimeLoading)
-        {
-            int r1 = arc4random_uniform((int)_projectList.count);
+        {            
+            _firstCard = [_projectList objectAtIndex:0];
             
-            int r2 = arc4random_uniform((int)_projectList.count);
-            
-            _firstCard = [_projectList objectAtIndex:r1];
-            
-            _secondCard = [_projectList objectAtIndex:r2];
+            _secondCard = [_projectList objectAtIndex:1];
             
             [_firstViewC setProject:_firstCard];
             

@@ -16,6 +16,10 @@
     BOOL isFirstTimeLoading;
 }
 
+@property(nonatomic,strong)NSArray *projectList;
+
+@property(nonatomic,assign)int currentlyShowingIndexoffset;
+
 @property(nonatomic,strong)IBOutlet UIView *optionView;
 
 @property(nonatomic,strong)ICCardViewController *firstViewC;
@@ -24,17 +28,12 @@
 
 @property(nonatomic,strong)ICCardViewController *currentlyShowingVC;
 
-@property (weak, nonatomic) IBOutlet UIButton *dislikeProj;
-
-@property (weak, nonatomic) IBOutlet UIButton *saveProject;
-
-@property(nonatomic,strong)NSArray *projectList;
+@property (weak, nonatomic) IBOutlet UILabel *projDescLable;
 
 @property(nonatomic,strong)Project *firstCard;
 
 @property(nonatomic,strong)Project *secondCard;
 
-@property (weak, nonatomic) IBOutlet UILabel *projDescLable;
 
 
 #pragma mark - Activity View - 
@@ -46,6 +45,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *activityLable;
 
 
+@property (weak, nonatomic) IBOutlet UIButton *dislikeProj;
+
+@property (weak, nonatomic) IBOutlet UIButton *saveProject;
+
 - (IBAction)goNextProject:(id)sender;
 
 - (IBAction)addToCustomer:(id)sender;
@@ -54,6 +57,7 @@
 
 - (IBAction)dislikeProjTapped:(id)sender;
 
+- (IBAction)refreshView:(id)sender;
 
 #pragma mark - Network Notifications -
 

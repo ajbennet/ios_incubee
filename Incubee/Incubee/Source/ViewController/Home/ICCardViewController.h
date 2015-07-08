@@ -16,7 +16,7 @@
 #import "ICImageManager.h"
 
 
-@protocol ICCardViewDelegate <NSObject,ICImageManagerDelegate>
+@protocol ICCardViewDelegate <NSObject>
 
 @required
 
