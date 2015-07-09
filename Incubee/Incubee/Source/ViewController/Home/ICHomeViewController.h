@@ -49,13 +49,15 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *saveProject;
 
+- (IBAction)likeProjectTapped:(id)sender;
+
+- (IBAction)dislikeProjTapped:(id)sender;
+
+
 - (IBAction)goNextProject:(id)sender;
 
 - (IBAction)addToCustomer:(id)sender;
 
-- (IBAction)saveProjTapped:(id)sender;
-
-- (IBAction)dislikeProjTapped:(id)sender;
 
 - (IBAction)refreshView:(id)sender;
 

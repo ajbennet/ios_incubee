@@ -54,7 +54,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QI-aV-cTX">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqa-jw-ugm" userLabel="DontFollow">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqa-jw-ugm" userLabel="DontLike">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="46" id="1e2-MD-uEu">
@@ -95,7 +95,7 @@
                                                     <action selector="dislikeProjTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="KDt-IV-k7C"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPp-3D-TrK" userLabel="Follow">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPp-3D-TrK" userLabel="Like">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bPp-3D-TrK" secondAttribute="height" multiplier="1:1" id="PhB-dH-RzC"/>
@@ -127,7 +127,7 @@
                                                     </mask>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="saveProjTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="8bt-yI-ikX"/>
+                                                    <action selector="likeProjectTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="8cS-aZ-Vf1"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AR2-eV-eHU" userLabel="add">

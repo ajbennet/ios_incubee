@@ -41,7 +41,7 @@
         [_secondViewC setProject:_secondCard];
 
         [_firstViewC setProject:_firstCard];        
-        
+
         _currentlyShowingVC = _secondViewC;
         
         [_currentlyShowingVC showProject];
@@ -156,7 +156,7 @@
     
 
 }
-- (IBAction)saveProjTapped:(id)sender {
+- (IBAction)likeProjectTapped:(id)sender {
     
     [_currentlyShowingVC dismissShowing];
     
@@ -205,7 +205,55 @@
 
 - (IBAction)dislikeProjTapped:(id)sender {
     
-    [self goNextProject:nil];
+    {
+        
+        [_currentlyShowingVC dismissShowing];
+        
+        if(_currentlyShowingVC == _secondViewC)
+        {
+            [self.view bringSubviewToFront:_firstViewC.view];
+            
+            _currentlyShowingVC = _firstViewC;
+            
+            
+            // now configre SecondView.
+            
+            _currentlyShowingIndexoffset++;
+            
+            _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+            
+            _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+            
+            [_secondViewC setProject:_secondCard];
+            
+        }
+        else if(_currentlyShowingVC == _firstViewC)
+        {
+            [self.view bringSubviewToFront:_secondViewC.view];
+            
+            _currentlyShowingVC = _secondViewC;
+            
+            
+            // now configre FirstView.
+            
+            _currentlyShowingIndexoffset++;
+            
+            _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+            
+            _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+            
+            [_firstViewC setProject:_firstCard];
+            
+        }
+        
+        [_currentlyShowingVC showProject];
+        
+        [self.view bringSubviewToFront:_optionView];
+        
+    }
+
+    
+
 }
 
 - (IBAction)refreshView:(id)sender {

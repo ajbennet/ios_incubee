@@ -359,7 +359,6 @@
     
     [_moviePlayer.view setBackgroundColor:[UIColor clearColor]];
     
-    
     [_moviePlayerView bringSubviewToFront:_moviePlayer.view];
     
     [_moviePlayer play];
