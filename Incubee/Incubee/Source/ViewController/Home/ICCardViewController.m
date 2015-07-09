@@ -249,18 +249,102 @@
 
 -(void)showProject{
     
-    [_moviePlayer play];
-    
     [_delegate updateCurrentProjDescLable];
+    
+    [self showMovie];
 
 }
 
 
 -(void)showMovie{
     
+    if(_moviePlayer)
+    {
+        [_moviePlayer stop];
+        
+        [_moviePlayer.view removeFromSuperview];
+        
+        _moviePlayer = nil;
+    }
+    
     _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_project.video]];
     
-    [_moviePlayer.view setFrame:CGRectMake(0, 0, _moviePlayerView.frame.size.width, _moviePlayerView.frame.size.height)];
+    _moviePlayer.view.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [_moviePlayerView addSubview:_moviePlayer.view];
+
+    
+    NSLayoutConstraint *width =[NSLayoutConstraint
+                                constraintWithItem:_moviePlayer.view
+                                attribute:NSLayoutAttributeWidth
+                                relatedBy:0
+                                toItem:_moviePlayerView
+                                attribute:NSLayoutAttributeWidth
+                                multiplier:1.0
+                                constant:0];
+    
+    NSLayoutConstraint *height =[NSLayoutConstraint
+                                 constraintWithItem:_moviePlayer.view
+                                 attribute:NSLayoutAttributeHeight
+                                 relatedBy:0
+                                 toItem:_moviePlayerView
+                                 attribute:NSLayoutAttributeHeight
+                                 multiplier:1.0
+                                 constant:0];
+    
+//    NSLayoutConstraint *top = [NSLayoutConstraint
+//                               constraintWithItem:_moviePlayer.view
+//                               attribute:NSLayoutAttributeTop
+//                               relatedBy:NSLayoutRelationEqual
+//                               toItem:_moviePlayerView
+//                               attribute:NSLayoutAttributeTop
+//                               multiplier:1.0f
+//                               constant:0.f];
+//    
+//    NSLayoutConstraint *leading = [NSLayoutConstraint
+//                                   constraintWithItem:_moviePlayer.view
+//                                   attribute:NSLayoutAttributeLeading
+//                                   relatedBy:NSLayoutRelationEqual
+//                                   toItem:_moviePlayerView
+//                                   attribute:NSLayoutAttributeLeading
+//                                   multiplier:1.0f
+//                                   constant:0.f];
+//    
+//    NSLayoutConstraint *bottom = [NSLayoutConstraint
+//                                   constraintWithItem:_moviePlayer.view
+//                                   attribute:NSLayoutAttributeLeading
+//                                   relatedBy:NSLayoutRelationEqual
+//                                   toItem:_moviePlayerView
+//                                   attribute:NSLayoutAttributeBottom
+//                                   multiplier:1.0f
+//                                   constant:0.f];
+//
+//    
+//    NSLayoutConstraint *trailing = [NSLayoutConstraint
+//                                   constraintWithItem:_moviePlayer.view
+//                                   attribute:NSLayoutAttributeLeading
+//                                   relatedBy:NSLayoutRelationEqual
+//                                   toItem:_moviePlayerView
+//                                   attribute:NSLayoutAttributeTrailing
+//                                   multiplier:1.0f
+//                                   constant:0.f];
+
+//
+    [_moviePlayerView addConstraint:width];
+    [_moviePlayerView addConstraint:height];
+//    [_moviePlayerView addConstraint:top];
+//    [_moviePlayerView addConstraint:leading];
+//    [_moviePlayerView addConstraint:trailing];
+//    [_moviePlayerView addConstraint:bottom];
+
+    
+    
+    
+    
+    
+    
+    
+    
     _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
     
     _moviePlayer.shouldAutoplay = YES;
@@ -275,10 +359,10 @@
     
     [_moviePlayer.view setBackgroundColor:[UIColor clearColor]];
     
-    [_moviePlayerView addSubview:_moviePlayer.view];
     
     [_moviePlayerView bringSubviewToFront:_moviePlayer.view];
     
+    [_moviePlayer play];
 
 }
 
@@ -337,10 +421,6 @@
     [_bottomRightImageView setImageUrl:urlString4];
     
     [im4 getImage:urlString4 withDelegate:self];
-    
-    
-    
-    [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(showMovie) userInfo:nil repeats:NO];
     
 }
 
