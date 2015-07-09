@@ -162,6 +162,14 @@
     
     if(_currentlyShowingVC == _secondViewC)
     {
+//        [UIView
+//         animateKeyframesWithDuration:3
+//         delay:0
+//         options:UIViewKeyframeAnimationOptionCalculationModeLinear
+//         animations:^{
+//             
+//         } completion:^(BOOL finished) {
+        
         [self.view bringSubviewToFront:_firstViewC.view];
         
         _currentlyShowingVC = _firstViewC;
@@ -176,6 +184,11 @@
         _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
         
         [_secondViewC setProject:_secondCard];
+             
+
+
+//         }];
+
         
     }
     else if(_currentlyShowingVC == _firstViewC)
@@ -194,11 +207,11 @@
         _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
         
         [_firstViewC setProject:_firstCard];
-        
+                
     }
     
     [_currentlyShowingVC showProject];
-    
+
     [self.view bringSubviewToFront:_optionView];
 
 }

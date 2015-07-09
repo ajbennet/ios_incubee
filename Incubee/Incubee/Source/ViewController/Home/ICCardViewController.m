@@ -25,9 +25,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIPanGestureRecognizer *gestureRecognizerA = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragging:)];
-    
-    [_cardView addGestureRecognizer:gestureRecognizerA];
+//    UIPanGestureRecognizer *gestureRecognizerA = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragging:)];
+//    
+//    [_cardView addGestureRecognizer:gestureRecognizerA];
 
 }
 
@@ -337,13 +337,6 @@
 //    [_moviePlayerView addConstraint:trailing];
 //    [_moviePlayerView addConstraint:bottom];
 
-    
-    
-    
-    
-    
-    
-    
     
     _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
     
