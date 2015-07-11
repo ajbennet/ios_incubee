@@ -106,19 +106,11 @@
 
 #pragma mark - ICCardViewDelegate - 
 
--(void)updateCurrentProjDescLable{
-
-    _projDescLable.text = _currentlyShowingVC.project.companyDescription;
-
-}
-
 -(void)followCurrentProject:(float)movedValue{
     
     [_currentlyShowingVC dismissShowing];
 
-    CGAffineTransform translate;
-    
-    translate = CGAffineTransformTranslate(_secondViewC.cardView.transform, 500.0f, 0);
+    CGAffineTransform translate = CGAffineTransformTranslate(_secondViewC.cardView.transform, 500.0f, 0);
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
@@ -258,6 +250,7 @@
                              _secondViewC.cardView.transform = CGAffineTransformIdentity;
                              
                              _secondViewC.cardSelectStatusImage.alpha = 0.0f;
+                             
                              _secondViewC.cardView.layer.borderColor = [UIColor clearColor].CGColor;
                              
                              _secondViewC.cardView.layer.borderWidth = 0.0f;
@@ -317,6 +310,14 @@
     
 }
 
+-(void)updateCurrentProjDescLable{
+    
+    _projDescLable.text = _currentlyShowingVC.project.companyDescription;
+    
+}
+
+#pragma mark - IBActions -
+
 - (IBAction)goNextProject:(id)sender {
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
@@ -353,6 +354,7 @@
     
 
 }
+
 - (IBAction)likeProjectTapped:(id)sender {
     
     [_currentlyShowingVC dismissShowing];
@@ -365,9 +367,13 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
-        [UIView animateWithDuration:0.5f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        _firstViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
+        
+        [UIView animateWithDuration:0.4f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
+                             _firstViewC.cardView.transform = CGAffineTransformIdentity;
+
                              _secondViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
                              
                              _secondViewC.cardSelectStatusImage.alpha = 1.0f;
@@ -408,10 +414,14 @@
     else if(_currentlyShowingVC == _firstViewC)
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
+        
+        _secondViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
 
-        [UIView animateWithDuration:0.5f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:0.4f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
+                             _secondViewC.cardView.transform = CGAffineTransformIdentity;
+
                              _firstViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
                              
                              _firstViewC.cardSelectStatusImage.alpha = 1.0f;
@@ -419,8 +429,8 @@
                              _firstViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
                              
                              _firstViewC.cardView.layer.borderWidth = 4.0f;
-
                              
+
                          } completion:^(BOOL finished) {
                              {
                                  
@@ -470,9 +480,13 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"DislikeButton"];
         
-        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        _firstViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
+        
+        [UIView animateWithDuration:0.4f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
+                             _firstViewC.cardView.transform = CGAffineTransformIdentity;
+
                              _secondViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
                              
                              _secondViewC.cardSelectStatusImage.alpha = 1.0f;
@@ -517,9 +531,13 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"DislikeButton"];
     
-        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        _secondViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
+
+        [UIView animateWithDuration:0.4f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
+                             _secondViewC.cardView.transform = CGAffineTransformIdentity;
+
                              _firstViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
                              
                              _firstViewC.cardSelectStatusImage.alpha = 1.0f;
@@ -527,8 +545,6 @@
                              _firstViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FB7575"].CGColor;
                              
                              _firstViewC.cardView.layer.borderWidth = 4.0f;
-                             
-
                              
                              
                          } completion:^(BOOL finished) {
@@ -567,6 +583,7 @@
     
 }
 
+#pragma mark -
 - (IBAction)refreshView:(id)sender {
     
     [self showActivity:YES withMsg:@"Fetching new projects"];
