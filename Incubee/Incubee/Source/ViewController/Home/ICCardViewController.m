@@ -7,6 +7,8 @@
 //
 
 #import "ICCardViewController.h"
+#import "ICUtilityManager.h"
+
 
 #define SWIPE_MOVE 100.0f
 
@@ -25,9 +27,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    UIPanGestureRecognizer *gestureRecognizerA = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragging:)];
-//    
-//    [_cardView addGestureRecognizer:gestureRecognizerA];
+    UIPanGestureRecognizer *gestureRecognizerA = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragging:)];
+    
+    [_cardView addGestureRecognizer:gestureRecognizerA];
 
 }
 
@@ -45,6 +47,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Social Media Stuff -
 
 - (IBAction)twitterTapped:(id)sender {
     
@@ -80,17 +84,15 @@
     
 }
 
+#pragma mark - Dragging Animation -
 
 -(void)dragging:(UIPanGestureRecognizer *)gesture
 {
     if(gesture.state == UIGestureRecognizerStateBegan)
     {
         _panCoord = [gesture locationInView:self.view];
-
-        _originalFrame = _cardView.frame;
         
-        _originalTransform = _cardView.transform;
-
+        _originalFrame = _cardView.frame;
         
     }
     else if (gesture.state == UIGestureRecognizerStateEnded)
@@ -101,151 +103,76 @@
         
         if(dX > SWIPE_MOVE)
         {
-            [_delegate followCurrentProject];
+            [_delegate followCurrentProject:dX];
         }
         else if( dX < (-(SWIPE_MOVE)))
         {
-            [_delegate followCurrentProject];
+            [_delegate dontFollowCurrentProject:dX];
         }
-        _cardView.frame = _originalFrame;
-        
+        else
+        {
+            _cardView.transform = CGAffineTransformIdentity;
+            
+            _cardSelectStatusImage.alpha = 0.0f;
+            
+            _cardView.layer.borderColor = [UIColor clearColor].CGColor;
+            
+            _cardView.layer.borderWidth = 0.0f;
+
+        }
     }
     else if(gesture.state == UIGestureRecognizerStateChanged)
     {
-        CGPoint newCoord = [gesture locationInView:gesture.view];
-//
+        CGPoint newCoord = [gesture locationInView:self.view];
+        
         float dX = newCoord.x-_panCoord.x;
         
         float dY = newCoord.y-_panCoord.y;
-//
-        _cardView.frame = CGRectMake(_cardView.frame.origin.x+dX, _cardView.frame.origin.y+dY, _cardView.frame.size.width, _cardView.frame.size.height);
-
-    
-//        _cardView.transform = CGAffineTransformTranslate(_cardView.transform, dX, dY);
-//
-//        _updatedTransform = _cardView.transform;
-//        
-//        CGPoint translation = [gesture translationInView:self.view];
-//        
-//        gesture.view.center = CGPointMake(gesture.view.center.x + translation.x,
-//                                             gesture.view.center.y + translation.y);
-//
-//        
-//        
-
-
         
-    
-    }
-    
-}
-//
-//-(void)dragging:(UIPanGestureRecognizer *)gesture
-//{
-//    if(gesture.state == UIGestureRecognizerStateBegan)
-//    {
-//        _panCoord = [gesture locationInView:self.view];
-//        
-//        _originalFrame = _cardView.frame;
-//    }
-//    else if (gesture.state == UIGestureRecognizerStateEnded)
-//    {
-//        CGPoint newCoord = [gesture locationInView:self.view];
-//        
-//        float dX = newCoord.x-_panCoord.x;
-//        
-//        if(dX > SWIPE_MOVE)
-//        {
-//            [UIView animateWithDuration: 0.5
-//                                  delay: 0
-//                                options: UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
-//                             animations:^{
-//                                 
-//                                 CGRect r = CGRectMake(_originalFrame.origin.x, _originalFrame.origin.y, _originalFrame.size.width+100, _originalFrame.size.height);
-//                                 
-//                                 _cardView.frame = r;
-//                                 
-//                             }
-//                             completion:^(BOOL finished) {
-//                                 
-//                                 _cardView.frame = _originalFrame;
-//
-//                                 [_delegate followCurrentProject];
-//                                 
-//
-//                             }];
-//
-//        }
-//        else if( dX < (-(SWIPE_MOVE)))
-//        {
-//            [UIView animateWithDuration: 0.25
-//                                  delay: 0
-//                                options: UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
-//                             animations:^{
-//                                 
-//                                 CGRect r = CGRectMake(_originalFrame.origin.x, _originalFrame.origin.y, _originalFrame.size.width-100, _originalFrame.size.height);
-//                                 
-//                                 _cardView.frame = r;
-//
-//                                 
-//                             }
-//                             completion:^(BOOL finished) {
-//                                 
-//                                 _cardView.frame = _originalFrame;
-//
-//                                 [_delegate followCurrentProject];
-//                                 
-//
-//                             }];
-//        }
-//        else
-//        {
-//        
-//            [UIView animateWithDuration: 0.25
-//                                  delay: 0
-//                                options: UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
-//                             animations:^{
-//                                 
-//                                 CGRect r = CGRectMake(_originalFrame.origin.x, _originalFrame.origin.y, _originalFrame.size.width-100, _originalFrame.size.height);
-//                                 
-//                                 _cardView.frame = r;
-//                                 
-//                                 
-//                             }
-//                             completion:^(BOOL finished) {
-//                                 
-//                                 _cardView.frame = _originalFrame;
-//                                 
-//                                 [_delegate followCurrentProject];
-//                                 
-//                                 
-//                             }];
-//            
-//        }
-//    }
-//    else
-//    {
-//        CGPoint newCoord = [gesture locationInView:gesture.view];
-//        
-//        float dX = newCoord.x-_panCoord.x;
-//        
-//        float dY = newCoord.y-_panCoord.y;
-//        
-//        [UIView animateWithDuration: 0.25
-//                              delay: 0
-//                            options: UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
-//                         animations:^{
-//                             
-//                             _cardView.frame = _originalFrame;
-//                         }
-//                         completion:nil];
-//
-//        
-//        
-//    }
-//    
-//}
+        if(dX > 0)
+        {
+            _cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
+            
+            _cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
+            
+            _cardView.layer.borderWidth = 4.0f;
 
+        }
+        else if( dX < 0)
+        {
+            _cardSelectStatusImage.image = [UIImage imageNamed:@"DislikeButton"];
+            
+            _cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FB7575"].CGColor;
+            
+            _cardView.layer.borderWidth = 4.0f;
+
+        }
+        else if(dX == 0)
+        {
+            _cardView.layer.borderColor = [UIColor clearColor].CGColor;
+            
+            _cardView.layer.borderWidth = 0.0f;
+
+        }
+        
+        
+        CGAffineTransform t = CGAffineTransformMakeTranslation(dX, dY);
+        
+        [UIView animateKeyframesWithDuration:0.05 delay:0.05 options:UIViewKeyframeAnimationOptionAllowUserInteraction
+                                  animations:^{
+                                      
+                                      _cardView.transform = t;
+                                      
+                                      _cardSelectStatusImage.alpha = (fabs(dX)/SWIPE_MOVE);
+                                      
+                                  } completion:^(BOOL finished) {
+                                      
+                                  }];
+    }
+}
+
+
+#pragma mark - Project Utility methods -
 
 -(void)showProject{
     
@@ -292,55 +219,13 @@
                                  multiplier:1.0
                                  constant:0];
     
-//    NSLayoutConstraint *top = [NSLayoutConstraint
-//                               constraintWithItem:_moviePlayer.view
-//                               attribute:NSLayoutAttributeTop
-//                               relatedBy:NSLayoutRelationEqual
-//                               toItem:_moviePlayerView
-//                               attribute:NSLayoutAttributeTop
-//                               multiplier:1.0f
-//                               constant:0.f];
-//    
-//    NSLayoutConstraint *leading = [NSLayoutConstraint
-//                                   constraintWithItem:_moviePlayer.view
-//                                   attribute:NSLayoutAttributeLeading
-//                                   relatedBy:NSLayoutRelationEqual
-//                                   toItem:_moviePlayerView
-//                                   attribute:NSLayoutAttributeLeading
-//                                   multiplier:1.0f
-//                                   constant:0.f];
-//    
-//    NSLayoutConstraint *bottom = [NSLayoutConstraint
-//                                   constraintWithItem:_moviePlayer.view
-//                                   attribute:NSLayoutAttributeLeading
-//                                   relatedBy:NSLayoutRelationEqual
-//                                   toItem:_moviePlayerView
-//                                   attribute:NSLayoutAttributeBottom
-//                                   multiplier:1.0f
-//                                   constant:0.f];
-//
-//    
-//    NSLayoutConstraint *trailing = [NSLayoutConstraint
-//                                   constraintWithItem:_moviePlayer.view
-//                                   attribute:NSLayoutAttributeLeading
-//                                   relatedBy:NSLayoutRelationEqual
-//                                   toItem:_moviePlayerView
-//                                   attribute:NSLayoutAttributeTrailing
-//                                   multiplier:1.0f
-//                                   constant:0.f];
-
-//
     [_moviePlayerView addConstraint:width];
+    
     [_moviePlayerView addConstraint:height];
-//    [_moviePlayerView addConstraint:top];
-//    [_moviePlayerView addConstraint:leading];
-//    [_moviePlayerView addConstraint:trailing];
-//    [_moviePlayerView addConstraint:bottom];
-
     
     _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
     
-    _moviePlayer.shouldAutoplay = YES;
+    _moviePlayer.shouldAutoplay = NO;
     
     _moviePlayer.repeatMode = NO;
     
@@ -354,7 +239,7 @@
     
     [_moviePlayerView bringSubviewToFront:_moviePlayer.view];
     
-    [_moviePlayer play];
+    [_moviePlayer pause];
 
 }
 
@@ -362,9 +247,9 @@
 
     [_moviePlayer stop];
     
-//    [_moviePlayer.view removeFromSuperview];
-//    
-//    _moviePlayer = nil;
+    [_moviePlayer.view removeFromSuperview];
+    
+    _moviePlayer = nil;
 
 }
 

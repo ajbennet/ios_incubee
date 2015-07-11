@@ -20,9 +20,9 @@
 
 @required
 
--(void)followCurrentProject;
+-(void)followCurrentProject:(float)movedValue;
 
--(void)dontFollowCurrentProject;
+-(void)dontFollowCurrentProject:(float)movedValue;
 
 -(void)updateCurrentProjDescLable;
 
@@ -76,5 +76,7 @@
 
 @property(nonatomic,assign)CGAffineTransform originalTransform;
 @property(nonatomic,assign)CGAffineTransform updatedTransform;
+
+@property (weak, nonatomic) IBOutlet UIImageView *cardSelectStatusImage;
 
 @end

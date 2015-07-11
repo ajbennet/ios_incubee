@@ -11,6 +11,7 @@
 #import "ICAppManager.h"
 #import "ICAppManager+Networking.h"
 #import "ICLoginViewController.h"
+#import "ICUtilityManager.h"
 
 
 @interface ICHomeViewController ()
@@ -42,7 +43,7 @@
 
         [_firstViewC setProject:_firstCard];        
 
-        _currentlyShowingVC = _secondViewC;
+        _currentlyShowingVC = _firstViewC;
         
         [_currentlyShowingVC showProject];
         
@@ -62,20 +63,6 @@
 
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CardViewStoryboard" bundle:nil];
     
-    
-    // First Card
-    _firstViewC = (ICCardViewController*)[sb instantiateViewControllerWithIdentifier:@"ICCardVCSB"];
-    
-    _firstViewC.delegate = self;
-    
-    [_firstViewC willMoveToParentViewController:self];
-    
-    [self addChildViewController:_firstViewC];
-    
-    [self.view addSubview:_firstViewC.view];
-    
-    [_firstViewC didMoveToParentViewController:self];
-    
     // Second Card
     
     _secondViewC = (ICCardViewController*)[sb instantiateViewControllerWithIdentifier:@"ICCardVCSB"];
@@ -90,9 +77,24 @@
     
     [_secondViewC didMoveToParentViewController:self];
     
+    
+    // First Card
+    _firstViewC = (ICCardViewController*)[sb instantiateViewControllerWithIdentifier:@"ICCardVCSB"];
+    
+    _firstViewC.delegate = self;
+    
+    [_firstViewC willMoveToParentViewController:self];
+    
+    [self addChildViewController:_firstViewC];
+    
+    [self.view addSubview:_firstViewC.view];
+    
+    [_firstViewC didMoveToParentViewController:self];
+    
+    
     //Setting Current Showing Project
 
-    _currentlyShowingVC = _secondViewC;
+    _currentlyShowingVC = _firstViewC;
     
 }
 
@@ -110,14 +112,209 @@
 
 }
 
--(void)followCurrentProject{
+-(void)followCurrentProject:(float)movedValue{
     
+    [_currentlyShowingVC dismissShowing];
 
+    CGAffineTransform translate;
+    
+    translate = CGAffineTransformTranslate(_secondViewC.cardView.transform, 500.0f, 0);
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    if(_currentlyShowingVC == _secondViewC)
+    {
+        _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
+        
+        [UIView animateWithDuration:0.05 delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             
+                             _secondViewC.cardView.transform = translate;
+                             
+                             _secondViewC.cardSelectStatusImage.alpha = 1.0f;
+                             
+                         } completion:^(BOOL finished) {
+                             
+                             [self.view bringSubviewToFront:_firstViewC.view];
+                             
+                             _currentlyShowingVC = _firstViewC;
+                             
+                             // now configre SecondView.
+                             
+                             _currentlyShowingIndexoffset++;
+                             
+                             _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+                             
+                             _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+                             
+                             [_secondViewC setProject:_secondCard];
+                             
+                             [self.view bringSubviewToFront:_optionView];
+                             
+                             [_currentlyShowingVC showProject];
+                             
+                             _secondViewC.cardView.transform = CGAffineTransformIdentity;
+                             
+                             _secondViewC.cardSelectStatusImage.alpha = 0.0f;
+                             
+                             _secondViewC.cardView.layer.borderColor = [UIColor clearColor].CGColor;
+                             
+                             _secondViewC.cardView.layer.borderWidth = 0.0f;
+                             
+                         }];
+    }
+    else if(_currentlyShowingVC == _firstViewC)
+    {
+        _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
+        
+        [UIView animateWithDuration:0.05 delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             
+                             _firstViewC.cardView.transform = translate;
+                             
+                             _firstViewC.cardSelectStatusImage.alpha = 1.0f;
+                             
+                             
+                             
+                         } completion:^(BOOL finished) {
+                             {
+                                 
+                                 [self.view bringSubviewToFront:_secondViewC.view];
+                                 
+                                 _currentlyShowingVC = _secondViewC;
+                                 
+                                 // now configre FirstView.
+                                 
+                                 _currentlyShowingIndexoffset++;
+                                 
+                                 _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+                                 
+                                 _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+                                 
+                                 [_firstViewC setProject:_firstCard];
+                                 
+                                 [self.view bringSubviewToFront:_optionView];
+                                 
+                                 [_currentlyShowingVC showProject];
+                                 
+                                 _firstViewC.cardView.transform = CGAffineTransformIdentity;
+                                 
+                                 _firstViewC.cardSelectStatusImage.alpha = 0.0f;
+                                 
+                                 _firstViewC.cardView.layer.borderColor = [UIColor clearColor].CGColor;
+                                 
+                                 _firstViewC.cardView.layer.borderWidth = 0.0f;
+
+                                 
+                                 
+                             }
+                         }];
+    }
+    
+    
 }
 
--(void)dontFollowCurrentProject{
+-(void)dontFollowCurrentProject:(float)movedValue{
 
+    [_currentlyShowingVC dismissShowing];
 
+    CGAffineTransform translate;
+    
+    translate = CGAffineTransformTranslate(_secondViewC.cardView.transform, -500.0f, 0);
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    if(_currentlyShowingVC == _secondViewC)
+    {
+        _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
+        
+        [UIView animateWithDuration:0.05f delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             
+                             _secondViewC.cardView.transform = translate;
+                             
+                             _secondViewC.cardSelectStatusImage.alpha = 1.0f;
+                             
+                         } completion:^(BOOL finished) {
+                             
+                             [self.view bringSubviewToFront:_firstViewC.view];
+                             
+                             _currentlyShowingVC = _firstViewC;
+                             
+                             // now configre SecondView.
+                             
+                             _currentlyShowingIndexoffset++;
+                             
+                             _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+                             
+                             _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+                             
+                             [_secondViewC setProject:_secondCard];
+                             
+                             [self.view bringSubviewToFront:_optionView];
+                             
+                             [_currentlyShowingVC showProject];
+                             
+                             _secondViewC.cardView.transform = CGAffineTransformIdentity;
+                             
+                             _secondViewC.cardSelectStatusImage.alpha = 0.0f;
+                             _secondViewC.cardView.layer.borderColor = [UIColor clearColor].CGColor;
+                             
+                             _secondViewC.cardView.layer.borderWidth = 0.0f;
+
+                             
+                             
+                         }];
+    }
+    else if(_currentlyShowingVC == _firstViewC)
+    {
+        _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
+        
+        [UIView animateWithDuration:0.05 delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             
+                             _firstViewC.cardView.transform = translate;
+                             
+                             _firstViewC.cardSelectStatusImage.alpha = 1.0f;
+                             
+                             
+                         } completion:^(BOOL finished) {
+                             {
+                                 
+                                 [self.view bringSubviewToFront:_secondViewC.view];
+                                 
+                                 _currentlyShowingVC = _secondViewC;
+                                 
+                                 // now configre FirstView.
+                                 
+                                 _currentlyShowingIndexoffset++;
+                                 
+                                 _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+                                 
+                                 _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+                                 
+                                 [_firstViewC setProject:_firstCard];
+                                 
+                                 [self.view bringSubviewToFront:_optionView];
+                                 
+                                 [_currentlyShowingVC showProject];
+                                 
+                                 _firstViewC.cardView.transform = CGAffineTransformIdentity;
+                                 
+                                 _firstViewC.cardSelectStatusImage.alpha = 0.0f;
+                                 
+                                 _firstViewC.cardView.layer.borderColor = [UIColor clearColor].CGColor;
+                                 
+                                 _firstViewC.cardView.layer.borderWidth = 0.0f;
+                                 
+
+                                 
+                                 
+                             }
+                         }];
+    }
+    
+    
 }
 
 - (IBAction)goNextProject:(id)sender {
@@ -159,114 +356,215 @@
 - (IBAction)likeProjectTapped:(id)sender {
     
     [_currentlyShowingVC dismissShowing];
+
+    CGAffineTransform translate = CGAffineTransformMakeTranslation(200.0f, 0.0f);
     
+    CGAffineTransform scleTransform = CGAffineTransformMakeScale(0.7, 0.7);
+
     if(_currentlyShowingVC == _secondViewC)
     {
-//        [UIView
-//         animateKeyframesWithDuration:3
-//         delay:0
-//         options:UIViewKeyframeAnimationOptionCalculationModeLinear
-//         animations:^{
-//             
-//         } completion:^(BOOL finished) {
+        _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
-        [self.view bringSubviewToFront:_firstViewC.view];
-        
-        _currentlyShowingVC = _firstViewC;
-        
-        
-        // now configre SecondView.
-        
-        _currentlyShowingIndexoffset++;
-        
-        _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
-        
-        _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
-        
-        [_secondViewC setProject:_secondCard];
-             
-
-
-//         }];
-
-        
+        [UIView animateWithDuration:0.5f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             
+                             _secondViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
+                             
+                             _secondViewC.cardSelectStatusImage.alpha = 1.0f;
+                             
+                             _secondViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
+                             
+                             _secondViewC.cardView.layer.borderWidth = 4.0f;
+                             
+                         } completion:^(BOOL finished) {
+                             
+                             [self.view bringSubviewToFront:_firstViewC.view];
+                             
+                             _currentlyShowingVC = _firstViewC;
+                             
+                             // now configre SecondView.
+                             
+                             _currentlyShowingIndexoffset++;
+                             
+                             _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+                             
+                             _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+                             
+                             [_secondViewC setProject:_secondCard];
+                             
+                             [self.view bringSubviewToFront:_optionView];
+                             
+                             [_currentlyShowingVC showProject];
+                             
+                             _secondViewC.cardView.transform = CGAffineTransformIdentity;
+                             
+                             _secondViewC.cardSelectStatusImage.alpha = 0.0f;
+                             
+                             _secondViewC.cardView.layer.borderColor = [UIColor clearColor].CGColor;
+                             
+                             _secondViewC.cardView.layer.borderWidth = 0.0f;
+                         }];
     }
     else if(_currentlyShowingVC == _firstViewC)
     {
-        [self.view bringSubviewToFront:_secondViewC.view];
-        
-        _currentlyShowingVC = _secondViewC;
-        
-        
-        // now configre FirstView.
-        
-        _currentlyShowingIndexoffset++;
-        
-        _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
-        
-        _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
-        
-        [_firstViewC setProject:_firstCard];
-                
-    }
-    
-    [_currentlyShowingVC showProject];
+        _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
 
-    [self.view bringSubviewToFront:_optionView];
+        [UIView animateWithDuration:0.5f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             
+                             _firstViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
+                             
+                             _firstViewC.cardSelectStatusImage.alpha = 1.0f;
+                             
+                             _firstViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
+                             
+                             _firstViewC.cardView.layer.borderWidth = 4.0f;
+
+                             
+                         } completion:^(BOOL finished) {
+                             {
+                                 
+                                 [self.view bringSubviewToFront:_secondViewC.view];
+
+                                 _currentlyShowingVC = _secondViewC;
+                                 
+                                 // now configre FirstView.
+                                 
+                                 _currentlyShowingIndexoffset++;
+                                 
+                                 _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+                                 
+                                 _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+                                 
+                                 [_firstViewC setProject:_firstCard];
+                                 
+                                 [self.view bringSubviewToFront:_optionView];
+                                 
+                                 [_currentlyShowingVC showProject];
+                                 
+                                 _firstViewC.cardView.transform = CGAffineTransformIdentity;
+                                 
+                                 _firstViewC.cardSelectStatusImage.alpha = 0.0f;
+                                 
+                                 _firstViewC.cardView.layer.borderColor = [UIColor clearColor].CGColor;
+                                 
+                                 _firstViewC.cardView.layer.borderWidth = 0.0f;
+                                 
+                                 
+                                 
+                             }
+                         }];
+    }
 
 }
 
 - (IBAction)dislikeProjTapped:(id)sender {
     
-    {
-        
-        [_currentlyShowingVC dismissShowing];
-        
-        if(_currentlyShowingVC == _secondViewC)
-        {
-            [self.view bringSubviewToFront:_firstViewC.view];
-            
-            _currentlyShowingVC = _firstViewC;
-            
-            
-            // now configre SecondView.
-            
-            _currentlyShowingIndexoffset++;
-            
-            _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
-            
-            _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
-            
-            [_secondViewC setProject:_secondCard];
-            
-        }
-        else if(_currentlyShowingVC == _firstViewC)
-        {
-            [self.view bringSubviewToFront:_secondViewC.view];
-            
-            _currentlyShowingVC = _secondViewC;
-            
-            
-            // now configre FirstView.
-            
-            _currentlyShowingIndexoffset++;
-            
-            _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
-            
-            _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
-            
-            [_firstViewC setProject:_firstCard];
-            
-        }
-        
-        [_currentlyShowingVC showProject];
-        
-        [self.view bringSubviewToFront:_optionView];
-        
-    }
-
+    [_currentlyShowingVC dismissShowing];
     
+    CGAffineTransform translate = CGAffineTransformMakeTranslation(-200.0f, 0.0f);
+    
+    CGAffineTransform scleTransform = CGAffineTransformMakeScale(0.7, 0.7);
+    
+    if(_currentlyShowingVC == _secondViewC)
+    {
+        _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"DislikeButton"];
+        
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             
+                             _secondViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
+                             
+                             _secondViewC.cardSelectStatusImage.alpha = 1.0f;
+                             
+                             _secondViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FB7575"].CGColor;
+                             
+                             _secondViewC.cardView.layer.borderWidth = 4.0f;
+                             
+                         } completion:^(BOOL finished) {
+                             
+                             [self.view bringSubviewToFront:_firstViewC.view];
+                             
+                             _currentlyShowingVC = _firstViewC;
+                             
+                             // now configre SecondView.
+                             
+                             _currentlyShowingIndexoffset++;
+                             
+                             _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+                             
+                             _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+                             
+                             [_secondViewC setProject:_secondCard];
+                             
+                             [self.view bringSubviewToFront:_optionView];
+                             
+                             [_currentlyShowingVC showProject];
+    
+                            _secondViewC.cardView.transform = CGAffineTransformIdentity;
+                                 
+                            _secondViewC.cardSelectStatusImage.alpha = 0.0f;
+                             
+                             _secondViewC.cardView.layer.borderColor = [UIColor clearColor].CGColor;
+                             
+                             _secondViewC.cardView.layer.borderWidth = 0.0f;
+                             
 
+                    
+                         }];
+    }
+    else if(_currentlyShowingVC == _firstViewC)
+    {
+        _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"DislikeButton"];
+    
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             
+                             _firstViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
+                             
+                             _firstViewC.cardSelectStatusImage.alpha = 1.0f;
+                             
+                             _firstViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FB7575"].CGColor;
+                             
+                             _firstViewC.cardView.layer.borderWidth = 4.0f;
+                             
+
+                             
+                             
+                         } completion:^(BOOL finished) {
+                             {
+                                 
+                                 [self.view bringSubviewToFront:_secondViewC.view];
+                                 
+                                 _currentlyShowingVC = _secondViewC;
+                                 
+                                 // now configre FirstView.
+                                 
+                                 _currentlyShowingIndexoffset++;
+                                 
+                                 _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+                                 
+                                 _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+                                 
+                                 [_firstViewC setProject:_firstCard];
+                                 
+                                 [self.view bringSubviewToFront:_optionView];
+                                 
+                                 [_currentlyShowingVC showProject];
+                                 
+                                 _firstViewC.cardView.transform = CGAffineTransformIdentity;
+                                 
+                                 _firstViewC.cardSelectStatusImage.alpha = 0.0f;
+                                 
+                                 _firstViewC.cardView.layer.borderColor = [UIColor clearColor].CGColor;
+                                 
+                                 _firstViewC.cardView.layer.borderWidth = 0.0f;
+                                 
+
+                             }
+                         }];
+    }
+    
 }
 
 - (IBAction)refreshView:(id)sender {

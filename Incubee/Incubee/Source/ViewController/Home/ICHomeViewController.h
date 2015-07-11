@@ -47,7 +47,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *dislikeProj;
 
-@property (weak, nonatomic) IBOutlet UIButton *saveProject;
+@property (weak, nonatomic) IBOutlet UIButton *likeProjButton;
 
 - (IBAction)likeProjectTapped:(id)sender;
 

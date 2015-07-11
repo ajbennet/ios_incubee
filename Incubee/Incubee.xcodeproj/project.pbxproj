@@ -55,6 +55,7 @@
 		579D46941B41B0D200168438 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46821B41B0D200168438 /* Lato-SemiboldItalic.ttf */; };
 		579D46951B41B0D200168438 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46831B41B0D200168438 /* Lato-Thin.ttf */; };
 		579D46961B41B0D200168438 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46841B41B0D200168438 /* Lato-ThinItalic.ttf */; };
+		57C98C471B5129DD002F6E81 /* ICUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C98C461B5129DD002F6E81 /* ICUtilityManager.m */; };
 		57E724E61B4063E90066C0A5 /* ICImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E724E51B4063E90066C0A5 /* ICImageManager.m */; };
 		57F3AEF41B31EBE50005D964 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57F3AEF31B31EBE50005D964 /* GoogleService-Info.plist */; };
 		930CB1D550C9E950F61E556D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB03A56CF3D54AE87702E /* libPods.a */; };
@@ -146,6 +147,8 @@
 		579D46821B41B0D200168438 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-SemiboldItalic.ttf"; path = "Resource/Font/lato/Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		579D46831B41B0D200168438 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Thin.ttf"; path = "Resource/Font/lato/Lato-Thin.ttf"; sourceTree = "<group>"; };
 		579D46841B41B0D200168438 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-ThinItalic.ttf"; path = "Resource/Font/lato/Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		57C98C451B5129DD002F6E81 /* ICUtilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICUtilityManager.h; path = Source/OperationManagers/ICUtilityManager.h; sourceTree = "<group>"; };
+		57C98C461B5129DD002F6E81 /* ICUtilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICUtilityManager.m; path = Source/OperationManagers/ICUtilityManager.m; sourceTree = "<group>"; };
 		57E724E41B4063E90066C0A5 /* ICImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICImageManager.h; path = Source/OperationManagers/ICImageManager.h; sourceTree = "<group>"; };
 		57E724E51B4063E90066C0A5 /* ICImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICImageManager.m; path = Source/OperationManagers/ICImageManager.m; sourceTree = "<group>"; };
 		57F3AEF31B31EBE50005D964 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -366,6 +369,8 @@
 				5780CB411B3E925C0090ADCE /* ICDataSavingOperations.m */,
 				57E724E41B4063E90066C0A5 /* ICImageManager.h */,
 				57E724E51B4063E90066C0A5 /* ICImageManager.m */,
+				57C98C451B5129DD002F6E81 /* ICUtilityManager.h */,
+				57C98C461B5129DD002F6E81 /* ICUtilityManager.m */,
 			);
 			name = OperationsManager;
 			sourceTree = "<group>";
@@ -611,6 +616,7 @@
 				5780CB3B1B3E8A250090ADCE /* ICOperationManager.m in Sources */,
 				5780CB051B3E834F0090ADCE /* ICLoginViewController.m in Sources */,
 				5780CB5D1B3EB01F0090ADCE /* ProjectImage.m in Sources */,
+				57C98C471B5129DD002F6E81 /* ICUtilityManager.m in Sources */,
 				5780CB391B3E8A250090ADCE /* ICJSONParsingOperations.m in Sources */,
 				5780CB0B1B3E835B0090ADCE /* ICCardViewController.m in Sources */,
 				5780CB1E1B3E86BD0090ADCE /* ICAppManager+Networking.m in Sources */,
