@@ -359,28 +359,28 @@
     
     [_currentlyShowingVC dismissShowing];
 
-    CGAffineTransform translate = CGAffineTransformMakeTranslation(200.0f, 0.0f);
-    
-    CGAffineTransform scleTransform = CGAffineTransformMakeScale(0.7, 0.7);
+    CGAffineTransform scleTransform = CGAffineTransformMakeScale(0.9, 0.9);
 
+    CGAffineTransform translate = CGAffineTransformMakeTranslation(500.0f, 0.0f);
+    
     if(_currentlyShowingVC == _secondViewC)
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
+        _secondViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
+        
+        _secondViewC.cardView.layer.borderWidth = 4.0f;
+        
+        _secondViewC.cardSelectStatusImage.alpha = 1.0f;
+
         _firstViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
         
-        [UIView animateWithDuration:0.4f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:0.4f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
                              _firstViewC.cardView.transform = CGAffineTransformIdentity;
 
                              _secondViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
-                             
-                             _secondViewC.cardSelectStatusImage.alpha = 1.0f;
-                             
-                             _secondViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
-                             
-                             _secondViewC.cardView.layer.borderWidth = 4.0f;
                              
                          } completion:^(BOOL finished) {
                              
@@ -417,18 +417,20 @@
         
         _secondViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
 
-        [UIView animateWithDuration:0.4f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        _firstViewC.cardSelectStatusImage.alpha = 1.0f;
+        
+        _firstViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
+        
+        _firstViewC.cardView.layer.borderWidth = 4.0f;
+
+        
+        [UIView animateWithDuration:0.4f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
                              _secondViewC.cardView.transform = CGAffineTransformIdentity;
 
                              _firstViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
                              
-                             _firstViewC.cardSelectStatusImage.alpha = 1.0f;
-                             
-                             _firstViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
-                             
-                             _firstViewC.cardView.layer.borderWidth = 4.0f;
                              
 
                          } completion:^(BOOL finished) {
@@ -472,28 +474,28 @@
     
     [_currentlyShowingVC dismissShowing];
     
-    CGAffineTransform translate = CGAffineTransformMakeTranslation(-200.0f, 0.0f);
+    CGAffineTransform translate = CGAffineTransformMakeTranslation(-500.0f, 0.0f);
     
-    CGAffineTransform scleTransform = CGAffineTransformMakeScale(0.7, 0.7);
+    CGAffineTransform scleTransform = CGAffineTransformMakeScale(0.9, 0.9);
     
     if(_currentlyShowingVC == _secondViewC)
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"DislikeButton"];
         
+        _currentlyShowingVC.cardSelectStatusImage.alpha = 1.0f;
+        
+        _secondViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FB7575"].CGColor;
+        
+        _secondViewC.cardView.layer.borderWidth = 4.0f;
+
         _firstViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
         
-        [UIView animateWithDuration:0.4f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:0.4f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
                              _firstViewC.cardView.transform = CGAffineTransformIdentity;
 
                              _secondViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
-                             
-                             _secondViewC.cardSelectStatusImage.alpha = 1.0f;
-                             
-                             _secondViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FB7575"].CGColor;
-                             
-                             _secondViewC.cardView.layer.borderWidth = 4.0f;
                              
                          } completion:^(BOOL finished) {
                              
@@ -530,22 +532,21 @@
     else if(_currentlyShowingVC == _firstViewC)
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"DislikeButton"];
+        
+        _currentlyShowingVC.cardSelectStatusImage.alpha = 1.0f;
+        
+        _currentlyShowingVC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FB7575"].CGColor;
+        
+        _currentlyShowingVC.cardView.layer.borderWidth = 4.0f;
     
         _secondViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
 
-        [UIView animateWithDuration:0.4f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:0.4f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
                              _secondViewC.cardView.transform = CGAffineTransformIdentity;
 
                              _firstViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
-                             
-                             _firstViewC.cardSelectStatusImage.alpha = 1.0f;
-                             
-                             _firstViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FB7575"].CGColor;
-                             
-                             _firstViewC.cardView.layer.borderWidth = 4.0f;
-                             
                              
                          } completion:^(BOOL finished) {
                              {

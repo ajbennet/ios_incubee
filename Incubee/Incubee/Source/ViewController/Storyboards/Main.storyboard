@@ -204,15 +204,6 @@
                                                 <exclude reference="3gr-qi-tsP"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <exclude reference="Co9-ye-RCf"/>
-                                                <exclude reference="X5C-VA-ERR"/>
-                                                <exclude reference="jWw-Y8-uTX"/>
-                                                <exclude reference="6eB-Aa-aBs"/>
-                                                <exclude reference="TJV-qd-62i"/>
-                                                <exclude reference="ULH-5N-uC9"/>
-                                                <exclude reference="bGM-c0-gNg"/>
-                                                <exclude reference="dAZ-0W-AUH"/>
-                                                <exclude reference="ino-nj-PX0"/>
                                                 <exclude reference="8xu-B1-W9P"/>
                                                 <exclude reference="bYI-s2-dDW"/>
                                                 <exclude reference="kWV-b9-vfy"/>
@@ -220,6 +211,15 @@
                                                 <exclude reference="3yS-Fc-B10"/>
                                                 <exclude reference="4RQ-fY-Dtb"/>
                                                 <exclude reference="IWb-oM-0Eb"/>
+                                                <exclude reference="6eB-Aa-aBs"/>
+                                                <exclude reference="TJV-qd-62i"/>
+                                                <exclude reference="ULH-5N-uC9"/>
+                                                <exclude reference="bGM-c0-gNg"/>
+                                                <exclude reference="dAZ-0W-AUH"/>
+                                                <exclude reference="ino-nj-PX0"/>
+                                                <exclude reference="Co9-ye-RCf"/>
+                                                <exclude reference="X5C-VA-ERR"/>
+                                                <exclude reference="jWw-Y8-uTX"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular">
@@ -230,15 +230,6 @@
                                                 <include reference="3gr-qi-tsP"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <include reference="Co9-ye-RCf"/>
-                                                <include reference="X5C-VA-ERR"/>
-                                                <include reference="jWw-Y8-uTX"/>
-                                                <exclude reference="6eB-Aa-aBs"/>
-                                                <include reference="TJV-qd-62i"/>
-                                                <include reference="ULH-5N-uC9"/>
-                                                <include reference="bGM-c0-gNg"/>
-                                                <exclude reference="dAZ-0W-AUH"/>
-                                                <exclude reference="ino-nj-PX0"/>
                                                 <include reference="8xu-B1-W9P"/>
                                                 <include reference="bYI-s2-dDW"/>
                                                 <include reference="kWV-b9-vfy"/>
@@ -246,6 +237,15 @@
                                                 <exclude reference="3yS-Fc-B10"/>
                                                 <include reference="4RQ-fY-Dtb"/>
                                                 <include reference="IWb-oM-0Eb"/>
+                                                <exclude reference="6eB-Aa-aBs"/>
+                                                <include reference="TJV-qd-62i"/>
+                                                <include reference="ULH-5N-uC9"/>
+                                                <include reference="bGM-c0-gNg"/>
+                                                <exclude reference="dAZ-0W-AUH"/>
+                                                <exclude reference="ino-nj-PX0"/>
+                                                <include reference="Co9-ye-RCf"/>
+                                                <include reference="X5C-VA-ERR"/>
+                                                <include reference="jWw-Y8-uTX"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -666,7 +666,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="TabbarControllerStoryboard" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
