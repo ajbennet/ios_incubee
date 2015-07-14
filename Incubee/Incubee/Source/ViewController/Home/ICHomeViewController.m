@@ -106,11 +106,11 @@
 
 #pragma mark - ICCardViewDelegate - 
 
--(void)followCurrentProject:(float)movedValue{
+-(void)followCurrentProject:(CGPoint)movedPoint{
     
     [_currentlyShowingVC dismissShowing];
 
-    CGAffineTransform translate = CGAffineTransformTranslate(_secondViewC.cardView.transform, 500.0f, 0);
+    CGAffineTransform translate = CGAffineTransformTranslate(_currentlyShowingVC.cardView.transform, movedPoint.x+500.0f, movedPoint.y);
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
@@ -118,7 +118,7 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
-        [UIView animateWithDuration:0.05 delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
+        [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              
                              _secondViewC.cardView.transform = translate;
@@ -159,7 +159,7 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
-        [UIView animateWithDuration:0.05 delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
+        [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              
                              _firstViewC.cardView.transform = translate;
@@ -206,13 +206,13 @@
     
 }
 
--(void)dontFollowCurrentProject:(float)movedValue{
+-(void)dontFollowCurrentProject:(CGPoint)movedPoint{
 
     [_currentlyShowingVC dismissShowing];
 
     CGAffineTransform translate;
     
-    translate = CGAffineTransformTranslate(_secondViewC.cardView.transform, -500.0f, 0);
+    translate = CGAffineTransformTranslate(_currentlyShowingVC.cardView.transform, movedPoint.x-500.0f, movedPoint.y);
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
@@ -220,7 +220,7 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
-        [UIView animateWithDuration:0.05f delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
+        [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              
                              _secondViewC.cardView.transform = translate;
@@ -263,7 +263,7 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
-        [UIView animateWithDuration:0.05 delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
+        [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              
                              _firstViewC.cardView.transform = translate;
@@ -314,6 +314,61 @@
     
     _projDescLable.text = _currentlyShowingVC.project.companyDescription;
     
+}
+
+-(void)draggingBeginForCurrentShowingController{
+
+    if(_currentlyShowingVC == _firstViewC)
+    {
+        _secondViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
+    }
+    else if(_currentlyShowingVC == _secondViewC)
+    {
+        _firstViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
+    }
+}
+-(void)dragedCurrentShowingController:(CGPoint)inMovedPoint{
+
+    float xAxisMoved = (fabs(inMovedPoint.x))/5.0f;
+    
+    float f;
+    
+    if(xAxisMoved>=20.0f)
+    {
+        f=0;
+    }
+    else if(xAxisMoved<20.0f)
+    {
+        f= 20.0f- xAxisMoved;
+    }
+    
+//    NSLog(@"xAxisMoved : %f f:%f",xAxisMoved,f);
+    
+    if(f>0)
+    {
+    if(_currentlyShowingVC == _firstViewC)
+    {
+        _secondViewC.cardView.transform = CGAffineTransformMakeTranslation(0,f);
+    }
+    else if(_currentlyShowingVC == _secondViewC)
+    {
+        _firstViewC.cardView.transform = CGAffineTransformMakeTranslation(0,f);
+    }
+    }
+
+}
+
+
+-(void)draggingEndsForCurrentShowingController{
+    
+    if(_currentlyShowingVC == _firstViewC)
+    {
+        _secondViewC.cardView.transform = CGAffineTransformIdentity;
+    }
+    else if(_currentlyShowingVC == _secondViewC)
+    {
+        _firstViewC.cardView.transform = CGAffineTransformIdentity;
+    }
 }
 
 #pragma mark - IBActions -

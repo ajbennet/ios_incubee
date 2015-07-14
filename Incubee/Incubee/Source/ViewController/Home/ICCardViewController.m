@@ -94,35 +94,49 @@
         
         _originalFrame = _cardView.frame;
         
+        [_delegate draggingBeginForCurrentShowingController];
+        
     }
     else if (gesture.state == UIGestureRecognizerStateEnded)
     {
+        [_delegate draggingEndsForCurrentShowingController];
+        
         CGPoint newCoord = [gesture locationInView:self.view];
         
         float dX = newCoord.x-_panCoord.x;
         
+        float dY = newCoord.y-_panCoord.y;
+        
         if(dX > SWIPE_MOVE)
         {
-            [_delegate followCurrentProject:dX];
+            [_delegate followCurrentProject:CGPointMake(dX, dY)];
         }
         else if( dX < (-(SWIPE_MOVE)))
         {
-            [_delegate dontFollowCurrentProject:dX];
+            [_delegate dontFollowCurrentProject:CGPointMake(dX, dY)];
         }
         else
         {
-            _cardView.transform = CGAffineTransformIdentity;
-            
-            _cardSelectStatusImage.alpha = 0.0f;
-            
-            _cardView.layer.borderColor = [UIColor clearColor].CGColor;
-            
-            _cardView.layer.borderWidth = 0.0f;
+            [UIView animateWithDuration:0.5f delay:0.0f usingSpringWithDamping:0.4f
+                  initialSpringVelocity:0.5f options:(UIViewAnimationOptionCurveEaseOut)
+                             animations:^{
+                                 
+                                 _cardView.transform = CGAffineTransformIdentity;
+                                 
 
+                             } completion:^(BOOL finished) {
+                                 
+                                 _cardSelectStatusImage.alpha = 0.0f;
+                                 
+                                 _cardView.layer.borderColor = [UIColor clearColor].CGColor;
+                                 
+                                 _cardView.layer.borderWidth = 0.0f;
+                             } ];
         }
     }
     else if(gesture.state == UIGestureRecognizerStateChanged)
     {
+        
         CGPoint newCoord = [gesture locationInView:self.view];
         
         float dX = newCoord.x-_panCoord.x;
@@ -155,12 +169,15 @@
 
         }
         
-        
         CGAffineTransform t = CGAffineTransformMakeTranslation(dX, dY);
+        
+        [_delegate dragedCurrentShowingController:CGPointMake(dX, dY)];
+
         
         [UIView animateKeyframesWithDuration:0.05 delay:0.05 options:UIViewKeyframeAnimationOptionAllowUserInteraction
                                   animations:^{
                                       
+
                                       _cardView.transform = t;
                                       
                                       _cardSelectStatusImage.alpha = (fabs(dX)/SWIPE_MOVE);
@@ -225,7 +242,7 @@
     
     _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
     
-    _moviePlayer.shouldAutoplay = YES;
+    _moviePlayer.shouldAutoplay = NO;
     
     _moviePlayer.repeatMode = NO;
     
@@ -239,7 +256,7 @@
     
     [_moviePlayerView bringSubviewToFront:_moviePlayer.view];
     
-    [_moviePlayer play];
+    [_moviePlayer pause];
 
 }
 

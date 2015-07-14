@@ -20,11 +20,17 @@
 
 @required
 
--(void)followCurrentProject:(float)movedValue;
+-(void)followCurrentProject:(CGPoint)movedPoint;
 
--(void)dontFollowCurrentProject:(float)movedValue;
+-(void)dontFollowCurrentProject:(CGPoint)movedPoint;
 
 -(void)updateCurrentProjDescLable;
+
+-(void)draggingBeginForCurrentShowingController;
+
+-(void)dragedCurrentShowingController:(CGPoint)inMovedPoint;
+
+-(void)draggingEndsForCurrentShowingController;
 
 @end
 
