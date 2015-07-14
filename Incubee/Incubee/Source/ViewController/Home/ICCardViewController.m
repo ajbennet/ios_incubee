@@ -242,7 +242,7 @@
     
     _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
     
-    _moviePlayer.shouldAutoplay = NO;
+    _moviePlayer.shouldAutoplay = YES;
     
     _moviePlayer.repeatMode = NO;
     
@@ -256,7 +256,7 @@
     
     [_moviePlayerView bringSubviewToFront:_moviePlayer.view];
     
-    [_moviePlayer pause];
+    [_moviePlayer play];
 
 }
 
@@ -291,12 +291,16 @@
     
     ICImageManager *im1 = [[ICImageManager alloc] init];
     
+    _topLeftImageView.image = [UIImage imageNamed:@"LikeButton"];
+    
     [_topLeftImageView setImageUrl:urlString1];
 
     [im1 getImage:urlString1 withDelegate:self];
     
     
     ICImageManager *im2 = [[ICImageManager alloc] init];
+    
+    _topRightImageView.image = [UIImage imageNamed:@"LikeButton"];
     
     [_topRightImageView setImageUrl:urlString2];
 
@@ -305,6 +309,8 @@
     
     ICImageManager *im3 = [[ICImageManager alloc] init];
     
+    _bottomLeftImageView.image = [UIImage imageNamed:@"LikeButton"];
+
     [_bottomLeftImageView setImageUrl:urlString3];
     
     [im3 getImage:urlString3 withDelegate:self];
@@ -312,6 +318,8 @@
 
     ICImageManager *im4 = [[ICImageManager alloc] init];
     
+    _bottomRightImageView.image = [UIImage imageNamed:@"LikeButton"];
+
     [_bottomRightImageView setImageUrl:urlString4];
     
     [im4 getImage:urlString4 withDelegate:self];

@@ -118,7 +118,7 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
-        [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
+        [UIView animateWithDuration:0.5f delay:0.1f usingSpringWithDamping:0.5f initialSpringVelocity:0.1f options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              
                              _secondViewC.cardView.transform = translate;
@@ -159,7 +159,7 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
-        [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
+        [UIView animateWithDuration:0.5f delay:0.1f usingSpringWithDamping:0.5f initialSpringVelocity:0.1f options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              
                              _firstViewC.cardView.transform = translate;
@@ -218,9 +218,9 @@
     
     if(_currentlyShowingVC == _secondViewC)
     {
-        _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
+        _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"DislikeButton"];
         
-        [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
+        [UIView animateWithDuration:0.5f delay:0.1 usingSpringWithDamping:0.5f initialSpringVelocity:0.1f options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              
                              _secondViewC.cardView.transform = translate;
@@ -261,9 +261,9 @@
     }
     else if(_currentlyShowingVC == _firstViewC)
     {
-        _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
+        _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"DislikeButton"];
         
-        [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionCurveEaseIn
+        [UIView animateWithDuration:0.5f delay:0.1f usingSpringWithDamping:0.5f initialSpringVelocity:0.1f options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              
                              _firstViewC.cardView.transform = translate;

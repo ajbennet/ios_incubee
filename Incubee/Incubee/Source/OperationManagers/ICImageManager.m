@@ -19,7 +19,7 @@
 }
 
 -(void)getImage:(NSString*)inUrl withDelegate:(id)inDelegate{
-
+    
     _delegate = inDelegate;
 
     _imageURL = inUrl;
