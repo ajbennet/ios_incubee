@@ -8,6 +8,9 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </mutableArray>
         <mutableArray key="Lato-Semibold.ttf">
             <string>Lato-Semibold</string>
         </mutableArray>
@@ -17,7 +20,9 @@
         <scene sceneID="WcT-Ss-om0">
             <objects>
                 <navigationController storyboardIdentifier="HomeNavigationSb" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ctq-YK-ceJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="HomeTabIcon" id="qL1-uh-05b"/>
+                    <tabBarItem key="tabBarItem" title="" image="HomeTabIcon" selectedImage="HomeTabIconSelected" id="qL1-uh-05b">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eIs-pK-MVF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -39,7 +44,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2U0-PZ-PjK">
@@ -533,7 +538,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="" image="HomeTabIcon" selectedImage="HomeTabIconSelected" id="acW-dT-cKf">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="LzG-cZ-neg"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
@@ -556,7 +563,7 @@
             <objects>
                 <tableViewController id="OkW-iA-hlg" customClass="MessagingTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="djD-ZF-qTa">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -583,7 +590,7 @@
             <objects>
                 <tableViewController id="Nva-NC-EfB" customClass="MessagingTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hhC-C6-w4E">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -609,7 +616,9 @@
         <scene sceneID="mc1-9r-kuQ">
             <objects>
                 <navigationController id="Ryv-Rk-08c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="SearchTabIcon" id="JhY-IX-gQT"/>
+                    <tabBarItem key="tabBarItem" title="" image="SearchTabIcon" selectedImage="SearchTabIconSelected" id="JhY-IX-gQT">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fdd-Bu-zCv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -626,7 +635,9 @@
         <scene sceneID="dAx-wN-OU9">
             <objects>
                 <navigationController id="fJO-yQ-I0a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="MsgTabIcon" id="Xpr-VG-pEL"/>
+                    <tabBarItem key="tabBarItem" title="" image="MsgTabIcon" selectedImage="MsgTabIconSelected" id="Xpr-VG-pEL">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="l0L-ov-wPc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -648,12 +659,63 @@
                         <viewControllerLayoutGuide type="bottom" id="lPU-3m-WbM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="o03-bf-LAA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bva-Ya-Ael">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="C2w-Md-oLg">
+                                        <variation key="heightClass=regular" constant="200"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="21" id="UKl-CE-Enn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <color key="textColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="C2w-Md-oLg"/>
+                                        <exclude reference="UKl-CE-Enn"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="C2w-Md-oLg"/>
+                                        <include reference="UKl-CE-Enn"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="bva-Ya-Ael" secondAttribute="centerX" id="Gim-UQ-mv5"/>
+                            <constraint firstItem="lPU-3m-WbM" firstAttribute="top" secondItem="bva-Ya-Ael" secondAttribute="bottom" constant="20" id="y63-Qi-Tcr"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="bva-Ya-Ael"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Gim-UQ-mv5"/>
+                                <exclude reference="y63-Qi-Tcr"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="bva-Ya-Ael"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Gim-UQ-mv5"/>
+                                <include reference="y63-Qi-Tcr"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="ProfileTabIcon" id="QFe-wn-OZ5"/>
+                    <tabBarItem key="tabBarItem" title="" image="ProfileTabIcon" selectedImage="ProfileTabIconSelected" id="QFe-wn-OZ5">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
+                    </tabBarItem>
                     <connections>
+                        <outlet property="versionLable" destination="bva-Ya-Ael" id="BFs-Jz-qIR"/>
                         <outlet property="view" destination="o03-bf-LAA" id="cLs-r3-YjD"/>
                     </connections>
                 </viewController>
@@ -672,6 +734,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ctq-YK-ceJ" kind="relationship" relationship="viewControllers" id="00N-Lf-mNf"/>
@@ -689,11 +752,14 @@
         <image name="CustomerButton" width="55" height="55"/>
         <image name="DislikeButton" width="57" height="57"/>
         <image name="HomeTabIcon" width="26" height="25"/>
+        <image name="HomeTabIconSelected" width="80" height="34"/>
         <image name="LikeButton" width="57" height="57"/>
         <image name="MsgTabIcon" width="27" height="26"/>
+        <image name="MsgTabIconSelected" width="80" height="34"/>
         <image name="ProfileTabIcon" width="25" height="25"/>
+        <image name="ProfileTabIconSelected" width="80" height="34"/>
         <image name="SearchTabIcon" width="26" height="25"/>
-        <image name="first" width="30" height="30"/>
+        <image name="SearchTabIconSelected" width="80" height="34"/>
         <image name="goNextButton" width="55" height="55"/>
     </resources>
 </document>

@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSString *appVersion =[NSString stringWithFormat:@"v%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]] ;
+    
+    _versionLable.text = appVersion;
+
+    
 }
 
 - (void)didReceiveMemoryWarning {

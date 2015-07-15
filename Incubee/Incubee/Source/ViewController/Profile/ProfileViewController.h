@@ -10,4 +10,6 @@
 
 @interface ProfileViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *versionLable;
+
 @end
