@@ -174,9 +174,8 @@
         [_delegate dragedCurrentShowingController:CGPointMake(dX, dY)];
 
         
-        [UIView animateKeyframesWithDuration:0.05 delay:0.05 options:UIViewKeyframeAnimationOptionAllowUserInteraction
+        [UIView animateKeyframesWithDuration:0.05 delay:0.0f options:UIViewKeyframeAnimationOptionAllowUserInteraction
                                   animations:^{
-                                      
 
                                       _cardView.transform = t;
                                       

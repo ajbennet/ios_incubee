@@ -118,7 +118,7 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
-        [UIView animateWithDuration:0.5f delay:0.1f usingSpringWithDamping:0.5f initialSpringVelocity:0.1f options:UIViewAnimationOptionCurveEaseIn
+        [UIView animateWithDuration:0.5f
                          animations:^{
                              
                              _secondViewC.cardView.transform = translate;
@@ -159,7 +159,7 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
-        [UIView animateWithDuration:0.5f delay:0.1f usingSpringWithDamping:0.5f initialSpringVelocity:0.1f options:UIViewAnimationOptionCurveEaseIn
+        [UIView animateWithDuration:0.5f
                          animations:^{
                              
                              _firstViewC.cardView.transform = translate;
@@ -220,7 +220,7 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"DislikeButton"];
         
-        [UIView animateWithDuration:0.5f delay:0.1 usingSpringWithDamping:0.5f initialSpringVelocity:0.1f options:UIViewAnimationOptionCurveEaseIn
+                [UIView animateWithDuration:0.5f
                          animations:^{
                              
                              _secondViewC.cardView.transform = translate;
@@ -263,7 +263,7 @@
     {
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"DislikeButton"];
         
-        [UIView animateWithDuration:0.5f delay:0.1f usingSpringWithDamping:0.5f initialSpringVelocity:0.1f options:UIViewAnimationOptionCurveEaseIn
+        [UIView animateWithDuration:0.5f
                          animations:^{
                              
                              _firstViewC.cardView.transform = translate;
@@ -430,7 +430,7 @@
 
         _firstViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
         
-        [UIView animateWithDuration:0.4f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:0.5f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
                              _firstViewC.cardView.transform = CGAffineTransformIdentity;
@@ -479,7 +479,7 @@
         _firstViewC.cardView.layer.borderWidth = 4.0f;
 
         
-        [UIView animateWithDuration:0.4f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:0.5f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
                              _secondViewC.cardView.transform = CGAffineTransformIdentity;
@@ -545,7 +545,7 @@
 
         _firstViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
         
-        [UIView animateWithDuration:0.4f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:0.5f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
                              _firstViewC.cardView.transform = CGAffineTransformIdentity;
@@ -596,7 +596,7 @@
     
         _secondViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
 
-        [UIView animateWithDuration:0.4f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:0.5f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
                              _secondViewC.cardView.transform = CGAffineTransformIdentity;
