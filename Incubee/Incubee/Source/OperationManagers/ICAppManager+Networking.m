@@ -56,5 +56,30 @@
 
 }
 
+-(void)sendGoogleLogin:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName{
+
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_GET_ALL_PROJECTS;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atMethod:funName];
+    
+    [req setRequestingURL:[NSURL URLWithString:@"http://incubee.elasticbeanstalk.com/rest/all"]];
+    
+    [req.reqDataDict setValue:@"" forKey:@"name"];
+    
+    [req.reqDataDict setValue:@"" forKey:@"id"];
+    
+    [req.reqDataDict setValue:@"" forKey:@"email"];
+
+    [req.reqDataDict setValue:@"" forKey:@"token"];
+    
+    [self sendRequestObject:req];
+
+    
+
+}
 
 @end

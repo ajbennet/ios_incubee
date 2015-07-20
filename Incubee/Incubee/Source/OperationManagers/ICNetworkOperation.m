@@ -69,6 +69,10 @@
     
     NSError *error = nil;
     
+    NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:_request.reqDataDict];
+
+    [request setHTTPBody:myData];
+    
     _request.responseRecivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     if(error)

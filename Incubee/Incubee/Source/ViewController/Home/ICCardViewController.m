@@ -241,7 +241,7 @@
     
     _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
     
-    _moviePlayer.shouldAutoplay = YES;
+    _moviePlayer.shouldAutoplay = NO;
     
     _moviePlayer.repeatMode = NO;
     
@@ -255,7 +255,7 @@
     
     [_moviePlayerView bringSubviewToFront:_moviePlayer.view];
     
-    [_moviePlayer play];
+    [_moviePlayer pause];
 
 }
 

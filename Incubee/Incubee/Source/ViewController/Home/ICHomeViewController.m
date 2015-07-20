@@ -31,7 +31,7 @@
     
     [self setupCards];
     
-//    [self showLoginScreen];
+    [self showLoginScreen];
     
     if(_projectList.count!=0)
     {

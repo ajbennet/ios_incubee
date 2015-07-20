@@ -22,9 +22,7 @@
     if(self!=nil)
     {
         _reqDataDict = [[NSMutableDictionary alloc] init];
-        
-//        [_reqDataDict setObject:@"json" forKey:@"output"];
-        
+                
         _requestStatus = [[ICRequestStatus alloc] init];
         
         _requestStatus.status = REQUEST_INITIALIZED;
