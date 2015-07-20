@@ -279,50 +279,65 @@
     
     NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_project.projectId];
     
-    NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
-    
-    NSString *urlString2 = ((ProjectImage*)[imArray objectAtIndex:1]).imageUrl;
-    
-    NSString *urlString3 = ((ProjectImage*)[imArray objectAtIndex:2]).imageUrl;
-    
-    NSString *urlString4 = ((ProjectImage*)[imArray objectAtIndex:3]).imageUrl;
-    
-    
-    ICImageManager *im1 = [[ICImageManager alloc] init];
-    
     _topLeftImageView.image = [UIImage imageNamed:@"LikeButton"];
-    
+    _topRightImageView.image = [UIImage imageNamed:@"LikeButton"];
+    _bottomLeftImageView.image = [UIImage imageNamed:@"LikeButton"];
+    _bottomRightImageView.image = [UIImage imageNamed:@"LikeButton"];
+
+
+    if(imArray.count>=1)
+    {
+    NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
+
+    ICImageManager *im1 = [[ICImageManager alloc] init];
+        
     [_topLeftImageView setImageUrl:urlString1];
 
     [im1 getImage:urlString1 withDelegate:self];
+    }
     
     
+    if(imArray.count>=2)
+    {
+
+    NSString *urlString2 = ((ProjectImage*)[imArray objectAtIndex:1]).imageUrl;
+
     ICImageManager *im2 = [[ICImageManager alloc] init];
-    
-    _topRightImageView.image = [UIImage imageNamed:@"LikeButton"];
     
     [_topRightImageView setImageUrl:urlString2];
 
     [im2 getImage:urlString2 withDelegate:self];
+    }
+    
+    
+    if(imArray.count>=3)
+    {
 
     
+    NSString *urlString3 = ((ProjectImage*)[imArray objectAtIndex:2]).imageUrl;
+
     ICImageManager *im3 = [[ICImageManager alloc] init];
     
-    _bottomLeftImageView.image = [UIImage imageNamed:@"LikeButton"];
 
     [_bottomLeftImageView setImageUrl:urlString3];
     
     [im3 getImage:urlString3 withDelegate:self];
+    }
+    
+    
+    if(imArray.count>=4)
+    {
 
+
+    NSString *urlString4 = ((ProjectImage*)[imArray objectAtIndex:3]).imageUrl;
 
     ICImageManager *im4 = [[ICImageManager alloc] init];
     
-    _bottomRightImageView.image = [UIImage imageNamed:@"LikeButton"];
 
     [_bottomRightImageView setImageUrl:urlString4];
     
     [im4 getImage:urlString4 withDelegate:self];
-    
+    }
 }
 
 
