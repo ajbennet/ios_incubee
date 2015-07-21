@@ -31,7 +31,7 @@
     
     [self setupCards];
     
-//    [self showLoginScreen];
+    [self showLoginScreen];
     
     if(_projectList.count!=0)
     {
@@ -648,18 +648,6 @@
 
 }
 
--(void)showLoginScreen{
-
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ICLoginViewController" bundle:nil];
-    
-    UINavigationController *loginNavigationController = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationStoryBoard"];
-    
-    loginNavigationController.modalPresentationStyle = UIModalPresentationCustom;
-    
-    [self presentViewController:loginNavigationController animated:YES completion:nil];
-        
-}
-
 -(void)showActivity:(BOOL)inShowActivity withMsg:(NSString*)inMsg{
 
     if(inShowActivity)
@@ -721,8 +709,20 @@
         
     }
     
+}
+
+#pragma mark - Login Screen -
+
+-(void)showLoginScreen{
     
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ICLoginViewController" bundle:nil];
     
+    UINavigationController *loginNavigationController = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationStoryBoard"];
+    
+    loginNavigationController.modalPresentationStyle = UIModalPresentationCustom;
+    
+    [self presentViewController:loginNavigationController animated:YES completion:nil];
     
 }
+
 @end

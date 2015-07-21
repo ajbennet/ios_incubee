@@ -8,6 +8,7 @@
 
 #import "ICLoginViewController.h"
 #import "ICDataManager.h"
+#import "ICUserAccountManager.h"
 
 @interface ICLoginViewController ()
 
@@ -15,15 +16,55 @@
 
 @implementation ICLoginViewController
 
+-(void)viewDidAppear:(BOOL)animated{
+
+    [super viewDidAppear:animated];
+
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    _googleSignInButton.style = kGIDSignInButtonStyleWide;
         
+    
     [GIDSignIn sharedInstance].uiDelegate = self;
     
-    [GIDSignIn sharedInstance].delegate = self;
+    [GIDSignIn sharedInstance].delegate = [ICUserAccountManager sharedInstance];
+    
+    
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:@"No Thanks"];
+    [attributeString addAttribute:NSUnderlineStyleAttributeName
+                            value:[NSNumber numberWithInt:1]
+                            range:(NSRange){0,[attributeString length]}];
+    
+    _noThanksButton.titleLabel.attributedText = [attributeString copy];
+    
+    
+    _googleSignInButton.style = kGIDSignInButtonStyleWide;
+    
+    _googleSignInButton.colorScheme = kGIDSignInButtonColorSchemeLight;
+    
+    [self.view setNeedsLayout];
+    
+    [self.view layoutIfNeeded];
+
+
+    
+    
+//    
+//    GIDSignInButton *signInButton = [[GIDSignInButton alloc] init];
+//    [signInButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+//    [signInButton setStyle:kGIDSignInButtonStyleStandard];
+//    [signInButton setColorScheme:kGIDSignInButtonColorSchemeLight];
+//    NSLayoutConstraint *vConstraint = [NSLayoutConstraint constraintWithItem:signInButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
+//    NSLayoutConstraint *hConstraint = [NSLayoutConstraint constraintWithItem:signInButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
+//    [self.view addConstraint:vConstraint];
+//    [self.view addConstraint:hConstraint];
+//    
+//    [self.view addSubview:signInButton];
+
+    
     
 }
 
@@ -32,10 +73,16 @@
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBarHidden = YES;
-
-    
 }
 
+- (void)didReceiveMemoryWarning {
+    
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - GIDSigninUIDelegate -
 // Stop the UIActivityIndicatorView animation that was started when the user
 // pressed the Sign In button
 - (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error {
@@ -43,55 +90,26 @@
     
 }
 
-// Present a view that prompts the user to sign in with Google
-- (void)signIn:(GIDSignIn *)signIn
-didSignInForUser:(GIDGoogleUser *)user
-     withError:(NSError *)error{
-
-    if(error==nil)
-    {
-        NSLog(@"%@",NSStringFromSelector(_cmd));
-
-        [self signInSuccesfull];
-    }
-    else
-    {
-    
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Google" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-        
-        [alertView show];
-    }
-    
-}
-
-
-- (void)signIn:(GIDSignIn *)signIn
-presentViewController:(UIViewController *)viewController {
+- (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController{
 
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
     [self presentViewController:viewController animated:YES completion:nil];
+
 }
 
-// Dismiss the "Sign in with Google" view
-- (void)signIn:(GIDSignIn *)signIn
-dismissViewController:(UIViewController *)viewController {
-    
+- (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController{
+
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
-}
+    [viewController dismissViewControllerAnimated:YES completion:nil];
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)signInSuccesfull{
-
-    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+
+
+
 
 /*
 #pragma mark - Navigation
@@ -123,4 +141,7 @@ dismissViewController:(UIViewController *)viewController {
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+
+
 @end
