@@ -26,7 +26,12 @@
     
     _googleButton.layer.borderColor = _twitterButton.layer.borderColor = _loginButton.layer.borderColor = [UIColor grayColor].CGColor;
 
-        _googleButton.layer.borderWidth = _twitterButton.layer.borderWidth = _loginButton.layer.borderWidth = 1.0f;
+    _googleButton.layer.borderWidth = _twitterButton.layer.borderWidth = _loginButton.layer.borderWidth = 1.0f;
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"second"] style:UIBarButtonItemStyleDone target:self action:@selector(closeTaped)];
+    
+    self.navigationItem.leftBarButtonItem = backButton;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,5 +65,11 @@
     
     
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)closeTaped{
+
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+
 }
 @end
