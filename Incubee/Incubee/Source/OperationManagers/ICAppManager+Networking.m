@@ -60,21 +60,23 @@
 
     ICRequest *req = [[ICRequest alloc] init];
     
-    req.requestId = IC_GET_ALL_PROJECTS;
+    req.requestId = IC_LOGIN_REQUEST;
     
     [self addRequestActivityObserver:req];
     
     [self addReqComplitionListner:req forController:aViewController atMethod:funName];
     
-    [req setRequestingURL:[NSURL URLWithString:@"http://incubee.elasticbeanstalk.com/rest/all"]];
-    
-    [req.reqDataDict setValue:@"" forKey:@"name"];
-    
-    [req.reqDataDict setValue:@"" forKey:@"id"];
-    
-    [req.reqDataDict setValue:@"" forKey:@"email"];
+    [req setRequestingURL:[NSURL URLWithString:@"http://www.incub.ee/rest/login"]];
 
-    [req.reqDataDict setValue:@"" forKey:@"token"];
+    [req.reqDataDict setValue:@"Abi" forKey:@"name"];
+    
+    [req.reqDataDict setValue:@"34523452345" forKey:@"id"];
+    
+    [req.reqDataDict setValue:@"abi@abi.abi" forKey:@"email"];
+
+    [req.reqDataDict setValue:@"sfvsf234fwsfvsjadfsvqsfd" forKey:@"token"];
+    
+    [req.reqDataDict setValue:@"https://lh4.googleusercontent.com/-CL6coBFm9VE/AAAAAAAAAAI/AAAAAAAAHCk/ngCxGax3Tcc/s96-c/photo.jpg" forKey:@"image_url"];
     
     [self sendRequestObject:req];
 

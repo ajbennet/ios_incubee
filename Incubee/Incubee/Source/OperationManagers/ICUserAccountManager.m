@@ -43,14 +43,17 @@ static ICUserAccountManager *sharedUserAccountManagerInstance = nil;
 didSignInForUser:(GIDGoogleUser *)user
      withError:(NSError *)error{
     
+    NSLog(@"%@ : %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+
     if(error==nil)
     {
-    
         NSLog(@"Logged in Succesfully : %@",user);
-        
+    }
+    else
+    {
+        NSLog(@"SignIn Failed : %@",error.localizedDescription);
     }
     
-    NSLog(@"%@ : %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
 
 }
 

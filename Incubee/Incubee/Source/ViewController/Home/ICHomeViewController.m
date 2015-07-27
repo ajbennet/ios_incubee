@@ -407,6 +407,7 @@
 
 - (IBAction)addToCustomer:(id)sender {
     
+    [[ICAppManager sharedInstance] sendGoogleLogin:nil notifyTo:self forSelector:@"LoginResponse:"];
 
 }
 
@@ -707,6 +708,24 @@
         
         [alertView show];
         
+    }
+    
+}
+
+
+- (void)loginResponse:(ICRequest*)inRequest{
+
+
+    if(inRequest.error == nil)
+    {
+    }
+    else
+    {
+
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
+
     }
     
 }

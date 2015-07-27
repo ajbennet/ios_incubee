@@ -32,6 +32,8 @@
     
     [GIDSignIn sharedInstance].delegate = [ICUserAccountManager sharedInstance];
     
+    [GIDSignIn sharedInstance].shouldFetchBasicProfile = YES;
+    
     
     NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:@"No Thanks"];
     [attributeString addAttribute:NSUnderlineStyleAttributeName

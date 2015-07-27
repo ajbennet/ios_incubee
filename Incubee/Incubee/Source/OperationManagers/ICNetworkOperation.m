@@ -67,11 +67,31 @@
     
     NSHTTPURLResponse *response = nil;
     
-    NSError *error = nil;
+    if(_request.reqDataDict.allKeys.count>0)
+    {
     
-    NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:_request.reqDataDict];
+        [request setHTTPMethod:@"POST"];
+        
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
-    [request setHTTPBody:myData];
+        NSError *parsingError = nil;
+        
+        NSData *reqData = [NSJSONSerialization dataWithJSONObject:_request.reqDataDict options:NSJSONWritingPrettyPrinted error:&parsingError];
+        
+        if(parsingError==nil)
+        {
+        
+            [request setHTTPBody:reqData];
+        }
+        
+        [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[reqData length]] forHTTPHeaderField:@"Content-Length"];
+
+    }
+    
+    NSError *error = nil;
+
     
     _request.responseRecivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     

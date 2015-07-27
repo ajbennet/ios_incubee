@@ -65,6 +65,9 @@
 
 - (void)projectDataRefreshed:(ICRequest*)inRequest;
 
+- (void)loginResponse:(ICRequest*)inRequest;
+
+
 
 @end
 
