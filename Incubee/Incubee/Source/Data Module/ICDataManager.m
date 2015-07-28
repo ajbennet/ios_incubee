@@ -8,6 +8,7 @@
 
 #import "ICDataManager.h"
 
+
 #define NULL_TO_NIL(obj) ({ __typeof__ (obj) __obj = (obj); __obj == [NSNull null] ? nil : obj; })
 
 
@@ -310,4 +311,85 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 }
 
+#pragma mark - User -
+-(void)createOrUpdateGoogleUser:(GIDGoogleUser *)user{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:context]];
+        
+        NSPredicate *prd = [NSPredicate predicateWithFormat:@"(email LIKE %@)",user.profile.email];
+        
+        [request setPredicate:prd];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+
+        User *aUser;
+        
+        if(results.count>0)
+        {
+            aUser = [results objectAtIndex:0];
+        }
+        else
+        {
+            aUser = [NSEntityDescription
+                        insertNewObjectForEntityForName:@"User"
+                        inManagedObjectContext:context];
+        }
+        
+        aUser.name = user.profile.name;
+        
+        aUser.userId = user.userID;
+        
+        aUser.email = user.profile.email;
+        
+        aUser.token = user.authentication.accessToken;
+        
+        aUser.tokenExpDate = user.authentication.accessTokenExpirationDate;
+        
+        NSError *error = nil;
+        
+        [context save:&error];
+        
+        if(error==nil)
+        {
+            NSLog(@"User Updated Succesfully");
+        }
+    }
+
+}
+
+-(User*)getUser{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:context]];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        ;
+        
+        if(results.count>0)
+        {
+            User *aUser = [results objectAtIndex:0];
+            
+            return aUser;
+        }
+    }
+    
+    return nil;
+    
+}
 @end

@@ -12,6 +12,7 @@
 #import "ICAppManager+Networking.h"
 #import "ICLoginViewController.h"
 #import "ICUtilityManager.h"
+#import "ICUserAccountManager.h"
 
 
 @interface ICHomeViewController ()
@@ -27,6 +28,8 @@
 
     self.navigationController.navigationBarHidden = YES;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoginScreen) name:@"ShowLogin" object:nil];
+
     _projectList = [[ICDataManager sharedInstance] getAllProjects];
     
     [self setupCards];
@@ -107,6 +110,8 @@
 #pragma mark - ICCardViewDelegate - 
 
 -(void)followCurrentProject:(CGPoint)movedPoint{
+    
+    [[ICUserAccountManager sharedInstance] updateLoginBadgeCount];
     
     [_currentlyShowingVC dismissShowing];
 
@@ -208,6 +213,8 @@
 
 -(void)dontFollowCurrentProject:(CGPoint)movedPoint{
 
+    [[ICUserAccountManager sharedInstance] updateLoginBadgeCount];
+    
     [_currentlyShowingVC dismissShowing];
 
     CGAffineTransform translate;
@@ -375,6 +382,8 @@
 
 - (IBAction)goNextProject:(id)sender {
     
+    [[ICUserAccountManager sharedInstance] updateLoginBadgeCount];
+    
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
     [_currentlyShowingVC dismissShowing];
@@ -407,11 +416,12 @@
 
 - (IBAction)addToCustomer:(id)sender {
     
-    [[ICAppManager sharedInstance] sendGoogleLogin:nil notifyTo:self forSelector:@"LoginResponse:"];
 
 }
 
 - (IBAction)likeProjectTapped:(id)sender {
+    
+    [[ICUserAccountManager sharedInstance] updateLoginBadgeCount];
     
     [_currentlyShowingVC dismissShowing];
 
@@ -527,6 +537,8 @@
 }
 
 - (IBAction)dislikeProjTapped:(id)sender {
+    
+    [[ICUserAccountManager sharedInstance] updateLoginBadgeCount];
     
     [_currentlyShowingVC dismissShowing];
     

@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Google/SignIn.h>
 
-@interface ICIncubeeLoginViewController : UIViewController
+@interface ICIncubeeLoginViewController : UIViewController<GIDSignInUIDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *googleButton;
 
-@property (weak, nonatomic) IBOutlet UIButton *twitterButton;
+
+@property (strong, nonatomic) IBOutlet UIView *googleLoginContainer;
+
+@property (strong, nonatomic) IBOutlet GIDSignInButton *googleSignInButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 

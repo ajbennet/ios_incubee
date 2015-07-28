@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <Google/SignIn.h>
 
-
 @interface ICUserAccountManager : NSObject <GIDSignInDelegate>
 
 +(ICUserAccountManager*)sharedInstance;
+
+@property(nonatomic,assign)int userLoginBadgeCount;
+
+-(void)updateLoginBadgeCount;
 
 @end

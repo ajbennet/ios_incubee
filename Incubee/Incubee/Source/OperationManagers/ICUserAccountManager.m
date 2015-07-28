@@ -30,7 +30,7 @@ static ICUserAccountManager *sharedUserAccountManagerInstance = nil;
     
     if (self = [super init])
     {
-        
+        _userLoginBadgeCount = 0;
     }
     
     return self;
@@ -48,6 +48,12 @@ didSignInForUser:(GIDGoogleUser *)user
     if(error==nil)
     {
         NSLog(@"Logged in Succesfully : %@",user);
+        
+        [[ICDataManager sharedInstance] createOrUpdateGoogleUser:user];
+        
+        
+        [[ICAppManager sharedInstance] sendGoogleLogin:nil notifyTo:self forSelector:@"LoginResponse:"];
+
     }
     else
     {
@@ -64,6 +70,44 @@ didDisconnectWithUser:(GIDGoogleUser *)user
 
         NSLog(@"%@ : %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
 
+}
+
+#pragma mark - User Badge Count -
+-(void)updateLoginBadgeCount{
+
+    _userLoginBadgeCount++;
+    
+    if(_userLoginBadgeCount >=20)
+    {
+        _userLoginBadgeCount = 0;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLogin" object:nil];
+    }
+    
+}
+
+- (void)loginResponse:(ICRequest*)inRequest{
+    
+    
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"GoogleSignup" message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    
+    [alertView show];
+
+    if(inRequest.error == nil)
+    {
+        
+        
+    }
+    else
+    {
+        
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+//        [alertView show];
+        
+    }
+    
 }
 
 @end

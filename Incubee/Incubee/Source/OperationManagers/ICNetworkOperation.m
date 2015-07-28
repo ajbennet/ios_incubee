@@ -82,12 +82,14 @@
         
         if(parsingError==nil)
         {
-        
             [request setHTTPBody:reqData];
         }
         
         [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[reqData length]] forHTTPHeaderField:@"Content-Length"];
 
+        
+        
+        NSLog(@"********** RequestData ********** \n %@",_request.reqDataDict);
     }
     
     NSError *error = nil;

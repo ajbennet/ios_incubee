@@ -35,8 +35,6 @@
 		5780CB3B1B3E8A250090ADCE /* ICOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB381B3E8A250090ADCE /* ICOperationManager.m */; };
 		5780CB421B3E925C0090ADCE /* ICDataSavingOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB411B3E925C0090ADCE /* ICDataSavingOperations.m */; };
 		5780CB4B1B3E9E1C0090ADCE /* ICDataManager+DataSaving.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB4A1B3E9E1C0090ADCE /* ICDataManager+DataSaving.m */; };
-		5780CB5A1B3EB01F0090ADCE /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB591B3EB01F0090ADCE /* Project.m */; };
-		5780CB5D1B3EB01F0090ADCE /* ProjectImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB5C1B3EB01F0090ADCE /* ProjectImage.m */; };
 		579D46851B41B0D200168438 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46731B41B0D200168438 /* Lato-Black.ttf */; };
 		579D46861B41B0D200168438 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46741B41B0D200168438 /* Lato-BlackItalic.ttf */; };
 		579D46871B41B0D200168438 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46751B41B0D200168438 /* Lato-Bold.ttf */; };
@@ -59,6 +57,9 @@
 		57D52CC11B581DEE008EA1E5 /* ICUserAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D52CC01B581DEE008EA1E5 /* ICUserAccountManager.m */; };
 		57E724E61B4063E90066C0A5 /* ICImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E724E51B4063E90066C0A5 /* ICImageManager.m */; };
 		57F3AEF41B31EBE50005D964 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57F3AEF31B31EBE50005D964 /* GoogleService-Info.plist */; };
+		581D9FAD1B66BDE700270A16 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 581D9FAC1B66BDE700270A16 /* User.m */; };
+		581D9FB01B66BDE700270A16 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 581D9FAF1B66BDE700270A16 /* Project.m */; };
+		581D9FB31B66BDE800270A16 /* ProjectImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 581D9FB21B66BDE800270A16 /* ProjectImage.m */; };
 		930CB1D550C9E950F61E556D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB03A56CF3D54AE87702E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -126,10 +127,6 @@
 		5780CB411B3E925C0090ADCE /* ICDataSavingOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICDataSavingOperations.m; path = Source/OperationManagers/ICDataSavingOperations.m; sourceTree = "<group>"; };
 		5780CB491B3E9E1C0090ADCE /* ICDataManager+DataSaving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ICDataManager+DataSaving.h"; path = "Source/Data Module/ICDataManager+DataSaving.h"; sourceTree = "<group>"; };
 		5780CB4A1B3E9E1C0090ADCE /* ICDataManager+DataSaving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ICDataManager+DataSaving.m"; path = "Source/Data Module/ICDataManager+DataSaving.m"; sourceTree = "<group>"; };
-		5780CB581B3EB01F0090ADCE /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = "Source/Data Module/Managed Object/Project.h"; sourceTree = "<group>"; };
-		5780CB591B3EB01F0090ADCE /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = "Source/Data Module/Managed Object/Project.m"; sourceTree = "<group>"; };
-		5780CB5B1B3EB01F0090ADCE /* ProjectImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectImage.h; path = "Source/Data Module/Managed Object/ProjectImage.h"; sourceTree = "<group>"; };
-		5780CB5C1B3EB01F0090ADCE /* ProjectImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectImage.m; path = "Source/Data Module/Managed Object/ProjectImage.m"; sourceTree = "<group>"; };
 		579D46731B41B0D200168438 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "Resource/Font/lato/Lato-Black.ttf"; sourceTree = "<group>"; };
 		579D46741B41B0D200168438 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "Resource/Font/lato/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		579D46751B41B0D200168438 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "Resource/Font/lato/Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -155,6 +152,12 @@
 		57E724E41B4063E90066C0A5 /* ICImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICImageManager.h; path = Source/OperationManagers/ICImageManager.h; sourceTree = "<group>"; };
 		57E724E51B4063E90066C0A5 /* ICImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICImageManager.m; path = Source/OperationManagers/ICImageManager.m; sourceTree = "<group>"; };
 		57F3AEF31B31EBE50005D964 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		581D9FAB1B66BDE700270A16 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "Source/Data Module/Managed Objects/User.h"; sourceTree = "<group>"; };
+		581D9FAC1B66BDE700270A16 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "Source/Data Module/Managed Objects/User.m"; sourceTree = "<group>"; };
+		581D9FAE1B66BDE700270A16 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = "Source/Data Module/Managed Objects/Project.h"; sourceTree = "<group>"; };
+		581D9FAF1B66BDE700270A16 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = "Source/Data Module/Managed Objects/Project.m"; sourceTree = "<group>"; };
+		581D9FB11B66BDE800270A16 /* ProjectImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectImage.h; path = "Source/Data Module/Managed Objects/ProjectImage.h"; sourceTree = "<group>"; };
+		581D9FB21B66BDE800270A16 /* ProjectImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectImage.m; path = "Source/Data Module/Managed Objects/ProjectImage.m"; sourceTree = "<group>"; };
 		79BDB03A56CF3D54AE87702E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -244,25 +247,14 @@
 		571F79341B3D0BE9008F727E /* Data Module */ = {
 			isa = PBXGroup;
 			children = (
+				581D9FAA1B66BDC200270A16 /* Managed Objects */,
 				5780CB0C1B3E83740090ADCE /* ICDataManager.h */,
 				5780CB0D1B3E83740090ADCE /* ICDataManager.m */,
 				5780CB491B3E9E1C0090ADCE /* ICDataManager+DataSaving.h */,
 				5780CB4A1B3E9E1C0090ADCE /* ICDataManager+DataSaving.m */,
 				571F794C1B3D231F008F727E /* CoreData Model */,
-				571F793A1B3D1D4E008F727E /* Managed Objects */,
 			);
 			name = "Data Module";
-			sourceTree = "<group>";
-		};
-		571F793A1B3D1D4E008F727E /* Managed Objects */ = {
-			isa = PBXGroup;
-			children = (
-				5780CB5B1B3EB01F0090ADCE /* ProjectImage.h */,
-				5780CB5C1B3EB01F0090ADCE /* ProjectImage.m */,
-				5780CB581B3EB01F0090ADCE /* Project.h */,
-				5780CB591B3EB01F0090ADCE /* Project.m */,
-			);
-			name = "Managed Objects";
 			sourceTree = "<group>";
 		};
 		571F794C1B3D231F008F727E /* CoreData Model */ = {
@@ -431,6 +423,19 @@
 				579D46841B41B0D200168438 /* Lato-ThinItalic.ttf */,
 			);
 			name = Lato;
+			sourceTree = "<group>";
+		};
+		581D9FAA1B66BDC200270A16 /* Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				581D9FB11B66BDE800270A16 /* ProjectImage.h */,
+				581D9FB21B66BDE800270A16 /* ProjectImage.m */,
+				581D9FAE1B66BDE700270A16 /* Project.h */,
+				581D9FAF1B66BDE700270A16 /* Project.m */,
+				581D9FAB1B66BDE700270A16 /* User.h */,
+				581D9FAC1B66BDE700270A16 /* User.m */,
+			);
+			name = "Managed Objects";
 			sourceTree = "<group>";
 		};
 		70B51E13AD9040D6964063DB /* Pods */ = {
@@ -614,17 +619,18 @@
 				576C4DC11B3F1402008AA2EB /* ICIncubeeLoginViewController.m in Sources */,
 				570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */,
 				5780CB0E1B3E83740090ADCE /* ICDataManager.m in Sources */,
+				581D9FB01B66BDE700270A16 /* Project.m in Sources */,
 				57E724E61B4063E90066C0A5 /* ICImageManager.m in Sources */,
 				57D52CC11B581DEE008EA1E5 /* ICUserAccountManager.m in Sources */,
 				5780CB0A1B3E835B0090ADCE /* ICHomeViewController.m in Sources */,
-				5780CB5A1B3EB01F0090ADCE /* Project.m in Sources */,
 				5780CAFF1B3E833C0090ADCE /* ProfileViewController.m in Sources */,
 				5780CB3B1B3E8A250090ADCE /* ICOperationManager.m in Sources */,
 				5780CB051B3E834F0090ADCE /* ICLoginViewController.m in Sources */,
-				5780CB5D1B3EB01F0090ADCE /* ProjectImage.m in Sources */,
 				57C98C471B5129DD002F6E81 /* ICUtilityManager.m in Sources */,
 				5780CB391B3E8A250090ADCE /* ICJSONParsingOperations.m in Sources */,
+				581D9FB31B66BDE800270A16 /* ProjectImage.m in Sources */,
 				5780CB0B1B3E835B0090ADCE /* ICCardViewController.m in Sources */,
+				581D9FAD1B66BDE700270A16 /* User.m in Sources */,
 				5780CB1E1B3E86BD0090ADCE /* ICAppManager+Networking.m in Sources */,
 				5780CB1B1B3E86490090ADCE /* ICAppManager.m in Sources */,
 				5780CB4B1B3E9E1C0090ADCE /* ICDataManager+DataSaving.m in Sources */,

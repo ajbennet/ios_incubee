@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "Project.h"
 #import "ProjectImage.h"
+#import "User.h"
+#import <Google/SignIn.h>
 
 @interface ICDataManager : NSObject
 
@@ -20,7 +22,13 @@
 +(ICDataManager*)sharedInstance;
 
 -(void)saveProjectList:(NSArray*)inArray;
+
 -(NSArray*)getAllProjects;
+
 -(NSArray*)getImageURLs:(NSString*)inProjectId;
+
+#pragma mark - User -
+-(void)createOrUpdateGoogleUser:(GIDGoogleUser *)user;
+-(User*)getUser;
 
 @end

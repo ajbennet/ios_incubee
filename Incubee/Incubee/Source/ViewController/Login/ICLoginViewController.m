@@ -19,6 +19,10 @@
 -(void)viewDidAppear:(BOOL)animated{
 
     [super viewDidAppear:animated];
+    
+    [self configureGoogleButton];
+    
+    _googleSignInButton.hidden = NO;
 
 }
 
@@ -27,7 +31,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
         
-    
     [GIDSignIn sharedInstance].uiDelegate = self;
     
     [GIDSignIn sharedInstance].delegate = [ICUserAccountManager sharedInstance];
@@ -42,31 +45,13 @@
     
     _noThanksButton.titleLabel.attributedText = [attributeString copy];
     
-    
     _googleSignInButton.style = kGIDSignInButtonStyleWide;
     
     _googleSignInButton.colorScheme = kGIDSignInButtonColorSchemeLight;
     
-    [self.view setNeedsLayout];
+    NSLog(@"_googleConstrients.constant %f",_googleConstrients.constant);
     
-    [self.view layoutIfNeeded];
-
-
-    
-    
-//    
-//    GIDSignInButton *signInButton = [[GIDSignInButton alloc] init];
-//    [signInButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-//    [signInButton setStyle:kGIDSignInButtonStyleStandard];
-//    [signInButton setColorScheme:kGIDSignInButtonColorSchemeLight];
-//    NSLayoutConstraint *vConstraint = [NSLayoutConstraint constraintWithItem:signInButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
-//    NSLayoutConstraint *hConstraint = [NSLayoutConstraint constraintWithItem:signInButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
-//    [self.view addConstraint:vConstraint];
-//    [self.view addConstraint:hConstraint];
-//    
-//    [self.view addSubview:signInButton];
-
-    
+    _googleSignInButton.hidden = YES;
     
 }
 
@@ -89,6 +74,12 @@
 // pressed the Sign In button
 - (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error {
     
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    if(error==nil)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
     
 }
 
@@ -106,12 +97,9 @@
     
     [viewController dismissViewControllerAnimated:YES completion:nil];
 
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
-
-
-
-
 
 /*
 #pragma mark - Navigation
@@ -129,12 +117,11 @@
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ICLoginViewController" bundle:nil];
     
-    UIViewController *controller = [sb instantiateViewControllerWithIdentifier:@"IncubeeLoginStoryBoard"];
+    _loginViewController = [sb instantiateViewControllerWithIdentifier:@"IncubeeLoginStoryBoard"];
     
-    controller.modalPresentationStyle = UIModalPresentationCustom;
+    _loginViewController.modalPresentationStyle = UIModalPresentationCustom;
     
-    [self.navigationController pushViewController:controller animated:YES];
-
+    [self.navigationController pushViewController:_loginViewController animated:YES];
     
 }
 
@@ -145,5 +132,24 @@
 }
 
 
+-(void)configureGoogleButton{
+    
+    float containerHeight = _googleButtonContainerView.frame.size.height;
+    
+    float containerWidth = _googleButtonContainerView.frame.size.width;
+    
+    
+    float buttonHeight = _googleSignInButton.frame.size.height;
+    
+    float buttonWidth = _googleSignInButton.frame.size.width;
+    
+    
+    float buttonOriginX = (containerWidth - buttonWidth)/2.0f;
+    
+    float buttonOriginY = (containerHeight - buttonHeight)/2.0f;
+    
+    _googleSignInButton.frame = CGRectMake(buttonOriginX, buttonOriginY, buttonWidth, buttonHeight);
+
+}
 
 @end

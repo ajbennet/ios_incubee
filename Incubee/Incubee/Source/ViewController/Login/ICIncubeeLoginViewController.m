@@ -8,12 +8,24 @@
 
 #import "ICIncubeeLoginViewController.h"
 
+#import "ICUserAccountManager.h"
+
 @interface ICIncubeeLoginViewController ()
 
 @end
 
 @implementation ICIncubeeLoginViewController
 
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    
+    [self configureGoogleButton];
+    
+    _googleSignInButton.hidden = NO;
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -22,15 +34,17 @@
     
     self.title = @"Login";
     
-    _googleButton.layer.cornerRadius = _twitterButton.layer.cornerRadius = _loginButton.layer.cornerRadius = 5.0f;
-    
-    _googleButton.layer.borderColor = _twitterButton.layer.borderColor = _loginButton.layer.borderColor = [UIColor grayColor].CGColor;
-
-    _googleButton.layer.borderWidth = _twitterButton.layer.borderWidth = _loginButton.layer.borderWidth = 1.0f;
-    
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"second"] style:UIBarButtonItemStyleDone target:self action:@selector(closeTaped)];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Cross"] style:UIBarButtonItemStyleDone target:self action:@selector(closeTaped)];
     
     self.navigationItem.leftBarButtonItem = backButton;
+    
+    _googleSignInButton.hidden = YES;
+    
+    [GIDSignIn sharedInstance].uiDelegate = self;
+    
+    [GIDSignIn sharedInstance].delegate = [ICUserAccountManager sharedInstance];
+    
+    [GIDSignIn sharedInstance].shouldFetchBasicProfile = YES;
     
 }
 
@@ -71,5 +85,51 @@
 
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 
+}
+
+
+-(void)configureGoogleButton{
+    
+    float containerHeight = _googleLoginContainer.frame.size.height;
+    
+    float containerWidth = _googleLoginContainer.frame.size.width;
+    
+    
+    float buttonHeight = _googleSignInButton.frame.size.height;
+    
+    float buttonWidth = _googleSignInButton.frame.size.width;
+    
+    
+    float buttonOriginX = (containerWidth - buttonWidth)/2.0f;
+    
+    float buttonOriginY = (containerHeight - buttonHeight)/2.0f;
+    
+    _googleSignInButton.frame = CGRectMake(buttonOriginX, buttonOriginY, buttonWidth, buttonHeight);
+    
+}
+
+#pragma mark - GIDSigninUIDelegate -
+// Stop the UIActivityIndicatorView animation that was started when the user
+// pressed the Sign In button
+- (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error {
+    
+    
+}
+
+- (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController{
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    [self presentViewController:viewController animated:YES completion:nil];
+    
+}
+
+- (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController{
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    [viewController dismissViewControllerAnimated:YES completion:nil];
+    
+    
 }
 @end

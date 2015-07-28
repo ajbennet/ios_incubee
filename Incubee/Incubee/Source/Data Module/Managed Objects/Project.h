@@ -2,7 +2,7 @@
 //  Project.h
 //  Incubee
 //
-//  Created by Rithesh Rao on 27/06/15.
+//  Created by Rithesh Rao on 28/07/15.
 //  Copyright (c) 2015 Incubee. All rights reserved.
 //
 
@@ -21,14 +21,14 @@
 @property (nonatomic, retain) NSString * founder;
 @property (nonatomic, retain) NSNumber * funding;
 @property (nonatomic, retain) NSString * high_concept;
-@property (nonatomic, retain) NSString * projectId;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSString * logo_url;
 @property (nonatomic, retain) NSString * project_status;
+@property (nonatomic, retain) NSNumber * projectFollowing;
+@property (nonatomic, retain) NSString * projectId;
 @property (nonatomic, retain) NSString * twitter_url;
 @property (nonatomic, retain) NSString * video;
 @property (nonatomic, retain) NSString * videoUrl;
-@property (nonatomic, retain) NSNumber * projectFollowing;
 @property (nonatomic, retain) NSSet *projImages;
 @end
 

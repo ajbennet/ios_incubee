@@ -21,7 +21,10 @@
 
 - (IBAction)noThanksTapped:(id)sender;
 
-
 @property (weak, nonatomic) IBOutlet UIView *googleButtonContainerView;
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *googleConstrients;
+
+
+@property(nonatomic,strong)ICLoginViewController *loginViewController;
 @end

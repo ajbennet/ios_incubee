@@ -10,6 +10,8 @@
 #import "ICOperationManager.h"
 #import "ICNetworkOperation.h"
 
+#import "User.h"
+
 @implementation ICAppManager (Networking)
 
 #pragma mark - App Manager Utility -
@@ -67,20 +69,22 @@
     [self addReqComplitionListner:req forController:aViewController atMethod:funName];
     
     [req setRequestingURL:[NSURL URLWithString:@"http://www.incub.ee/rest/login"]];
+    
+    
+    User *user = [[ICDataManager sharedInstance] getUser];
+    
 
-    [req.reqDataDict setValue:@"Abi" forKey:@"name"];
+    [req.reqDataDict setValue:user.name forKey:@"name"];
     
-    [req.reqDataDict setValue:@"34523452345" forKey:@"id"];
+    [req.reqDataDict setValue:user.userId forKey:@"id"];
     
-    [req.reqDataDict setValue:@"abi@abi.abi" forKey:@"email"];
+    [req.reqDataDict setValue:user.email forKey:@"email"];
 
-    [req.reqDataDict setValue:@"sfvsf234fwsfvsjadfsvqsfd" forKey:@"token"];
+    [req.reqDataDict setValue:user.token forKey:@"token"];
     
-    [req.reqDataDict setValue:@"https://lh4.googleusercontent.com/-CL6coBFm9VE/AAAAAAAAAAI/AAAAAAAAHCk/ngCxGax3Tcc/s96-c/photo.jpg" forKey:@"image_url"];
+//    [req.reqDataDict setValue:@"https://lh4.googleusercontent.com/-CL6coBFm9VE/AAAAAAAAAAI/AAAAAAAAHCk/ngCxGax3Tcc/s96-c/photo.jpg" forKey:@"image_url"];
     
     [self sendRequestObject:req];
-
-    
 
 }
 
