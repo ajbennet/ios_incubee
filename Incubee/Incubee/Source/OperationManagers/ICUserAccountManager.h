@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Google/SignIn.h>
+#import "ICRequest.h"
 
 @interface ICUserAccountManager : NSObject <GIDSignInDelegate>
 
@@ -16,5 +17,9 @@
 @property(nonatomic,assign)int userLoginBadgeCount;
 
 -(void)updateLoginBadgeCount;
+
+#pragma mark - Network Notifications -
+- (void)loginResponse:(ICRequest*)inRequest;
+- (void)googleSignup:(ICRequest*)inRequest;
 
 @end

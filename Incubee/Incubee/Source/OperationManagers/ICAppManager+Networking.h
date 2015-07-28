@@ -15,5 +15,7 @@
 
 -(void)sendGoogleLogin:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName;
 
+-(void)sendGoogleSignUp:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName;
+
 
 @end

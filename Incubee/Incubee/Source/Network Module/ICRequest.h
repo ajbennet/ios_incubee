@@ -13,7 +13,8 @@ typedef enum
 {
     IC_LOGIN_REQUEST,
     IC_GET_ALL_PROJECTS,
-    IC_GOOGLE_LOGIN
+    IC_GOOGLE_LOGIN,
+    IC_GOOGLE_SIGNUP
     
 } REQUESTID;
 

@@ -51,8 +51,9 @@ didSignInForUser:(GIDGoogleUser *)user
         
         [[ICDataManager sharedInstance] createOrUpdateGoogleUser:user];
         
-        
-        [[ICAppManager sharedInstance] sendGoogleLogin:nil notifyTo:self forSelector:@"LoginResponse:"];
+//        [[ICAppManager sharedInstance] sendGoogleSignUp:nil notifyTo:self forSelector:@"googleSignup:"];
+
+        [[ICAppManager sharedInstance] sendGoogleLogin:nil notifyTo:self forSelector:@"loginResponse:"];
 
     }
     else
@@ -88,11 +89,31 @@ didDisconnectWithUser:(GIDGoogleUser *)user
 
 - (void)loginResponse:(ICRequest*)inRequest{
     
+    if(inRequest.error == nil)
+    {
+        
+        
+    }
+    else
+    {
+        if(inRequest.error.code == 1003)
+        {
+            [[ICAppManager sharedInstance] sendGoogleSignUp:nil notifyTo:self forSelector:@"googleSignup:"];
+        }
+        else
+        {
+            
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error : %ld",(long)inRequest.error.code] message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
+            
+        }
+        
+    }
     
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"GoogleSignup" message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-    
-    [alertView show];
+}
+
+- (void)googleSignup:(ICRequest*)inRequest{
 
     if(inRequest.error == nil)
     {
@@ -101,13 +122,11 @@ didDisconnectWithUser:(GIDGoogleUser *)user
     }
     else
     {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error : %ld",(long)inRequest.error.code] message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-        
-//        [alertView show];
-        
+        [alertView show];
+
     }
     
 }
-
 @end

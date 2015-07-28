@@ -76,7 +76,7 @@
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
-    if(error==nil)
+    if(error==nil && signIn.currentUser!=nil)
     {
         [self dismissViewControllerAnimated:YES completion:nil];
     }

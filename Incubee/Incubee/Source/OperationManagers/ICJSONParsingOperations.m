@@ -43,7 +43,38 @@
 
             _request.parsedResponse = parsedRespo;
             
+            switch (_request.requestId) {
+                case IC_GOOGLE_SIGNUP:
+                case IC_LOGIN_REQUEST:
+                {
+                    NSString *statusCode = [((NSDictionary*)parsedRespo) valueForKey:@"statusCode"];
+                    
+                    if([statusCode rangeOfString:@"1000"].location!=NSNotFound)
+                    {
+                        
+                    }
+                    else
+                    {
+                        NSDictionary* details = [[NSDictionary alloc] initWithObjectsAndKeys:[((NSDictionary*)parsedRespo) valueForKey:@"statusMessage"],NSLocalizedDescriptionKey,nil];
+                        
+                        
+                        NSString *code = [statusCode substringFromIndex:[statusCode rangeOfString:@"_"].location+1];
+                        _request.error = [NSError errorWithDomain:@"Incubee" code:[code integerValue] userInfo:details];
+                        
+                        _request.requestStatus.status = REQUEST_FINISHED;
+                        
+                    }
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            
+            
             _request.requestStatus.status = REQUEST_ON_DATASAVING;
+            
 
         }
         else
