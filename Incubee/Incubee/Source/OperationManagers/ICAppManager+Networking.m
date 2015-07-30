@@ -52,7 +52,7 @@
     
     [self addReqComplitionListner:req forController:aViewController atMethod:funName];
     
-    [req setRequestingURL:[NSURL URLWithString:@"http://incubee.elasticbeanstalk.com/rest/all"]];
+    [req setRequestingURL:[NSURL URLWithString:@"http://www.incub.ee/rest/all"]];
     
     [self sendRequestObject:req];
 
@@ -111,6 +111,26 @@
     //    [req.reqDataDict setValue:@"https://lh4.googleusercontent.com/-CL6coBFm9VE/AAAAAAAAAAI/AAAAAAAAHCk/ngCxGax3Tcc/s96-c/photo.jpg" forKey:@"image_url"];
     
     [self sendRequestObject:req];
+}
+
+-(void)likeProject:(ICRequest**)inRequest withIncubeeId:(NSString*)inCubeeId notifyTo:(id)aViewController forSelector:(NSString*)funName{
+
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_LIKE_PROJECT;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atMethod:funName];
+
+    [req setRequestingURL:[NSURL URLWithString:@"http://www.incub.ee/rest/like/"]];
+
+    [req.reqDataDict setValue:[[ICDataManager sharedInstance] getUserId] forKey:@"uid"];
+    
+    [req.reqDataDict setValue:inCubeeId forKey:@"incubee_id"];
+
+    [self sendRequestObject:req];
 
 }
+
 @end

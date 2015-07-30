@@ -392,4 +392,12 @@ static ICDataManager *sharedDataManagerInstance = nil;
     return nil;
     
 }
+
+-(NSString*)getUserId{
+
+    User *aUser = [self getUser];
+    
+    return aUser.userId;
+
+}
 @end

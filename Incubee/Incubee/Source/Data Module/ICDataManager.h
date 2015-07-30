@@ -29,6 +29,9 @@
 
 #pragma mark - User -
 -(void)createOrUpdateGoogleUser:(GIDGoogleUser *)user;
+
 -(User*)getUser;
+
+-(NSString*)getUserId;
 
 @end
