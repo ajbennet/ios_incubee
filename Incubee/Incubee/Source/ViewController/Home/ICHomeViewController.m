@@ -459,7 +459,7 @@
 
         _firstViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
         
-        [UIView animateWithDuration:0.5f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:1.2f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
                              _firstViewC.cardView.transform = CGAffineTransformIdentity;
@@ -511,7 +511,7 @@
         _firstViewC.cardView.layer.borderWidth = 4.0f;
 
         
-        [UIView animateWithDuration:0.5f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:1.2f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
                              _secondViewC.cardView.transform = CGAffineTransformIdentity;
@@ -581,7 +581,7 @@
 
         _firstViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
         
-        [UIView animateWithDuration:0.5f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:1.2f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
                              _firstViewC.cardView.transform = CGAffineTransformIdentity;
@@ -632,7 +632,7 @@
     
         _secondViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);
 
-        [UIView animateWithDuration:0.5f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:1.2f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              
                              _secondViewC.cardView.transform = CGAffineTransformIdentity;
