@@ -419,7 +419,11 @@
 }
 
 - (IBAction)addToCustomer:(id)sender {
+
+    // Adding things to customer.
+    Project *currentProje = _currentlyShowingVC.project;
     
+    [[ICAppManager sharedInstance] addCustomerProject:nil withIncubeeId:currentProje.projectId notifyTo:self forSelector:@""];
 
 }
 

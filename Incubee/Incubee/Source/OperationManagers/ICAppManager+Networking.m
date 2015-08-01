@@ -134,4 +134,26 @@
 
 }
 
+-(void)addCustomerProject:(ICRequest**)inRequest withIncubeeId:(NSString*)inCubeeId notifyTo:(id)aViewController forSelector:(NSString*)funName{
+    
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_ADD_CUSTOMER_PROJECT;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atMethod:funName];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://www.incub.ee/rest/customer/%@?uid=%@",inCubeeId,[[ICDataManager sharedInstance] getUserId]];
+    
+    NSDictionary *d = [[NSDictionary alloc] initWithObjectsAndKeys:inCubeeId,@"incubee_id",nil];
+    
+    [req setOptionalData:(NSMutableDictionary*)d];
+    
+    [req setRequestingURL:[NSURL URLWithString:urlString]];
+    
+    [self sendRequestObject:req];
+    
+}
+
 @end

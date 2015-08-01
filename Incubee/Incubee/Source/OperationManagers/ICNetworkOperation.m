@@ -70,15 +70,23 @@
     
     NSHTTPURLResponse *response = nil;
     
-    if(_request.requestId == IC_LIKE_PROJECT)
-    {
-        [request setHTTPMethod:@"POST"];
-        
-        [request setValue:@"Accept" forHTTPHeaderField:@"Content-Type"];
-        
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    switch (_request.requestId) {
+        case IC_LIKE_PROJECT:
+        case IC_ADD_CUSTOMER_PROJECT:
+        {
+            [request setHTTPMethod:@"POST"];
+            
+            [request setValue:@"Accept" forHTTPHeaderField:@"Content-Type"];
+            
+            [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            
+            [request setValue:[[ICDataManager sharedInstance] getToken] forHTTPHeaderField:@"token"];
 
-        [request setValue:[[ICDataManager sharedInstance] getToken] forHTTPHeaderField:@"token"];
+        }
+            break;
+            
+        default:
+            break;
     }
     
     NSLog(@"********** RequestURL ********** :  URL : %@",_request.requestingURL);
