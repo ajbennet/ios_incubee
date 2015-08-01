@@ -771,7 +771,7 @@
             </objects>
             <point key="canvasLocation" x="1458" y="-212"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Search-->
         <scene sceneID="iak-k5-THI">
             <objects>
                 <tableViewController id="Nva-NC-EfB" sceneMemberID="viewController">
@@ -792,7 +792,7 @@
                             <outlet property="delegate" destination="Nva-NC-EfB" id="Va7-GI-3KN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="hq5-oV-Sbm"/>
+                    <navigationItem key="navigationItem" title="Search" id="hq5-oV-Sbm"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikj-Jd-m1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

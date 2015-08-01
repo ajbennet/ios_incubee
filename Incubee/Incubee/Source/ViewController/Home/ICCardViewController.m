@@ -238,7 +238,7 @@
     
     _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
     
-    _moviePlayer.shouldAutoplay = YES;
+    _moviePlayer.shouldAutoplay = NO;
     
     _moviePlayer.repeatMode = NO;
     
