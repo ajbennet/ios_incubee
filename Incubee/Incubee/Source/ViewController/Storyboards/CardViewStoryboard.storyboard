@@ -203,14 +203,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAJ-ty-iyG" userLabel="TitleLable">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAJ-ty-iyG" userLabel="TitleLable">
                                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="19"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysc-UT-2uu" userLabel="DescLable">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysc-UT-2uu" userLabel="DescLable">
                                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -340,7 +340,7 @@
                                             <constraint firstItem="Ab3-Ry-WhZ" firstAttribute="width" secondItem="ZtJ-qz-uK4" secondAttribute="width" multiplier="0.07" id="Pym-Iv-2pJ"/>
                                             <constraint firstItem="Ab3-Ry-WhZ" firstAttribute="width" secondItem="x3v-2N-7LU" secondAttribute="width" id="Q1T-Gh-SpS"/>
                                             <constraint firstItem="wAJ-ty-iyG" firstAttribute="top" secondItem="ZtJ-qz-uK4" secondAttribute="top" id="Rbz-IR-p2S">
-                                                <variation key="heightClass=regular" constant="2"/>
+                                                <variation key="heightClass=regular" constant="5"/>
                                             </constraint>
                                             <constraint firstItem="Ab3-Ry-WhZ" firstAttribute="height" secondItem="ZtJ-qz-uK4" secondAttribute="height" multiplier="0.46" id="TfQ-6O-3Eh"/>
                                             <constraint firstAttribute="trailing" secondItem="Ab3-Ry-WhZ" secondAttribute="trailing" constant="10" id="UhZ-iO-Q6q"/>
