@@ -121,6 +121,8 @@
     
     if(_currentlyShowingVC == _secondViewC)
     {
+        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_secondCard.projectId notifyTo:self forSelector:@""];
+
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
         [UIView animateWithDuration:0.5f
@@ -162,6 +164,8 @@
     }
     else if(_currentlyShowingVC == _firstViewC)
     {
+        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_firstCard.projectId notifyTo:self forSelector:@""];
+
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
         [UIView animateWithDuration:0.5f
