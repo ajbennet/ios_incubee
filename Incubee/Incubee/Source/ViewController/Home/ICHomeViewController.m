@@ -678,9 +678,84 @@
 #pragma mark -
 - (IBAction)refreshView:(id)sender {
     
-    [self showActivity:YES withMsg:@"Fetching new projects"];
+    return;
     
-    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed:"];
+    [_currentlyShowingVC dismissShowing];
+    
+    CGAffineTransform scleTransform = CGAffineTransformMakeScale(0.9, 0.9);
+    
+    CGAffineTransform translate = CGAffineTransformMakeTranslation(0.0f, 500.0f);
+    
+    _currentlyShowingIndexoffset = _currentlyShowingIndexoffset - 1;
+    
+    _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
+    
+    Project *lastViewProject = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
+    
+    if(_currentlyShowingVC == _secondViewC)
+    {
+        
+        
+    }
+    else if(_currentlyShowingVC == _firstViewC)
+    {
+        
+    }
+    
+//    if(_currentlyShowingVC == _secondViewC)
+//    {
+//        [_firstViewC setProject:lastViewProject];
+//
+//        [UIView animateWithDuration:1.2f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+//                         animations:^{
+//                             
+//                             _firstViewC.cardView.transform = CGAffineTransformIdentity;
+//                             
+//                             _secondViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
+//                             
+//                         }
+//                         completion:^(BOOL finished) {
+//                         
+//                             _currentlyShowingVC = _firstViewC;
+//
+//                             [self.view bringSubviewToFront:_firstViewC.view];
+//                             
+//                             [_currentlyShowingVC showProject];
+//
+//                             _secondViewC.cardView.transform = CGAffineTransformIdentity;
+//                             
+//                             [self.view bringSubviewToFront:_optionView];
+//                         
+//                         }];
+//        
+//    }
+//    else if(_currentlyShowingVC == _firstViewC)
+//    {
+//        [_secondViewC setProject:lastViewProject];
+//        
+//        [UIView animateWithDuration:1.2f delay:0.15 usingSpringWithDamping:0.8f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut
+//                         animations:^{
+//                             
+//                             _secondViewC.cardView.transform = CGAffineTransformIdentity;
+//                             
+//                             _firstViewC.cardView.transform = CGAffineTransformConcat(translate, scleTransform);
+//                             
+//                         }
+//                         completion:^(BOOL finished) {
+//                             
+//                             _currentlyShowingVC = _secondViewC;
+//                             
+//                             [self.view bringSubviewToFront:_firstViewC.view];
+//                             
+//                             [_currentlyShowingVC showProject];
+//                             
+//                             _firstViewC.cardView.transform = CGAffineTransformIdentity;
+//                             
+//                             [self.view bringSubviewToFront:_optionView];
+//                             
+//                         }];
+//        
+//    }
 
 }
 

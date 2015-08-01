@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>ee.incub.incubee</string>
+	<string>ee.incub.www</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -27,7 +27,7 @@
 			<string>Incubee</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.585199269978-5j31qnj3v4vvfv87gbq1m4r8hcteq39o</string>
+				<string>com.googleusercontent.apps.585199269978-djpitd17aq8ht3grduvd28cpbh211nm5</string>
 			</array>
 		</dict>
 		<dict>
@@ -37,7 +37,7 @@
 			<string>Incubee</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>ee.incub.incubee</string>
+				<string>ee.incub.www</string>
 			</array>
 		</dict>
 	</array>

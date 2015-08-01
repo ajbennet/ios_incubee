@@ -3,8 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>585199269978-5j31qnj3v4vvfv87gbq1m4r8hcteq39o.apps.googleusercontent.com</string>
+	<string>585199269978-djpitd17aq8ht3grduvd28cpbh211nm5.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.585199269978-5j31qnj3v4vvfv87gbq1m4r8hcteq39o</string>
+	<string>com.googleusercontent.apps.585199269978-djpitd17aq8ht3grduvd28cpbh211nm5</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ee.incub.www</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<false/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
 </dict>
 </plist>

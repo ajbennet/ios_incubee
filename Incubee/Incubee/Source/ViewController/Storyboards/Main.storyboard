@@ -600,13 +600,13 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1jb-yg-TdE" id="D5O-Yw-KzF">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lM9-Cb-cLI" customClass="ICImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lM9-Cb-cLI" customClass="ICImageView">
                                                     <rect key="frame" x="13" y="10" width="39" height="39"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="lM9-Cb-cLI" secondAttribute="height" multiplier="1:1" id="Zf9-2s-myj"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Om-q5-juI" userLabel="ProjectTitle">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Om-q5-juI" userLabel="ProjectTitle">
                                                     <rect key="frame" x="57" y="10" width="493" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="AH2-wc-PQC"/>
@@ -614,12 +614,18 @@
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular" misplaced="YES">
+                                                        <rect key="frame" x="77" y="10" width="473" height="30"/>
+                                                    </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piK-gg-GhZ" userLabel="Desc">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piK-gg-GhZ" userLabel="Desc">
                                                     <rect key="frame" x="57" y="40" width="493" height="9"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular" misplaced="YES">
+                                                        <rect key="frame" x="77" y="40" width="473" height="29"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -717,20 +723,20 @@
                                 <exclude reference="Zte-yr-Prf"/>
                                 <exclude reference="j4p-Wm-HRE"/>
                                 <exclude reference="ydD-pe-FWU"/>
+                                <exclude reference="8JJ-IO-ARj"/>
+                                <exclude reference="KKB-40-TIR"/>
+                                <exclude reference="Lu6-vC-6U3"/>
+                                <exclude reference="cPE-Ak-Jwe"/>
+                                <exclude reference="Jo3-eY-Kcv"/>
                                 <exclude reference="5Rj-jc-ppl"/>
                                 <exclude reference="FhM-rs-8DX"/>
                                 <exclude reference="Loa-Kf-TTm"/>
                                 <exclude reference="vd0-Zv-OXA"/>
                                 <exclude reference="z1o-hj-pdK"/>
-                                <exclude reference="8JJ-IO-ARj"/>
-                                <exclude reference="KKB-40-TIR"/>
-                                <exclude reference="Lu6-vC-6U3"/>
-                                <exclude reference="cPE-Ak-Jwe"/>
                                 <exclude reference="h2F-ae-822"/>
                                 <exclude reference="lOt-sb-Ge8"/>
                                 <exclude reference="oz5-TK-kvY"/>
                                 <exclude reference="zLE-9U-WRr"/>
-                                <exclude reference="Jo3-eY-Kcv"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -745,18 +751,18 @@
                                 <exclude reference="Zte-yr-Prf"/>
                                 <exclude reference="j4p-Wm-HRE"/>
                                 <include reference="ydD-pe-FWU"/>
+                                <exclude reference="8JJ-IO-ARj"/>
+                                <exclude reference="KKB-40-TIR"/>
+                                <exclude reference="Lu6-vC-6U3"/>
+                                <include reference="cPE-Ak-Jwe"/>
+                                <include reference="Jo3-eY-Kcv"/>
                                 <include reference="5Rj-jc-ppl"/>
                                 <include reference="FhM-rs-8DX"/>
                                 <exclude reference="Loa-Kf-TTm"/>
                                 <include reference="vd0-Zv-OXA"/>
                                 <include reference="z1o-hj-pdK"/>
-                                <exclude reference="8JJ-IO-ARj"/>
-                                <exclude reference="KKB-40-TIR"/>
-                                <exclude reference="Lu6-vC-6U3"/>
-                                <include reference="cPE-Ak-Jwe"/>
                                 <include reference="oz5-TK-kvY"/>
                                 <include reference="zLE-9U-WRr"/>
-                                <include reference="Jo3-eY-Kcv"/>
                             </mask>
                         </variation>
                     </view>
