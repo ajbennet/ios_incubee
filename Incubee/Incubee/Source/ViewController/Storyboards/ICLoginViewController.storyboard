@@ -39,78 +39,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Vu-dV-iAK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jrs-P0-ey4">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="26l-dl-dTB">
-                                        <variation key="heightClass=regular" constant="100"/>
+                                    <constraint firstAttribute="height" constant="30" id="G3S-Sb-bPc">
+                                        <variation key="heightClass=regular" constant="200"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Login">
-                                            <attributes>
-                                                <color key="NSColor" red="0.92941176470588238" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="18" name="Menlo-Bold"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.63921568627450975" green="0.082352941176470587" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="18" name="Menlo-Bold"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="if you already uploaded  your work at ">
-                                            <attributes>
-                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="18" name="Menlo-Bold"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="incub.ee">
-                                            <attributes>
-                                                <color key="NSColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="18" name="Menlo-Bold"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                    <attributedString key="attributedTitle"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="26l-dl-dTB"/>
+                                        <exclude reference="G3S-Sb-bPc"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular">
                                     <mask key="constraints">
-                                        <include reference="26l-dl-dTB"/>
+                                        <include reference="G3S-Sb-bPc"/>
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="loginButtonTapped:" destination="zye-kg-9dO" eventType="touchUpInside" id="jFP-M5-x7g"/>
+                                    <action selector="loginButtonTapped:" destination="zye-kg-9dO" eventType="touchUpInside" id="znJ-PC-Dbr"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9X-2Y-xCo">
@@ -143,8 +93,7 @@
                                         <exclude reference="jcn-Ox-dMm"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="697" width="600" height="50"/>
+                                <variation key="heightClass=regular">
                                     <mask key="subviews">
                                         <include reference="OWQ-15-D2m"/>
                                     </mask>
@@ -181,56 +130,66 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="width" secondItem="Jrs-P0-ey4" secondAttribute="width" id="8Yp-xC-dWn"/>
                             <constraint firstItem="bxD-JW-Qpn" firstAttribute="top" secondItem="s9X-2Y-xCo" secondAttribute="bottom" constant="672" id="BAR-Kj-SPD">
                                 <variation key="heightClass=regular" constant="10"/>
                             </constraint>
-                            <constraint firstAttribute="centerY" secondItem="7Vu-dV-iAK" secondAttribute="centerY" id="Dr5-eW-W0J"/>
                             <constraint firstAttribute="centerX" secondItem="bxD-JW-Qpn" secondAttribute="centerX" id="EDf-Gp-I7a"/>
-                            <constraint firstItem="QTn-yX-cuY" firstAttribute="top" secondItem="bxD-JW-Qpn" secondAttribute="bottom" constant="385" id="JEZ-q7-f2y">
-                                <variation key="heightClass=regular" constant="10"/>
+                            <constraint firstItem="Jrs-P0-ey4" firstAttribute="leading" secondItem="Mij-3p-oXr" secondAttribute="leadingMargin" constant="261" id="GEE-dB-XBs">
+                                <variation key="heightClass=regular" constant="5"/>
                             </constraint>
-                            <constraint firstAttribute="width" secondItem="7Vu-dV-iAK" secondAttribute="width" id="Lty-HL-qy2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jrs-P0-ey4" secondAttribute="trailing" constant="261" id="I0A-Py-Ady">
+                                <variation key="heightClass=regular" constant="5"/>
+                            </constraint>
+                            <constraint firstItem="QTn-yX-cuY" firstAttribute="top" secondItem="bxD-JW-Qpn" secondAttribute="bottom" constant="385" id="JEZ-q7-f2y">
+                                <variation key="heightClass=regular" constant="20"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="s9X-2Y-xCo" secondAttribute="trailing" id="QvS-2U-yQP"/>
                             <constraint firstAttribute="centerX" secondItem="s9X-2Y-xCo" secondAttribute="centerX" id="Swh-df-EZc"/>
-                            <constraint firstAttribute="centerX" secondItem="7Vu-dV-iAK" secondAttribute="centerX" id="s15-wh-Km0"/>
+                            <constraint firstAttribute="centerY" secondItem="Jrs-P0-ey4" secondAttribute="centerY" id="VeW-jQ-B8y"/>
+                            <constraint firstAttribute="centerX" secondItem="Jrs-P0-ey4" secondAttribute="centerX" id="kpp-vU-5Nf"/>
                             <constraint firstItem="s9X-2Y-xCo" firstAttribute="leading" secondItem="Mij-3p-oXr" secondAttribute="leading" id="stt-Y5-Lh9"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="7Vu-dV-iAK"/>
+                                <exclude reference="Jrs-P0-ey4"/>
                                 <exclude reference="s9X-2Y-xCo"/>
                                 <exclude reference="bxD-JW-Qpn"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="JEZ-q7-f2y"/>
-                                <exclude reference="Dr5-eW-W0J"/>
-                                <exclude reference="Lty-HL-qy2"/>
-                                <exclude reference="s15-wh-Km0"/>
-                                <exclude reference="BAR-Kj-SPD"/>
-                                <exclude reference="EDf-Gp-I7a"/>
+                                <exclude reference="8Yp-xC-dWn"/>
+                                <exclude reference="GEE-dB-XBs"/>
+                                <exclude reference="I0A-Py-Ady"/>
+                                <exclude reference="VeW-jQ-B8y"/>
+                                <exclude reference="kpp-vU-5Nf"/>
                                 <exclude reference="QvS-2U-yQP"/>
                                 <exclude reference="Swh-df-EZc"/>
                                 <exclude reference="stt-Y5-Lh9"/>
+                                <exclude reference="BAR-Kj-SPD"/>
+                                <exclude reference="EDf-Gp-I7a"/>
+                                <exclude reference="JEZ-q7-f2y"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
-                                <include reference="7Vu-dV-iAK"/>
+                                <include reference="Jrs-P0-ey4"/>
                                 <include reference="s9X-2Y-xCo"/>
                                 <include reference="bxD-JW-Qpn"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="JEZ-q7-f2y"/>
-                                <include reference="Dr5-eW-W0J"/>
-                                <include reference="Lty-HL-qy2"/>
-                                <include reference="s15-wh-Km0"/>
-                                <include reference="BAR-Kj-SPD"/>
-                                <include reference="EDf-Gp-I7a"/>
+                                <exclude reference="8Yp-xC-dWn"/>
+                                <include reference="GEE-dB-XBs"/>
+                                <include reference="I0A-Py-Ady"/>
+                                <include reference="VeW-jQ-B8y"/>
+                                <include reference="kpp-vU-5Nf"/>
                                 <include reference="QvS-2U-yQP"/>
                                 <include reference="Swh-df-EZc"/>
                                 <include reference="stt-Y5-Lh9"/>
+                                <include reference="BAR-Kj-SPD"/>
+                                <include reference="EDf-Gp-I7a"/>
+                                <include reference="JEZ-q7-f2y"/>
                             </mask>
                         </variation>
                     </view>
@@ -239,6 +198,7 @@
                         <outlet property="googleButtonContainerView" destination="s9X-2Y-xCo" id="wdk-As-sTV"/>
                         <outlet property="googleConstrients" destination="21H-dC-L2s" id="igl-x4-Hqq"/>
                         <outlet property="googleSignInButton" destination="OWQ-15-D2m" id="qbd-se-rd0"/>
+                        <outlet property="loginButton" destination="Jrs-P0-ey4" id="38x-od-kCH"/>
                         <outlet property="noThanksButton" destination="bxD-JW-Qpn" id="QdS-tZ-4TG"/>
                         <outlet property="view" destination="Mij-3p-oXr" id="mvF-3N-0fD"/>
                     </connections>

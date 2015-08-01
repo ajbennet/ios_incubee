@@ -53,6 +53,47 @@
     
     _googleSignInButton.hidden = YES;
     
+    
+//    @"Login if you already uploaded your work at incub.ee"
+    
+    
+    
+    
+    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [style setAlignment:NSTextAlignmentCenter];
+    [style setLineBreakMode:NSLineBreakByWordWrapping];
+    
+    UIFont *font1 = [UIFont fontWithName:@"Lato-Light" size:23.0f];
+    
+    UIFont *font2 = [UIFont fontWithName:@"Lato-Light"  size:23.0f];
+    
+    NSDictionary *dict1 = @{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                            NSFontAttributeName:font1,
+                            NSParagraphStyleAttributeName:style,NSForegroundColorAttributeName:[UIColor colorWithRed:0.904 green:0.507 blue:0.518 alpha:1.000]}; // Added line
+    NSDictionary *dict2 = @{NSUnderlineStyleAttributeName:@(NSUnderlineStyleNone),
+                            NSFontAttributeName:font2,
+                            NSParagraphStyleAttributeName:style,NSForegroundColorAttributeName:[UIColor whiteColor]}; // Added line
+    NSDictionary *dict3 = @{NSUnderlineStyleAttributeName:@(NSUnderlineStyleNone),
+                            NSFontAttributeName:font2,
+                            NSParagraphStyleAttributeName:style,NSForegroundColorAttributeName:[UIColor colorWithRed:0.076 green:0.517 blue:0.403 alpha:1.000]}; // Added line
+    
+    
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] init];
+    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@"Login"    attributes:dict1]];
+    
+    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@" if you already uploaded\n your work at"    attributes:dict2]];
+    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@" incub.ee"      attributes:dict3]];
+    [_loginButton setAttributedTitle:attString forState:UIControlStateNormal];
+    [[_loginButton titleLabel] setNumberOfLines:0];
+    [[_loginButton titleLabel] setLineBreakMode:NSLineBreakByWordWrapping];
+
+    
+    
+    
+    
+    
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

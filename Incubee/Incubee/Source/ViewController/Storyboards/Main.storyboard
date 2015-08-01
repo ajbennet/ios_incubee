@@ -101,6 +101,31 @@
                                                     <action selector="dislikeProjTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Y7A-I1-gz2"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gr-qi-tsP" userLabel="Like">
+                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="3gr-qi-tsP" secondAttribute="height" id="IA9-8x-fqs"/>
+                                                    <constraint firstAttribute="width" secondItem="3gr-qi-tsP" secondAttribute="height" multiplier="1:1" id="j2H-4k-0sV"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="LikeButton">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="IA9-8x-fqs"/>
+                                                        <exclude reference="j2H-4k-0sV"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular">
+                                                    <mask key="constraints">
+                                                        <include reference="IA9-8x-fqs"/>
+                                                        <exclude reference="j2H-4k-0sV"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="likeProjectTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="IQK-qN-SlT"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AR2-eV-eHU" userLabel="add">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                 <constraints>
@@ -147,31 +172,6 @@
                                                     <action selector="refreshView:" destination="9pv-A4-QxB" eventType="touchUpInside" id="bGM-X7-gNy"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gr-qi-tsP" userLabel="Like">
-                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="3gr-qi-tsP" secondAttribute="height" id="IA9-8x-fqs"/>
-                                                    <constraint firstAttribute="width" secondItem="3gr-qi-tsP" secondAttribute="height" multiplier="1:1" id="j2H-4k-0sV"/>
-                                                </constraints>
-                                                <state key="normal" backgroundImage="LikeButton">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="IA9-8x-fqs"/>
-                                                        <exclude reference="j2H-4k-0sV"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="heightClass=regular">
-                                                    <mask key="constraints">
-                                                        <include reference="IA9-8x-fqs"/>
-                                                        <exclude reference="j2H-4k-0sV"/>
-                                                    </mask>
-                                                </variation>
-                                                <connections>
-                                                    <action selector="likeProjectTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="IQK-qN-SlT"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -186,7 +186,7 @@
                                             </constraint>
                                             <constraint firstItem="yND-uT-hmF" firstAttribute="width" secondItem="0QI-aV-cTX" secondAttribute="width" multiplier="0.2" id="Co9-ye-RCf"/>
                                             <constraint firstItem="AR2-eV-eHU" firstAttribute="width" secondItem="0QI-aV-cTX" secondAttribute="width" multiplier="0.2" id="IWb-oM-0Eb"/>
-                                            <constraint firstItem="pqa-jw-ugm" firstAttribute="width" secondItem="0QI-aV-cTX" secondAttribute="width" multiplier="0.15" id="TJV-qd-62i"/>
+                                            <constraint firstItem="pqa-jw-ugm" firstAttribute="width" secondItem="0QI-aV-cTX" secondAttribute="width" multiplier="0.17" id="TJV-qd-62i"/>
                                             <constraint firstAttribute="centerY" secondItem="pqa-jw-ugm" secondAttribute="centerY" id="ULH-5N-uC9">
                                                 <variation key="heightClass=regular" constant="-25"/>
                                             </constraint>
@@ -194,7 +194,7 @@
                                             <constraint firstAttribute="centerX" secondItem="pqa-jw-ugm" secondAttribute="centerX" id="bGM-c0-gNg">
                                                 <variation key="heightClass=regular" constant="50"/>
                                             </constraint>
-                                            <constraint firstItem="3gr-qi-tsP" firstAttribute="width" secondItem="0QI-aV-cTX" secondAttribute="width" multiplier="0.15" id="bYI-s2-dDW"/>
+                                            <constraint firstItem="3gr-qi-tsP" firstAttribute="width" secondItem="0QI-aV-cTX" secondAttribute="width" multiplier="0.17" id="bYI-s2-dDW"/>
                                             <constraint firstAttribute="centerX" secondItem="pqa-jw-ugm" secondAttribute="centerX" id="dAZ-0W-AUH">
                                                 <variation key="heightClass=regular" constant="-50"/>
                                             </constraint>
@@ -207,9 +207,9 @@
                                         <variation key="default">
                                             <mask key="subviews">
                                                 <exclude reference="pqa-jw-ugm"/>
+                                                <exclude reference="3gr-qi-tsP"/>
                                                 <exclude reference="AR2-eV-eHU"/>
                                                 <exclude reference="yND-uT-hmF"/>
-                                                <exclude reference="3gr-qi-tsP"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="8xu-B1-W9P"/>
@@ -233,9 +233,9 @@
                                         <variation key="heightClass=regular">
                                             <mask key="subviews">
                                                 <include reference="pqa-jw-ugm"/>
+                                                <include reference="3gr-qi-tsP"/>
                                                 <include reference="AR2-eV-eHU"/>
                                                 <include reference="yND-uT-hmF"/>
-                                                <include reference="3gr-qi-tsP"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="8xu-B1-W9P"/>
