@@ -329,7 +329,7 @@
                                                 <variation key="heightClass=regular" constant="24"/>
                                             </constraint>
                                             <constraint firstItem="Ab3-Ry-WhZ" firstAttribute="leading" secondItem="x3v-2N-7LU" secondAttribute="trailing" constant="573" id="HOs-rW-Amb">
-                                                <variation key="heightClass=regular" constant="20"/>
+                                                <variation key="heightClass=regular" constant="15"/>
                                             </constraint>
                                             <constraint firstItem="Ab3-Ry-WhZ" firstAttribute="width" secondItem="vvd-xN-HTM" secondAttribute="width" id="Ha1-r1-l6w"/>
                                             <constraint firstItem="Ab3-Ry-WhZ" firstAttribute="centerY" secondItem="x3v-2N-7LU" secondAttribute="centerY" id="K0A-IW-gTy"/>
@@ -348,7 +348,7 @@
                                             <constraint firstItem="wAJ-ty-iyG" firstAttribute="leading" secondItem="ZtJ-qz-uK4" secondAttribute="leading" constant="10" id="Z9M-DA-odZ"/>
                                             <constraint firstAttribute="centerY" secondItem="Ab3-Ry-WhZ" secondAttribute="centerY" id="ark-H2-tdT"/>
                                             <constraint firstItem="x3v-2N-7LU" firstAttribute="leading" secondItem="vvd-xN-HTM" secondAttribute="trailing" constant="369" id="bCE-eh-oTH">
-                                                <variation key="heightClass=regular" constant="20"/>
+                                                <variation key="heightClass=regular" constant="15"/>
                                             </constraint>
                                             <constraint firstItem="Ab3-Ry-WhZ" firstAttribute="height" secondItem="x3v-2N-7LU" secondAttribute="height" id="bSa-rq-afy"/>
                                             <constraint firstAttribute="centerY" secondItem="Ab3-Ry-WhZ" secondAttribute="centerY" id="bnF-6D-1Uo"/>
