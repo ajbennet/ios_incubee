@@ -21,9 +21,13 @@
 
 +(ICDataManager*)sharedInstance;
 
+-(void)followProject:(NSString*)incubeeId;
+
 -(void)saveProjectList:(NSArray*)inArray;
 
 -(NSArray*)getAllProjects;
+
+-(NSArray*)getFollowedProjects;
 
 -(NSArray*)getImageURLs:(NSString*)inProjectId;
 
@@ -33,5 +37,7 @@
 -(User*)getUser;
 
 -(NSString*)getUserId;
+
+-(NSString*)getToken;
 
 @end

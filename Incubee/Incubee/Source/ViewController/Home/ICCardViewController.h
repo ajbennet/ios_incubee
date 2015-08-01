@@ -14,6 +14,7 @@
 #import "Project.h"
 #import "ProjectImage.h"
 #import "ICImageManager.h"
+#import "ICUtilityManager.h"
 
 
 @protocol ICCardViewDelegate <NSObject>
@@ -35,11 +36,7 @@
 @end
 
 
-@interface ICImageView : UIImageView
 
-@property(nonatomic,strong)NSString *imageUrl;
-
-@end
 
 @interface ICCardViewController : UIViewController
 

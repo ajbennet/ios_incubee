@@ -42,6 +42,7 @@
     
 }
 
+#pragma mark - Network Call -
 -(void)getAllProject:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName{
 
     ICRequest *req = [[ICRequest alloc] init];
@@ -79,8 +80,6 @@
     [req.reqDataDict setValue:user.email forKey:@"email"];
 
     [req.reqDataDict setValue:user.token forKey:@"token"];
-    
-//    [req.reqDataDict setValue:@"https://lh4.googleusercontent.com/-CL6coBFm9VE/AAAAAAAAAAI/AAAAAAAAHCk/ngCxGax3Tcc/s96-c/photo.jpg" forKey:@"image_url"];
     
     [self sendRequestObject:req];
 
@@ -122,13 +121,15 @@
     [self addRequestActivityObserver:req];
     
     [self addReqComplitionListner:req forController:aViewController atMethod:funName];
-
-    [req setRequestingURL:[NSURL URLWithString:@"http://www.incub.ee/rest/like/"]];
-
-    [req.reqDataDict setValue:[[ICDataManager sharedInstance] getUserId] forKey:@"uid"];
     
-    [req.reqDataDict setValue:inCubeeId forKey:@"incubee_id"];
-
+    NSString *urlString = [NSString stringWithFormat:@"http://www.incub.ee/rest/like/%@?uid=%@",inCubeeId,[[ICDataManager sharedInstance] getUserId]];
+    
+    NSDictionary *d = [[NSDictionary alloc] initWithObjectsAndKeys:inCubeeId,@"incubee_id",nil];
+    
+    [req setOptionalData:(NSMutableDictionary*)d];
+    
+    [req setRequestingURL:[NSURL URLWithString:urlString]];
+        
     [self sendRequestObject:req];
 
 }

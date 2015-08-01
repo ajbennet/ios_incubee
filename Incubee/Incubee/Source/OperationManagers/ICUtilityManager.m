@@ -51,4 +51,12 @@ static ICUtilityManager *sharedUtilityInstance = nil;
     }
     return [UIColor blackColor];
 }
+
+
+@end
+
+
+@implementation ICImageView
+
+
 @end

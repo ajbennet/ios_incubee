@@ -51,8 +51,6 @@ didSignInForUser:(GIDGoogleUser *)user
         
         [[ICDataManager sharedInstance] createOrUpdateGoogleUser:user];
         
-//        [[ICAppManager sharedInstance] sendGoogleSignUp:nil notifyTo:self forSelector:@"googleSignup:"];
-
         [[ICAppManager sharedInstance] sendGoogleLogin:nil notifyTo:self forSelector:@"loginResponse:"];
 
     }
@@ -91,8 +89,7 @@ didDisconnectWithUser:(GIDGoogleUser *)user
     
     if(inRequest.error == nil)
     {
-        
-        
+        NSLog(@"Signup + Logged In");
     }
     else
     {
@@ -117,8 +114,7 @@ didDisconnectWithUser:(GIDGoogleUser *)user
 
     if(inRequest.error == nil)
     {
-        
-        
+        [[ICAppManager sharedInstance] sendGoogleLogin:nil notifyTo:self forSelector:@"loginResponse:"];
     }
     else
     {

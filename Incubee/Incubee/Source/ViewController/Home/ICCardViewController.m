@@ -12,10 +12,7 @@
 
 #define SWIPE_MOVE 100.0f
 
-@implementation ICImageView
 
-
-@end
 
 @interface ICCardViewController ()
 
@@ -241,7 +238,7 @@
     
     _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
     
-    _moviePlayer.shouldAutoplay = NO;
+    _moviePlayer.shouldAutoplay = YES;
     
     _moviePlayer.repeatMode = NO;
     

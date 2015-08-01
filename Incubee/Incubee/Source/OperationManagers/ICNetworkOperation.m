@@ -1,3 +1,5 @@
+
+
 //
 //  PPNetworkOperation.m
 //  PaparazziPass
@@ -7,6 +9,7 @@
 //
 
 #import "ICNetworkOperation.h"
+#import "ICDataManager.h"
 
 @implementation ICNetworkOperation
 
@@ -67,12 +70,24 @@
     
     NSHTTPURLResponse *response = nil;
     
-    if(_request.reqDataDict.allKeys.count>0)
+    if(_request.requestId == IC_LIKE_PROJECT)
     {
-    
         [request setHTTPMethod:@"POST"];
         
-        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"Accept" forHTTPHeaderField:@"Content-Type"];
+        
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
+        [request setValue:[[ICDataManager sharedInstance] getToken] forHTTPHeaderField:@"token"];
+    }
+    
+    NSLog(@"********** RequestURL ********** :  URL : %@",_request.requestingURL);
+
+    if(_request.reqDataDict.allKeys.count>0)
+    {
+        [request setHTTPMethod:@"POST"];
+        
+        [request setValue:@"Accept" forHTTPHeaderField:@"Content-Type"];
         
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
@@ -86,7 +101,6 @@
         }
         
         [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[reqData length]] forHTTPHeaderField:@"Content-Length"];
-
         
         
         NSLog(@"********** RequestData ********** \n %@",_request.reqDataDict);

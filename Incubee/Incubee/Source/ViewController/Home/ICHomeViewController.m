@@ -431,6 +431,8 @@
     
     if(_currentlyShowingVC == _secondViewC)
     {
+        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_secondCard.projectId notifyTo:self forSelector:@""];
+
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
         _secondViewC.cardView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
@@ -475,10 +477,13 @@
                              _secondViewC.cardView.layer.borderColor = [UIColor clearColor].CGColor;
                              
                              _secondViewC.cardView.layer.borderWidth = 0.0f;
+                             
                          }];
     }
     else if(_currentlyShowingVC == _firstViewC)
     {
+        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_firstCard.projectId notifyTo:self forSelector:@""];
+
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
         _secondViewC.cardView.transform = CGAffineTransformMakeTranslation(0, 20.0f);

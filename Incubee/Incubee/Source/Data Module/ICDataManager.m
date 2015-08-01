@@ -148,6 +148,41 @@ static ICDataManager *sharedDataManagerInstance = nil;
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+-(void)followProject:(NSString*)incubeeId{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            
+            [request setEntity:[NSEntityDescription entityForName:@"Project" inManagedObjectContext:context]];
+            
+            NSPredicate *prd = [NSPredicate predicateWithFormat:@"(projectId LIKE %@)",incubeeId];
+            
+            [request setPredicate:prd];
+            
+            NSError *errorDb = nil;
+            
+            NSArray *results = [context executeFetchRequest:request error:&errorDb];
+            
+            if (results && [results count] > 0)
+            {
+                Project *aProject = [results objectAtIndex:0];
+                
+                aProject.projectFollowing = [NSNumber numberWithBool:YES];
+                
+                NSError *erroe = nil; [context save:&erroe];
+                
+                if(erroe==nil)
+                {
+                    NSLog(@"Project Following updated succesfully");
+                }
+                
+            }
+    }
+    
+}
 -(void)saveProjectList:(NSArray*)inArray{
     
     NSLog(@"%@ : %@",NSStringFromSelector(_cmd),inArray);
@@ -198,7 +233,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
             aProject.twitter_url= NULL_TO_NIL([aDic objectForKey:@"twitter_url"]);
             aProject.video= NULL_TO_NIL([aDic objectForKey:@"video"]);
             aProject.videoUrl=NULL_TO_NIL([aDic objectForKey:@"video_url"]);
-            aProject.projectFollowing =[NSNumber numberWithBool:NO];
+//            aProject.projectFollowing =[NSNumber numberWithBool:NO];
             
             if(NULL_TO_NIL([aDic valueForKey:@"images"]) != nil)
             {
@@ -277,6 +312,16 @@ static ICDataManager *sharedDataManagerInstance = nil;
     }
     
     return nil;
+}
+
+-(NSArray*)getFollowedProjects{
+
+    NSArray *allProjects = [self getAllProjects];
+    
+    NSPredicate *prd = [NSPredicate predicateWithFormat:@"(projectFollowing == %@)",[NSNumber numberWithBool:YES]];
+    
+    return ([allProjects filteredArrayUsingPredicate:prd]);
+
 }
 
 -(NSArray*)getImageURLs:(NSString*)inProjectId{
@@ -398,6 +443,14 @@ static ICDataManager *sharedDataManagerInstance = nil;
     User *aUser = [self getUser];
     
     return aUser.userId;
+
+}
+
+-(NSString*)getToken{
+
+    User *aUser = [self getUser];
+
+    return aUser.token;
 
 }
 @end

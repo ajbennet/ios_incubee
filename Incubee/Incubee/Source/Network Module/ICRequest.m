@@ -22,6 +22,8 @@
     if(self!=nil)
     {
         _reqDataDict = [[NSMutableDictionary alloc] init];
+        
+        _optionalData = [[NSMutableDictionary alloc] init];
                 
         _requestStatus = [[ICRequestStatus alloc] init];
         

@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MessagingTableViewController : UITableViewController
+@interface MessagingTableViewController : UIViewController
 
+@property(nonatomic,strong)NSMutableArray *projectArray;
+
+@property(nonatomic,strong)IBOutlet UITableView *projectTableView;
+
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentBar;
+
+- (IBAction)segmentBarValueChanged:(id)sender;
 @end

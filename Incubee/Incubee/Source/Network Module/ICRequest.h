@@ -49,5 +49,6 @@ typedef enum // Naming Conventions of the Enum's to be decided
 @property (nonatomic,strong)NSData *responseRecivedData;
 @property (nonatomic,strong)id parsedResponse;
 @property (nonatomic,strong)NSError *error;
+@property (nonatomic,strong)NSMutableDictionary *optionalData;
 
 @end

@@ -26,6 +26,13 @@
                 
             }
                 break;
+                
+            case IC_LIKE_PROJECT:
+            {
+                NSString *str = [inRequest.optionalData valueForKey:@"incubee_id"];
+                
+                [self followProject:str];
+            }
             default:
                 break;
         }

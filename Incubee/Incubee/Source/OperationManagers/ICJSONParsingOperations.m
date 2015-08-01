@@ -46,6 +46,7 @@
             switch (_request.requestId) {
                 case IC_GOOGLE_SIGNUP:
                 case IC_LOGIN_REQUEST:
+                case IC_LIKE_PROJECT:
                 {
                     NSString *statusCode = [((NSDictionary*)parsedRespo) valueForKey:@"statusCode"];
                     

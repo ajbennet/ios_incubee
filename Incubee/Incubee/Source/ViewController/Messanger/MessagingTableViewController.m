@@ -7,6 +7,95 @@
 //
 
 #import "MessagingTableViewController.h"
+#import "ICDataManager.h"
+#import "ICImageManager.h"
+#import "ICImageManager.h"
+#import "ICUtilityManager.h"
+
+#define PROJECT_TABLEVIEW_CELL @"ProjectTableViewCellIdentifier"
+
+@interface ProjectTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UILabel *projectDescLable;
+
+@property (strong, nonatomic) IBOutlet UILabel *projectTitleLable;
+
+@property (strong, nonatomic) IBOutlet ICImageView *projectImageView;
+
+@property(nonatomic,strong)Project *project;
+
+@end
+
+@implementation ProjectTableViewCell
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+
+    self = [super initWithCoder:aDecoder];
+    
+    if(self)
+    {
+    
+        return self;
+    }
+    
+    return nil;
+}
+
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    if(self)
+    {
+        return self;
+    }
+    
+    return nil;
+}
+
+-(void)setProject:(Project *)project{
+
+    _project = project;
+    
+    _projectTitleLable.text = _project.companyName;
+
+    _projectDescLable.text = _project.high_concept;
+    
+    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_project.projectId];
+    
+    if(imArray.count>=1)
+    {
+        NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
+        
+        ICImageManager *im1 = [[ICImageManager alloc] init];
+        
+        [_projectImageView setImageUrl:urlString1];
+        
+        [im1 getImage:urlString1 withDelegate:self];
+    }
+    
+}
+
+-(void)imageDataRecived:(NSData*)inImageData ofURL:(NSString *)inUrl{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if([_projectImageView.imageUrl isEqualToString:inUrl])
+        {
+            _projectImageView.image = [UIImage imageWithData:inImageData];
+
+            _projectImageView.layer.cornerRadius = _projectImageView.bounds.size.width/2;
+            
+            _projectImageView.layer.masksToBounds = YES;
+
+            
+        }
+    });
+                   
+}
+@end
+
+
 
 @interface MessagingTableViewController ()
 
@@ -14,6 +103,13 @@
 
 @implementation MessagingTableViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+    
+    [self loadAndRefreshUI];
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -22,6 +118,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    [self loadAndRefreshUI];
+    
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,28 +130,44 @@
 }
 
 #pragma mark - Table view data source
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    return 80.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+
+    return 0.0f;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return _projectArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    
+    ProjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROJECT_TABLEVIEW_CELL forIndexPath:indexPath];
+    
+    if(cell == nil)
+    {
+        cell = [[ProjectTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PROJECT_TABLEVIEW_CELL];
+    }
+    
+    [cell setProject:[_projectArray objectAtIndex:indexPath.row]];
     
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -97,4 +213,35 @@
 }
 */
 
+#pragma mark - Project Array -
+
+-(void)loadAndRefreshUI{
+    
+    switch (_segmentBar.selectedSegmentIndex) {
+        case 0:
+            _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getFollowedProjects]];
+
+            break;
+            
+            case 1:
+            _projectArray = nil;
+            break;
+            
+        case 2:
+            
+            _projectArray = nil;
+            break;
+            
+        default:
+            break;
+    }
+    
+    [_projectTableView reloadData];
+
+}
+
+- (IBAction)segmentBarValueChanged:(id)sender {
+    
+    [self loadAndRefreshUI];
+}
 @end

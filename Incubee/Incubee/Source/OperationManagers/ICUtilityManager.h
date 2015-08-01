@@ -16,3 +16,9 @@
 -(UIColor*)getColorFromRGB:(NSString*)inColorCode;
 
 @end
+
+@interface ICImageView : UIImageView
+
+@property(nonatomic,strong)NSString *imageUrl;
+
+@end
