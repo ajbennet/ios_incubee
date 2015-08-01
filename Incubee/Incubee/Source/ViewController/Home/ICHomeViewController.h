@@ -44,6 +44,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *activityLable;
 
+@property (strong, nonatomic) IBOutlet UIButton *addCustomerButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *dislikeProj;
 

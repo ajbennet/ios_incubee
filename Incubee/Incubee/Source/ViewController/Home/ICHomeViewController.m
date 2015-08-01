@@ -111,6 +111,8 @@
 
 -(void)followCurrentProject:(CGPoint)movedPoint{
     
+    _addCustomerButton.selected = NO;
+    
     [[ICUserAccountManager sharedInstance] updateLoginBadgeCount];
     
     [_currentlyShowingVC dismissShowing];
@@ -216,6 +218,8 @@
 }
 
 -(void)dontFollowCurrentProject:(CGPoint)movedPoint{
+    
+    _addCustomerButton.selected = NO;
 
     [[ICUserAccountManager sharedInstance] updateLoginBadgeCount];
     
@@ -420,6 +424,8 @@
 
 - (IBAction)addToCustomer:(id)sender {
 
+    _addCustomerButton.selected = YES;
+    
     // Adding things to customer.
     Project *currentProje = _currentlyShowingVC.project;
     
@@ -428,6 +434,8 @@
 }
 
 - (IBAction)likeProjectTapped:(id)sender {
+    
+    _addCustomerButton.selected = NO;
     
     [[ICUserAccountManager sharedInstance] updateLoginBadgeCount];
     
@@ -550,6 +558,8 @@
 }
 
 - (IBAction)dislikeProjTapped:(id)sender {
+    
+    _addCustomerButton.selected = NO;
     
     [[ICUserAccountManager sharedInstance] updateLoginBadgeCount];
     

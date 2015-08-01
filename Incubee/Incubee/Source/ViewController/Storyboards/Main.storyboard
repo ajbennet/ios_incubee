@@ -109,6 +109,8 @@
                                                 <state key="normal" image="CustomerButton">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <state key="selected" image="CustomerButton_h"/>
+                                                <state key="highlighted" image="CustomerButton_h"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="YpK-Yo-iMV"/>
@@ -548,6 +550,7 @@
                         <outlet property="activityIndicator" destination="3T4-0w-LAJ" id="Q0e-Ms-x3l"/>
                         <outlet property="activityLable" destination="xY7-xm-9vg" id="EoQ-CX-CSM"/>
                         <outlet property="activityView" destination="URg-dO-AUG" id="Woc-pW-x4h"/>
+                        <outlet property="addCustomerButton" destination="AR2-eV-eHU" id="B2H-JT-PKO"/>
                         <outlet property="dislikeProj" destination="pqa-jw-ugm" id="1n6-Oq-MRE"/>
                         <outlet property="likeProjButton" destination="3gr-qi-tsP" id="HFC-jh-iHc"/>
                         <outlet property="optionView" destination="2U0-PZ-PjK" id="D9b-po-xMx"/>
@@ -933,6 +936,7 @@
     </scenes>
     <resources>
         <image name="CustomerButton" width="55" height="55"/>
+        <image name="CustomerButton_h" width="55" height="55"/>
         <image name="DislikeButton" width="57" height="57"/>
         <image name="HomeTabIcon" width="26" height="25"/>
         <image name="HomeTabIconSelected" width="80" height="34"/>

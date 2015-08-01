@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Home/ICHomeViewController.m"
-            timestampString = "460091154.341797"
+            timestampString = "460092706.606179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "431"
-            endingLineNumber = "431"
+            startingLineNumber = "440"
+            endingLineNumber = "440"
             landmarkName = "-likeProjectTapped:"
             landmarkType = "5">
          </BreakpointContent>
