@@ -207,52 +207,60 @@
         _moviePlayer = nil;
     }
     
-    _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_project.video]];
-    
-    _moviePlayer.view.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [_moviePlayerView addSubview:_moviePlayer.view];
-
-    
-    NSLayoutConstraint *width =[NSLayoutConstraint
-                                constraintWithItem:_moviePlayer.view
-                                attribute:NSLayoutAttributeWidth
-                                relatedBy:0
-                                toItem:_moviePlayerView
-                                attribute:NSLayoutAttributeWidth
-                                multiplier:1.0
-                                constant:0];
-    
-    NSLayoutConstraint *height =[NSLayoutConstraint
-                                 constraintWithItem:_moviePlayer.view
-                                 attribute:NSLayoutAttributeHeight
-                                 relatedBy:0
-                                 toItem:_moviePlayerView
-                                 attribute:NSLayoutAttributeHeight
-                                 multiplier:1.0
-                                 constant:0];
-    
-    [_moviePlayerView addConstraint:width];
-    
-    [_moviePlayerView addConstraint:height];
-    
-    _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
-    
-    _moviePlayer.shouldAutoplay = NO;
-    
-    _moviePlayer.repeatMode = NO;
-    
-    _moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
-    
-    [_moviePlayer setFullscreen:NO animated:NO];
-    
-    [_moviePlayer prepareToPlay];
-    
-    [_moviePlayer.view setBackgroundColor:[UIColor clearColor]];
-    
-    [_moviePlayerView bringSubviewToFront:_moviePlayer.view];
-    
-    [_moviePlayer pause];
+    if(_project.video!=nil)
+    {
+        _moviePlayerView.hidden = NO;
+        
+        _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_project.video]];
+        
+        _moviePlayer.view.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        [_moviePlayerView addSubview:_moviePlayer.view];
+        
+        NSLayoutConstraint *width =[NSLayoutConstraint
+                                    constraintWithItem:_moviePlayer.view
+                                    attribute:NSLayoutAttributeWidth
+                                    relatedBy:0
+                                    toItem:_moviePlayerView
+                                    attribute:NSLayoutAttributeWidth
+                                    multiplier:1.0
+                                    constant:0];
+        
+        NSLayoutConstraint *height =[NSLayoutConstraint
+                                     constraintWithItem:_moviePlayer.view
+                                     attribute:NSLayoutAttributeHeight
+                                     relatedBy:0
+                                     toItem:_moviePlayerView
+                                     attribute:NSLayoutAttributeHeight
+                                     multiplier:1.0
+                                     constant:0];
+        
+        [_moviePlayerView addConstraint:width];
+        
+        [_moviePlayerView addConstraint:height];
+        
+        _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
+        
+        _moviePlayer.shouldAutoplay = NO;
+        
+        _moviePlayer.repeatMode = NO;
+        
+        _moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
+        
+        [_moviePlayer setFullscreen:NO animated:NO];
+        
+        [_moviePlayer prepareToPlay];
+        
+        [_moviePlayer.view setBackgroundColor:[UIColor clearColor]];
+        
+        [_moviePlayerView bringSubviewToFront:_moviePlayer.view];
+        
+        [_moviePlayer pause];
+    }
+    else
+    {
+        _moviePlayerView.hidden = YES;
+    }
 
 }
 
@@ -280,61 +288,80 @@
     _topRightImageView.image = [UIImage imageNamed:@"LikeButton"];
     _bottomLeftImageView.image = [UIImage imageNamed:@"LikeButton"];
     _bottomRightImageView.image = [UIImage imageNamed:@"LikeButton"];
+    
+    _fullImageView.image = [UIImage imageNamed:@"LikeButton"];
 
-
-    if(imArray.count>=1)
+    if(imArray.count == 4)
     {
-    NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
-
-    ICImageManager *im1 = [[ICImageManager alloc] init];
+        _topLeftImageView.hidden = _topRightImageView.hidden = _bottomLeftImageView.hidden = _bottomRightImageView.hidden = NO;
         
-    [_topLeftImageView setImageUrl:urlString1];
+        _fullImageView.hidden = YES;
 
-    [im1 getImage:urlString1 withDelegate:self];
-    }
-    
-    
-    if(imArray.count>=2)
+        
+//    Image1
     {
-
-    NSString *urlString2 = ((ProjectImage*)[imArray objectAtIndex:1]).imageUrl;
-
-    ICImageManager *im2 = [[ICImageManager alloc] init];
-    
-    [_topRightImageView setImageUrl:urlString2];
-
-    [im2 getImage:urlString2 withDelegate:self];
+        NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
+        
+        ICImageManager *im1 = [[ICImageManager alloc] init];
+        
+        [_topLeftImageView setImageUrl:urlString1];
+        
+        [im1 getImage:urlString1 withDelegate:self];
     }
-    
-    
-    if(imArray.count>=3)
+//    Image2
     {
-
-    
-    NSString *urlString3 = ((ProjectImage*)[imArray objectAtIndex:2]).imageUrl;
-
-    ICImageManager *im3 = [[ICImageManager alloc] init];
-    
-
-    [_bottomLeftImageView setImageUrl:urlString3];
-    
-    [im3 getImage:urlString3 withDelegate:self];
+        
+        NSString *urlString2 = ((ProjectImage*)[imArray objectAtIndex:1]).imageUrl;
+        
+        ICImageManager *im2 = [[ICImageManager alloc] init];
+        
+        [_topRightImageView setImageUrl:urlString2];
+        
+        [im2 getImage:urlString2 withDelegate:self];
     }
-    
-    
-    if(imArray.count>=4)
+//    Image3
     {
-
-
-    NSString *urlString4 = ((ProjectImage*)[imArray objectAtIndex:3]).imageUrl;
-
-    ICImageManager *im4 = [[ICImageManager alloc] init];
-    
-
-    [_bottomRightImageView setImageUrl:urlString4];
-    
-    [im4 getImage:urlString4 withDelegate:self];
+        
+        
+        NSString *urlString3 = ((ProjectImage*)[imArray objectAtIndex:2]).imageUrl;
+        
+        ICImageManager *im3 = [[ICImageManager alloc] init];
+        
+        
+        [_bottomLeftImageView setImageUrl:urlString3];
+        
+        [im3 getImage:urlString3 withDelegate:self];
     }
+//    Image4
+    {
+        
+        NSString *urlString4 = ((ProjectImage*)[imArray objectAtIndex:3]).imageUrl;
+        
+        ICImageManager *im4 = [[ICImageManager alloc] init];
+        
+        [_bottomRightImageView setImageUrl:urlString4];
+        
+        [im4 getImage:urlString4 withDelegate:self];
+    }
+        
+    }
+    else if(imArray.count >= 1)
+    {
+        _topLeftImageView.hidden = _topRightImageView.hidden = _bottomLeftImageView.hidden = _bottomRightImageView.hidden = YES;
+        
+        _fullImageView.hidden = NO;
+        
+        NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
+        
+        ICImageManager *im1 = [[ICImageManager alloc] init];
+        
+        [_fullImageView setImageUrl:urlString1];
+        
+        [im1 getImage:urlString1 withDelegate:self];
+    }
+    
+    _moviePlayerView.hidden = (_project.video==nil);
+
 }
 
 
@@ -347,25 +374,27 @@
             _topLeftImageView.image = [UIImage imageWithData:inImageData];
             
         }
-        
-        if([_topRightImageView.imageUrl isEqualToString:inUrl])
+        else if([_topRightImageView.imageUrl isEqualToString:inUrl])
         {
             _topRightImageView.image = [UIImage imageWithData:inImageData];
             
         }
-        
-        if([_bottomRightImageView.imageUrl isEqualToString:inUrl])
+        else if([_bottomRightImageView.imageUrl isEqualToString:inUrl])
         {
             _bottomRightImageView.image = [UIImage imageWithData:inImageData];
             
         }
-        
-        
-        if([_bottomLeftImageView.imageUrl isEqualToString:inUrl])
+        else if([_bottomLeftImageView.imageUrl isEqualToString:inUrl])
         {
             _bottomLeftImageView.image = [UIImage imageWithData:inImageData];
             
         }
+        else if([_fullImageView.imageUrl isEqualToString:inUrl])
+        {
+            _fullImageView.image = [UIImage imageWithData:inImageData];
+            
+        }
+
         
     });
     

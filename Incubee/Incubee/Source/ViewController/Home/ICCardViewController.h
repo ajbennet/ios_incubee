@@ -65,6 +65,8 @@
 
 @property (weak, nonatomic) IBOutlet ICImageView *topLeftImageView;
 
+@property (strong, nonatomic) IBOutlet ICImageView *fullImageView;
+
 - (IBAction)twitterTapped:(id)sender;
 
 - (IBAction)facebookTapped:(id)sender;

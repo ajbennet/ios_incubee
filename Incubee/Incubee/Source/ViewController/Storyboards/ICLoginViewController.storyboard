@@ -159,17 +159,17 @@
                                 <exclude reference="bxD-JW-Qpn"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="JEZ-q7-f2y"/>
                                 <exclude reference="8Yp-xC-dWn"/>
                                 <exclude reference="GEE-dB-XBs"/>
                                 <exclude reference="I0A-Py-Ady"/>
                                 <exclude reference="VeW-jQ-B8y"/>
                                 <exclude reference="kpp-vU-5Nf"/>
+                                <exclude reference="BAR-Kj-SPD"/>
+                                <exclude reference="EDf-Gp-I7a"/>
                                 <exclude reference="QvS-2U-yQP"/>
                                 <exclude reference="Swh-df-EZc"/>
                                 <exclude reference="stt-Y5-Lh9"/>
-                                <exclude reference="BAR-Kj-SPD"/>
-                                <exclude reference="EDf-Gp-I7a"/>
-                                <exclude reference="JEZ-q7-f2y"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -179,17 +179,17 @@
                                 <include reference="bxD-JW-Qpn"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="JEZ-q7-f2y"/>
                                 <exclude reference="8Yp-xC-dWn"/>
                                 <include reference="GEE-dB-XBs"/>
                                 <include reference="I0A-Py-Ady"/>
                                 <include reference="VeW-jQ-B8y"/>
                                 <include reference="kpp-vU-5Nf"/>
+                                <include reference="BAR-Kj-SPD"/>
+                                <include reference="EDf-Gp-I7a"/>
                                 <include reference="QvS-2U-yQP"/>
                                 <include reference="Swh-df-EZc"/>
                                 <include reference="stt-Y5-Lh9"/>
-                                <include reference="BAR-Kj-SPD"/>
-                                <include reference="EDf-Gp-I7a"/>
-                                <include reference="JEZ-q7-f2y"/>
                             </mask>
                         </variation>
                     </view>
