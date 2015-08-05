@@ -34,6 +34,7 @@
 
 @property(nonatomic,strong)Project *secondCard;
 
+@property(nonatomic,strong)Project *lastCard;
 
 
 #pragma mark - Activity View - 
