@@ -111,7 +111,6 @@
 		5780CB1A1B3E86490090ADCE /* ICAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICAppManager.m; path = Source/OperationManagers/ICAppManager.m; sourceTree = "<group>"; };
 		5780CB1C1B3E86BD0090ADCE /* ICAppManager+Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ICAppManager+Networking.h"; path = "Source/OperationManagers/ICAppManager+Networking.h"; sourceTree = "<group>"; };
 		5780CB1D1B3E86BD0090ADCE /* ICAppManager+Networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ICAppManager+Networking.m"; path = "Source/OperationManagers/ICAppManager+Networking.m"; sourceTree = "<group>"; };
-		5780CB201B3E87840090ADCE /* PPNetworkConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPNetworkConstants.h; path = "Source/Network Module/PPNetworkConstants.h"; sourceTree = "<group>"; };
 		5780CB231B3E87840090ADCE /* ICRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICRequest.h; path = "Source/Network Module/ICRequest.h"; sourceTree = "<group>"; };
 		5780CB241B3E87840090ADCE /* ICRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICRequest.m; path = "Source/Network Module/ICRequest.m"; sourceTree = "<group>"; };
 		5780CB251B3E87840090ADCE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "Source/Network Module/Reachability.h"; sourceTree = "<group>"; };
@@ -375,7 +374,6 @@
 		5780CB1F1B3E87430090ADCE /* Network Module */ = {
 			isa = PBXGroup;
 			children = (
-				5780CB201B3E87840090ADCE /* PPNetworkConstants.h */,
 				5780CB231B3E87840090ADCE /* ICRequest.h */,
 				5780CB241B3E87840090ADCE /* ICRequest.m */,
 				5780CB251B3E87840090ADCE /* Reachability.h */,
