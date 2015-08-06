@@ -36,6 +36,8 @@
 
 @property(nonatomic,strong)Project *lastCard;
 
+@property(nonatomic,assign)BOOL isRedo;
+
 
 #pragma mark - Activity View - 
 

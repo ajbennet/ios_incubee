@@ -113,6 +113,8 @@
 
 -(void)followCurrentProject:(CGPoint)movedPoint{
     
+    _isRedo = NO;
+    
     _addCustomerButton.selected = NO;
     
     [[ICUserAccountManager sharedInstance] updateLoginBadgeCount];
@@ -220,6 +222,8 @@
 }
 
 -(void)dontFollowCurrentProject:(CGPoint)movedPoint{
+    
+    _isRedo = NO;
     
     _addCustomerButton.selected = NO;
 
@@ -437,6 +441,8 @@
 
 - (IBAction)likeProjectTapped:(id)sender {
     
+    _isRedo = NO;
+    
     _addCustomerButton.selected = NO;
     
     [[ICUserAccountManager sharedInstance] updateLoginBadgeCount];
@@ -565,6 +571,8 @@
 }
 
 - (IBAction)dislikeProjTapped:(id)sender {
+    
+    _isRedo = NO;
     
     _addCustomerButton.selected = NO;
     
@@ -732,10 +740,15 @@
         
     }
     
+    if(_isRedo==NO)
+    {
+        _isRedo = YES;
+        
     _currentlyShowingIndexoffset--;
     
     _currentlyShowingIndexoffset = (_currentlyShowingIndexoffset )% _projectList.count;
-    
+        
+    }
     [self.view bringSubviewToFront:_optionView];
 
 }
