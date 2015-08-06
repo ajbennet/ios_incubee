@@ -441,6 +441,8 @@
 
 - (IBAction)likeProjectTapped:(id)sender {
     
+    _optionView.userInteractionEnabled = NO;
+    
     _isRedo = NO;
     
     _addCustomerButton.selected = NO;
@@ -503,6 +505,8 @@
                              _secondViewC.cardView.layer.borderColor = [UIColor clearColor].CGColor;
                              
                              _secondViewC.cardView.layer.borderWidth = 0.0f;
+                            
+                             _optionView.userInteractionEnabled = YES;
                              
                          }];
     }
@@ -561,8 +565,8 @@
                                  
                                  _firstViewC.cardView.layer.borderWidth = 0.0f;
                                  
-                                 
-                                 
+                                 _optionView.userInteractionEnabled = YES;
+         
                              }
                          }];
     }
@@ -571,6 +575,8 @@
 }
 
 - (IBAction)dislikeProjTapped:(id)sender {
+    
+    _optionView.userInteractionEnabled = NO;
     
     _isRedo = NO;
     
@@ -633,7 +639,7 @@
                              
                              _secondViewC.cardView.layer.borderWidth = 0.0f;
                              
-
+                             _optionView.userInteractionEnabled = YES;
                     
                          }];
     }
@@ -687,7 +693,7 @@
                                  
                                  _firstViewC.cardView.layer.borderWidth = 0.0f;
                                  
-
+                                 _optionView.userInteractionEnabled = YES;
                              }
                          }];
     }
