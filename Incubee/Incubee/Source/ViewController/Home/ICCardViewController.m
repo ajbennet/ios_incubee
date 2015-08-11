@@ -56,8 +56,31 @@
 
 - (IBAction)shareToTapped:(id)sender {
     
-    NSArray * activityItems = @[[NSString stringWithFormat:@"This is Awesome Project."], [NSURL URLWithString:_project.companyUrl],[NSURL URLWithString:[_project valueForKey:@"twitter_url"]]];
+    NSMutableArray *activityItems = [[NSMutableArray alloc] init];
+    
+    NSString *companyName =[NSString stringWithFormat:@"%@",_project.companyName];
+    
+    if(companyName){
+    
+        [activityItems addObject:companyName];
+    }
+    
+    NSURL *companyUrl = [NSURL URLWithString:_project.companyUrl];
+    
+    if(companyUrl){
+        
+        [activityItems addObject:companyUrl];
+    }
+    
+    NSURL *logoUrl = [NSURL URLWithString:_project.logo_url];
+    
+    if(logoUrl){
+        
+        [activityItems addObject:logoUrl];
+    }
+
     NSArray * applicationActivities =nil;
+    
     NSArray * excludeActivities = @[UIActivityTypePostToWeibo,
                                     UIActivityTypeMessage,
                                     UIActivityTypeMail,
