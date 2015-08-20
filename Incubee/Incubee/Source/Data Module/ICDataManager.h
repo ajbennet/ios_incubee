@@ -12,6 +12,7 @@
 #import "ProjectImage.h"
 #import "User.h"
 #import <Google/SignIn.h>
+#import "Messages.h"
 
 @interface ICDataManager : NSObject
 
@@ -39,5 +40,11 @@
 -(NSString*)getUserId;
 
 -(NSString*)getToken;
+
+
+#pragma mark - Message - 
+
+-(NSArray*)getMessages:(NSString*)inMsgId;
+
 
 @end

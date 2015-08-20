@@ -453,4 +453,95 @@ static ICDataManager *sharedDataManagerInstance = nil;
     return aUser.token;
 
 }
+
+#pragma mark - Message -
+
+-(NSArray*)getMessages:(NSString*)inMsgId{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+    
+        Messages *m = [NSEntityDescription
+                 insertNewObjectForEntityForName:@"Messages"
+                 inManagedObjectContext:context];
+        
+        m.mid = @"msg_zbnhto3a4tubsz0";
+        m.to = @"110310242727937004157";
+        m.eid = @"110489314263267697974";
+        m.time = [NSDate date];
+        m.stime = [NSDate date];
+        m.status = @"NEW";
+        m.name = @"Abinathab Bennet";
+        m.body = @"Hi I like this idea : Outgoing";
+        m.type = @"type";
+        m.dir = @"O";
+        m.lattitude = [NSNumber numberWithDouble:323];
+        m.longitude = [NSNumber numberWithDouble:914];
+        m.media = @"google.com";
+
+        
+        Messages *m2 = [NSEntityDescription
+                       insertNewObjectForEntityForName:@"Messages"
+                       inManagedObjectContext:context];
+        m2.mid = @"msg_zbnhto3a4tubsz9";
+        m2.to = @"110310242727937004157";
+        m2.eid = @"110489314263267697974";
+        m2.time = [NSDate date];
+        m2.stime = [NSDate date];
+        m2.status = @"NEW";
+        m2.name = @"Abinathab Bennet";
+        m2.body = @"Hi I like this idea : Incoming";
+        m2.type = @"type";
+        m2.dir = @"I";
+        m2.lattitude = [NSNumber numberWithDouble:323];
+        m2.longitude = [NSNumber numberWithDouble:914];
+        m2.media = @"google.com";
+        
+        
+        Messages *m3 = [NSEntityDescription
+                        insertNewObjectForEntityForName:@"Messages"
+                        inManagedObjectContext:context];
+        m3.mid = @"msg_zbnhto3a4tubsz9";
+        m3.to = @"110310242727937004157";
+        m3.eid = @"110489314263267697974";
+        m3.time = [NSDate date];
+        m3.stime = [NSDate date];
+        m3.status = @"NEW";
+        m3.name = @"Abinathab Bennet";
+        m3.body = @"Hi I like this idea : Hi I like this idea : Hi I like this idea : Hi I like this idea : Incoming";
+        m3.type = @"type";
+        m3.dir = @"I";
+        m3.lattitude = [NSNumber numberWithDouble:323];
+        m3.longitude = [NSNumber numberWithDouble:914];
+        m3.media = @"google.com";
+
+        Messages *m4 = [NSEntityDescription
+                        insertNewObjectForEntityForName:@"Messages"
+                        inManagedObjectContext:context];
+        m4.mid = @"msg_zbnhto3a4tubsz9";
+        m4.to = @"110310242727937004157";
+        m4.eid = @"110489314263267697974";
+        m4.time = [NSDate date];
+        m4.stime = [NSDate date];
+        m4.status = @"NEW";
+        m4.name = @"Abinathab Bennet";
+        m4.body = @"Hi I like this idea : Hi I like this idea : Hi I like this idea : Hi I like this idea :Hi I like this idea : Hi I like this idea : Hi I like this idea : Outgoing";
+        m4.type = @"type";
+        m4.dir = @"O";
+        m4.lattitude = [NSNumber numberWithDouble:323];
+        m4.longitude = [NSNumber numberWithDouble:914];
+        m4.media = @"google.com";
+
+
+        NSArray *ar = [[NSArray alloc] initWithObjects:m,m2,m3,m4,nil];
+        
+        return ar;
+    }
+    
+    return nil;
+
+}
+
 @end

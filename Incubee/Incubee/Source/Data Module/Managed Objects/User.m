@@ -2,7 +2,7 @@
 //  User.m
 //  Incubee
 //
-//  Created by Rithesh Rao on 28/07/15.
+//  Created by Rithesh Rao on 20/08/15.
 //  Copyright (c) 2015 Incubee. All rights reserved.
 //
 
@@ -15,7 +15,7 @@
 @dynamic imageURL;
 @dynamic name;
 @dynamic token;
-@dynamic userId;
 @dynamic tokenExpDate;
+@dynamic userId;
 
 @end

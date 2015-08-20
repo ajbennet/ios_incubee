@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MessagingTableViewController : UIViewController
+@interface ICMessagingViewController : UIViewController
 
 @property(nonatomic,strong)NSMutableArray *projectArray;
 

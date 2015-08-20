@@ -6,11 +6,12 @@
 //  Copyright (c) 2015 Incubee. All rights reserved.
 //
 
-#import "MessagingTableViewController.h"
+#import "ICMessagingViewController.h"
 #import "ICDataManager.h"
 #import "ICImageManager.h"
 #import "ICImageManager.h"
 #import "ICUtilityManager.h"
+#import "ICChatViewController.h"
 
 #define PROJECT_TABLEVIEW_CELL @"ProjectTableViewCellIdentifier"
 
@@ -97,15 +98,17 @@
 
 
 
-@interface MessagingTableViewController ()
+@interface ICMessagingViewController ()
 
 @end
 
-@implementation MessagingTableViewController
+@implementation ICMessagingViewController
 
 -(void)viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBarHidden = YES;
     
     [self loadAndRefreshUI];
 
@@ -168,6 +171,21 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    Project *pr = [_projectArray objectAtIndex:indexPath.row];
+    
+    NSLog(@"%@",pr);
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    ICChatViewController *aChatViewController = [sb instantiateViewControllerWithIdentifier:@"ChatViewControllerStoryBoard"];
+    
+    aChatViewController.project = pr;
+    
+    [self.navigationController pushViewController:aChatViewController animated:YES];
+    
+}
 
 /*
 // Override to support conditional editing of the table view.
