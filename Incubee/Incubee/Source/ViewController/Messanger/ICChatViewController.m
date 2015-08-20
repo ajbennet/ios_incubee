@@ -62,9 +62,12 @@
     
     NSString *msg = mg.body;
     
+//    CGSize size = [msg sizeWithAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Lato-regular" size:17.0f]}];
+    
     CGSize size = [msg sizeWithFont:[UIFont fontWithName:@"Lato-regular" size:17.0f] constrainedToSize:CGSizeMake(tableView.frame.size.width/2, 1024) lineBreakMode:NSLineBreakByWordWrapping];
-    return size.height + 20;
 
+
+    return size.height + 30;
 
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

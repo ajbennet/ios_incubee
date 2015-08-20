@@ -808,9 +808,6 @@
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
-                                                            <variation key="heightClass=regular" misplaced="YES">
-                                                                <rect key="frame" x="10" y="0.0" width="419" height="27"/>
-                                                            </variation>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -820,7 +817,7 @@
                                                         </constraint>
                                                         <constraint firstAttribute="height" secondItem="i8R-1e-04B" secondAttribute="height" id="DD6-Gj-qoz"/>
                                                         <constraint firstAttribute="trailing" secondItem="MuK-l3-fun" secondAttribute="trailing" constant="196" id="EVC-zf-jjg">
-                                                            <variation key="heightClass=regular" constant="5"/>
+                                                            <variation key="heightClass=regular" constant="10"/>
                                                         </constraint>
                                                         <constraint firstAttribute="width" secondItem="i8R-1e-04B" secondAttribute="width" id="Gzu-Ct-bCC"/>
                                                         <constraint firstAttribute="bottom" secondItem="i8R-1e-04B" secondAttribute="bottom" id="Ue8-CW-MaD"/>
@@ -885,9 +882,6 @@
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
-                                                            <variation key="heightClass=regular" misplaced="YES">
-                                                                <rect key="frame" x="5" y="0.0" width="419" height="27"/>
-                                                            </variation>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -901,7 +895,7 @@
                                                         <constraint firstItem="CIQ-1c-jT7" firstAttribute="leading" secondItem="2Tf-xC-vJU" secondAttribute="leading" id="b2N-fR-vjj"/>
                                                         <constraint firstItem="CIQ-1c-jT7" firstAttribute="top" secondItem="2Tf-xC-vJU" secondAttribute="top" id="bFg-TK-wOl"/>
                                                         <constraint firstItem="AOa-jM-Odz" firstAttribute="leading" secondItem="2Tf-xC-vJU" secondAttribute="leading" constant="196" id="bde-cw-bt5">
-                                                            <variation key="heightClass=regular" constant="5"/>
+                                                            <variation key="heightClass=regular" constant="10"/>
                                                         </constraint>
                                                         <constraint firstAttribute="bottom" secondItem="AOa-jM-Odz" secondAttribute="bottom" constant="3" id="ose-YY-Go1">
                                                             <variation key="heightClass=regular" constant="0.0"/>
@@ -969,10 +963,10 @@
                                                     <variation key="heightClass=regular" constant="0.0"/>
                                                 </constraint>
                                                 <constraint firstItem="2Tf-xC-vJU" firstAttribute="leading" secondItem="hkB-8x-Hyt" secondAttribute="leadingMargin" constant="142" id="nHo-Jl-WlM">
-                                                    <variation key="heightClass=regular" constant="40"/>
+                                                    <variation key="heightClass=regular" constant="100"/>
                                                 </constraint>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hKM-pb-TmS" secondAttribute="trailing" constant="563" id="yDw-n4-baN">
-                                                    <variation key="heightClass=regular" constant="40"/>
+                                                    <variation key="heightClass=regular" constant="100"/>
                                                 </constraint>
                                             </constraints>
                                             <variation key="default">
