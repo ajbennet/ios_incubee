@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ICRequest.h"
 
 @interface ICMessengerManager : NSObject
+
++(ICMessengerManager*)sharedInstance;
+
+#pragma mark  - Network Notification - 
+-(void)allChatResponse:(ICRequest*)inRequest;
 
 @end

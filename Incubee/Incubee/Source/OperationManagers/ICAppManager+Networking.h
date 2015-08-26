@@ -22,4 +22,8 @@
 -(void)addCustomerProject:(ICRequest**)inRequest withIncubeeId:(NSString*)inCubeeId notifyTo:(id)aViewController forSelector:(NSString*)funName;
 
 
+#pragma mark - Chat -
+-(void)getAllChat:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName;
+
+
 @end

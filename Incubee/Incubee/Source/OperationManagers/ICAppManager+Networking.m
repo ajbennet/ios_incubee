@@ -156,4 +156,26 @@
     
 }
 
+#pragma mark - Chat -
+-(void)getAllChat:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName{
+
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_GET_ALL_CHAT;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atMethod:funName];
+    
+//    NSString *urlString = [NSString stringWithFormat:@"http://www.incub.ee/rest/msg/all?eid=%@",[[ICDataManager sharedInstance] getUserId]];
+    NSString *urlString = [NSString stringWithFormat:@"http://www.incub.ee/rest/msg/all?eid=110489314263267697974",[[ICDataManager sharedInstance] getUserId]];
+
+    [req setRequestingURL:[NSURL URLWithString:urlString]];
+    
+    [self sendRequestObject:req];
+
+    
+    
+}
+
 @end

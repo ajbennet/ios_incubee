@@ -16,7 +16,8 @@ typedef enum
     IC_GOOGLE_LOGIN,
     IC_GOOGLE_SIGNUP,
     IC_LIKE_PROJECT,
-    IC_ADD_CUSTOMER_PROJECT
+    IC_ADD_CUSTOMER_PROJECT,
+    IC_GET_ALL_CHAT
 } REQUESTID;
 
 typedef enum // Naming Conventions of the Enum's to be decided

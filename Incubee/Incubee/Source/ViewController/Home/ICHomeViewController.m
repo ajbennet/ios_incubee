@@ -13,6 +13,7 @@
 #import "ICLoginViewController.h"
 #import "ICUtilityManager.h"
 #import "ICUserAccountManager.h"
+#import "ICMessengerManager.h"
 
 
 @interface ICHomeViewController ()
@@ -37,6 +38,10 @@
     [self showLoginScreen];
     
     _lastCard = nil;
+    
+    
+    // Intiating Chat Manager
+    [ICMessengerManager sharedInstance];
     
     if(_projectList.count!=0)
     {

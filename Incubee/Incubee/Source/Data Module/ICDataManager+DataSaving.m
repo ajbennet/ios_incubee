@@ -33,6 +33,15 @@
                 
                 [self followProject:str];
             }
+                
+            case IC_GET_ALL_CHAT:
+            {
+            
+                NSArray *array = [inRequest.parsedResponse objectForKey:@"messages"];
+                
+                [self saveChatArray:array];
+                
+            }
             default:
                 break;
         }

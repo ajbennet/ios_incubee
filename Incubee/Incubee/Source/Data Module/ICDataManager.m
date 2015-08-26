@@ -458,89 +458,113 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 -(NSArray*)getMessages:(NSString*)inMsgId{
     
+    inMsgId = @"110310242727937004157";
+    
     NSManagedObjectContext *context = [self managedObjectContext];
     
     if(context)
     {
-    
-        Messages *m = [NSEntityDescription
-                 insertNewObjectForEntityForName:@"Messages"
-                 inManagedObjectContext:context];
+        NSEntityDescription *entity = [NSEntityDescription  entityForName:@"Messages" inManagedObjectContext:context];
         
-        m.mid = @"msg_zbnhto3a4tubsz0";
-        m.to = @"110310242727937004157";
-        m.eid = @"110489314263267697974";
-        m.time = [NSDate date];
-        m.stime = [NSDate date];
-        m.status = @"NEW";
-        m.name = @"Abinathab Bennet";
-        m.body = @"Hi I like this idea : Outgoing";
-        m.type = @"type";
-        m.dir = @"O";
-        m.lattitude = [NSNumber numberWithDouble:323];
-        m.longitude = [NSNumber numberWithDouble:914];
-        m.media = @"google.com";
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:entity];
+        
+        NSPredicate *prd = [NSPredicate predicateWithFormat:@"(to LIKE %@)",inMsgId];
+        
+        [request setPredicate:prd];
 
+        NSError *error = nil;
         
-        Messages *m2 = [NSEntityDescription
-                       insertNewObjectForEntityForName:@"Messages"
-                       inManagedObjectContext:context];
-        m2.mid = @"msg_zbnhto3a4tubsz9";
-        m2.to = @"110310242727937004157";
-        m2.eid = @"110489314263267697974";
-        m2.time = [NSDate date];
-        m2.stime = [NSDate date];
-        m2.status = @"NEW";
-        m2.name = @"Abinathab Bennet";
-        m2.body = @"Hi I like this idea : Incoming";
-        m2.type = @"type";
-        m2.dir = @"I";
-        m2.lattitude = [NSNumber numberWithDouble:323];
-        m2.longitude = [NSNumber numberWithDouble:914];
-        m2.media = @"google.com";
+        NSArray *objects = [context executeFetchRequest:request error:&error];
         
-        
-        Messages *m3 = [NSEntityDescription
-                        insertNewObjectForEntityForName:@"Messages"
-                        inManagedObjectContext:context];
-        m3.mid = @"msg_zbnhto3a4tubsz9";
-        m3.to = @"110310242727937004157";
-        m3.eid = @"110489314263267697974";
-        m3.time = [NSDate date];
-        m3.stime = [NSDate date];
-        m3.status = @"NEW";
-        m3.name = @"Abinathab Bennet";
-        m3.body = @"Hi I like this idea : Hi I like this idea : Hi I like this idea : Hi I like this idea : Incoming";
-        m3.type = @"type";
-        m3.dir = @"I";
-        m3.lattitude = [NSNumber numberWithDouble:323];
-        m3.longitude = [NSNumber numberWithDouble:914];
-        m3.media = @"google.com";
+        if (objects != nil) {
+            
+            return objects;
+            // Handle the error.
+        }
 
-        Messages *m4 = [NSEntityDescription
-                        insertNewObjectForEntityForName:@"Messages"
-                        inManagedObjectContext:context];
-        m4.mid = @"msg_zbnhto3a4tubsz9";
-        m4.to = @"110310242727937004157";
-        m4.eid = @"110489314263267697974";
-        m4.time = [NSDate date];
-        m4.stime = [NSDate date];
-        m4.status = @"NEW";
-        m4.name = @"Abinathab Bennet";
-        m4.body = @"Hi I like this idea : Hi I like this idea : Hi I like this idea : Hi I like this idea :Hi I like this idea : Hi I like this idea : Hi I like this idea : Outgoing";
-        m4.type = @"type";
-        m4.dir = @"O";
-        m4.lattitude = [NSNumber numberWithDouble:323];
-        m4.longitude = [NSNumber numberWithDouble:914];
-        m4.media = @"google.com";
-
-
-        NSArray *ar = [[NSArray alloc] initWithObjects:m,m2,m3,m4,nil];
-        
-        return ar;
     }
     
     return nil;
+
+}
+
+-(void)saveChatArray:(NSArray*)inMesgArray{
+
+    NSLog(@"%@ : %@",NSStringFromSelector(_cmd),inMesgArray);
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        for(NSDictionary *aDic in inMesgArray)
+        {
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            
+            [request setEntity:[NSEntityDescription entityForName:@"Messages" inManagedObjectContext:context]];
+            
+            NSError *errorDb = nil;
+            
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"mid LIKE %@",[aDic objectForKey:@"mid"]];
+            
+            [request setPredicate:predicate];
+            
+            NSArray *results = [context executeFetchRequest:request error:&errorDb];
+            
+            Messages *aMessage;
+            
+            if (results && [results count] > 0)
+            {
+                aMessage = [results objectAtIndex:0];
+            }
+            else
+            {
+                aMessage = [NSEntityDescription
+                            insertNewObjectForEntityForName:@"Messages"
+                            inManagedObjectContext:context];
+            }
+            
+            
+            
+            aMessage.mid = NULL_TO_NIL([aDic objectForKey:@"mid"]);
+            aMessage.to = NULL_TO_NIL([aDic objectForKey:@"to"]);
+            aMessage.eid = NULL_TO_NIL([aDic objectForKey:@"eid"]);
+            
+            NSNumber *nTime = [NSNumber numberWithLongLong:[[aDic valueForKey:@"time"] longLongValue]];
+            NSNumber *nsTime = [NSNumber numberWithLongLong:[[aDic valueForKey:@"stime"] longLongValue]] ;
+            aMessage.time = [NSDate dateWithTimeIntervalSince1970:nTime.doubleValue];
+            aMessage.stime = [NSDate dateWithTimeIntervalSince1970:nsTime.doubleValue];
+            
+            aMessage.status = NULL_TO_NIL([aDic objectForKey:@"status"]);
+            aMessage.name = NULL_TO_NIL([aDic objectForKey:@"name"]);
+            aMessage.body = NULL_TO_NIL([aDic objectForKey:@"body"]);
+            aMessage.type = NULL_TO_NIL([aDic objectForKey:@"type"]);
+            aMessage.dir = NULL_TO_NIL([aDic objectForKey:@"dir"]);
+            
+            long lat = [[aDic valueForKey:@"lattitude"] longValue];
+            long lon = [[aDic valueForKey:@"longitude"] longValue];
+            aMessage.lattitude = [NSNumber numberWithLong:lat] ;
+            aMessage.longitude = [NSNumber numberWithLong:lon];
+            
+            aMessage.media = NULL_TO_NIL([aDic objectForKey:@"media"]);
+        }
+    
+    
+        NSError *dbError = nil;
+        
+        [context save:&dbError];
+        
+        if(dbError==nil)
+        {
+            NSLog(@"All Chat Saved!");
+        }
+        else
+        {
+            NSLog(@"Unable to save Chat : %@",dbError.localizedDescription);
+        }
+
+    }
 
 }
 

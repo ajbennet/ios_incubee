@@ -56,6 +56,7 @@
 		57C98C471B5129DD002F6E81 /* ICUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C98C461B5129DD002F6E81 /* ICUtilityManager.m */; };
 		57D52CC11B581DEE008EA1E5 /* ICUserAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D52CC01B581DEE008EA1E5 /* ICUserAccountManager.m */; };
 		57E724E61B4063E90066C0A5 /* ICImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E724E51B4063E90066C0A5 /* ICImageManager.m */; };
+		5808FD8F1B8E23920053451A /* ICMessengerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5808FD8E1B8E23920053451A /* ICMessengerManager.m */; };
 		5864EB631B86434C00091C94 /* ICChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB621B86434C00091C94 /* ICChatViewController.m */; };
 		5864EB661B86479100091C94 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB651B86479100091C94 /* User.m */; };
 		5864EB691B86479100091C94 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB681B86479100091C94 /* Project.m */; };
@@ -153,6 +154,8 @@
 		57D52CC01B581DEE008EA1E5 /* ICUserAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICUserAccountManager.m; path = Source/OperationManagers/ICUserAccountManager.m; sourceTree = "<group>"; };
 		57E724E41B4063E90066C0A5 /* ICImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICImageManager.h; path = Source/OperationManagers/ICImageManager.h; sourceTree = "<group>"; };
 		57E724E51B4063E90066C0A5 /* ICImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICImageManager.m; path = Source/OperationManagers/ICImageManager.m; sourceTree = "<group>"; };
+		5808FD8D1B8E23920053451A /* ICMessengerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICMessengerManager.h; path = Source/OperationManagers/ICMessengerManager.h; sourceTree = "<group>"; };
+		5808FD8E1B8E23920053451A /* ICMessengerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICMessengerManager.m; path = Source/OperationManagers/ICMessengerManager.m; sourceTree = "<group>"; };
 		5864EB611B86434C00091C94 /* ICChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICChatViewController.h; path = Source/ViewController/Messanger/ICChatViewController.h; sourceTree = "<group>"; };
 		5864EB621B86434C00091C94 /* ICChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICChatViewController.m; path = Source/ViewController/Messanger/ICChatViewController.m; sourceTree = "<group>"; };
 		5864EB641B86479100091C94 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "Source/Data Module/Managed Objects/User.h"; sourceTree = "<group>"; };
@@ -380,6 +383,8 @@
 				57C98C461B5129DD002F6E81 /* ICUtilityManager.m */,
 				57D52CBF1B581DEE008EA1E5 /* ICUserAccountManager.h */,
 				57D52CC01B581DEE008EA1E5 /* ICUserAccountManager.m */,
+				5808FD8D1B8E23920053451A /* ICMessengerManager.h */,
+				5808FD8E1B8E23920053451A /* ICMessengerManager.m */,
 			);
 			name = OperationsManager;
 			sourceTree = "<group>";
@@ -638,6 +643,7 @@
 				5780CB0A1B3E835B0090ADCE /* ICHomeViewController.m in Sources */,
 				5864EB6F1B86479200091C94 /* Messages.m in Sources */,
 				5780CAFF1B3E833C0090ADCE /* ProfileViewController.m in Sources */,
+				5808FD8F1B8E23920053451A /* ICMessengerManager.m in Sources */,
 				5780CB3B1B3E8A250090ADCE /* ICOperationManager.m in Sources */,
 				5864EB661B86479100091C94 /* User.m in Sources */,
 				5864EB631B86434C00091C94 /* ICChatViewController.m in Sources */,

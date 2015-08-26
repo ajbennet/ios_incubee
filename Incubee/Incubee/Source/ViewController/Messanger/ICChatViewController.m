@@ -26,7 +26,7 @@
     
     self.navigationController.navigationBarHidden = NO;
 
-    _chatArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getMessages:nil]];
+    _chatArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getMessages:_project.projectId]];
 
     [_chatTableView reloadData];
 

@@ -46,5 +46,6 @@
 
 -(NSArray*)getMessages:(NSString*)inMsgId;
 
+-(void)saveChatArray:(NSArray*)inMesgArray;
 
 @end
