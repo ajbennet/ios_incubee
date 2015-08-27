@@ -57,12 +57,20 @@ static ICAppManager *sharedAppManagerInstance = nil;
                 break;
             case REQUEST_FINISHED:
             {
+                SEL aSelector;
                 
-                SEL sel = NSSelectorFromString(pRequest.selectorString);
-                
-                if([pRequest.respondingController respondsToSelector:sel])
+                if(pRequest.requestId == IC_GET_ALL_PROJECTS)
                 {
-                    [pRequest.respondingController performSelectorOnMainThread:sel withObject:pRequest waitUntilDone:YES];
+                    aSelector = (pRequest.selector);
+                }
+                else
+                {
+                    aSelector = NSSelectorFromString(pRequest.selectorString);
+                }
+                
+                if([pRequest.respondingController respondsToSelector:aSelector])
+                {
+                    [pRequest.respondingController performSelectorOnMainThread:aSelector withObject:pRequest waitUntilDone:YES];
                 }
                 
                 [pRequest.requestStatus removeObserver:self forKeyPath:@"status"];

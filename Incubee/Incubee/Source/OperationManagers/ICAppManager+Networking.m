@@ -32,6 +32,14 @@
     
 }
 
+-(void)addReqComplitionListner:(ICRequest*)aRequest forController:(id)aController atSelector:(SEL)inMethod{
+    
+    aRequest.respondingController = aController;
+    
+    aRequest.selector = inMethod;
+
+}
+
 -(void)sendRequestObject:(ICRequest*)inRequest{
     
     ICNetworkOperation *operation = [[ICNetworkOperation alloc] initWithRequest:inRequest];
@@ -43,6 +51,24 @@
 }
 
 #pragma mark - Network Call -
+-(void)getAllProject:(ICRequest**)inRequest notifyTo:(id)aViewController atSelector:(SEL)inSelector{
+
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_GET_ALL_PROJECTS;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+    
+    [req setRequestingURL:[NSURL URLWithString:@"http://www.incub.ee/rest/all"]];
+    
+    [self sendRequestObject:req];
+
+    
+}
+
+
 -(void)getAllProject:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName{
 
     ICRequest *req = [[ICRequest alloc] init];

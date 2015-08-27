@@ -57,6 +57,7 @@
 		57D52CC11B581DEE008EA1E5 /* ICUserAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D52CC01B581DEE008EA1E5 /* ICUserAccountManager.m */; };
 		57E724E61B4063E90066C0A5 /* ICImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E724E51B4063E90066C0A5 /* ICImageManager.m */; };
 		5808FD8F1B8E23920053451A /* ICMessengerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5808FD8E1B8E23920053451A /* ICMessengerManager.m */; };
+		583C9B321B8F882600A1FF1E /* ICBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C9B311B8F882600A1FF1E /* ICBaseViewController.m */; };
 		5864EB631B86434C00091C94 /* ICChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB621B86434C00091C94 /* ICChatViewController.m */; };
 		5864EB661B86479100091C94 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB651B86479100091C94 /* User.m */; };
 		5864EB691B86479100091C94 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB681B86479100091C94 /* Project.m */; };
@@ -156,6 +157,8 @@
 		57E724E51B4063E90066C0A5 /* ICImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICImageManager.m; path = Source/OperationManagers/ICImageManager.m; sourceTree = "<group>"; };
 		5808FD8D1B8E23920053451A /* ICMessengerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICMessengerManager.h; path = Source/OperationManagers/ICMessengerManager.h; sourceTree = "<group>"; };
 		5808FD8E1B8E23920053451A /* ICMessengerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICMessengerManager.m; path = Source/OperationManagers/ICMessengerManager.m; sourceTree = "<group>"; };
+		583C9B301B8F882600A1FF1E /* ICBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICBaseViewController.h; path = Source/ViewController/ICBaseViewController.h; sourceTree = "<group>"; };
+		583C9B311B8F882600A1FF1E /* ICBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICBaseViewController.m; path = Source/ViewController/ICBaseViewController.m; sourceTree = "<group>"; };
 		5864EB611B86434C00091C94 /* ICChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICChatViewController.h; path = Source/ViewController/Messanger/ICChatViewController.h; sourceTree = "<group>"; };
 		5864EB621B86434C00091C94 /* ICChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICChatViewController.m; path = Source/ViewController/Messanger/ICChatViewController.m; sourceTree = "<group>"; };
 		5864EB641B86479100091C94 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "Source/Data Module/Managed Objects/User.h"; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 		5780CAEE1B3E819D0090ADCE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				583C9B301B8F882600A1FF1E /* ICBaseViewController.h */,
+				583C9B311B8F882600A1FF1E /* ICBaseViewController.m */,
 				5780CAF41B3E82F20090ADCE /* Storyboards */,
 				5780CAF31B3E81C60090ADCE /* Search */,
 				5780CAF21B3E81C00090ADCE /* Profile */,
@@ -651,6 +656,7 @@
 				57C98C471B5129DD002F6E81 /* ICUtilityManager.m in Sources */,
 				5780CB391B3E8A250090ADCE /* ICJSONParsingOperations.m in Sources */,
 				5780CB0B1B3E835B0090ADCE /* ICCardViewController.m in Sources */,
+				583C9B321B8F882600A1FF1E /* ICBaseViewController.m in Sources */,
 				5780CB1E1B3E86BD0090ADCE /* ICAppManager+Networking.m in Sources */,
 				5780CB1B1B3E86490090ADCE /* ICAppManager.m in Sources */,
 				5780CB4B1B3E9E1C0090ADCE /* ICDataManager+DataSaving.m in Sources */,

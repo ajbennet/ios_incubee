@@ -11,6 +11,8 @@
 
 @interface ICAppManager (Networking)
 
+-(void)getAllProject:(ICRequest**)inRequest notifyTo:(id)aViewController atSelector:(SEL)inSelector;
+
 -(void)getAllProject:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName;
 
 -(void)sendGoogleLogin:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName;

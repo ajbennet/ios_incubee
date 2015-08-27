@@ -66,7 +66,7 @@
     
     [self showActivity:YES withMsg:@"Fetching all projects"];
     
-    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self forSelector:@"projectDataRefreshed:"];
+    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self atSelector:@selector(projectDataRefreshed:)];
 }
 
 -(void)setupCards{
@@ -792,7 +792,7 @@
 #pragma mark - Network Notifications -
 -(void)projectDataRefreshed:(ICRequest*)inRequest{
     
-    NSLog(@"%@",NSStringFromSelector(_cmd));
+    NSLog(@"%@ : %@ : %@",NSStringFromSelector(_cmd),NSStringFromSelector(_cmd),NSStringFromSelector(_cmd));
 
     [self showActivity:NO withMsg:nil];
     
