@@ -79,10 +79,10 @@
     
     
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] init];
-    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@"Login"    attributes:dict1]];
+    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@"Login"    attributes:dict2]]; //dict1
     
     [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@" if you already uploaded\n your work at"    attributes:dict2]];
-    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@" incub.ee"      attributes:dict3]];
+    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@" www.incub.ee"      attributes:dict3]];
     [_loginButton setAttributedTitle:attString forState:UIControlStateNormal];
     [[_loginButton titleLabel] setNumberOfLines:0];
     [[_loginButton titleLabel] setLineBreakMode:NSLineBreakByWordWrapping];
@@ -156,13 +156,20 @@
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ICLoginViewController" bundle:nil];
+    NSURL *url = [NSURL URLWithString:@"http://www.incub.ee"];
     
-    _loginViewController = [sb instantiateViewControllerWithIdentifier:@"IncubeeLoginStoryBoard"];
+    if([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        [[UIApplication sharedApplication] openURL:url];
+    }
     
-    _loginViewController.modalPresentationStyle = UIModalPresentationCustom;
-    
-    [self.navigationController pushViewController:_loginViewController animated:YES];
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ICLoginViewController" bundle:nil];
+//    
+//    _loginViewController = [sb instantiateViewControllerWithIdentifier:@"IncubeeLoginStoryBoard"];
+//    
+//    _loginViewController.modalPresentationStyle = UIModalPresentationCustom;
+//    
+//    [self.navigationController pushViewController:_loginViewController animated:YES];
     
 }
 
