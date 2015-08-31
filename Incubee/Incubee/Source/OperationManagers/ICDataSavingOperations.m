@@ -27,28 +27,6 @@
 -(void)main{
     
     [[ICDataManager sharedInstance] saveResponse:request];
-
-//    switch (request.requestId) {
-//        case IC_GET_ALL_PROJECTS:
-//        {
-//            [[ICDataManager sharedInstance] saveResponse:request];
-//        }
-//            break;
-//        case IC_LOGIN_REQUEST:
-//        {
-//            [[ICDataManager sharedInstance] saveResponse:request];
-//        }
-//            break;
-//            
-//        case IC_LIKE_PROJECT:
-//        {
-//        }
-//            break;
-//            
-//        default:
-//            break;
-//    }
     
-
 }
 @end

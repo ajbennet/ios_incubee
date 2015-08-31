@@ -66,7 +66,7 @@
     
     [self showActivity:YES withMsg:@"Fetching all projects"];
     
-    [[ICAppManager sharedInstance] getAllProject:nil notifyTo:self atSelector:@selector(projectDataRefreshed:)];
+    [[ICAppManager sharedInstance] getAllIncubees:nil notifyTo:self atSelector:@selector(projectDataRefreshed:)];
 }
 
 -(void)setupCards{
@@ -132,7 +132,7 @@
     
     if(_currentlyShowingVC == _secondViewC)
     {
-        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_secondCard.projectId notifyTo:self forSelector:@""];
+        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_secondCard.projectId notifyTo:self forSelector:nil];
 
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
@@ -175,7 +175,7 @@
     }
     else if(_currentlyShowingVC == _firstViewC)
     {
-        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_firstCard.projectId notifyTo:self forSelector:@""];
+        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_firstCard.projectId notifyTo:self forSelector:nil];
 
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
@@ -440,7 +440,7 @@
     // Adding things to customer.
     Project *currentProje = _currentlyShowingVC.project;
     
-    [[ICAppManager sharedInstance] addCustomerProject:nil withIncubeeId:currentProje.projectId notifyTo:self forSelector:@""];
+    [[ICAppManager sharedInstance] addCustomerProject:nil withIncubeeId:currentProje.projectId notifyTo:self forSelector:nil];
 
 }
 
@@ -464,7 +464,7 @@
     {
         _lastCard = _secondCard;
         
-        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_secondCard.projectId notifyTo:self forSelector:@""];
+        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_secondCard.projectId notifyTo:self forSelector:nil];
 
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
@@ -519,7 +519,7 @@
     {
         _lastCard = _firstCard;
         
-        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_firstCard.projectId notifyTo:self forSelector:@""];
+        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_firstCard.projectId notifyTo:self forSelector:nil];
 
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         

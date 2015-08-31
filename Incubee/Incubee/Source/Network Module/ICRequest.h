@@ -11,8 +11,8 @@
 
 typedef enum
 {
-    IC_LOGIN_REQUEST,
-    IC_GET_ALL_PROJECTS,
+    IC_GOOGLE_LOGIN_REQUEST,
+    IC_GET_ALL_INCUBEES,
     IC_GOOGLE_LOGIN,
     IC_GOOGLE_SIGNUP,
     IC_LIKE_PROJECT,
@@ -44,9 +44,10 @@ typedef enum // Naming Conventions of the Enum's to be decided
 @property (nonatomic,strong)NSURL *requestingURL;
 @property (nonatomic,strong)NSMutableDictionary *reqDataDict;
 @property (nonatomic,assign)REQUESTID requestId;
+@property (nonatomic,strong)NSString *requestMethod;
+@property (nonatomic,assign)BOOL isTokenRequired;
 @property (nonatomic,strong)ICRequestStatus *requestStatus;
 @property (nonatomic,strong)id respondingController;
-@property (nonatomic,strong)NSString *selectorString;
 @property (nonatomic,assign)SEL selector;
 @property (nonatomic,strong)NSData *responseRecivedData;
 @property (nonatomic,strong)id parsedResponse;

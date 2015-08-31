@@ -11,6 +11,7 @@
 #import "ICNetworkOperation.h"
 #import "ICDataManager.h"
 
+
 @implementation ICNetworkOperation
 
 -(id)initWithRequest:(ICRequest*)inRequest{
@@ -19,89 +20,46 @@
     
     if(self != nil)
     {
-        _request = inRequest;
+        _requestObject = inRequest;
     }
 
     return self;
-}
-
-
-- (NSData*)encodeDictionary:(NSDictionary*)dictionary {
-    
-    NSMutableArray *parts = [[NSMutableArray alloc] init];
-    
-    for (NSString *key in [dictionary allKeys]) {
-        
-        NSString *encodedValue = [[dictionary objectForKey:key] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        NSString *encodedKey = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        NSString *part = [NSString stringWithFormat: @"%@=%@", encodedKey, encodedValue];
-        
-        [parts addObject:part];
-    }
-    NSString *encodedDictionary = [parts componentsJoinedByString:@"&"];
-    
-    NSLog(@"Print Operation : %@",encodedDictionary);
-    
-    return [encodedDictionary dataUsingEncoding:NSUTF8StringEncoding];
-}
-
-
-- (NSString*)encodeDictionaryToString:(NSDictionary*)dictionary {
-    NSMutableArray *parts = [[NSMutableArray alloc] init];
-    for (NSString *key in dictionary) {
-        NSString *encodedValue = [[dictionary objectForKey:key] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString *encodedKey = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString *part = [NSString stringWithFormat: @"%@=%@", encodedKey, encodedValue];
-        [parts addObject:part];
-    }
-    NSString *encodedDictionary = [parts componentsJoinedByString:@"&"];
-    return encodedDictionary;
 }
 
 -(void)main{
 
     [super main];
     
-    _request.requestStatus.status = REQUEST_ON_NETWORKING;
+    _requestObject.requestStatus.status = REQUEST_ON_NETWORKING;
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_request.requestingURL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_requestObject.requestingURL];
     
     NSHTTPURLResponse *response = nil;
     
-    switch (_request.requestId) {
-        case IC_LIKE_PROJECT:
-        case IC_ADD_CUSTOMER_PROJECT:
-        {
-            [request setHTTPMethod:@"POST"];
-            
-            [request setValue:@"Accept" forHTTPHeaderField:@"Content-Type"];
-            
-            [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            
-            [request setValue:[[ICDataManager sharedInstance] getToken] forHTTPHeaderField:@"token"];
-
-        }
-            break;
-            
-        default:
-            break;
+    // Configuring Header data.
+    
+    if(_requestObject.requestMethod.length!=0)
+    {
+        [request setHTTPMethod:_requestObject.requestMethod];
     }
     
-    NSLog(@"********** RequestURL ********** :  URL : %@",_request.requestingURL);
-
-    if(_request.reqDataDict.allKeys.count>0)
-    {
-        [request setHTTPMethod:@"POST"];
-        
         [request setValue:@"Accept" forHTTPHeaderField:@"Content-Type"];
         
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        
+        if(_requestObject.isTokenRequired)
+        {
+            [request setValue:[[ICDataManager sharedInstance] getToken] forHTTPHeaderField:@"token"];
+        }
+    
+    
+    NSLog(@"********** RequestURL ********** :  URL : %@",_requestObject.requestingURL);
 
+    if(_requestObject.reqDataDict.allKeys.count>0)
+    {
         NSError *parsingError = nil;
         
-        NSData *reqData = [NSJSONSerialization dataWithJSONObject:_request.reqDataDict options:NSJSONWritingPrettyPrinted error:&parsingError];
+        NSData *reqData = [NSJSONSerialization dataWithJSONObject:_requestObject.reqDataDict options:NSJSONWritingPrettyPrinted error:&parsingError];
         
         if(parsingError==nil)
         {
@@ -111,28 +69,28 @@
         [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[reqData length]] forHTTPHeaderField:@"Content-Length"];
         
         
-        NSLog(@"********** RequestData ********** \n %@",_request.reqDataDict);
+        NSLog(@"********** RequestData ********** \n %@",_requestObject.reqDataDict);
     }
     
     NSError *error = nil;
 
     
-    _request.responseRecivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    _requestObject.responseRecivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     if(error)
     {
-        self.request.error = error;
+        _requestObject.error = error;
         
-        self.request.parsedResponse = (id)[[NSDictionary alloc] initWithObjectsAndKeys:error.localizedDescription,@"Error",nil];
+        _requestObject.parsedResponse = (id)[[NSDictionary alloc] initWithObjectsAndKeys:error.localizedDescription,@"Error",nil];
         
-        self.request.requestStatus.status = REQUEST_FINISHED;
+        _requestObject.requestStatus.status = REQUEST_FINISHED;
 
     }
-    else if(_request.responseRecivedData != nil)
+    else if(_requestObject.responseRecivedData != nil)
     {
         NSLog(@"Networking Operartions : Is%@ main thread", ([NSThread isMainThread] ?@"" : @" NOT"));
         
-        NSString *encodedStr = [[NSString alloc] initWithBytes:[_request.responseRecivedData bytes] length:_request.responseRecivedData.length encoding:NSUTF8StringEncoding];
+        NSString *encodedStr = [[NSString alloc] initWithBytes:[_requestObject.responseRecivedData bytes] length:_requestObject.responseRecivedData.length encoding:NSUTF8StringEncoding];
         
         NSLog(@"Response : %@",encodedStr);
         
@@ -140,13 +98,13 @@
         {
             NSDictionary* details = [[NSDictionary alloc] initWithObjectsAndKeys:@"NSUTF8StringEncoding Error",NSLocalizedDescriptionKey,nil];
             
-            _request.error = [NSError errorWithDomain:@"Incubee" code:200 userInfo:details];
+            _requestObject.error = [NSError errorWithDomain:@"Incubee" code:200 userInfo:details];
             
-            _request.requestStatus.status = REQUEST_FINISHED;
+            _requestObject.requestStatus.status = REQUEST_FINISHED;
         }
         else
         {
-            _request.requestStatus.status = REQUEST_ON_DATAPARSING;
+            _requestObject.requestStatus.status = REQUEST_ON_DATAPARSING;
         }
     }
     else

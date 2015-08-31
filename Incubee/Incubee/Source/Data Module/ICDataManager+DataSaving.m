@@ -20,7 +20,7 @@
     {
         switch (inRequest.requestId) {
                 
-            case IC_GET_ALL_PROJECTS:
+            case IC_GET_ALL_INCUBEES:
             {
                 [self saveProjectList:inRequest.parsedResponse];
                 

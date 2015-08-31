@@ -51,7 +51,7 @@ static ICMessengerManager *sharedMessengerInstance = nil;
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
-    [[ICAppManager sharedInstance] getAllChat:nil notifyTo:self forSelector:@"allChatResponse:"];
+    [[ICAppManager sharedInstance] getAllChat:nil notifyTo:self forSelector:@selector(allChatResponse:)];
 
 }
 

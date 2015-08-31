@@ -122,6 +122,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
+    [self setupSegment];
+    
     [self loadAndRefreshUI];
     
     self.navigationController.navigationBarHidden = YES;
@@ -233,6 +235,17 @@
 
 #pragma mark - Project Array -
 
+-(void)setupSegment{
+
+    if([[ICDataManager sharedInstance] isFounder])
+    {
+
+    }
+    else
+    {
+
+    }
+}
 -(void)loadAndRefreshUI{
     
     switch (_segmentBar.selectedSegmentIndex) {

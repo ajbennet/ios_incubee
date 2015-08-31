@@ -14,7 +14,7 @@
     NSMutableData *receivedData;
     
 }
-@property(nonatomic,strong)ICRequest *request;
+@property(nonatomic,strong)ICRequest *requestObject;
 
 -(id)initWithRequest:(ICRequest*)inRequest;
 

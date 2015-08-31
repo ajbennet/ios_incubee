@@ -7,9 +7,7 @@
 //
 
 #import "ICDataManager.h"
-
-
-#define NULL_TO_NIL(obj) ({ __typeof__ (obj) __obj = (obj); __obj == [NSNull null] ? nil : obj; })
+#import "ICConstants.h"
 
 
 @implementation ICDataManager
@@ -454,6 +452,50 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 }
 
+-(void)setUserAsFounder:(NSString*)inCompanyId{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:context]];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        ;
+        
+        if(results.count>0)
+        {
+            User *aUser = [results objectAtIndex:0];
+            
+            aUser.isFounder = [NSNumber numberWithBool:YES];
+            
+            aUser.founderCompanyId = inCompanyId;
+            
+            NSError *error = nil;
+            
+            [context save:&error];
+            
+            if(error==nil)
+            {
+                NSLog(@"User Updated as Founder");
+            }
+            
+        }
+    }
+    
+}
+-(BOOL)isFounder{
+
+    User *aUser = [self getUser];
+    
+    return [aUser.isFounder boolValue];
+
+}
 #pragma mark - Message -
 
 -(NSArray*)getMessages:(NSString*)inMsgId{

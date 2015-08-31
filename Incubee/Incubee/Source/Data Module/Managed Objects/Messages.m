@@ -2,7 +2,7 @@
 //  Messages.m
 //  Incubee
 //
-//  Created by Rithesh Rao on 20/08/15.
+//  Created by Rithesh Rao on 31/08/15.
 //  Copyright (c) 2015 Incubee. All rights reserved.
 //
 
@@ -11,18 +11,18 @@
 
 @implementation Messages
 
-@dynamic mid;
-@dynamic to;
-@dynamic eid;
-@dynamic time;
-@dynamic stime;
-@dynamic status;
-@dynamic name;
 @dynamic body;
-@dynamic type;
 @dynamic dir;
+@dynamic eid;
 @dynamic lattitude;
 @dynamic longitude;
 @dynamic media;
+@dynamic mid;
+@dynamic name;
+@dynamic status;
+@dynamic stime;
+@dynamic time;
+@dynamic to;
+@dynamic type;
 
 @end

@@ -9,6 +9,7 @@
 #import "ICAppManager+Networking.h"
 #import "ICOperationManager.h"
 #import "ICNetworkOperation.h"
+#import "ICNetworkConstant.h"
 
 #import "User.h"
 
@@ -24,20 +25,11 @@
     
 }
 
--(void)addReqComplitionListner:(ICRequest*)aRequest forController:(id)aController atMethod:(NSString*)aMethodName{
-    
-    aRequest.respondingController = aController;
-    
-    aRequest.selectorString = aMethodName;
-    
-}
-
 -(void)addReqComplitionListner:(ICRequest*)aRequest forController:(id)aController atSelector:(SEL)inMethod{
     
     aRequest.respondingController = aController;
     
     aRequest.selector = inMethod;
-
 }
 
 -(void)sendRequestObject:(ICRequest*)inRequest{
@@ -51,51 +43,40 @@
 }
 
 #pragma mark - Network Call -
--(void)getAllProject:(ICRequest**)inRequest notifyTo:(id)aViewController atSelector:(SEL)inSelector{
+-(void)getAllIncubees:(ICRequest**)inRequest notifyTo:(id)aViewController atSelector:(SEL)inSelector{
+    
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_GET_ALL_INCUBEES;
+    
+    req.requestMethod = ICRequestMethodGet;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+
+    req.isTokenRequired = NO;
+    
+    [req setRequestingURL:[NSURL URLWithString:kGetAllCompanyURL]];
+    
+    [self sendRequestObject:req];
+
+    
+}
+
+-(void)sendGoogleLogin:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
 
     ICRequest *req = [[ICRequest alloc] init];
     
-    req.requestId = IC_GET_ALL_PROJECTS;
+    req.requestId = IC_GOOGLE_LOGIN_REQUEST;
+    
+    req.requestMethod = ICRequestMethodPost;
     
     [self addRequestActivityObserver:req];
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-    [req setRequestingURL:[NSURL URLWithString:@"http://www.incub.ee/rest/all"]];
-    
-    [self sendRequestObject:req];
-
-    
-}
-
-
--(void)getAllProject:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName{
-
-    ICRequest *req = [[ICRequest alloc] init];
-    
-    req.requestId = IC_GET_ALL_PROJECTS;
-    
-    [self addRequestActivityObserver:req];
-    
-    [self addReqComplitionListner:req forController:aViewController atMethod:funName];
-    
-    [req setRequestingURL:[NSURL URLWithString:@"http://www.incub.ee/rest/all"]];
-    
-    [self sendRequestObject:req];
-
-}
-
--(void)sendGoogleLogin:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName{
-
-    ICRequest *req = [[ICRequest alloc] init];
-    
-    req.requestId = IC_LOGIN_REQUEST;
-    
-    [self addRequestActivityObserver:req];
-    
-    [self addReqComplitionListner:req forController:aViewController atMethod:funName];
-    
-    [req setRequestingURL:[NSURL URLWithString:@"http://www.incub.ee/rest/login"]];
+    [req setRequestingURL:[NSURL URLWithString:kGoogleLoginURL]];
     
     User *user = [[ICDataManager sharedInstance] getUser];
 
@@ -105,13 +86,13 @@
     
     [req.reqDataDict setValue:user.email forKey:@"email"];
 
-    [req.reqDataDict setValue:user.token forKey:@"token"];
+    req.isTokenRequired = YES;
     
     [self sendRequestObject:req];
 
 }
 
--(void)sendGoogleSignUp:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName{
+-(void)sendGoogleSignUp:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
 
     ICRequest *req = [[ICRequest alloc] init];
     
@@ -119,9 +100,9 @@
     
     [self addRequestActivityObserver:req];
     
-    [self addReqComplitionListner:req forController:aViewController atMethod:funName];
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-    [req setRequestingURL:[NSURL URLWithString:@"http://www.incub.ee/rest/signup"]];
+    [req setRequestingURL:[NSURL URLWithString:kGoogleSignUpURL]];
     
     User *user = [[ICDataManager sharedInstance] getUser];
     
@@ -131,59 +112,61 @@
     
     [req.reqDataDict setValue:user.email forKey:@"email"];
     
-    [req.reqDataDict setValue:user.token forKey:@"token"];
-    
-    //    [req.reqDataDict setValue:@"https://lh4.googleusercontent.com/-CL6coBFm9VE/AAAAAAAAAAI/AAAAAAAAHCk/ngCxGax3Tcc/s96-c/photo.jpg" forKey:@"image_url"];
+    req.isTokenRequired = YES;
     
     [self sendRequestObject:req];
 }
 
--(void)likeProject:(ICRequest**)inRequest withIncubeeId:(NSString*)inCubeeId notifyTo:(id)aViewController forSelector:(NSString*)funName{
+-(void)likeProject:(ICRequest**)inRequest withIncubeeId:(NSString*)inCubeeId notifyTo:(id)aViewController forSelector:(SEL)inSelector{
 
     ICRequest *req = [[ICRequest alloc] init];
     
     req.requestId = IC_LIKE_PROJECT;
     
+    req.requestMethod = ICRequestMethodPost;
+
+    req.isTokenRequired = YES;
+
     [self addRequestActivityObserver:req];
     
-    [self addReqComplitionListner:req forController:aViewController atMethod:funName];
-    
-    NSString *urlString = [NSString stringWithFormat:@"http://www.incub.ee/rest/like/%@?uid=%@",inCubeeId,[[ICDataManager sharedInstance] getUserId]];
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
     NSDictionary *d = [[NSDictionary alloc] initWithObjectsAndKeys:inCubeeId,@"incubee_id",nil];
     
     [req setOptionalData:(NSMutableDictionary*)d];
     
-    [req setRequestingURL:[NSURL URLWithString:urlString]];
+    [req setRequestingURL:[NSURL URLWithString:kLikeIncubeeURL(inCubeeId,[[ICDataManager sharedInstance] getUserId])]];
         
     [self sendRequestObject:req];
 
 }
 
--(void)addCustomerProject:(ICRequest**)inRequest withIncubeeId:(NSString*)inCubeeId notifyTo:(id)aViewController forSelector:(NSString*)funName{
+-(void)addCustomerProject:(ICRequest**)inRequest withIncubeeId:(NSString*)inCubeeId notifyTo:(id)aViewController forSelector:(SEL)inSelector{
     
     ICRequest *req = [[ICRequest alloc] init];
     
     req.requestId = IC_ADD_CUSTOMER_PROJECT;
     
+    req.requestMethod = ICRequestMethodPost;
+    
+    req.isTokenRequired = YES;
+    
     [self addRequestActivityObserver:req];
     
-    [self addReqComplitionListner:req forController:aViewController atMethod:funName];
-    
-    NSString *urlString = [NSString stringWithFormat:@"http://www.incub.ee/rest/customer/%@?uid=%@",inCubeeId,[[ICDataManager sharedInstance] getUserId]];
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
     NSDictionary *d = [[NSDictionary alloc] initWithObjectsAndKeys:inCubeeId,@"incubee_id",nil];
     
     [req setOptionalData:(NSMutableDictionary*)d];
     
-    [req setRequestingURL:[NSURL URLWithString:urlString]];
+    [req setRequestingURL:[NSURL URLWithString:kAddCustomer(inCubeeId,[[ICDataManager sharedInstance] getUserId])]];
     
     [self sendRequestObject:req];
     
 }
 
 #pragma mark - Chat -
--(void)getAllChat:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(NSString*)funName{
+-(void)getAllChat:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
 
     ICRequest *req = [[ICRequest alloc] init];
     
@@ -191,12 +174,12 @@
     
     [self addRequestActivityObserver:req];
     
-    [self addReqComplitionListner:req forController:aViewController atMethod:funName];
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
 //    NSString *urlString = [NSString stringWithFormat:@"http://www.incub.ee/rest/msg/all?eid=%@",[[ICDataManager sharedInstance] getUserId]];
-    NSString *urlString = [NSString stringWithFormat:@"http://www.incub.ee/rest/msg/all?eid=110489314263267697974",[[ICDataManager sharedInstance] getUserId]];
+//    NSString *urlString = [NSString stringWithFormat:@"http://www.incub.ee/rest/msg/all?eid=110489314263267697974",[[ICDataManager sharedInstance] getUserId]];
 
-    [req setRequestingURL:[NSURL URLWithString:urlString]];
+    [req setRequestingURL:[NSURL URLWithString:kGetAllChatMsg([[ICDataManager sharedInstance] getUserId])]];
     
     [self sendRequestObject:req];
 

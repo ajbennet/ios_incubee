@@ -41,6 +41,10 @@
 
 -(NSString*)getToken;
 
+-(void)setUserAsFounder:(NSString*)inCompanyId;
+
+-(BOOL)isFounder;
+
 
 #pragma mark - Message - 
 

@@ -8,6 +8,7 @@
 
 #import "ICJSONParsingOperations.h"
 #import "ICAppManager+Networking.h"
+#import "ICConstants.h"
 
 @implementation ICJSONParsingOperations
 
@@ -65,12 +66,19 @@
                     }
                 }
                     break;
-                case IC_LOGIN_REQUEST:{
+                case IC_GOOGLE_LOGIN_REQUEST:
+                {
                     NSString *statusCode = [((NSDictionary*)parsedRespo) valueForKey:@"statusCode"];
                     
                     if([statusCode rangeOfString:@"1000"].location!=NSNotFound)
                     {
+                        NSDictionary *serviceDataDic = NULL_TO_NIL([((NSDictionary*)parsedRespo) valueForKey:@"servicedata"]);
                         
+                        if(serviceDataDic && [serviceDataDic objectForKey:@"company_id"])
+                        {
+                            [[ICDataManager sharedInstance] setUserAsFounder:[serviceDataDic valueForKey:@"company_id"]];
+                        }
+
                     }
                     else
                     {
@@ -85,7 +93,8 @@
                     }
                 }
                     break;
-                case IC_LIKE_PROJECT:{
+                case IC_LIKE_PROJECT:
+                {
                     NSString *statusCode = [((NSDictionary*)parsedRespo) valueForKey:@"statusCode"];
                     
                     if([statusCode rangeOfString:@"1000"].location!=NSNotFound)
@@ -108,8 +117,6 @@
                 default:
                     break;
             }
-            
-            
             
             _request.requestStatus.status = REQUEST_ON_DATASAVING;
             
