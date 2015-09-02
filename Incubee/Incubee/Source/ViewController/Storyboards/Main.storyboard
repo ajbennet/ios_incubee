@@ -804,9 +804,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zw4-xG-zrF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Zw4-xG-zrF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" id="kwA-gk-qYQ" customClass="ICChatTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1123,7 +1123,11 @@
                         <constraints>
                             <constraint firstItem="P1f-Ht-i9L" firstAttribute="top" secondItem="OdA-iT-0MK" secondAttribute="bottom" id="2Ep-WI-MHT"/>
                             <constraint firstAttribute="centerX" secondItem="Zw4-xG-zrF" secondAttribute="centerX" id="2VM-D6-arG"/>
+                            <constraint firstItem="Zw4-xG-zrF" firstAttribute="top" secondItem="nUv-CO-WNM" secondAttribute="bottom" id="P75-D0-CUk"/>
                             <constraint firstAttribute="centerX" secondItem="Zw4-xG-zrF" secondAttribute="centerX" id="Q3S-ai-2q8"/>
+                            <constraint firstItem="OdA-iT-0MK" firstAttribute="top" secondItem="Zw4-xG-zrF" secondAttribute="bottom" constant="-40" id="RY4-jF-tzA">
+                                <variation key="heightClass=regular" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="Zw4-xG-zrF" firstAttribute="top" secondItem="nUv-CO-WNM" secondAttribute="bottom" constant="-20" id="W6a-HC-3fw">
                                 <variation key="heightClass=regular" constant="0.0"/>
                             </constraint>
@@ -1145,17 +1149,19 @@
                                 <exclude reference="OdA-iT-0MK"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="2Ep-WI-MHT"/>
-                                <exclude reference="v1O-0q-sWJ"/>
-                                <exclude reference="d62-8X-dW3"/>
-                                <exclude reference="jwv-zJ-Hhv"/>
-                                <exclude reference="ky2-9t-GdY"/>
                                 <exclude reference="2VM-D6-arG"/>
+                                <exclude reference="P75-D0-CUk"/>
                                 <exclude reference="Q3S-ai-2q8"/>
                                 <exclude reference="W6a-HC-3fw"/>
                                 <exclude reference="iyL-W6-H0O"/>
                                 <exclude reference="qX9-El-t7D"/>
                                 <exclude reference="um3-18-2LY"/>
+                                <exclude reference="RY4-jF-tzA"/>
+                                <exclude reference="d62-8X-dW3"/>
+                                <exclude reference="jwv-zJ-Hhv"/>
+                                <exclude reference="ky2-9t-GdY"/>
+                                <exclude reference="2Ep-WI-MHT"/>
+                                <exclude reference="v1O-0q-sWJ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -1164,17 +1170,19 @@
                                 <include reference="OdA-iT-0MK"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="2Ep-WI-MHT"/>
-                                <include reference="v1O-0q-sWJ"/>
-                                <include reference="d62-8X-dW3"/>
-                                <include reference="jwv-zJ-Hhv"/>
-                                <exclude reference="ky2-9t-GdY"/>
                                 <exclude reference="2VM-D6-arG"/>
+                                <include reference="P75-D0-CUk"/>
                                 <include reference="Q3S-ai-2q8"/>
-                                <include reference="W6a-HC-3fw"/>
+                                <exclude reference="W6a-HC-3fw"/>
                                 <exclude reference="iyL-W6-H0O"/>
                                 <exclude reference="qX9-El-t7D"/>
                                 <include reference="um3-18-2LY"/>
+                                <include reference="RY4-jF-tzA"/>
+                                <include reference="d62-8X-dW3"/>
+                                <include reference="jwv-zJ-Hhv"/>
+                                <exclude reference="ky2-9t-GdY"/>
+                                <include reference="2Ep-WI-MHT"/>
+                                <exclude reference="v1O-0q-sWJ"/>
                             </mask>
                         </variation>
                     </view>
