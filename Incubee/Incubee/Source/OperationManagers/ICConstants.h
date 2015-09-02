@@ -13,3 +13,7 @@
 //#endif
 
 #define NULL_TO_NIL(obj) ({ __typeof__ (obj) __obj = (obj); __obj == [NSNull null] ? nil : obj; })
+
+#pragma mark - Notification Keys -
+
+#define CHAT_VIEW_REFRESH @"Chat_view_Refresh"

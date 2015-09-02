@@ -14,7 +14,7 @@
 
 @property(nonatomic,strong)IBOutlet UITableView *projectTableView;
 
-@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentBar;
+@property (strong, nonatomic) IBOutlet UIView *segmentView;
 
-- (IBAction)segmentBarValueChanged:(id)sender;
+@property(nonatomic,strong)IBOutlet UISegmentedControl *segmentController;
 @end

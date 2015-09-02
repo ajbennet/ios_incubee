@@ -39,7 +39,7 @@
 
 #define kGetAllChatMsg(userId) [NSString stringWithFormat:@"%@%@/rest/msg/all?eid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,userId]
 
-
+#define ksendChatMsg(userId) [NSString stringWithFormat:@"%@%@/rest/msg?eid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,userId]
 
 #pragma mark - Request Method -
 

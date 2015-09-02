@@ -436,6 +436,13 @@ static ICDataManager *sharedDataManagerInstance = nil;
     
 }
 
+-(NSString*)getUserName{
+
+    User *aUser = [self getUser];
+    
+    return aUser.name;
+
+}
 -(NSString*)getUserId{
 
     User *aUser = [self getUser];
@@ -499,9 +506,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
 #pragma mark - Message -
 
 -(NSArray*)getMessages:(NSString*)inMsgId{
-    
-    inMsgId = @"110310242727937004157";
-    
+        
     NSManagedObjectContext *context = [self managedObjectContext];
     
     if(context)

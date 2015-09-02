@@ -37,6 +37,8 @@
 
 -(User*)getUser;
 
+-(NSString*)getUserName;
+
 -(NSString*)getUserId;
 
 -(NSString*)getToken;

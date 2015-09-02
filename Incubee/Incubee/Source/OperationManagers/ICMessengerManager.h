@@ -13,6 +13,9 @@
 
 +(ICMessengerManager*)sharedInstance;
 
+#pragma mark - Sync -
+-(void)syncChat;
+
 #pragma mark  - Network Notification - 
 -(void)allChatResponse:(ICRequest*)inRequest;
 

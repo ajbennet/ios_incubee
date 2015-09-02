@@ -10,7 +10,11 @@
 #import "ICChatTableViewCell.h"
 #import "Messages.h"
 #import "ICDataManager.h"
+#import "ICAppManager.h"
+#import "ICAppManager+Networking.h"
+#import "ICConstants.h"
 
+#import "ICMessengerManager.h"
 
 #define CHAT_CELL_ID @"ChatCell"
 
@@ -38,6 +42,37 @@
     
     self.title = _project.companyName;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messgesSync) name:CHAT_VIEW_REFRESH object:nil];
+    
+
+    
+}
+
+- (void) keyboardWillShow:(NSNotification *)note {
+    
+    NSDictionary *info  = note.userInfo;
+    
+    NSValue      *value = info[UIKeyboardFrameEndUserInfoKey];
+    
+    CGRect rawFrame      = [value CGRectValue];
+    
+    CGRect keyboardFrame = [self.view convertRect:rawFrame fromView:nil];
+    
+    _chatBottomSpace.constant = (keyboardFrame.size.height - 48.0f);
+    
+    [_chatTableView setNeedsUpdateConstraints];
+    
+}
+
+- (void) keyboardWillHide:(NSNotification *)note {
+    
+    _chatBottomSpace.constant = 0.0f;
+    
+    _chatTableView.contentOffset = CGPointMake(0, 0);
     
 }
 
@@ -91,4 +126,43 @@
     return cell;
 }
 
+- (IBAction)sendButtonTapped:(id)sender {
+    
+    [_chatTextField resignFirstResponder];
+    
+    
+    [[ICAppManager sharedInstance] sendMsg:nil
+                                   textMsg:_chatTextField.text
+                                        to:_project.projectId notifyTo:self forSelector:@selector(chatResponse:)];
+    
+}
+
+-(void)messgesSync{
+
+    _chatArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getMessages:_project.projectId]];
+    
+    [_chatTableView reloadData];    
+    
+}
+
+-(void)chatResponse:(ICRequest*)inRequest{
+
+    if(inRequest.error)
+    {
+    
+        UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"" message:inRequest.error.localizedDescription
+                                                    delegate:nil cancelButtonTitle:@"Okay"
+                                           otherButtonTitles:nil];
+        
+        [al show];
+    
+    }
+    else
+    {
+        _chatTextField.text = nil;
+        
+        [[ICMessengerManager sharedInstance] syncChat];
+    }
+
+}
 @end

@@ -176,15 +176,49 @@
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-//    NSString *urlString = [NSString stringWithFormat:@"http://www.incub.ee/rest/msg/all?eid=%@",[[ICDataManager sharedInstance] getUserId]];
-//    NSString *urlString = [NSString stringWithFormat:@"http://www.incub.ee/rest/msg/all?eid=110489314263267697974",[[ICDataManager sharedInstance] getUserId]];
-
     [req setRequestingURL:[NSURL URLWithString:kGetAllChatMsg([[ICDataManager sharedInstance] getUserId])]];
     
     [self sendRequestObject:req];
-
-    
     
 }
+
+-(void)sendMsg:(ICRequest**)inRequest textMsg:(NSString*)inMsg to:(NSString*)inTo notifyTo:(id)aViewController forSelector:(SEL)inSelector{
+    
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_SEND_CHAT_MSG;
+    
+    req.isTokenRequired = YES;
+    
+    req.requestMethod = ICRequestMethodPost;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+    
+    [req setRequestingURL:[NSURL URLWithString:ksendChatMsg([[ICDataManager sharedInstance] getUserId])]];
+    
+    [self sendRequestObject:req];
+
+    NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
+    
+    [d setValue:inMsg forKey:@"body"];
+    
+    [d setValue:[[ICDataManager sharedInstance] getUserId] forKey:@"eid"];
+    
+    [d setValue:[[ICDataManager sharedInstance] getUserName] forKey:@"name"];
+    
+    [d setValue:inTo forKey:@"to"];
+    
+    [d setValue:@"200" forKey:@"longitude"];
+    
+    [d setValue:@"100" forKey:@"latitude"];
+    
+    [d setValue:@"USR" forKey:@"type"];
+    
+    [req setReqDataDict:(NSMutableDictionary*)d];
+
+}
+
 
 @end

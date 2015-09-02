@@ -17,4 +17,11 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *chatTableView;
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *chatBottomSpace;
+
+@property (strong, nonatomic) IBOutlet UIButton *sendButton;
+@property (strong, nonatomic) IBOutlet UITextField *chatTextField;
+
+- (IBAction)sendButtonTapped:(id)sender;
+
 @end

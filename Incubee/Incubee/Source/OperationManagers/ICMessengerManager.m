@@ -9,6 +9,7 @@
 #import "ICMessengerManager.h"
 #import "ICAppManager.h"
 #import "ICAppManager+Networking.h"
+#import "ICConstants.h"
 
 @interface ICMessengerManager()
 
@@ -39,7 +40,7 @@ static ICMessengerManager *sharedMessengerInstance = nil;
     
     if (self = [super init])
     {
-        _syncTimer = [NSTimer  scheduledTimerWithTimeInterval:60 target:self selector:@selector(syncChat) userInfo:nil repeats:YES];
+        _syncTimer = [NSTimer  scheduledTimerWithTimeInterval:300 target:self selector:@selector(syncChat) userInfo:nil repeats:YES];
     }
     
     return self;
@@ -59,7 +60,8 @@ static ICMessengerManager *sharedMessengerInstance = nil;
 -(void)allChatResponse:(ICRequest*)inRequest{
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
-
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:CHAT_VIEW_REFRESH object:nil];
     
 }
 

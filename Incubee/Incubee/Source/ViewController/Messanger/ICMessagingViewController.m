@@ -122,7 +122,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-    [self setupSegment];
+//    [self setupSegment];
     
     [self loadAndRefreshUI];
     
@@ -239,33 +239,58 @@
 
     if([[ICDataManager sharedInstance] isFounder])
     {
-
+        _segmentView.hidden = NO;
     }
     else
     {
-
+        _segmentView.hidden = YES;
     }
+    
+    
+    
+//    if([[ICDataManager sharedInstance] isFounder])
+//    {
+////        _segmentController = [[UISegmentedControl alloc] initWithItems:@[@"Saved Projects",@"Customer"]];
+//    }
+//    else
+//    {
+////        _segmentController = [[UISegmentedControl alloc] initWithItems:@[@"Saved Projects"]];
+//    }
+//    
+//    CGRect r = CGRectMake(10, 0,_segmentView.frame.size.width - 20.0f,30.0f);
+//    
+//    [_segmentController setFrame:r];
+//    
+//    [_segmentView addSubview:_segmentController];
+//    
+//    _segmentController.selectedSegmentIndex = 0;
+    
+    
 }
 -(void)loadAndRefreshUI{
     
-    switch (_segmentBar.selectedSegmentIndex) {
-        case 0:
-            _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getFollowedProjects]];
-
-            break;
-            
+    if([[ICDataManager sharedInstance] isFounder])
+    {
+        switch (_segmentController.selectedSegmentIndex) {
+            case 0:
+                _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getFollowedProjects]];
+                
+                break;
+                
             case 1:
-            _projectArray = nil;
-            break;
-            
-        case 2:
-            
-            _projectArray = nil;
-            break;
-            
-        default:
-            break;
+                _projectArray = nil;
+                break;
+                
+            default:
+                break;
+        }
+        
     }
+    else
+    {
+        _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getFollowedProjects]];
+    }
+    
     
     [_projectTableView reloadData];
 
