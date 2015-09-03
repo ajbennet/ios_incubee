@@ -17,4 +17,7 @@
 @property (strong, nonatomic) IBOutlet UIView *segmentView;
 
 @property(nonatomic,strong)IBOutlet UISegmentedControl *segmentController;
+
+@property (strong, nonatomic) IBOutlet UILabel *savedProjectLable;
+
 @end

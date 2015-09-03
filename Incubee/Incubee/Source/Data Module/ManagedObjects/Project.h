@@ -2,7 +2,7 @@
 //  Project.h
 //  Incubee
 //
-//  Created by Rithesh Rao on 31/08/15.
+//  Created by Rithesh Rao on 03/09/15.
 //  Copyright (c) 2015 Incubee. All rights reserved.
 //
 
@@ -29,6 +29,7 @@
 @property (nonatomic, retain) NSString * twitter_url;
 @property (nonatomic, retain) NSString * video;
 @property (nonatomic, retain) NSString * videoUrl;
+@property (nonatomic, retain) NSNumber * isCustomer;
 @property (nonatomic, retain) NSSet *projImages;
 @end
 

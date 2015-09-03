@@ -40,7 +40,7 @@ static ICMessengerManager *sharedMessengerInstance = nil;
     
     if (self = [super init])
     {
-        _syncTimer = [NSTimer  scheduledTimerWithTimeInterval:300 target:self selector:@selector(syncChat) userInfo:nil repeats:YES];
+        _syncTimer = [NSTimer  scheduledTimerWithTimeInterval:30 target:self selector:@selector(syncChat) userInfo:nil repeats:YES];
     }
     
     return self;

@@ -22,6 +22,10 @@
 
 -(void)addCustomerProject:(ICRequest**)inRequest withIncubeeId:(NSString*)inCubeeId notifyTo:(id)aViewController forSelector:(SEL)inSelector;
 
+-(void)getAllLikedIncubee:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
+
+-(void)getAllCustomerIncubee:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
+
 
 #pragma mark - Chat -
 

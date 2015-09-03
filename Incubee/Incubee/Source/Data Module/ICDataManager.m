@@ -322,6 +322,16 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 }
 
+-(NSArray*)getAllCustomer{
+    
+    NSArray *allProjects = [self getAllProjects];
+    
+    NSPredicate *prd = [NSPredicate predicateWithFormat:@"(isCustomer == %@)",[NSNumber numberWithBool:YES]];
+    
+    return ([allProjects filteredArrayUsingPredicate:prd]);
+    
+}
+
 -(NSArray*)getImageURLs:(NSString*)inProjectId{
 
     
@@ -536,6 +546,89 @@ static ICDataManager *sharedDataManagerInstance = nil;
     return nil;
 
 }
+
+-(void)saveLikedArray:(NSArray*)inLikedArray{
+
+    NSLog(@"%@ : %@",NSStringFromSelector(_cmd),inLikedArray);
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+    
+        for(NSString *incubId in inLikedArray)
+        {
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            
+            [request setEntity:[NSEntityDescription entityForName:@"Project" inManagedObjectContext:context]];
+            
+            NSError *errorDb = nil;
+            
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"projectId LIKE %@",incubId];
+            
+            [request setPredicate:predicate];
+            
+            NSArray *results = [context executeFetchRequest:request error:&errorDb];
+            
+            Project *aProject = [results objectAtIndex:0];
+            
+            aProject.projectFollowing = [NSNumber numberWithBool:YES];
+            
+        }
+        
+        NSError *er = nil;
+        
+        [context save:&er];
+        
+        if(er==nil)
+        {
+            NSLog(@"Saved Liked projects");
+        }
+        
+    }
+}
+
+-(void)saveCustomerArray:(NSArray*)inLikedArray{
+    
+    NSLog(@"%@ : %@",NSStringFromSelector(_cmd),inLikedArray);
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        
+        for(NSString *incubId in inLikedArray)
+        {
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            
+            [request setEntity:[NSEntityDescription entityForName:@"Project" inManagedObjectContext:context]];
+            
+            NSError *errorDb = nil;
+            
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"projectId LIKE %@",incubId];
+            
+            [request setPredicate:predicate];
+            
+            NSArray *results = [context executeFetchRequest:request error:&errorDb];
+            
+            Project *aProject = [results objectAtIndex:0];
+            
+            aProject.isCustomer = [NSNumber numberWithBool:YES];
+            
+        }
+        
+        NSError *er = nil;
+        
+        [context save:&er];
+        
+        if(er==nil)
+        {
+            NSLog(@"Saved Customer projects");
+        }
+        
+    }
+}
+
 
 -(void)saveChatArray:(NSArray*)inMesgArray{
 

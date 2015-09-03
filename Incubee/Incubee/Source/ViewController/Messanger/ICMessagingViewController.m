@@ -12,6 +12,7 @@
 #import "ICImageManager.h"
 #import "ICUtilityManager.h"
 #import "ICChatViewController.h"
+#import "ICConstants.h"
 
 #define PROJECT_TABLEVIEW_CELL @"ProjectTableViewCellIdentifier"
 
@@ -122,9 +123,11 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-//    [self setupSegment];
+    [self setupSegment];
     
     [self loadAndRefreshUI];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messgesSync) name:CHAT_VIEW_REFRESH object:nil];
     
     self.navigationController.navigationBarHidden = YES;
 }
@@ -239,46 +242,45 @@
 
     if([[ICDataManager sharedInstance] isFounder])
     {
-        _segmentView.hidden = NO;
+        _savedProjectLable.hidden = YES;
+        
+        _segmentController.hidden = NO;
+        
+        _segmentController.selectedSegmentIndex = 1;
+        
     }
     else
     {
-        _segmentView.hidden = YES;
+        
+        _savedProjectLable.layer.borderWidth = 1.0f;
+        
+        _savedProjectLable.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
+        
+        _savedProjectLable.layer.cornerRadius = 5.0f;
+
+        
+        _savedProjectLable.hidden = NO;
+        
+        _segmentController.hidden = YES;
     }
-    
-    
-    
-//    if([[ICDataManager sharedInstance] isFounder])
-//    {
-////        _segmentController = [[UISegmentedControl alloc] initWithItems:@[@"Saved Projects",@"Customer"]];
-//    }
-//    else
-//    {
-////        _segmentController = [[UISegmentedControl alloc] initWithItems:@[@"Saved Projects"]];
-//    }
-//    
-//    CGRect r = CGRectMake(10, 0,_segmentView.frame.size.width - 20.0f,30.0f);
-//    
-//    [_segmentController setFrame:r];
-//    
-//    [_segmentView addSubview:_segmentController];
-//    
-//    _segmentController.selectedSegmentIndex = 0;
-    
     
 }
 -(void)loadAndRefreshUI{
     
     if([[ICDataManager sharedInstance] isFounder])
     {
+        
         switch (_segmentController.selectedSegmentIndex) {
             case 0:
+                
                 _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getFollowedProjects]];
                 
                 break;
                 
             case 1:
-                _projectArray = nil;
+                
+                _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getAllCustomer]];
+                
                 break;
                 
             default:
@@ -291,7 +293,6 @@
         _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getFollowedProjects]];
     }
     
-    
     [_projectTableView reloadData];
 
 }
@@ -300,4 +301,11 @@
     
     [self loadAndRefreshUI];
 }
+
+-(void)messgesSync{
+    
+    [self loadAndRefreshUI];
+    
+}
+
 @end

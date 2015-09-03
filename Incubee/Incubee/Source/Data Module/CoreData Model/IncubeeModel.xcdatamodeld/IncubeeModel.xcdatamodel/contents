@@ -24,6 +24,7 @@
         <attribute name="founder" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="funding" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="high_concept" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isCustomer" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="logo_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="project_status" optional="YES" attributeType="String" syncable="YES"/>
@@ -51,7 +52,7 @@
     </entity>
     <elements>
         <element name="Messages" positionX="-1350" positionY="-954" width="128" height="240"/>
-        <element name="Project" positionX="-1566" positionY="-1116" width="128" height="300"/>
+        <element name="Project" positionX="-1566" positionY="-1116" width="128" height="315"/>
         <element name="ProjectImage" positionX="-1152" positionY="-1098" width="128" height="90"/>
         <element name="User" positionX="-1559" positionY="-738" width="128" height="165"/>
     </elements>

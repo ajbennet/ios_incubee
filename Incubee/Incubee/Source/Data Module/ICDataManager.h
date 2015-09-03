@@ -30,6 +30,8 @@
 
 -(NSArray*)getFollowedProjects;
 
+-(NSArray*)getAllCustomer;
+
 -(NSArray*)getImageURLs:(NSString*)inProjectId;
 
 #pragma mark - User -
@@ -51,6 +53,10 @@
 #pragma mark - Message - 
 
 -(NSArray*)getMessages:(NSString*)inMsgId;
+
+-(void)saveLikedArray:(NSArray*)inLikedArray;
+
+-(void)saveCustomerArray:(NSArray*)inLikedArray;
 
 -(void)saveChatArray:(NSArray*)inMesgArray;
 

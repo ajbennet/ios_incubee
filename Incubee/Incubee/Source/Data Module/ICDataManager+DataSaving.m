@@ -33,7 +33,7 @@
                 
                 [self followProject:str];
             }
-                
+                break;
             case IC_GET_ALL_CHAT:
             {
             
@@ -42,6 +42,29 @@
                 [self saveChatArray:array];
                 
             }
+                break;
+            case IC_GET_ALL_LIKED_INCUBEES:
+            {
+                NSArray *array = [inRequest.parsedResponse objectForKey:@"incubeeList"];
+                
+                NSLog(@"incubeeList : %@",array);
+                
+                [self saveLikedArray:array];
+
+            }
+                break;
+            
+            case IC_GET_ALL_CUSTOMER_INCUBEES:
+            {
+                NSArray *array = [inRequest.parsedResponse objectForKey:@"incubeeList"];
+                
+                NSLog(@"incubeeList : %@",array);
+                
+                [self saveCustomerArray:array];
+                
+            }
+                break;
+                
             default:
                 break;
         }

@@ -165,6 +165,49 @@
     
 }
 
+
+-(void)getAllLikedIncubee:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
+
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_GET_ALL_LIKED_INCUBEES;
+    
+    req.requestMethod = ICRequestMethodGet;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+    
+    req.isTokenRequired = NO;
+    
+    [req setRequestingURL:[NSURL URLWithString:kAllLikedIncubees([[ICDataManager sharedInstance] getUserId])]];
+    
+    [self sendRequestObject:req];
+
+}
+
+-(void)getAllCustomerIncubee:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
+    
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_GET_ALL_CUSTOMER_INCUBEES;
+    
+    req.requestMethod = ICRequestMethodGet;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+    
+    req.isTokenRequired = NO;
+    
+    [req setRequestingURL:[NSURL URLWithString:kAllCustomerIncubees([[ICDataManager sharedInstance] getUserId])]];
+    
+    [self sendRequestObject:req];
+    
+    
+}
+
+
 #pragma mark - Chat -
 -(void)getAllChat:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
 

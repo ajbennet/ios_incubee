@@ -9,6 +9,7 @@
 #import "ICUserAccountManager.h"
 #import "ICAppManager.h"
 #import "ICAppManager+Networking.h"
+#import "ICMessengerManager.h"
 
 @implementation ICUserAccountManager
 
@@ -90,6 +91,13 @@ didDisconnectWithUser:(GIDGoogleUser *)user
     if(inRequest.error == nil)
     {
         NSLog(@"Signup + Logged In");
+        
+        [[ICAppManager sharedInstance] getAllLikedIncubee:nil notifyTo:self forSelector:@selector(userLikedIncubee:)];
+        
+        if([[ICDataManager sharedInstance] isFounder])
+        {
+            [[ICAppManager sharedInstance] getAllCustomerIncubee:nil notifyTo:self forSelector:@selector(customerSyncIncubee:)];
+        }
     }
     else
     {
@@ -125,4 +133,39 @@ didDisconnectWithUser:(GIDGoogleUser *)user
     }
     
 }
+
+-(void)userLikedIncubee:(ICRequest*)inRequest{
+    
+    if(inRequest.error == nil)
+    {
+
+        [[ICMessengerManager sharedInstance] syncChat];
+    
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error : %ld",(long)inRequest.error.code] message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
+        
+    }
+}
+
+-(void)customerSyncIncubee:(ICRequest*)inRequest{
+    
+    if(inRequest.error == nil)
+    {
+        
+        [[ICMessengerManager sharedInstance] syncChat];
+        
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error : %ld",(long)inRequest.error.code] message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
+        
+    }
+}
+
 @end

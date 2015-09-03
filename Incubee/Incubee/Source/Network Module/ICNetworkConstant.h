@@ -37,6 +37,10 @@
 //#define kDislikeIncubee(incubeeId,userId) [NSString stringWithFormat:@"%@%@/rest/like/%@?uid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,incubeeId,userId]
 #define kAddCustomer(incubeeId,userId) [NSString stringWithFormat:@"%@%@/rest/customer/%@?uid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,incubeeId,userId]
 
+#define kAllLikedIncubees(userId) [NSString stringWithFormat:@"%@%@/rest/like?id=%@",SERVER_REST_PROTOCOL,SERVER_HOST,userId]
+
+#define kAllCustomerIncubees(userId) [NSString stringWithFormat:@"%@%@/rest/customer?id=%@",SERVER_REST_PROTOCOL,SERVER_HOST,userId]
+
 #define kGetAllChatMsg(userId) [NSString stringWithFormat:@"%@%@/rest/msg/all?eid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,userId]
 
 #define ksendChatMsg(userId) [NSString stringWithFormat:@"%@%@/rest/msg?eid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,userId]
