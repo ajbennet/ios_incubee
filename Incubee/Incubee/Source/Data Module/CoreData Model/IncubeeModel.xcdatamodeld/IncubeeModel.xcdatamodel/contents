@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Customer" representedClassName="Customer" syncable="YES">
+        <attribute name="photoUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Messages" representedClassName="Messages" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dir" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,7 +29,6 @@
         <attribute name="founder" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="funding" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="high_concept" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isCustomer" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="logo_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="project_status" optional="YES" attributeType="String" syncable="YES"/>
@@ -52,8 +56,9 @@
     </entity>
     <elements>
         <element name="Messages" positionX="-1350" positionY="-954" width="128" height="240"/>
-        <element name="Project" positionX="-1566" positionY="-1116" width="128" height="315"/>
+        <element name="Project" positionX="-1566" positionY="-1116" width="128" height="300"/>
         <element name="ProjectImage" positionX="-1152" positionY="-1098" width="128" height="90"/>
         <element name="User" positionX="-1559" positionY="-738" width="128" height="165"/>
+        <element name="Customer" positionX="-1359" positionY="-963" width="128" height="90"/>
     </elements>
 </model>

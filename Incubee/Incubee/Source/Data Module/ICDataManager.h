@@ -13,6 +13,7 @@
 #import "User.h"
 #import <Google/SignIn.h>
 #import "Messages.h"
+#import "Customer.h"
 
 @interface ICDataManager : NSObject
 
@@ -48,6 +49,8 @@
 -(void)setUserAsFounder:(NSString*)inCompanyId;
 
 -(BOOL)isFounder;
+
+-(NSString*)getFounderId;
 
 
 #pragma mark - Message - 

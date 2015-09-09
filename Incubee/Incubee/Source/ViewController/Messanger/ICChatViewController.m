@@ -30,7 +30,7 @@
     
     self.navigationController.navigationBarHidden = NO;
 
-    _chatArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getMessages:_project.projectId]];
+    _chatArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getMessages:_to]];
 
     [_chatTableView reloadData];
 
@@ -40,7 +40,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = _project.companyName;
+    self.title = _to;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 
@@ -130,16 +130,18 @@
     
     [_chatTextField resignFirstResponder];
     
-    
     [[ICAppManager sharedInstance] sendMsg:nil
                                    textMsg:_chatTextField.text
-                                        to:_project.projectId notifyTo:self forSelector:@selector(chatResponse:)];
+                                        to:_to
+                                      type:(_chatMode == CHAT_VIEW_CUSTOMER_TO_FOUNDER)? @"USR" : @"INC"
+                               isToFounder:(_chatMode == CHAT_VIEW_CUSTOMER_TO_FOUNDER)? YES:  NO
+                                  notifyTo:self forSelector:@selector(chatResponse:)];
     
 }
 
 -(void)messgesSync{
 
-    _chatArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getMessages:_project.projectId]];
+    _chatArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getMessages:_to]];
     
     [_chatTableView reloadData];    
     

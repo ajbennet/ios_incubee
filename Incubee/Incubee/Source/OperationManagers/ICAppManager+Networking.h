@@ -31,6 +31,8 @@
 
 -(void)getAllChat:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
 
--(void)sendMsg:(ICRequest**)inRequest textMsg:(NSString*)inMsg to:(NSString*)inTo notifyTo:(id)aViewController forSelector:(SEL)inSelector;
+-(void)getFoundersChat:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
+
+-(void)sendMsg:(ICRequest**)inRequest textMsg:(NSString*)inMsg to:(NSString*)inTo type:(NSString*)inType isToFounder:(BOOL)inToFounder notifyTo:(id)aViewController forSelector:(SEL)inSelector;
 
 @end

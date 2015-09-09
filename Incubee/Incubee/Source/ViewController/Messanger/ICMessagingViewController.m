@@ -162,18 +162,75 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    ProjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROJECT_TABLEVIEW_CELL forIndexPath:indexPath];
-    
-    if(cell == nil)
+    if([[ICDataManager sharedInstance] isFounder])
     {
-        cell = [[ProjectTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PROJECT_TABLEVIEW_CELL];
+        
+        switch (_segmentController.selectedSegmentIndex) {
+            case 0:
+            {
+            
+                ProjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROJECT_TABLEVIEW_CELL forIndexPath:indexPath];
+                
+                if(cell == nil)
+                {
+                    cell = [[ProjectTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PROJECT_TABLEVIEW_CELL];
+                }
+                
+                [cell setProject:[_projectArray objectAtIndex:indexPath.row]];
+                
+                // Configure the cell...
+                
+                return cell;
+
+            }
+                break;
+                
+            case 1:
+            {
+                Customer *aCust = [_projectArray objectAtIndex:indexPath.row];
+                
+                UITableViewCell *c = [tableView dequeueReusableCellWithIdentifier:@"CustomerCell"];
+                
+                if(c==nil)
+                {
+                    c = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CustomerCell"];
+                    
+                }
+                
+                c.textLabel.text = aCust.userId;
+                
+                return c;
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+    }
+    else
+    {
+        {
+            
+            ProjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PROJECT_TABLEVIEW_CELL forIndexPath:indexPath];
+            
+            if(cell == nil)
+            {
+                cell = [[ProjectTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PROJECT_TABLEVIEW_CELL];
+            }
+            
+            [cell setProject:[_projectArray objectAtIndex:indexPath.row]];
+            
+            // Configure the cell...
+            
+            return cell;
+            
+        }
     }
     
-    [cell setProject:[_projectArray objectAtIndex:indexPath.row]];
+    return nil;
     
-    // Configure the cell...
     
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -186,7 +243,62 @@
     
     ICChatViewController *aChatViewController = [sb instantiateViewControllerWithIdentifier:@"ChatViewControllerStoryBoard"];
     
-    aChatViewController.project = pr;
+    NSString *toChat;
+    
+    BOOL toCustomer;
+
+    if([[ICDataManager sharedInstance] isFounder])
+    {
+        
+        switch (_segmentController.selectedSegmentIndex) {
+            case 0:
+            {
+                Project *pr =  [_projectArray objectAtIndex:indexPath.row];
+                
+                toChat = pr.projectId;
+                
+                toCustomer = YES;
+                
+                aChatViewController.chatMode = CHAT_VIEW_CUSTOMER_TO_FOUNDER ;
+                
+            }
+                break;
+                
+            case 1:
+            {
+                Customer *aCust = [_projectArray objectAtIndex:indexPath.row];
+
+                toChat = aCust.userId;
+
+                toCustomer = NO;
+                
+                aChatViewController.chatMode = CHAT_VIEW_FOUNDER_TO_CUSTOMER ;
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+    }
+    else
+    {
+        {
+            
+            Project *pr =  [_projectArray objectAtIndex:indexPath.row];
+            
+            toChat = pr.projectId;
+            
+            aChatViewController.chatMode = CHAT_VIEW_CUSTOMER_TO_FOUNDER;
+            
+            toCustomer = YES;
+            
+        }
+    }
+    
+    aChatViewController.isCustomer = toCustomer;
+    
+    aChatViewController.to = toChat;
     
     [self.navigationController pushViewController:aChatViewController animated:YES];
     

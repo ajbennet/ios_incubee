@@ -631,15 +631,15 @@
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="Iwt-QM-NYT"/>
+                                        <exclude reference="D0G-2i-7sq"/>
+                                        <exclude reference="GEi-EX-jiC"/>
+                                        <exclude reference="abM-MC-6L4"/>
+                                        <exclude reference="hJ4-VY-JJg"/>
                                         <exclude reference="20F-bv-Y9c"/>
                                         <exclude reference="Lqu-Wt-xe9"/>
                                         <exclude reference="eLw-RC-97c"/>
                                         <exclude reference="rce-dY-nhd"/>
                                         <exclude reference="yi8-Ky-UhL"/>
-                                        <exclude reference="D0G-2i-7sq"/>
-                                        <exclude reference="GEi-EX-jiC"/>
-                                        <exclude reference="abM-MC-6L4"/>
-                                        <exclude reference="hJ4-VY-JJg"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular">
@@ -649,15 +649,15 @@
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="Iwt-QM-NYT"/>
+                                        <include reference="D0G-2i-7sq"/>
+                                        <include reference="GEi-EX-jiC"/>
+                                        <include reference="abM-MC-6L4"/>
+                                        <include reference="hJ4-VY-JJg"/>
                                         <include reference="20F-bv-Y9c"/>
                                         <include reference="Lqu-Wt-xe9"/>
                                         <exclude reference="eLw-RC-97c"/>
                                         <include reference="rce-dY-nhd"/>
                                         <include reference="yi8-Ky-UhL"/>
-                                        <include reference="D0G-2i-7sq"/>
-                                        <include reference="GEi-EX-jiC"/>
-                                        <include reference="abM-MC-6L4"/>
-                                        <include reference="hJ4-VY-JJg"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -685,12 +685,18 @@
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular" misplaced="YES">
+                                                        <rect key="frame" x="77" y="10" width="473" height="30"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piK-gg-GhZ" userLabel="Desc">
                                                     <rect key="frame" x="57" y="40" width="493" height="9"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular" misplaced="YES">
+                                                        <rect key="frame" x="77" y="40" width="473" height="29"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>

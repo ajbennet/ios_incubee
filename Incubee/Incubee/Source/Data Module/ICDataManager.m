@@ -324,12 +324,25 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 -(NSArray*)getAllCustomer{
     
-    NSArray *allProjects = [self getAllProjects];
+    NSManagedObjectContext *context = [self managedObjectContext];
     
-    NSPredicate *prd = [NSPredicate predicateWithFormat:@"(isCustomer == %@)",[NSNumber numberWithBool:YES]];
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"Customer" inManagedObjectContext:context]];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        if (results && [results count] > 0)
+        {
+            return results;
+        }
+    }
     
-    return ([allProjects filteredArrayUsingPredicate:prd]);
-    
+    return nil;
 }
 
 -(NSArray*)getImageURLs:(NSString*)inProjectId{
@@ -513,6 +526,14 @@ static ICDataManager *sharedDataManagerInstance = nil;
     return [aUser.isFounder boolValue];
 
 }
+
+-(NSString*)getFounderId{
+    
+    User *aUser = [self getUser];
+    
+    return aUser.founderCompanyId;
+    
+}
 #pragma mark - Message -
 
 -(NSArray*)getMessages:(NSString*)inMsgId{
@@ -597,33 +618,48 @@ static ICDataManager *sharedDataManagerInstance = nil;
     if(context)
     {
         
-        for(NSString *incubId in inLikedArray)
+        for(NSString *userId in inLikedArray)
         {
             NSFetchRequest *request = [[NSFetchRequest alloc] init];
             
-            [request setEntity:[NSEntityDescription entityForName:@"Project" inManagedObjectContext:context]];
+            [request setEntity:[NSEntityDescription entityForName:@"Customer" inManagedObjectContext:context]];
             
-            NSError *errorDb = nil;
-            
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"projectId LIKE %@",incubId];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId LIKE %@",userId];
             
             [request setPredicate:predicate];
             
+            NSError *errorDb = nil;
+            
             NSArray *results = [context executeFetchRequest:request error:&errorDb];
             
-            Project *aProject = [results objectAtIndex:0];
+            Customer *aCustomer;
             
-            aProject.isCustomer = [NSNumber numberWithBool:YES];
+            if (results && [results count] > 0)
+            {
+                aCustomer = [results objectAtIndex:0];
+            }
+            else
+            {
+                aCustomer = [NSEntityDescription
+                            insertNewObjectForEntityForName:@"Customer"
+                            inManagedObjectContext:context];
+            }
+
+            aCustomer.userId = userId;
+
+            aCustomer.userName = nil;
+            
+            aCustomer.photoUrl = nil;
             
         }
-        
+
         NSError *er = nil;
         
         [context save:&er];
         
         if(er==nil)
         {
-            NSLog(@"Saved Customer projects");
+            NSLog(@"Saved Customer");
         }
         
     }

@@ -17,3 +17,9 @@
 #pragma mark - Notification Keys -
 
 #define CHAT_VIEW_REFRESH @"Chat_view_Refresh"
+
+
+typedef enum : NSUInteger {
+    CHAT_VIEW_CUSTOMER_TO_FOUNDER,
+    CHAT_VIEW_FOUNDER_TO_CUSTOMER
+} CHAT_VIEW_MODE;

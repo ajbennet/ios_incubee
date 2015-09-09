@@ -200,7 +200,7 @@
     
     req.isTokenRequired = NO;
     
-    [req setRequestingURL:[NSURL URLWithString:kAllCustomerIncubees([[ICDataManager sharedInstance] getUserId])]];
+    [req setRequestingURL:[NSURL URLWithString:kAllCustomerIncubees([[ICDataManager sharedInstance] getFounderId])]];
     
     [self sendRequestObject:req];
     
@@ -225,7 +225,24 @@
     
 }
 
--(void)sendMsg:(ICRequest**)inRequest textMsg:(NSString*)inMsg to:(NSString*)inTo notifyTo:(id)aViewController forSelector:(SEL)inSelector{
+-(void)getFoundersChat:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
+    
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_GET_FOUNDER_CHAT_ALL;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+    
+    [req setRequestingURL:[NSURL URLWithString:kGetAllFounderChatMsg([[ICDataManager sharedInstance] getFounderId])]];
+    
+    [self sendRequestObject:req];
+
+}
+
+
+-(void)sendMsg:(ICRequest**)inRequest textMsg:(NSString*)inMsg to:(NSString*)inTo type:(NSString*)inType isToFounder:(BOOL)inToFounder notifyTo:(id)aViewController forSelector:(SEL)inSelector{
     
     ICRequest *req = [[ICRequest alloc] init];
     
@@ -239,15 +256,14 @@
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-    [req setRequestingURL:[NSURL URLWithString:ksendChatMsg([[ICDataManager sharedInstance] getUserId])]];
+    [req setRequestingURL:[NSURL URLWithString:ksendChatMsg( inToFounder == NO ? [[ICDataManager sharedInstance] getFounderId] : [[ICDataManager sharedInstance] getUserId])]];
     
-    [self sendRequestObject:req];
 
     NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
     
     [d setValue:inMsg forKey:@"body"];
     
-    [d setValue:[[ICDataManager sharedInstance] getUserId] forKey:@"eid"];
+    [d setValue:( inToFounder == NO ? [[ICDataManager sharedInstance] getFounderId] : [[ICDataManager sharedInstance] getUserId]) forKey:@"eid"];
     
     [d setValue:[[ICDataManager sharedInstance] getUserName] forKey:@"name"];
     
@@ -257,9 +273,11 @@
     
     [d setValue:@"100" forKey:@"latitude"];
     
-    [d setValue:@"USR" forKey:@"type"];
+    [d setValue:inType forKey:@"type"];
     
     [req setReqDataDict:(NSMutableDictionary*)d];
+
+    [self sendRequestObject:req];
 
 }
 

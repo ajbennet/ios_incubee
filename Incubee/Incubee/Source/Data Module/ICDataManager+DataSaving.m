@@ -35,6 +35,7 @@
             }
                 break;
             case IC_GET_ALL_CHAT:
+            case IC_GET_FOUNDER_CHAT_ALL:
             {
             
                 NSArray *array = [inRequest.parsedResponse objectForKey:@"messages"];
@@ -47,7 +48,7 @@
             {
                 NSArray *array = [inRequest.parsedResponse objectForKey:@"incubeeList"];
                 
-                NSLog(@"incubeeList : %@",array);
+                NSLog(@"incubeeLikedList : %@",array);
                 
                 [self saveLikedArray:array];
 
@@ -58,7 +59,7 @@
             {
                 NSArray *array = [inRequest.parsedResponse objectForKey:@"incubeeList"];
                 
-                NSLog(@"incubeeList : %@",array);
+                NSLog(@"CustomerList : %@",array);
                 
                 [self saveCustomerArray:array];
                 

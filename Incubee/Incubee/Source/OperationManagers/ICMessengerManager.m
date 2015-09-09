@@ -53,11 +53,24 @@ static ICMessengerManager *sharedMessengerInstance = nil;
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
     [[ICAppManager sharedInstance] getAllChat:nil notifyTo:self forSelector:@selector(allChatResponse:)];
+    
+    if([[ICDataManager sharedInstance] isFounder])
+    {
+        [[ICAppManager sharedInstance] getFoundersChat:nil notifyTo:self forSelector:@selector(allFounderChatResponse:)];
+    }
 
 }
 
 #pragma mark  - Network Notification -
 -(void)allChatResponse:(ICRequest*)inRequest{
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:CHAT_VIEW_REFRESH object:nil];
+    
+}
+
+-(void)allFounderChatResponse:(ICRequest*)inRequest{
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     

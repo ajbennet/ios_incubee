@@ -2,7 +2,7 @@
 //  Project.m
 //  Incubee
 //
-//  Created by Rithesh Rao on 03/09/15.
+//  Created by Rithesh Rao on 04/09/15.
 //  Copyright (c) 2015 Incubee. All rights reserved.
 //
 
@@ -28,7 +28,6 @@
 @dynamic twitter_url;
 @dynamic video;
 @dynamic videoUrl;
-@dynamic isCustomer;
 @dynamic projImages;
 
 @end
