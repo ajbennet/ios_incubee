@@ -24,22 +24,24 @@
 
 @implementation ICChatViewController
 
+-(void)viewDidAppear:(BOOL)animated{
+
+    [super viewDidAppear:animated];
+    
+    self.navigationController.navigationBarHidden = NO;
+
+}
 -(void)viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
     
-    self.navigationController.navigationBarHidden = NO;
-
-    _chatArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getMessages:_to]];
-
-    [_chatTableView reloadData];
-
-
 }
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+
     self.title = _to;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -48,8 +50,11 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messgesSync) name:CHAT_VIEW_REFRESH object:nil];
     
-
+    _chatArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getMessages:_to]];
     
+    [_chatTableView reloadData];
+
+    _chatTableView.contentOffset = CGPointMake(0, 0);
 }
 
 - (void) keyboardWillShow:(NSNotification *)note {
@@ -71,9 +76,7 @@
 - (void) keyboardWillHide:(NSNotification *)note {
     
     _chatBottomSpace.constant = 0.0f;
-    
-    _chatTableView.contentOffset = CGPointMake(0, 0);
-    
+        
 }
 
 - (void)didReceiveMemoryWarning {
