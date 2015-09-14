@@ -55,6 +55,9 @@
     [_chatTableView reloadData];
 
     _chatTableView.contentOffset = CGPointMake(0, 0);
+    
+    [_chatTableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionBottom animated:NO];
+
 }
 
 - (void) keyboardWillShow:(NSNotification *)note {

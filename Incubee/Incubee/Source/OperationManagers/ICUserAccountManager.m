@@ -77,7 +77,7 @@ didDisconnectWithUser:(GIDGoogleUser *)user
 
     _userLoginBadgeCount++;
     
-    if(_userLoginBadgeCount >=3)
+    if(_userLoginBadgeCount >=20)
     {
         _userLoginBadgeCount = 0;
         
