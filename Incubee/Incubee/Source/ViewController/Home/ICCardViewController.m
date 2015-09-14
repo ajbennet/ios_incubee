@@ -58,21 +58,21 @@
     
     NSMutableArray *activityItems = [[NSMutableArray alloc] init];
     
-    NSString *companyName =[NSString stringWithFormat:@"%@",_project.companyName];
+    NSString *companyName =[NSString stringWithFormat:@"%@",_incubee.companyName];
     
     if(companyName){
     
         [activityItems addObject:companyName];
     }
     
-    NSURL *companyUrl = [NSURL URLWithString:_project.companyUrl];
+    NSURL *companyUrl = [NSURL URLWithString:_incubee.companyUrl];
     
     if(companyUrl){
         
         [activityItems addObject:companyUrl];
     }
     
-    NSURL *logoUrl = [NSURL URLWithString:_project.logo_url];
+    NSURL *logoUrl = [NSURL URLWithString:_incubee.logoUrl];
     
     if(logoUrl){
         
@@ -230,11 +230,11 @@
         _moviePlayer = nil;
     }
     
-    if(_project.video!=nil)
+    if(_incubee.video!=nil)
     {
         _moviePlayerView.hidden = NO;
         
-        _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_project.video]];
+        _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_incubee.video]];
         
         _moviePlayer.view.translatesAutoresizingMaskIntoConstraints = NO;
         
@@ -297,15 +297,15 @@
 
 }
 
-- (void)setProject:(Project *)project{
+- (void)setIncubee:(Incubee *)aIncubee{
 
-    _project = project;
+    _incubee = aIncubee;
     
-    _projectTitleLable.text = _project.companyName;
+    _projectTitleLable.text = _incubee.companyName;
     
-    _projectOwnerLable.text = _project.founder;
+    _projectOwnerLable.text = _incubee.founder;
     
-    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_project.projectId];
+    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_incubee.incubeeId];
     
     _topLeftImageView.image = [UIImage imageNamed:@"LikeButton"];
     _topRightImageView.image = [UIImage imageNamed:@"LikeButton"];
@@ -323,7 +323,7 @@
         
 //    Image1
     {
-        NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
+        NSString *urlString1 = ((IncubeeImage*)[imArray objectAtIndex:0]).imageUrl;
         
         ICImageManager *im1 = [[ICImageManager alloc] init];
         
@@ -334,7 +334,7 @@
 //    Image2
     {
         
-        NSString *urlString2 = ((ProjectImage*)[imArray objectAtIndex:1]).imageUrl;
+        NSString *urlString2 = ((IncubeeImage*)[imArray objectAtIndex:1]).imageUrl;
         
         ICImageManager *im2 = [[ICImageManager alloc] init];
         
@@ -346,7 +346,7 @@
     {
         
         
-        NSString *urlString3 = ((ProjectImage*)[imArray objectAtIndex:2]).imageUrl;
+        NSString *urlString3 = ((IncubeeImage*)[imArray objectAtIndex:2]).imageUrl;
         
         ICImageManager *im3 = [[ICImageManager alloc] init];
         
@@ -358,7 +358,7 @@
 //    Image4
     {
         
-        NSString *urlString4 = ((ProjectImage*)[imArray objectAtIndex:3]).imageUrl;
+        NSString *urlString4 = ((IncubeeImage*)[imArray objectAtIndex:3]).imageUrl;
         
         ICImageManager *im4 = [[ICImageManager alloc] init];
         
@@ -374,7 +374,7 @@
         
         _fullImageView.hidden = NO;
         
-        NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
+        NSString *urlString1 = ((IncubeeImage*)[imArray objectAtIndex:0]).imageUrl;
         
         ICImageManager *im1 = [[ICImageManager alloc] init];
         
@@ -383,7 +383,7 @@
         [im1 getImage:urlString1 withDelegate:self];
     }
     
-    _moviePlayerView.hidden = (_project.video==nil);
+    _moviePlayerView.hidden = (_incubee.video==nil);
 
 }
 

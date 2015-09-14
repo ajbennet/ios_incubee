@@ -58,14 +58,14 @@
 		57E724E61B4063E90066C0A5 /* ICImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E724E51B4063E90066C0A5 /* ICImageManager.m */; };
 		5808FD8F1B8E23920053451A /* ICMessengerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5808FD8E1B8E23920053451A /* ICMessengerManager.m */; };
 		583C9B321B8F882600A1FF1E /* ICBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C9B311B8F882600A1FF1E /* ICBaseViewController.m */; };
+		5840134F1BA731D300EB64DD /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 5840134E1BA731D300EB64DD /* Messages.m */; };
+		584013521BA731D400EB64DD /* IncubeeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 584013511BA731D400EB64DD /* IncubeeImage.m */; };
+		584013551BA731D400EB64DD /* Incubee.m in Sources */ = {isa = PBXBuildFile; fileRef = 584013541BA731D400EB64DD /* Incubee.m */; };
+		584013581BA731D400EB64DD /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 584013571BA731D400EB64DD /* Customer.m */; };
+		5840135B1BA731D400EB64DD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5840135A1BA731D400EB64DD /* User.m */; };
 		5864EB631B86434C00091C94 /* ICChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB621B86434C00091C94 /* ICChatViewController.m */; };
 		5864EB721B86490B00091C94 /* ICChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB711B86490B00091C94 /* ICChatTableViewCell.m */; };
 		58BD4A191B6CA28C00EC85C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58BD4A181B6CA28C00EC85C4 /* GoogleService-Info.plist */; };
-		58F207E01B99F42C0091C7B6 /* ProjectImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F207DF1B99F42C0091C7B6 /* ProjectImage.m */; };
-		58F207E31B99F42C0091C7B6 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F207E21B99F42C0091C7B6 /* Project.m */; };
-		58F207E61B99F42D0091C7B6 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F207E51B99F42D0091C7B6 /* Customer.m */; };
-		58F207E91B99F42D0091C7B6 /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F207E81B99F42D0091C7B6 /* Messages.m */; };
-		58F207EC1B99F42D0091C7B6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F207EB1B99F42D0091C7B6 /* User.m */; };
 		930CB1D550C9E950F61E556D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB03A56CF3D54AE87702E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -161,22 +161,22 @@
 		580954C31B91FD8E00660B25 /* ICNetworkConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICNetworkConstant.h; path = "Source/Network Module/ICNetworkConstant.h"; sourceTree = "<group>"; };
 		583C9B301B8F882600A1FF1E /* ICBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICBaseViewController.h; path = Source/ViewController/ICBaseViewController.h; sourceTree = "<group>"; };
 		583C9B311B8F882600A1FF1E /* ICBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICBaseViewController.m; path = Source/ViewController/ICBaseViewController.m; sourceTree = "<group>"; };
+		5840134D1BA731D300EB64DD /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messages.h; path = "Source/Data Module/ManagedObjects/Messages.h"; sourceTree = "<group>"; };
+		5840134E1BA731D300EB64DD /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Messages.m; path = "Source/Data Module/ManagedObjects/Messages.m"; sourceTree = "<group>"; };
+		584013501BA731D400EB64DD /* IncubeeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncubeeImage.h; path = "Source/Data Module/ManagedObjects/IncubeeImage.h"; sourceTree = "<group>"; };
+		584013511BA731D400EB64DD /* IncubeeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncubeeImage.m; path = "Source/Data Module/ManagedObjects/IncubeeImage.m"; sourceTree = "<group>"; };
+		584013531BA731D400EB64DD /* Incubee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Incubee.h; path = "Source/Data Module/ManagedObjects/Incubee.h"; sourceTree = "<group>"; };
+		584013541BA731D400EB64DD /* Incubee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Incubee.m; path = "Source/Data Module/ManagedObjects/Incubee.m"; sourceTree = "<group>"; };
+		584013561BA731D400EB64DD /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Customer.h; path = "Source/Data Module/ManagedObjects/Customer.h"; sourceTree = "<group>"; };
+		584013571BA731D400EB64DD /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Customer.m; path = "Source/Data Module/ManagedObjects/Customer.m"; sourceTree = "<group>"; };
+		584013591BA731D400EB64DD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "Source/Data Module/ManagedObjects/User.h"; sourceTree = "<group>"; };
+		5840135A1BA731D400EB64DD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "Source/Data Module/ManagedObjects/User.m"; sourceTree = "<group>"; };
 		5864EB611B86434C00091C94 /* ICChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICChatViewController.h; path = Source/ViewController/Messanger/ICChatViewController.h; sourceTree = "<group>"; };
 		5864EB621B86434C00091C94 /* ICChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICChatViewController.m; path = Source/ViewController/Messanger/ICChatViewController.m; sourceTree = "<group>"; };
 		5864EB701B86490B00091C94 /* ICChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICChatTableViewCell.h; path = Source/ViewController/Messanger/ICChatTableViewCell.h; sourceTree = "<group>"; };
 		5864EB711B86490B00091C94 /* ICChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICChatTableViewCell.m; path = Source/ViewController/Messanger/ICChatTableViewCell.m; sourceTree = "<group>"; };
 		58BD4A181B6CA28C00EC85C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		58E47B111B94CF7F00053C60 /* ICConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICConstants.h; path = Source/OperationManagers/ICConstants.h; sourceTree = "<group>"; };
-		58F207DE1B99F42C0091C7B6 /* ProjectImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectImage.h; path = "Source/Data Module/Managed Objects/ProjectImage.h"; sourceTree = "<group>"; };
-		58F207DF1B99F42C0091C7B6 /* ProjectImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectImage.m; path = "Source/Data Module/Managed Objects/ProjectImage.m"; sourceTree = "<group>"; };
-		58F207E11B99F42C0091C7B6 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = "Source/Data Module/Managed Objects/Project.h"; sourceTree = "<group>"; };
-		58F207E21B99F42C0091C7B6 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = "Source/Data Module/Managed Objects/Project.m"; sourceTree = "<group>"; };
-		58F207E41B99F42D0091C7B6 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Customer.h; path = "Source/Data Module/Managed Objects/Customer.h"; sourceTree = "<group>"; };
-		58F207E51B99F42D0091C7B6 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Customer.m; path = "Source/Data Module/Managed Objects/Customer.m"; sourceTree = "<group>"; };
-		58F207E71B99F42D0091C7B6 /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messages.h; path = "Source/Data Module/Managed Objects/Messages.h"; sourceTree = "<group>"; };
-		58F207E81B99F42D0091C7B6 /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Messages.m; path = "Source/Data Module/Managed Objects/Messages.m"; sourceTree = "<group>"; };
-		58F207EA1B99F42D0091C7B6 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "Source/Data Module/Managed Objects/User.h"; sourceTree = "<group>"; };
-		58F207EB1B99F42D0091C7B6 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "Source/Data Module/Managed Objects/User.m"; sourceTree = "<group>"; };
 		79BDB03A56CF3D54AE87702E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -456,16 +456,16 @@
 		581D9FAA1B66BDC200270A16 /* Managed Objects */ = {
 			isa = PBXGroup;
 			children = (
-				58F207EA1B99F42D0091C7B6 /* User.h */,
-				58F207EB1B99F42D0091C7B6 /* User.m */,
-				58F207E71B99F42D0091C7B6 /* Messages.h */,
-				58F207E81B99F42D0091C7B6 /* Messages.m */,
-				58F207E41B99F42D0091C7B6 /* Customer.h */,
-				58F207E51B99F42D0091C7B6 /* Customer.m */,
-				58F207E11B99F42C0091C7B6 /* Project.h */,
-				58F207E21B99F42C0091C7B6 /* Project.m */,
-				58F207DE1B99F42C0091C7B6 /* ProjectImage.h */,
-				58F207DF1B99F42C0091C7B6 /* ProjectImage.m */,
+				584013591BA731D400EB64DD /* User.h */,
+				5840135A1BA731D400EB64DD /* User.m */,
+				584013561BA731D400EB64DD /* Customer.h */,
+				584013571BA731D400EB64DD /* Customer.m */,
+				584013531BA731D400EB64DD /* Incubee.h */,
+				584013541BA731D400EB64DD /* Incubee.m */,
+				584013501BA731D400EB64DD /* IncubeeImage.h */,
+				584013511BA731D400EB64DD /* IncubeeImage.m */,
+				5840134D1BA731D300EB64DD /* Messages.h */,
+				5840134E1BA731D300EB64DD /* Messages.m */,
 			);
 			name = "Managed Objects";
 			sourceTree = "<group>";
@@ -652,25 +652,25 @@
 				570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */,
 				5780CB0E1B3E83740090ADCE /* ICDataManager.m in Sources */,
 				57E724E61B4063E90066C0A5 /* ICImageManager.m in Sources */,
+				584013551BA731D400EB64DD /* Incubee.m in Sources */,
 				57D52CC11B581DEE008EA1E5 /* ICUserAccountManager.m in Sources */,
 				5780CB0A1B3E835B0090ADCE /* ICHomeViewController.m in Sources */,
 				5780CAFF1B3E833C0090ADCE /* ProfileViewController.m in Sources */,
+				5840134F1BA731D300EB64DD /* Messages.m in Sources */,
 				5808FD8F1B8E23920053451A /* ICMessengerManager.m in Sources */,
 				5780CB3B1B3E8A250090ADCE /* ICOperationManager.m in Sources */,
+				5840135B1BA731D400EB64DD /* User.m in Sources */,
 				5864EB631B86434C00091C94 /* ICChatViewController.m in Sources */,
 				5780CB051B3E834F0090ADCE /* ICLoginViewController.m in Sources */,
-				58F207EC1B99F42D0091C7B6 /* User.m in Sources */,
 				57C98C471B5129DD002F6E81 /* ICUtilityManager.m in Sources */,
 				5780CB391B3E8A250090ADCE /* ICJSONParsingOperations.m in Sources */,
 				5780CB0B1B3E835B0090ADCE /* ICCardViewController.m in Sources */,
-				58F207E61B99F42D0091C7B6 /* Customer.m in Sources */,
 				583C9B321B8F882600A1FF1E /* ICBaseViewController.m in Sources */,
 				5780CB1E1B3E86BD0090ADCE /* ICAppManager+Networking.m in Sources */,
 				5780CB1B1B3E86490090ADCE /* ICAppManager.m in Sources */,
-				58F207E01B99F42C0091C7B6 /* ProjectImage.m in Sources */,
-				58F207E91B99F42D0091C7B6 /* Messages.m in Sources */,
+				584013581BA731D400EB64DD /* Customer.m in Sources */,
 				5780CB4B1B3E9E1C0090ADCE /* ICDataManager+DataSaving.m in Sources */,
-				58F207E31B99F42C0091C7B6 /* Project.m in Sources */,
+				584013521BA731D400EB64DD /* IncubeeImage.m in Sources */,
 				5780CB291B3E87840090ADCE /* Reachability.m in Sources */,
 				5780CB281B3E87840090ADCE /* ICRequest.m in Sources */,
 				5780CB021B3E83460090ADCE /* ICMessagingViewController.m in Sources */,

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ICCardViewController.h"
 #import "ICRequest.h"
-#import "Project.h"
+#import "Incubee.h"
 
 @interface ICHomeViewController : UIViewController <ICCardViewDelegate>{
 
@@ -30,11 +30,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *projDescLable;
 
-@property(nonatomic,strong)Project *firstCard;
+@property(nonatomic,strong)Incubee *firstCard;
 
-@property(nonatomic,strong)Project *secondCard;
+@property(nonatomic,strong)Incubee *secondCard;
 
-@property(nonatomic,strong)Project *lastCard;
+@property(nonatomic,strong)Incubee *lastCard;
 
 @property(nonatomic,assign)BOOL isRedo;
 

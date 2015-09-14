@@ -97,7 +97,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
         
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"IncubeeModel.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"IncubeeModei.sqlite"];
     
     NSError *error = nil;
     
@@ -154,9 +154,9 @@ static ICDataManager *sharedDataManagerInstance = nil;
     {
             NSFetchRequest *request = [[NSFetchRequest alloc] init];
             
-            [request setEntity:[NSEntityDescription entityForName:@"Project" inManagedObjectContext:context]];
+            [request setEntity:[NSEntityDescription entityForName:@"Incubee" inManagedObjectContext:context]];
             
-            NSPredicate *prd = [NSPredicate predicateWithFormat:@"(projectId LIKE %@)",incubeeId];
+            NSPredicate *prd = [NSPredicate predicateWithFormat:@"(incubeeId LIKE %@)",incubeeId];
             
             [request setPredicate:prd];
             
@@ -166,9 +166,9 @@ static ICDataManager *sharedDataManagerInstance = nil;
             
             if (results && [results count] > 0)
             {
-                Project *aProject = [results objectAtIndex:0];
+                Incubee *aIncubee = [results objectAtIndex:0];
                 
-                aProject.projectFollowing = [NSNumber numberWithBool:YES];
+                aIncubee.projectFollowing = [NSNumber numberWithBool:YES];
                 
                 NSError *erroe = nil; [context save:&erroe];
                 
@@ -193,44 +193,44 @@ static ICDataManager *sharedDataManagerInstance = nil;
         {
             NSFetchRequest *request = [[NSFetchRequest alloc] init];
             
-            [request setEntity:[NSEntityDescription entityForName:@"Project" inManagedObjectContext:context]];
+            [request setEntity:[NSEntityDescription entityForName:@"Incubee" inManagedObjectContext:context]];
             
             NSError *errorDb = nil;
             
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"projectId LIKE %@",[aDic objectForKey:@"id"]];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"incubeeId LIKE %@",[aDic objectForKey:@"id"]];
             
             [request setPredicate:predicate];
             
             NSArray *results = [context executeFetchRequest:request error:&errorDb];
             
-            Project *aProject;
+            Incubee *aIncubee;
             
             if (results && [results count] > 0)
             {
-                aProject = [results objectAtIndex:0];
+                aIncubee = [results objectAtIndex:0];
             }
             else
             {
-                aProject = [NSEntityDescription
-                            insertNewObjectForEntityForName:@"Project"
+                aIncubee = [NSEntityDescription
+                            insertNewObjectForEntityForName:@"Incubee"
                             inManagedObjectContext:context];
             }
 
-            aProject.companyDescription = NULL_TO_NIL([aDic objectForKey:@"description"]);
-            aProject.companyName =  NULL_TO_NIL([aDic objectForKey:@"company_name"]);
-            aProject.companyUrl = NULL_TO_NIL([aDic objectForKey:@"company_url"]);
-            aProject.contactEmail = NULL_TO_NIL([aDic objectForKey:@"contact_email"]);
-            aProject.field = NULL_TO_NIL([aDic objectForKey:@"field"]);
-            aProject.founder = NULL_TO_NIL([aDic objectForKey:@"founder"]);
-            aProject.funding = [NSNumber numberWithBool:([aDic objectForKey:@"funding"])];
-            aProject.high_concept = NULL_TO_NIL([aDic objectForKey:@"high_concept"]);
-            aProject.projectId = NULL_TO_NIL([aDic objectForKey:@"id"]);
-            aProject.location = NULL_TO_NIL([aDic objectForKey:@"location"]);
-            aProject.logo_url = NULL_TO_NIL([aDic objectForKey:@"logo_url"]);
-            aProject.project_status = NULL_TO_NIL([aDic objectForKey:@"project_status"]);
-            aProject.twitter_url= NULL_TO_NIL([aDic objectForKey:@"twitter_url"]);
-            aProject.video= NULL_TO_NIL([aDic objectForKey:@"video"]);
-            aProject.videoUrl=NULL_TO_NIL([aDic objectForKey:@"video_url"]);
+            aIncubee.companyDescription = NULL_TO_NIL([aDic objectForKey:@"description"]);
+            aIncubee.companyName =  NULL_TO_NIL([aDic objectForKey:@"company_name"]);
+            aIncubee.companyUrl = NULL_TO_NIL([aDic objectForKey:@"company_url"]);
+            aIncubee.contactEmail = NULL_TO_NIL([aDic objectForKey:@"contact_email"]);
+            aIncubee.field = NULL_TO_NIL([aDic objectForKey:@"field"]);
+            aIncubee.founder = NULL_TO_NIL([aDic objectForKey:@"founder"]);
+            aIncubee.funding = [NSNumber numberWithBool:((BOOL)[aDic objectForKey:@"funding"])];
+            aIncubee.highConcept = NULL_TO_NIL([aDic objectForKey:@"high_concept"]);
+            aIncubee.incubeeId = NULL_TO_NIL([aDic objectForKey:@"id"]);
+            aIncubee.location = NULL_TO_NIL([aDic objectForKey:@"location"]);
+            aIncubee.logoUrl = NULL_TO_NIL([aDic objectForKey:@"logo_url"]);
+            aIncubee.projectStatus = NULL_TO_NIL([aDic objectForKey:@"project_status"]);
+            aIncubee.twitterUrl= NULL_TO_NIL([aDic objectForKey:@"twitter_url"]);
+            aIncubee.video= NULL_TO_NIL([aDic objectForKey:@"video"]);
+            aIncubee.videoUrl=NULL_TO_NIL([aDic objectForKey:@"video_url"]);
 //            aProject.projectFollowing =[NSNumber numberWithBool:NO];
             
             if(NULL_TO_NIL([aDic valueForKey:@"images"]) != nil)
@@ -239,17 +239,17 @@ static ICDataManager *sharedDataManagerInstance = nil;
                 
                 NSFetchRequest * fetchRequest = [[NSFetchRequest alloc] init];
                 
-                NSEntityDescription *entity = [NSEntityDescription entityForName:@"ProjectImage" inManagedObjectContext:context];
+                NSEntityDescription *entity = [NSEntityDescription entityForName:@"IncubeeImage" inManagedObjectContext:context];
 
                 [fetchRequest setEntity:entity];
                 
-                NSPredicate *prd = [NSPredicate predicateWithFormat:@"(projectId LIKE %@)",aProject.projectId];
+                NSPredicate *prd = [NSPredicate predicateWithFormat:@"(incubeeId LIKE %@)",aIncubee.incubeeId];
                 
                 [fetchRequest setPredicate:prd];
                 
                 NSArray * fetchResults = [context executeFetchRequest:fetchRequest error:nil];
                 
-                for(ProjectImage *pImage in fetchResults)
+                for(IncubeeImage *pImage in fetchResults)
                 {
                     [context deleteObject:pImage];
                 }
@@ -260,15 +260,15 @@ static ICDataManager *sharedDataManagerInstance = nil;
                 
                 for(NSString *imStringURL in imArray)
                 {
-                    ProjectImage *aProjectImage = aProjectImage = [NSEntityDescription
-                                                                   insertNewObjectForEntityForName:@"ProjectImage"
+                    IncubeeImage *aIncubeeImage = [NSEntityDescription
+                                                                   insertNewObjectForEntityForName:@"IncubeeImage"
                                                                    inManagedObjectContext:context];
                     
-                    aProjectImage.imageUrl = imStringURL;
+                    aIncubeeImage.imageUrl = imStringURL;
                     
-                    aProjectImage.projectId = aProject.projectId;
+                    aIncubeeImage.incubeeId = aIncubee.incubeeId;
                     
-                    aProjectImage.project = aProject;
+                    aIncubeeImage.incubee = aIncubee;
                 }
             }
             
@@ -297,7 +297,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
     {
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         
-        [request setEntity:[NSEntityDescription entityForName:@"Project" inManagedObjectContext:context]];
+        [request setEntity:[NSEntityDescription entityForName:@"Incubee" inManagedObjectContext:context]];
         
         NSError *errorDb = nil;
         
@@ -356,9 +356,9 @@ static ICDataManager *sharedDataManagerInstance = nil;
     {
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         
-        [request setEntity:[NSEntityDescription entityForName:@"ProjectImage" inManagedObjectContext:context]];
+        [request setEntity:[NSEntityDescription entityForName:@"IncubeeImage" inManagedObjectContext:context]];
         
-        NSPredicate *prd = [NSPredicate predicateWithFormat:@"(projectId LIKE %@)",inProjectId];
+        NSPredicate *prd = [NSPredicate predicateWithFormat:@"(incubeeId LIKE %@)",inProjectId];
 
         [request setPredicate:prd];
         
@@ -581,19 +581,19 @@ static ICDataManager *sharedDataManagerInstance = nil;
         {
             NSFetchRequest *request = [[NSFetchRequest alloc] init];
             
-            [request setEntity:[NSEntityDescription entityForName:@"Project" inManagedObjectContext:context]];
+            [request setEntity:[NSEntityDescription entityForName:@"Incubee" inManagedObjectContext:context]];
             
             NSError *errorDb = nil;
             
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"projectId LIKE %@",incubId];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"incubeeId LIKE %@",incubId];
             
             [request setPredicate:predicate];
             
             NSArray *results = [context executeFetchRequest:request error:&errorDb];
             
-            Project *aProject = [results objectAtIndex:0];
+            Incubee *aIncubee = [results objectAtIndex:0];
             
-            aProject.projectFollowing = [NSNumber numberWithBool:YES];
+            aIncubee.projectFollowing = [NSNumber numberWithBool:YES];
             
         }
         

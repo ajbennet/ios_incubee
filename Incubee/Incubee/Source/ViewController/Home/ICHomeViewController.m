@@ -49,9 +49,9 @@
         
         _secondCard = [_projectList objectAtIndex:1];
         
-        [_secondViewC setProject:_secondCard];
+        [_secondViewC setIncubee:_secondCard];
 
-        [_firstViewC setProject:_firstCard];        
+        [_firstViewC setIncubee:_firstCard];
 
         _currentlyShowingVC = _firstViewC;
         
@@ -132,7 +132,7 @@
     
     if(_currentlyShowingVC == _secondViewC)
     {
-        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_secondCard.projectId notifyTo:self forSelector:nil];
+        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_secondCard.incubeeId notifyTo:self forSelector:nil];
 
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
@@ -157,7 +157,7 @@
                              
                              _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
                              
-                             [_secondViewC setProject:_secondCard];
+                             [_secondViewC setIncubee:_secondCard];
                              
                              [self.view bringSubviewToFront:_optionView];
                              
@@ -175,7 +175,7 @@
     }
     else if(_currentlyShowingVC == _firstViewC)
     {
-        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_firstCard.projectId notifyTo:self forSelector:nil];
+        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_firstCard.incubeeId notifyTo:self forSelector:nil];
 
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
@@ -203,7 +203,7 @@
                                  
                                  _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
                                  
-                                 [_firstViewC setProject:_firstCard];
+                                 [_firstViewC setIncubee:_firstCard];
                                  
                                  [self.view bringSubviewToFront:_optionView];
                                  
@@ -267,7 +267,7 @@
                              
                              _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
                              
-                             [_secondViewC setProject:_secondCard];
+                             [_secondViewC setIncubee:_secondCard];
                              
                              [self.view bringSubviewToFront:_optionView];
                              
@@ -312,7 +312,7 @@
                                  
                                  _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
                                  
-                                 [_firstViewC setProject:_firstCard];
+                                 [_firstViewC setIncubee:_firstCard];
                                  
                                  [self.view bringSubviewToFront:_optionView];
                                  
@@ -338,7 +338,7 @@
 
 -(void)updateCurrentProjDescLable{
     
-    _projDescLable.text = _currentlyShowingVC.project.companyDescription;
+    _projDescLable.text = _currentlyShowingVC.incubee.companyDescription;
     
 }
 
@@ -407,13 +407,13 @@
     
     [_currentlyShowingVC dismissShowing];
     
-    Project *randProj = [_projectList objectAtIndex:0];
+    Incubee *randIncubee = [_projectList objectAtIndex:0];
 
     if(_currentlyShowingVC == _secondViewC)
     {
         [self.view bringSubviewToFront:_firstViewC.view];
         
-        [_currentlyShowingVC setProject:randProj];
+        [_currentlyShowingVC setIncubee:randIncubee];
         
         _currentlyShowingVC = _firstViewC;
     
@@ -422,7 +422,7 @@
     {
         [self.view bringSubviewToFront:_secondViewC.view];
         
-        [_currentlyShowingVC setProject:randProj];
+        [_currentlyShowingVC setIncubee:randIncubee];
         
         _currentlyShowingVC = _secondViewC;
     }
@@ -438,9 +438,9 @@
     _addCustomerButton.selected = YES;
     
     // Adding things to customer.
-    Project *currentProje = _currentlyShowingVC.project;
+    Incubee *currentIncubee = _currentlyShowingVC.incubee;
     
-    [[ICAppManager sharedInstance] addCustomerProject:nil withIncubeeId:currentProje.projectId notifyTo:self forSelector:nil];
+    [[ICAppManager sharedInstance] addCustomerProject:nil withIncubeeId:currentIncubee.incubeeId notifyTo:self forSelector:nil];
 
 }
 
@@ -464,7 +464,7 @@
     {
         _lastCard = _secondCard;
         
-        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_secondCard.projectId notifyTo:self forSelector:nil];
+        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_secondCard.incubeeId notifyTo:self forSelector:nil];
 
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
@@ -497,7 +497,7 @@
                              
                              _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
                              
-                             [_secondViewC setProject:_secondCard];
+                             [_secondViewC setIncubee:_secondCard];
                              
                              [self.view bringSubviewToFront:_optionView];
                              
@@ -519,7 +519,7 @@
     {
         _lastCard = _firstCard;
         
-        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_firstCard.projectId notifyTo:self forSelector:nil];
+        [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_firstCard.incubeeId notifyTo:self forSelector:nil];
 
         _currentlyShowingVC.cardSelectStatusImage.image = [UIImage imageNamed:@"LikeButton"];
         
@@ -556,7 +556,7 @@
                                  
                                  _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
                                  
-                                 [_firstViewC setProject:_firstCard];
+                                 [_firstViewC setIncubee:_firstCard];
                                  
                                  [self.view bringSubviewToFront:_optionView];
                                  
@@ -630,7 +630,7 @@
                              
                              _secondCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
                              
-                             [_secondViewC setProject:_secondCard];
+                             [_secondViewC setIncubee:_secondCard];
                              
                              [self.view bringSubviewToFront:_optionView];
                              
@@ -684,7 +684,7 @@
                                  
                                  _firstCard = [_projectList objectAtIndex:_currentlyShowingIndexoffset];
                                  
-                                 [_firstViewC setProject:_firstCard];
+                                 [_firstViewC setIncubee:_firstCard];
                                  
                                  [self.view bringSubviewToFront:_optionView];
                                  
@@ -720,7 +720,7 @@
     {
         _firstCard = _lastCard;
         
-        [_firstViewC setProject:_firstCard];
+        [_firstViewC setIncubee:_firstCard];
         
         _currentlyShowingVC = _firstViewC;
         
@@ -728,16 +728,16 @@
         
         [_firstViewC showProject];
 
-        Project *tempProj = _secondViewC.project;
+        Incubee *tempIncubee = _secondViewC.incubee;
 
-        _lastCard = tempProj;
+        _lastCard = tempIncubee;
         
     }
     else if(_currentlyShowingVC == _firstViewC)
     {
         _secondCard = _lastCard;
         
-        [_secondViewC setProject:_secondCard];
+        [_secondViewC setIncubee:_secondCard];
         
         _currentlyShowingVC = _secondViewC;
         
@@ -745,9 +745,9 @@
         
         [_firstViewC showProject];
         
-        Project *tempProj = _firstViewC.project;
+        Incubee *tempIncubee = _firstViewC.incubee;
         
-        _lastCard = tempProj;
+        _lastCard = tempIncubee;
         
     }
     
@@ -806,9 +806,9 @@
             
             _secondCard = [_projectList objectAtIndex:1];
             
-            [_firstViewC setProject:_firstCard];
+            [_firstViewC setIncubee:_firstCard];
             
-            [_secondViewC setProject:_secondCard];
+            [_secondViewC setIncubee:_secondCard];
 
             [_currentlyShowingVC showProject];
             

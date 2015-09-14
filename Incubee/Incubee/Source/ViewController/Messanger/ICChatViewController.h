@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Project.h"
+#import "Incubee.h"
 #import "ICConstants.h"
 
 @interface ICChatViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>

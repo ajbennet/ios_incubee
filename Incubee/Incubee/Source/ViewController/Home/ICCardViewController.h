@@ -11,8 +11,8 @@
 #import <MediaPlayer/MPMoviePlayerController.h>
 #import <MediaPlayer/MPMoviePlayerViewController.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import "Project.h"
-#import "ProjectImage.h"
+#import "Incubee.h"
+#import "IncubeeImage.h"
 #import "ICImageManager.h"
 #import "ICUtilityManager.h"
 
@@ -50,7 +50,7 @@
 
 @property(nonatomic,assign)id<ICCardViewDelegate> delegate;
 
-@property(nonatomic,strong,setter=setProject:)Project *project;
+@property(nonatomic,strong,setter=setIncubee:)Incubee *incubee;
 
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 
@@ -73,7 +73,7 @@
 
 - (IBAction)shareToTapped:(id)sender;
 
-- (void)setProject:(Project *)project;
+- (void)setIncubee:(Incubee *)aIncubee;
 
 - (void)showProject;
 

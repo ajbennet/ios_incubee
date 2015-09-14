@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Project.h"
-#import "ProjectImage.h"
-#import "User.h"
 #import <Google/SignIn.h>
+
+#import "Incubee.h"
+#import "IncubeeImage.h"
+#import "User.h"
 #import "Messages.h"
 #import "Customer.h"
 

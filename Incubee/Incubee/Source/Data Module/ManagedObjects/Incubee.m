@@ -1,16 +1,16 @@
 //
-//  Project.m
+//  Incubee.m
 //  Incubee
 //
-//  Created by Rithesh Rao on 04/09/15.
+//  Created by Rithesh Rao on 14/09/15.
 //  Copyright (c) 2015 Incubee. All rights reserved.
 //
 
-#import "Project.h"
-#import "ProjectImage.h"
+#import "Incubee.h"
+#import "IncubeeImage.h"
 
 
-@implementation Project
+@implementation Incubee
 
 @dynamic companyDescription;
 @dynamic companyName;
@@ -19,15 +19,15 @@
 @dynamic field;
 @dynamic founder;
 @dynamic funding;
-@dynamic high_concept;
+@dynamic highConcept;
+@dynamic incubeeId;
 @dynamic location;
-@dynamic logo_url;
-@dynamic project_status;
+@dynamic logoUrl;
 @dynamic projectFollowing;
-@dynamic projectId;
-@dynamic twitter_url;
+@dynamic projectStatus;
+@dynamic twitterUrl;
 @dynamic video;
 @dynamic videoUrl;
-@dynamic projImages;
+@dynamic incubeeImage;
 
 @end

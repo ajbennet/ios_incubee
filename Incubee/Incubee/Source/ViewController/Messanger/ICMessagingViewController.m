@@ -24,7 +24,7 @@
 
 @property (strong, nonatomic) IBOutlet ICImageView *projectImageView;
 
-@property(nonatomic,strong)Project *project;
+@property(nonatomic,strong)Incubee *incubee;
 
 @end
 
@@ -55,19 +55,19 @@
     return nil;
 }
 
--(void)setProject:(Project *)project{
+-(void)setIncubee:(Incubee *)incubee{
 
-    _project = project;
+    _incubee = incubee;
     
-    _projectTitleLable.text = _project.companyName;
+    _projectTitleLable.text = _incubee.companyName;
 
-    _projectDescLable.text = _project.high_concept;
+    _projectDescLable.text = _incubee.highConcept;
     
-    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_project.projectId];
+    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_incubee.incubeeId];
     
     if(imArray.count>=1)
     {
-        NSString *urlString1 = ((ProjectImage*)[imArray objectAtIndex:0]).imageUrl;
+        NSString *urlString1 = ((IncubeeImage*)[imArray objectAtIndex:0]).imageUrl;
         
         ICImageManager *im1 = [[ICImageManager alloc] init];
         
@@ -176,7 +176,7 @@
                     cell = [[ProjectTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PROJECT_TABLEVIEW_CELL];
                 }
                 
-                [cell setProject:[_projectArray objectAtIndex:indexPath.row]];
+                [cell setIncubee:[_projectArray objectAtIndex:indexPath.row]];
                 
                 // Configure the cell...
                 
@@ -219,7 +219,7 @@
                 cell = [[ProjectTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PROJECT_TABLEVIEW_CELL];
             }
             
-            [cell setProject:[_projectArray objectAtIndex:indexPath.row]];
+            [cell setIncubee:[_projectArray objectAtIndex:indexPath.row]];
             
             // Configure the cell...
             
@@ -235,9 +235,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    Project *pr = [_projectArray objectAtIndex:indexPath.row];
+    Incubee *tIncubee = [_projectArray objectAtIndex:indexPath.row];
     
-    NSLog(@"%@",pr);
+    NSLog(@"%@",tIncubee);
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
@@ -253,9 +253,9 @@
         switch (_segmentController.selectedSegmentIndex) {
             case 0:
             {
-                Project *pr =  [_projectArray objectAtIndex:indexPath.row];
+                Incubee *prIncubee =  [_projectArray objectAtIndex:indexPath.row];
                 
-                toChat = pr.projectId;
+                toChat = prIncubee.incubeeId;
                 
                 toCustomer = YES;
                 
@@ -285,9 +285,9 @@
     {
         {
             
-            Project *pr =  [_projectArray objectAtIndex:indexPath.row];
+            Incubee *prIncubee =  [_projectArray objectAtIndex:indexPath.row];
             
-            toChat = pr.projectId;
+            toChat = prIncubee.incubeeId;
             
             aChatViewController.chatMode = CHAT_VIEW_CUSTOMER_TO_FOUNDER;
             

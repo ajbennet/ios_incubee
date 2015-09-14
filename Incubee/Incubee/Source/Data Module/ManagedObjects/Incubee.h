@@ -1,17 +1,17 @@
 //
-//  Project.h
+//  Incubee.h
 //  Incubee
 //
-//  Created by Rithesh Rao on 04/09/15.
+//  Created by Rithesh Rao on 14/09/15.
 //  Copyright (c) 2015 Incubee. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class ProjectImage;
+@class IncubeeImage;
 
-@interface Project : NSManagedObject
+@interface Incubee : NSManagedObject
 
 @property (nonatomic, retain) NSString * companyDescription;
 @property (nonatomic, retain) NSString * companyName;
@@ -20,23 +20,23 @@
 @property (nonatomic, retain) NSString * field;
 @property (nonatomic, retain) NSString * founder;
 @property (nonatomic, retain) NSNumber * funding;
-@property (nonatomic, retain) NSString * high_concept;
+@property (nonatomic, retain) NSString * highConcept;
+@property (nonatomic, retain) NSString * incubeeId;
 @property (nonatomic, retain) NSString * location;
-@property (nonatomic, retain) NSString * logo_url;
-@property (nonatomic, retain) NSString * project_status;
+@property (nonatomic, retain) NSString * logoUrl;
 @property (nonatomic, retain) NSNumber * projectFollowing;
-@property (nonatomic, retain) NSString * projectId;
-@property (nonatomic, retain) NSString * twitter_url;
+@property (nonatomic, retain) NSString * projectStatus;
+@property (nonatomic, retain) NSString * twitterUrl;
 @property (nonatomic, retain) NSString * video;
 @property (nonatomic, retain) NSString * videoUrl;
-@property (nonatomic, retain) NSSet *projImages;
+@property (nonatomic, retain) NSSet *incubeeImage;
 @end
 
-@interface Project (CoreDataGeneratedAccessors)
+@interface Incubee (CoreDataGeneratedAccessors)
 
-- (void)addProjImagesObject:(ProjectImage *)value;
-- (void)removeProjImagesObject:(ProjectImage *)value;
-- (void)addProjImages:(NSSet *)values;
-- (void)removeProjImages:(NSSet *)values;
+- (void)addIncubeeImageObject:(IncubeeImage *)value;
+- (void)removeIncubeeImageObject:(IncubeeImage *)value;
+- (void)addIncubeeImage:(NSSet *)values;
+- (void)removeIncubeeImage:(NSSet *)values;
 
 @end
