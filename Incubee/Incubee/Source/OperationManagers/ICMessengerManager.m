@@ -56,7 +56,8 @@ static ICMessengerManager *sharedMessengerInstance = nil;
     
     if([[ICDataManager sharedInstance] isFounder])
     {
-        [[ICAppManager sharedInstance] getFoundersChat:nil notifyTo:self forSelector:@selector(allFounderChatResponse:)];
+        [[ICAppManager sharedInstance] getAllCustomerIncubee:nil notifyTo:self forSelector:@selector(customerSyncIncubee:)];
+
     }
 
 }
@@ -67,6 +68,12 @@ static ICMessengerManager *sharedMessengerInstance = nil;
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
     [[NSNotificationCenter defaultCenter] postNotificationName:CHAT_VIEW_REFRESH object:nil];
+    
+}
+
+-(void)customerSyncIncubee:(ICRequest*)inRequest{
+
+    [[ICAppManager sharedInstance] getFoundersChat:nil notifyTo:self forSelector:@selector(allFounderChatResponse:)];
     
 }
 

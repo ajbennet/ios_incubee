@@ -229,13 +229,19 @@
     
     ICRequest *req = [[ICRequest alloc] init];
     
+    NSLog(@"IC_GET_FOUNDER_CHAT_ALL : %@",[[ICDataManager sharedInstance] getFounderId]);
+    
     req.requestId = IC_GET_FOUNDER_CHAT_ALL;
     
     [self addRequestActivityObserver:req];
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-    [req setRequestingURL:[NSURL URLWithString:kGetAllFounderChatMsg([[ICDataManager sharedInstance] getFounderId])]];
+    NSString *strUrl  = kGetAllFounderChatMsg([[ICDataManager sharedInstance] getFounderId]);
+    
+    NSLog(@"IC_GET_FOUNDER_CHAT_ALL : %@",strUrl);
+
+    [req setRequestingURL:[NSURL URLWithString:strUrl]];
     
     [self sendRequestObject:req];
 
