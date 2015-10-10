@@ -6,33 +6,33 @@
 	<dict>
 		<key>Pods-Incubee.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-IncubeeTests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>233A5F53E93D246FF24E5992</key>
+		<key>1469924FC52F60B0068FA24EEFCB3EFC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2DAF83CAF8C5FE67783F3097</key>
+		<key>35CB3146A63588B06C3FF6C87DD62F92</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4963FF2980674E934004C4C0</key>
+		<key>6191A8E7E3A948BFEF9F4B713C28F8C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
