@@ -814,13 +814,13 @@
 			baseConfigurationReference = 29B27AB27E2276910CB9B434 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Abinathab Bennet (LE8F8QVAA9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Abinathab Bennet (LE8F8QVAA9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rithesh Rao (XKNL676335)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rithesh Rao (XKNL676335)";
 				INFOPLIST_FILE = Incubee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b97a5551-f499-4484-b838-5e29cdcdd553";
+				PROVISIONING_PROFILE = "4e27648d-fcf4-4e63-92bf-948b0f60903c";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
