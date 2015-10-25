@@ -617,7 +617,6 @@ static ICDataManager *sharedDataManagerInstance = nil;
     
     if(context)
     {
-        
         for(NSString *userId in inLikedArray)
         {
             NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -649,7 +648,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
             aCustomer.userName = nil;
             
-            aCustomer.photoUrl = nil;
+            aCustomer.imageUrl = nil;
             
         }
 
@@ -744,4 +743,57 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 }
 
+-(void)updateCustomerDetails:(NSDictionary*)inCustomer{
+    
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        {
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            
+            [request setEntity:[NSEntityDescription entityForName:@"Customer" inManagedObjectContext:context]];
+            
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId LIKE %@",[inCustomer valueForKey:@"id"]];
+            
+            [request setPredicate:predicate];
+            
+            NSError *errorDb = nil;
+            
+            NSArray *results = [context executeFetchRequest:request error:&errorDb];
+            
+            Customer *aCustomer;
+            
+            if (results && [results count] > 0)
+            {
+                aCustomer = [results objectAtIndex:0];
+            }
+            else
+            {
+                aCustomer = [NSEntityDescription
+                             insertNewObjectForEntityForName:@"Customer"
+                             inManagedObjectContext:context];
+            }
+            
+            aCustomer.userId = NULL_TO_NIL([inCustomer valueForKey:@"id"]);
+            
+            aCustomer.userName = NULL_TO_NIL([inCustomer valueForKey:@"name"]);
+            
+            aCustomer.imageUrl = NULL_TO_NIL([inCustomer valueForKey:@"image_url"]);
+
+            aCustomer.email = NULL_TO_NIL([inCustomer valueForKey:@"email"]);
+        
+        NSError *er = nil;
+        
+        [context save:&er];
+        
+        if(er==nil)
+        {
+            NSLog(@"Updated Customer");
+        }
+        
+    }
+}
+}
 @end

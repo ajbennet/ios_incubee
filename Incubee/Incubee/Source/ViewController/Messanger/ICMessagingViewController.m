@@ -197,7 +197,7 @@
                     
                 }
                 
-                c.textLabel.text = aCust.userId;
+                c.textLabel.text = aCust.userName;
                 
                 return c;
             }

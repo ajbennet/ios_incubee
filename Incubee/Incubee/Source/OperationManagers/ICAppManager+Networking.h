@@ -26,6 +26,7 @@
 
 -(void)getAllCustomerIncubee:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
 
+-(void)getCustomerDetails:(NSString*)inCustomerId withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
 
 #pragma mark - Chat -
 

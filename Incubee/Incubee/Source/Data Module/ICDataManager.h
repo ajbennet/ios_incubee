@@ -64,4 +64,6 @@
 
 -(void)saveChatArray:(NSArray*)inMesgArray;
 
+-(void)updateCustomerDetails:(NSDictionary*)inCustomer;
+
 @end

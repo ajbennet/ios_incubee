@@ -158,6 +158,13 @@ didDisconnectWithUser:(GIDGoogleUser *)user
         
         [[ICMessengerManager sharedInstance] syncChat];
         
+        NSArray *allCustomer = [[ICDataManager sharedInstance] getAllCustomer];
+        
+        for(Customer *aCustomer in allCustomer)
+        {
+            [[ICAppManager sharedInstance] getCustomerDetails:aCustomer.userId withRequest:nil notifyTo:self forSelector:nil];
+        }
+        
     }
     else
     {

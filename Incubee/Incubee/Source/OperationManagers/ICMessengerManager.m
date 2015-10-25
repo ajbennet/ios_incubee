@@ -75,6 +75,14 @@ static ICMessengerManager *sharedMessengerInstance = nil;
 
     [[ICAppManager sharedInstance] getFoundersChat:nil notifyTo:self forSelector:@selector(allFounderChatResponse:)];
     
+//    NSArray *allCustomer = [[ICDataManager sharedInstance] getAllCustomer];
+//    
+//    for(Customer *aCustomer in allCustomer)
+//    {
+//        [[ICAppManager sharedInstance] getCustomerDetails:aCustomer.userId withRequest:nil notifyTo:self forSelector:nil];
+//    }
+
+    
 }
 
 -(void)allFounderChatResponse:(ICRequest*)inRequest{

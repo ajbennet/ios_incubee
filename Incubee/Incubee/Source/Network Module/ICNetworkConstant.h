@@ -40,6 +40,8 @@
 
 #define kAllCustomerIncubees(userId) [NSString stringWithFormat:@"%@%@/rest/customer?id=%@",SERVER_REST_PROTOCOL,SERVER_HOST,userId]
 
+#define kCustomerDetails(customerId) [NSString stringWithFormat:@"%@%@/rest/v1.0/customer/details?id=%@",SERVER_REST_PROTOCOL,SERVER_HOST,customerId]
+
 #define kGetAllChatMsg(userId) [NSString stringWithFormat:@"%@%@/rest/msg/all?eid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,userId]
 
 #define kGetAllFounderChatMsg(userId) [NSString stringWithFormat:@"%@%@/rest/msg/all?eid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,userId]

@@ -66,6 +66,20 @@
             }
                 break;
                 
+            case IC_GET_CUSTOMER_DETAILES:
+            {
+                NSArray *array = [inRequest.parsedResponse objectForKey:@"customerList"];
+                
+                NSLog(@"IC_GET_CUSTOMER_DETAILES : %@",array);
+                // This should be always 1
+                if(array.count == 1)
+                {
+                    [self updateCustomerDetails:(NSDictionary*)[array objectAtIndex:0]];
+                }
+
+            }
+                break;
+                
             default:
                 break;
         }
