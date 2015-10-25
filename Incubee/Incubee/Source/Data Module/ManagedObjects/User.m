@@ -2,22 +2,14 @@
 //  User.m
 //  Incubee
 //
-//  Created by Rithesh Rao on 14/09/15.
-//  Copyright (c) 2015 Incubee. All rights reserved.
+//  Created by Rithesh Rao on 24/10/15.
+//  Copyright © 2015 Incubee. All rights reserved.
 //
 
 #import "User.h"
 
-
 @implementation User
 
-@dynamic email;
-@dynamic founderCompanyId;
-@dynamic imageURL;
-@dynamic isFounder;
-@dynamic name;
-@dynamic token;
-@dynamic tokenExpDate;
-@dynamic userId;
+// Insert code here to add functionality to your managed object subclass
 
 @end

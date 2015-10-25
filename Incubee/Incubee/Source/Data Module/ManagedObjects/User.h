@@ -2,23 +2,21 @@
 //  User.h
 //  Incubee
 //
-//  Created by Rithesh Rao on 14/09/15.
-//  Copyright (c) 2015 Incubee. All rights reserved.
+//  Created by Rithesh Rao on 24/10/15.
+//  Copyright © 2015 Incubee. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface User : NSManagedObject
 
-@property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSString * founderCompanyId;
-@property (nonatomic, retain) NSString * imageURL;
-@property (nonatomic, retain) NSNumber * isFounder;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * token;
-@property (nonatomic, retain) NSDate * tokenExpDate;
-@property (nonatomic, retain) NSString * userId;
+// Insert code here to declare functionality of your managed object subclass
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "User+CoreDataProperties.h"

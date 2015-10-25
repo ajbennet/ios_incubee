@@ -2,18 +2,15 @@
 //  IncubeeImage.m
 //  Incubee
 //
-//  Created by Rithesh Rao on 14/09/15.
-//  Copyright (c) 2015 Incubee. All rights reserved.
+//  Created by Rithesh Rao on 24/10/15.
+//  Copyright © 2015 Incubee. All rights reserved.
 //
 
 #import "IncubeeImage.h"
 #import "Incubee.h"
 
-
 @implementation IncubeeImage
 
-@dynamic imageUrl;
-@dynamic incubeeId;
-@dynamic incubee;
+// Insert code here to add functionality to your managed object subclass
 
 @end
