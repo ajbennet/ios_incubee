@@ -66,4 +66,9 @@
 
 -(void)updateCustomerDetails:(NSDictionary*)inCustomer;
 
+-(NSString*)getCustomerName:(NSString*)inCustomerId;
+
+-(NSString*)getIncubeeName:(NSString*)inIncubeeId;
+
+
 @end

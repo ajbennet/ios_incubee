@@ -18,5 +18,5 @@
 
 #pragma mark  - Network Notification - 
 -(void)allChatResponse:(ICRequest*)inRequest;
-
+-(void)allCustomerDetailRetrived:(ICRequest*)inRequest;
 @end

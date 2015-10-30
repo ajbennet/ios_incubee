@@ -14,6 +14,7 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
         <mutableArray key="Lato-Semibold.ttf">
             <string>Lato-Semibold</string>
@@ -608,21 +609,23 @@
                                         <variation key="heightClass=regular" constant="20"/>
                                     </constraint>
                                     <constraint firstItem="abg-fh-aPw" firstAttribute="height" secondItem="s1d-3g-CwJ" secondAttribute="height" multiplier="0.9" id="D0G-2i-7sq"/>
+                                    <constraint firstItem="abg-fh-aPw" firstAttribute="top" secondItem="s1d-3g-CwJ" secondAttribute="top" constant="5" id="DLd-sn-nBE"/>
                                     <constraint firstItem="abg-fh-aPw" firstAttribute="trailing" secondItem="kbv-wf-76v" secondAttribute="trailing" id="GEi-EX-jiC"/>
                                     <constraint firstAttribute="height" constant="376" id="Iwt-QM-NYT">
-                                        <variation key="heightClass=regular" constant="30"/>
+                                        <variation key="heightClass=regular" constant="50"/>
                                     </constraint>
                                     <constraint firstItem="kbv-wf-76v" firstAttribute="leading" secondItem="s1d-3g-CwJ" secondAttribute="leading" constant="144" id="Lqu-Wt-xe9">
                                         <variation key="heightClass=regular" constant="20"/>
                                     </constraint>
+                                    <constraint firstAttribute="bottom" secondItem="abg-fh-aPw" secondAttribute="bottom" constant="5" id="U4v-NZ-8dl"/>
                                     <constraint firstAttribute="centerY" secondItem="abg-fh-aPw" secondAttribute="centerY" id="abM-MC-6L4"/>
                                     <constraint firstItem="kbv-wf-76v" firstAttribute="width" secondItem="s1d-3g-CwJ" secondAttribute="width" id="eLw-RC-97c"/>
                                     <constraint firstItem="abg-fh-aPw" firstAttribute="leading" secondItem="kbv-wf-76v" secondAttribute="leading" id="hJ4-VY-JJg"/>
                                     <constraint firstAttribute="bottom" secondItem="kbv-wf-76v" secondAttribute="bottom" constant="90" id="rce-dY-nhd">
-                                        <variation key="heightClass=regular" constant="2"/>
+                                        <variation key="heightClass=regular" constant="5"/>
                                     </constraint>
                                     <constraint firstItem="kbv-wf-76v" firstAttribute="top" secondItem="s1d-3g-CwJ" secondAttribute="top" constant="-88" id="yi8-Ky-UhL">
-                                        <variation key="heightClass=regular" constant="2"/>
+                                        <variation key="heightClass=regular" constant="5"/>
                                     </constraint>
                                 </constraints>
                                 <variation key="default">
@@ -633,7 +636,9 @@
                                     <mask key="constraints">
                                         <exclude reference="Iwt-QM-NYT"/>
                                         <exclude reference="D0G-2i-7sq"/>
+                                        <exclude reference="DLd-sn-nBE"/>
                                         <exclude reference="GEi-EX-jiC"/>
+                                        <exclude reference="U4v-NZ-8dl"/>
                                         <exclude reference="abM-MC-6L4"/>
                                         <exclude reference="hJ4-VY-JJg"/>
                                         <exclude reference="20F-bv-Y9c"/>
@@ -650,9 +655,11 @@
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="Iwt-QM-NYT"/>
-                                        <include reference="D0G-2i-7sq"/>
+                                        <exclude reference="D0G-2i-7sq"/>
+                                        <include reference="DLd-sn-nBE"/>
                                         <include reference="GEi-EX-jiC"/>
-                                        <include reference="abM-MC-6L4"/>
+                                        <include reference="U4v-NZ-8dl"/>
+                                        <exclude reference="abM-MC-6L4"/>
                                         <include reference="hJ4-VY-JJg"/>
                                         <include reference="20F-bv-Y9c"/>
                                         <include reference="Lqu-Wt-xe9"/>
@@ -668,7 +675,7 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProjectTableViewCellIdentifier" rowHeight="80" id="1jb-yg-TdE" customClass="ProjectTableViewCell">
-                                        <rect key="frame" x="0.0" y="45" width="568" height="80"/>
+                                        <rect key="frame" x="0.0" y="1" width="568" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1jb-yg-TdE" id="D5O-Yw-KzF">
                                             <rect key="frame" x="0.0" y="0.0" width="568" height="80"/>
@@ -731,6 +738,45 @@
                                             <outlet property="projectDescLable" destination="piK-gg-GhZ" id="pTs-X4-HfN"/>
                                             <outlet property="projectImageView" destination="lM9-Cb-cLI" id="faA-Kz-naZ"/>
                                             <outlet property="projectTitleLable" destination="5Om-q5-juI" id="Oqb-GI-dnC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomerTableViewCellIdentifier" rowHeight="80" id="FV5-vN-rsf" customClass="ICCustomerChatTableViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FV5-vN-rsf" id="DQR-nT-TrE">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zm2-x6-oHX" customClass="ICImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <variation key="heightClass=regular" fixedFrame="YES">
+                                                        <rect key="frame" x="13" y="10" width="59" height="59"/>
+                                                    </variation>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl1-x4-hPf">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular" fixedFrame="YES">
+                                                        <rect key="frame" x="80" y="10" width="441" height="59"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="Zm2-x6-oHX"/>
+                                                    <exclude reference="Xl1-x4-hPf"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular">
+                                                <mask key="subviews">
+                                                    <include reference="Zm2-x6-oHX"/>
+                                                    <include reference="Xl1-x4-hPf"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="customerImageView" destination="Zm2-x6-oHX" id="QmL-0E-zZ1"/>
+                                            <outlet property="customerLable" destination="Xl1-x4-hPf" id="kMV-Vv-DRC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

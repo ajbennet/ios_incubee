@@ -42,7 +42,14 @@
     // Do any additional setup after loading the view.
     
 
-    self.title = _to;
+    if(_chatMode==CHAT_VIEW_CUSTOMER_TO_FOUNDER)
+    {
+        self.title = [[ICDataManager sharedInstance] getIncubeeName:_to];
+    }
+    else if(_chatMode==CHAT_VIEW_FOUNDER_TO_CUSTOMER)
+    {
+        self.title = [[ICDataManager sharedInstance] getCustomerName:_to];
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 

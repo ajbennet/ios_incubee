@@ -15,6 +15,9 @@
 
 @property(nonatomic,strong)NSTimer *syncTimer;
 
+@property(nonatomic,strong)NSTimer *yetToUpdateTimer;
+
+@property(nonatomic,assign)BOOL yetUpdatedUI;
 
 -(void)syncChat;
 
@@ -40,7 +43,7 @@ static ICMessengerManager *sharedMessengerInstance = nil;
     
     if (self = [super init])
     {
-        _syncTimer = [NSTimer  scheduledTimerWithTimeInterval:30 target:self selector:@selector(syncChat) userInfo:nil repeats:YES];
+        _syncTimer = [NSTimer  scheduledTimerWithTimeInterval:60 target:self selector:@selector(syncChat) userInfo:nil repeats:YES];
     }
     
     return self;
@@ -62,12 +65,44 @@ static ICMessengerManager *sharedMessengerInstance = nil;
 
 }
 
+#pragma mark - Update UI -
+
+-(void)handleUIUpdated
+{
+    if(_yetUpdatedUI == NO)
+    {
+        _yetUpdatedUI = YES;
+        
+        _yetToUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(updateUI) userInfo:nil repeats:NO];
+    }
+    
+}
+
+-(void)updateUI{
+
+    if([_yetToUpdateTimer isValid])
+    {
+        [_yetToUpdateTimer invalidate];
+        
+        _yetToUpdateTimer = nil;
+        
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:CHAT_VIEW_REFRESH object:nil];
+    
+    _yetUpdatedUI = NO;
+
+}
+
 #pragma mark  - Network Notification -
 -(void)allChatResponse:(ICRequest*)inRequest{
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:CHAT_VIEW_REFRESH object:nil];
+   
+    if([[ICDataManager sharedInstance] isFounder] == NO)
+    {
+        [self handleUIUpdated];
+    }
     
 }
 
@@ -75,22 +110,40 @@ static ICMessengerManager *sharedMessengerInstance = nil;
 
     [[ICAppManager sharedInstance] getFoundersChat:nil notifyTo:self forSelector:@selector(allFounderChatResponse:)];
     
-//    NSArray *allCustomer = [[ICDataManager sharedInstance] getAllCustomer];
-//    
-//    for(Customer *aCustomer in allCustomer)
-//    {
-//        [[ICAppManager sharedInstance] getCustomerDetails:aCustomer.userId withRequest:nil notifyTo:self forSelector:nil];
-//    }
-
+    NSArray *allCustomer = [[ICDataManager sharedInstance] getAllCustomer];
     
+    for(uint i=0;i<allCustomer.count;i++)
+    {
+        Customer *aCustomer =  [allCustomer objectAtIndex:i];
+        
+        if(i+1 == allCustomer.count)
+        {
+            [[ICAppManager sharedInstance] getCustomerDetails:aCustomer.userId withRequest:nil notifyTo:self forSelector:nil];
+        }
+        else
+        {
+           [[ICAppManager sharedInstance] getCustomerDetails:aCustomer.userId withRequest:nil notifyTo:self forSelector:@selector(allCustomerDetailRetrived:)];
+        }
+    }
+
 }
 
 -(void)allFounderChatResponse:(ICRequest*)inRequest{
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CHAT_VIEW_REFRESH object:nil];
-    
+    NSArray *allCustomer = [[ICDataManager sharedInstance] getAllCustomer];
+
+    if(allCustomer.count>0)
+    {
+        [self handleUIUpdated];
+    }
+
+}
+
+-(void)allCustomerDetailRetrived:(ICRequest*)inRequest{
+
+    [self handleUIUpdated];
 }
 
 @end

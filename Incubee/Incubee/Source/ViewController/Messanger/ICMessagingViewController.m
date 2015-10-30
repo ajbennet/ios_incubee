@@ -13,8 +13,12 @@
 #import "ICUtilityManager.h"
 #import "ICChatViewController.h"
 #import "ICConstants.h"
+#import "Customer.h"
+#import "ICMessengerManager.h"
 
 #define PROJECT_TABLEVIEW_CELL @"ProjectTableViewCellIdentifier"
+
+#define CUSTOMER_TABLEVIEW_CELL @"CustomerTableViewCellIdentifier"
 
 @interface ProjectTableViewCell : UITableViewCell
 
@@ -63,6 +67,8 @@
 
     _projectDescLable.text = _incubee.highConcept;
     
+    [_projectImageView setImage:[UIImage imageNamed:@"LikeButton"]];
+    
     NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_incubee.incubeeId];
     
     if(imArray.count>=1)
@@ -98,6 +104,83 @@
 @end
 
 
+@interface ICCustomerChatTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet ICImageView *customerImageView;
+
+@property (strong, nonatomic) IBOutlet UILabel *customerLable;
+
+@property (nonatomic,strong)Customer *customer;
+
+@end
+
+@implementation ICCustomerChatTableViewCell
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    
+    self = [super initWithCoder:aDecoder];
+    
+    if(self)
+    {
+        
+        return self;
+    }
+    
+    return nil;
+}
+
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    if(self)
+    {
+        return self;
+    }
+    
+    return nil;
+}
+
+-(void)setCustomer:(Customer *)customer{
+
+    _customer = customer;
+    
+    NSString *urlString1 = _customer.imageUrl;
+    
+    _customerLable.text = (_customer.userName == nil) ? _customer.userId : _customer.userName;
+    
+    [_customerImageView setImage:[UIImage imageNamed:@"person_silhouette"]];
+    
+    if(urlString1)
+    {
+        ICImageManager *im1 = [[ICImageManager alloc] init];
+        
+        [_customerImageView setImageUrl:urlString1];
+        
+        [im1 getImage:urlString1 withDelegate:self];
+    }
+    
+}
+
+-(void)imageDataRecived:(NSData*)inImageData ofURL:(NSString *)inUrl{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if([_customerImageView.imageUrl isEqualToString:inUrl])
+        {
+            _customerImageView.image = [UIImage imageWithData:inImageData];
+            
+            _customerImageView.layer.cornerRadius = _customerImageView.bounds.size.width/2;
+            
+            _customerImageView.layer.masksToBounds = YES;
+            
+            
+        }
+    });
+    
+}
+
+@end
 
 @interface ICMessagingViewController ()
 
@@ -130,6 +213,26 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messgesSync) name:CHAT_VIEW_REFRESH object:nil];
     
     self.navigationController.navigationBarHidden = YES;
+    
+    _refreshController = [[UIRefreshControl alloc] init];
+
+    [_refreshController addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    
+    _refreshController.tintColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"];
+    
+    _refreshController.backgroundColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"];
+    
+    UIFont * font = [UIFont fontWithName:@"Helvetica-Light" size:17.0];
+    
+    NSDictionary *attributes = @{NSFontAttributeName:font, NSForegroundColorAttributeName : [UIColor whiteColor]};
+    
+    _refreshController.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to sync Incubee chat" attributes:attributes];
+
+    [_projectTableView addSubview:_refreshController];
+    
+    [_projectTableView sendSubviewToBack:_refreshController];
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -189,15 +292,15 @@
             {
                 Customer *aCust = [_projectArray objectAtIndex:indexPath.row];
                 
-                UITableViewCell *c = [tableView dequeueReusableCellWithIdentifier:@"CustomerCell"];
+                ICCustomerChatTableViewCell *c = [tableView dequeueReusableCellWithIdentifier:CUSTOMER_TABLEVIEW_CELL];
                 
                 if(c==nil)
                 {
-                    c = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CustomerCell"];
+                    c = [[ICCustomerChatTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CUSTOMER_TABLEVIEW_CELL"];
                     
                 }
                 
-                c.textLabel.text = aCust.userName;
+                [c setCustomer:aCust];
                 
                 return c;
             }
@@ -418,6 +521,27 @@
     
     [self loadAndRefreshUI];
     
+    UIFont * font = [UIFont fontWithName:@"Helvetica-Light" size:17.0];
+    
+    NSDictionary *attributes = @{NSFontAttributeName:font, NSForegroundColorAttributeName : [UIColor whiteColor]};
+    
+    _refreshController.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to sync Incubee chat" attributes:attributes];
+
+    [_refreshController endRefreshing];
+    
 }
 
+#pragma mark -
+
+- (void)handleRefresh:(UIRefreshControl *)refreshControl {
+    
+    UIFont * font = [UIFont fontWithName:@"Helvetica-Light" size:17.0];
+    
+    NSDictionary *attributes = @{NSFontAttributeName:font, NSForegroundColorAttributeName : [UIColor whiteColor]};
+
+    _refreshController.attributedTitle = [[NSAttributedString alloc] initWithString:@"Syncing Incubee chat" attributes:attributes];
+    
+    [[ICMessengerManager sharedInstance] syncChat];
+    
+}
 @end
