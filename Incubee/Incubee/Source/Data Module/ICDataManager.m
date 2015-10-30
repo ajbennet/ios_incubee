@@ -827,6 +827,39 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 }
 
+-(NSString*)getCustomerPic:(NSString*)inCustomerId{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"Customer" inManagedObjectContext:context]];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId LIKE %@",inCustomerId];
+        
+        [request setPredicate:predicate];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        Customer *aCustomer;
+        
+        if (results && [results count] > 0)
+        {
+            aCustomer = [results objectAtIndex:0];
+            
+            return aCustomer.imageUrl;
+        }
+    }
+    return nil;
+    
+}
+
+
 -(NSString*)getIncubeeName:(NSString*)inIncubeeId{
 
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -854,8 +887,36 @@ static ICDataManager *sharedDataManagerInstance = nil;
     }
     
     return nil;
-
     
+}
+
+-(NSString*)getIncubeeImageUrl:(NSString*)inIncubeeId{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"Incubee" inManagedObjectContext:context]];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"incubeeId LIKE %@",inIncubeeId];
+        
+        [request setPredicate:predicate];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        if (results && [results count] > 0)
+        {
+            Incubee *incubee = (Incubee*)[results objectAtIndex:0];
+            
+            NSString *icUrl = incubee.companyName;
+        }
+    }
+    
+    return nil;
     
 }
 

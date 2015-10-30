@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ICUtilityManager.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,10 @@
     NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
     
     [GIDSignIn sharedInstance].delegate = self;
+    
+    
+    [[UINavigationBar appearance] setTintColor:[[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"]];
+
     
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     UITabBar *tabBar = tabBarController.tabBar;

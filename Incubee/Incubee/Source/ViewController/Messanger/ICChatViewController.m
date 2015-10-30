@@ -13,8 +13,9 @@
 #import "ICAppManager.h"
 #import "ICAppManager+Networking.h"
 #import "ICConstants.h"
-
 #import "ICMessengerManager.h"
+#import "ICUtilityManager.h"
+#import "ICImageManager.h"
 
 #define CHAT_CELL_ID @"ChatCell"
 
@@ -41,15 +42,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self setupTitleView];
 
-    if(_chatMode==CHAT_VIEW_CUSTOMER_TO_FOUNDER)
-    {
-        self.title = [[ICDataManager sharedInstance] getIncubeeName:_to];
-    }
-    else if(_chatMode==CHAT_VIEW_FOUNDER_TO_CUSTOMER)
-    {
-        self.title = [[ICDataManager sharedInstance] getCustomerName:_to];
-    }
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 
@@ -113,7 +108,6 @@
 //    CGSize size = [msg sizeWithAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Lato-regular" size:17.0f]}];
     
     CGSize size = [msg sizeWithFont:[UIFont fontWithName:@"Lato-regular" size:17.0f] constrainedToSize:CGSizeMake(tableView.frame.size.width/2, 1024) lineBreakMode:NSLineBreakByWordWrapping];
-
 
     return size.height + 30;
 
@@ -179,5 +173,69 @@
         [[ICMessengerManager sharedInstance] syncChat];
     }
 
+}
+
+#pragma mark - Private -
+
+-(void)setupTitleView{
+
+    CGRect r = self.navigationController.navigationItem.titleView.frame;
+    
+    NSLog(@"TitleView : %@",NSStringFromCGRect(r));
+    
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 40.0f)];
+    
+    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40.0f, 40.0f)];
+    
+    titleImage.backgroundColor = [UIColor clearColor];
+    
+    titleImage.layer.cornerRadius = titleImage.bounds.size.width/2;
+    
+    titleImage.layer.masksToBounds = YES;
+
+    [titleView addSubview:titleImage];
+    
+    UILabel *titLable = [[UILabel alloc] initWithFrame:CGRectMake(40.0f, 0, 160.0f, 40.0f)];
+    
+    if(_chatMode==CHAT_VIEW_CUSTOMER_TO_FOUNDER)
+    {
+        titLable.text = [[ICDataManager sharedInstance] getIncubeeName:_to];
+        
+        NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_to];
+        
+        if(imArray.count>=1)
+        {
+            NSString *urlString1 = ((IncubeeImage*)[imArray objectAtIndex:0]).imageUrl;
+            
+            [titleImage setImage:[UIImage imageWithData:[[ICImageStore sharedInstance] getImage:urlString1]]];
+        }
+    
+    }
+    else if(_chatMode==CHAT_VIEW_FOUNDER_TO_CUSTOMER)
+    {
+
+        titLable.text = [[ICDataManager sharedInstance] getCustomerName:_to];
+        
+        if([[ICDataManager sharedInstance] getCustomerPic:_to]==nil)
+        {
+            [titleImage setImage:[UIImage imageNamed:@"person_silhouette"]];
+        }
+        else{
+        [titleImage setImage:[UIImage imageWithData:[[ICImageStore sharedInstance] getImage:[[ICDataManager sharedInstance] getCustomerPic:_to]]]];
+        }
+        
+    }
+    
+
+    [titLable setTextAlignment:NSTextAlignmentCenter];
+    
+    [titLable setTextColor:[[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"]];
+    
+    [titleView addSubview:titLable];
+    
+    titleView.backgroundColor = [UIColor clearColor];
+    
+    self.navigationItem.titleView = titleView;
+    
 }
 @end

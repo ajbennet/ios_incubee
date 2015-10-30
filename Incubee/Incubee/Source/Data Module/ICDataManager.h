@@ -68,6 +68,8 @@
 
 -(NSString*)getCustomerName:(NSString*)inCustomerId;
 
+-(NSString*)getCustomerPic:(NSString*)inCustomerId;
+
 -(NSString*)getIncubeeName:(NSString*)inIncubeeId;
 
 
