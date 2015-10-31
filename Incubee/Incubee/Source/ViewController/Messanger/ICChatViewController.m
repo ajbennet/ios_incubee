@@ -105,11 +105,14 @@
     
     NSString *msg = mg.body;
     
-//    CGSize size = [msg sizeWithAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Lato-regular" size:17.0f]}];
-    
-    CGSize size = [msg sizeWithFont:[UIFont fontWithName:@"Lato-regular" size:17.0f] constrainedToSize:CGSizeMake(tableView.frame.size.width/2, 1024) lineBreakMode:NSLineBreakByWordWrapping];
+    float hIs = [msg
+     boundingRectWithSize:CGSizeMake(tableView.frame.size.width/2, 1024)
+     options:NSStringDrawingUsesLineFragmentOrigin
+     attributes:@{ NSFontAttributeName:[UIFont fontWithName:@"Lato-regular" size:17.0f] }
+     context:nil]
+    .size.height;
 
-    return size.height + 30;
+    return hIs + 30;
 
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -178,13 +181,14 @@
 #pragma mark - Private -
 
 -(void)setupTitleView{
+    
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300.0f, 40.0f)];
+    
+    titleView.backgroundColor = [UIColor clearColor];
 
-    CGRect r = self.navigationController.navigationItem.titleView.frame;
     
-    NSLog(@"TitleView : %@",NSStringFromCGRect(r));
     
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 40.0f)];
-    
+    // Title Image
     UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40.0f, 40.0f)];
     
     titleImage.backgroundColor = [UIColor clearColor];
@@ -195,8 +199,19 @@
 
     [titleView addSubview:titleImage];
     
-    UILabel *titLable = [[UILabel alloc] initWithFrame:CGRectMake(40.0f, 0, 160.0f, 40.0f)];
     
+    
+    // TitleLable
+    UILabel *titLable = [[UILabel alloc] initWithFrame:CGRectZero];
+
+    [titLable setFont:[UIFont fontWithName:@"Lato-regular" size:20.0f]];
+    
+    [titLable setTextAlignment:NSTextAlignmentCenter];
+    
+    [titLable setTextColor:[[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"]];
+    
+    [titleView addSubview:titLable];
+
     if(_chatMode==CHAT_VIEW_CUSTOMER_TO_FOUNDER)
     {
         titLable.text = [[ICDataManager sharedInstance] getIncubeeName:_to];
@@ -213,27 +228,37 @@
     }
     else if(_chatMode==CHAT_VIEW_FOUNDER_TO_CUSTOMER)
     {
-
         titLable.text = [[ICDataManager sharedInstance] getCustomerName:_to];
         
         if([[ICDataManager sharedInstance] getCustomerPic:_to]==nil)
         {
             [titleImage setImage:[UIImage imageNamed:@"person_silhouette"]];
         }
-        else{
-        [titleImage setImage:[UIImage imageWithData:[[ICImageStore sharedInstance] getImage:[[ICDataManager sharedInstance] getCustomerPic:_to]]]];
+        else
+        {
+        
+            [titleImage setImage:[UIImage imageWithData:[[ICImageStore sharedInstance] getImage:[[ICDataManager sharedInstance] getCustomerPic:_to]]]];
         }
         
     }
     
+    CGSize lableSize = titLable.intrinsicContentSize;
+    
+    if (lableSize.width>=260) {
 
-    [titLable setTextAlignment:NSTextAlignmentCenter];
+        [titLable setFrame:CGRectMake(40.0f, 0, 260.0f, 40.0f)];
+    }
+    else
+    {
+        float diff = 300 - (lableSize.width+40.0f);
+        
+        [titleImage setFrame:CGRectMake(diff/2, 0, 40.0f, 40.0f)];
+        
+        [titLable setFrame:CGRectMake((diff/2)+40.0f+2.0f, 0.0f, lableSize.width,40.0f)];
     
-    [titLable setTextColor:[[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"]];
+    }
+          
     
-    [titleView addSubview:titLable];
-    
-    titleView.backgroundColor = [UIColor clearColor];
     
     self.navigationItem.titleView = titleView;
     

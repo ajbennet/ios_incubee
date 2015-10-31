@@ -741,9 +741,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomerTableViewCellIdentifier" rowHeight="80" id="FV5-vN-rsf" customClass="ICCustomerChatTableViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="81" width="568" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FV5-vN-rsf" id="DQR-nT-TrE">
+                                            <rect key="frame" x="0.0" y="0.0" width="568" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zm2-x6-oHX" customClass="ICImageView">
@@ -1100,9 +1101,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="20" width="600" height="740"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="i2X-TR-mam" id="fxF-97-fkl"/>
                                     <outlet property="delegate" destination="i2X-TR-mam" id="a6U-ri-UBx"/>
@@ -1177,8 +1175,7 @@
                                         <exclude reference="ppw-SZ-ZLB"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="760" width="600" height="40"/>
+                                <variation key="heightClass=regular">
                                     <mask key="subviews">
                                         <include reference="T2l-Fr-EpV"/>
                                         <include reference="NxX-F5-0fH"/>
