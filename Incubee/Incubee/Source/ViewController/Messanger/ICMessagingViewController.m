@@ -197,6 +197,14 @@
     [self loadAndRefreshUI];
 
 }
+
+-(void)viewWillDisappear:(BOOL)animated{
+
+    [super viewWillDisappear:animated];
+    
+    self.title = @"";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

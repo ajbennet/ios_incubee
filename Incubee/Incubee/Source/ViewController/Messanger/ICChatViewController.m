@@ -182,14 +182,14 @@
 
 -(void)setupTitleView{
     
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300.0f, 40.0f)];
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250.0f, 40.0f)];
     
     titleView.backgroundColor = [UIColor clearColor];
 
     
     
     // Title Image
-    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40.0f, 40.0f)];
+    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(2, 2, 36.0f, 36.0f)];
     
     titleImage.backgroundColor = [UIColor clearColor];
     
@@ -244,15 +244,15 @@
     
     CGSize lableSize = titLable.intrinsicContentSize;
     
-    if (lableSize.width>=260) {
+    if (lableSize.width>=210) {
 
-        [titLable setFrame:CGRectMake(40.0f, 0, 260.0f, 40.0f)];
+        [titLable setFrame:CGRectMake(40.0f, 0, 210.0f, 40.0f)];
     }
     else
     {
-        float diff = 300 - (lableSize.width+40.0f);
+        float diff = 250 - (lableSize.width+40.0f);
         
-        [titleImage setFrame:CGRectMake(diff/2, 0, 40.0f, 40.0f)];
+        [titleImage setFrame:CGRectMake((diff/2)+2, 2, 36.0f, 36.0f)];
         
         [titLable setFrame:CGRectMake((diff/2)+40.0f+2.0f, 0.0f, lableSize.width,40.0f)];
     

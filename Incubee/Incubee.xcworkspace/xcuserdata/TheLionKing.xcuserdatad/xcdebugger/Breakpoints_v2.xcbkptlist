@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Messanger/ICChatViewController.m"
-            timestampString = "467898987.29953"
+            timestampString = "467900142.635474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Messanger/ICChatViewController.m"
-            timestampString = "467898987.29953"
+            timestampString = "467900142.635474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "-sendButtonTapped:"
             landmarkType = "5">
          </BreakpointContent>
@@ -538,11 +538,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Messanger/ICMessagingViewController.m"
-            timestampString = "467894549.682096"
+            timestampString = "468049756.409469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "458"
-            endingLineNumber = "458"
+            startingLineNumber = "466"
+            endingLineNumber = "466"
             landmarkName = "-setupSegment"
             landmarkType = "5">
          </BreakpointContent>
@@ -554,11 +554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Messanger/ICMessagingViewController.m"
-            timestampString = "467894549.682096"
+            timestampString = "468049756.409469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "517"
-            endingLineNumber = "517"
+            startingLineNumber = "525"
+            endingLineNumber = "525"
             landmarkName = "-segmentBarValueChanged:"
             landmarkType = "5">
          </BreakpointContent>
@@ -582,31 +582,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Incubee/Source/OperationManagers/ICUserAccountManager.m"
-            timestampString = "463075729.881783"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "-customerSyncIncubee:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Messanger/ICMessagingViewController.m"
-            timestampString = "467894549.682096"
+            timestampString = "468049756.409469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -618,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Messanger/ICMessagingViewController.m"
-            timestampString = "467894549.682096"
+            timestampString = "468049756.409469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -634,27 +618,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Messanger/ICMessagingViewController.m"
-            timestampString = "467894549.682096"
+            timestampString = "468049756.409469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Incubee/Source/ViewController/Messanger/ICMessagingViewController.m"
-            timestampString = "467894549.682096"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -742,7 +710,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/Data Module/ICDataManager+DataSaving.m"
@@ -758,7 +726,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/OperationManagers/ICAppManager+Networking.m"
@@ -768,6 +736,22 @@
             startingLineNumber = "212"
             endingLineNumber = "212"
             landmarkName = "-getCustomerDetails:withRequest:notifyTo:forSelector:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Incubee/Source/ViewController/Messanger/ICChatViewController.m"
+            timestampString = "467956985.826229"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "-setupTitleView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -73,7 +73,7 @@ static ICMessengerManager *sharedMessengerInstance = nil;
     {
         _yetUpdatedUI = YES;
         
-        _yetToUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(updateUI) userInfo:nil repeats:NO];
+        _yetToUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateUI) userInfo:nil repeats:NO];
     }
     
 }
