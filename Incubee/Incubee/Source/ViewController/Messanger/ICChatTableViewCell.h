@@ -19,9 +19,11 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *incomingChatLable;
 
+@property (strong, nonatomic) IBOutlet UILabel *incomingDateLable;
 
 @property (strong, nonatomic) IBOutlet UIView *outgoingView;
 @property (strong, nonatomic) IBOutlet UIImageView *outgoingBubbleImageView;
+@property (strong, nonatomic) IBOutlet UILabel *outgoingDateLable;
 
 @property (strong, nonatomic) IBOutlet UILabel *outgoingChatLable;
 @property(nonatomic,strong)Messages *message;

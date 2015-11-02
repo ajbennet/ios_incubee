@@ -8,6 +8,7 @@
 
 #import "ICChatTableViewCell.h"
 #import "Messages.h"
+#import "PPDateManager.h"
 
 @implementation ICChatTableViewCell
 
@@ -48,6 +49,13 @@
         UIImage *im  = [[UIImage imageNamed:@"OutgoingChatBubble"] stretchableImageWithLeftCapWidth:5 topCapHeight:13];
 
         _outgoingBubbleImageView.image = im;
+        
+        
+        [NSTimeZone localTimeZone];
+        
+        float timesoneOffset = ([[NSTimeZone systemTimeZone] secondsFromGMT]/3600.0);
+        
+        _outgoingDateLable.text = [[PPDateManager sharedInstance] convertDateToString:_message.stime withDateFormatterStyle:@"hh:mm" andOffset:timesoneOffset];
     }
     else
     {
@@ -61,6 +69,12 @@
         UIImage *im  = [[UIImage imageNamed:@"IncomingChatBubble"] stretchableImageWithLeftCapWidth:15 topCapHeight:13];
         
         _incomingBubbleImageView.image = im;
+        
+        [NSTimeZone localTimeZone];
+        
+        float timesoneOffset = ([[NSTimeZone systemTimeZone] secondsFromGMT]/3600.0);
+// hh:mm:ss a dd/MMM/yyyy
+        _incomingDateLable.text = [[PPDateManager sharedInstance] convertDateToString:_message.stime withDateFormatterStyle:@"hh:mm" andOffset:timesoneOffset];
     }
     
 }

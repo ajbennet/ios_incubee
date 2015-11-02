@@ -112,7 +112,7 @@
      context:nil]
     .size.height;
 
-    return hIs + 30;
+    return hIs + 50;
 
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

@@ -56,6 +56,7 @@
 		57C98C471B5129DD002F6E81 /* ICUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C98C461B5129DD002F6E81 /* ICUtilityManager.m */; };
 		57D52CC11B581DEE008EA1E5 /* ICUserAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D52CC01B581DEE008EA1E5 /* ICUserAccountManager.m */; };
 		57E724E61B4063E90066C0A5 /* ICImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E724E51B4063E90066C0A5 /* ICImageManager.m */; };
+		58009CA91BE725480041AEBF /* PPDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58009CA81BE725480041AEBF /* PPDateManager.m */; settings = {ASSET_TAGS = (); }; };
 		5808FD8F1B8E23920053451A /* ICMessengerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5808FD8E1B8E23920053451A /* ICMessengerManager.m */; };
 		583C9B321B8F882600A1FF1E /* ICBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C9B311B8F882600A1FF1E /* ICBaseViewController.m */; };
 		5864EB631B86434C00091C94 /* ICChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB621B86434C00091C94 /* ICChatViewController.m */; };
@@ -161,6 +162,8 @@
 		57D52CC01B581DEE008EA1E5 /* ICUserAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICUserAccountManager.m; path = Source/OperationManagers/ICUserAccountManager.m; sourceTree = "<group>"; };
 		57E724E41B4063E90066C0A5 /* ICImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICImageManager.h; path = Source/OperationManagers/ICImageManager.h; sourceTree = "<group>"; };
 		57E724E51B4063E90066C0A5 /* ICImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICImageManager.m; path = Source/OperationManagers/ICImageManager.m; sourceTree = "<group>"; };
+		58009CA71BE725480041AEBF /* PPDateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPDateManager.h; path = Source/OperationManagers/PPDateManager.h; sourceTree = "<group>"; };
+		58009CA81BE725480041AEBF /* PPDateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPDateManager.m; path = Source/OperationManagers/PPDateManager.m; sourceTree = "<group>"; };
 		5808FD8D1B8E23920053451A /* ICMessengerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICMessengerManager.h; path = Source/OperationManagers/ICMessengerManager.h; sourceTree = "<group>"; };
 		5808FD8E1B8E23920053451A /* ICMessengerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICMessengerManager.m; path = Source/OperationManagers/ICMessengerManager.m; sourceTree = "<group>"; };
 		580954C31B91FD8E00660B25 /* ICNetworkConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICNetworkConstant.h; path = "Source/Network Module/ICNetworkConstant.h"; sourceTree = "<group>"; };
@@ -390,6 +393,8 @@
 		5780CB181B3E85EF0090ADCE /* OperationsManager */ = {
 			isa = PBXGroup;
 			children = (
+				58009CA71BE725480041AEBF /* PPDateManager.h */,
+				58009CA81BE725480041AEBF /* PPDateManager.m */,
 				5780CB191B3E86490090ADCE /* ICAppManager.h */,
 				5780CB1A1B3E86490090ADCE /* ICAppManager.m */,
 				5780CB1C1B3E86BD0090ADCE /* ICAppManager+Networking.h */,
@@ -691,6 +696,7 @@
 			files = (
 				576C4DC11B3F1402008AA2EB /* ICIncubeeLoginViewController.m in Sources */,
 				570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */,
+				58009CA91BE725480041AEBF /* PPDateManager.m in Sources */,
 				5780CB0E1B3E83740090ADCE /* ICDataManager.m in Sources */,
 				57E724E61B4063E90066C0A5 /* ICImageManager.m in Sources */,
 				57D52CC11B581DEE008EA1E5 /* ICUserAccountManager.m in Sources */,
