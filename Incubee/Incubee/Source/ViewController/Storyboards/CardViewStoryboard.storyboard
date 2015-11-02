@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -108,11 +109,6 @@
                                                         <exclude reference="Ppa-fa-xqr"/>
                                                         <exclude reference="gbM-GH-jDk"/>
                                                         <exclude reference="w0a-Ew-kUB"/>
-                                                        <exclude reference="Yrg-MQ-mVT"/>
-                                                        <exclude reference="h6h-Xl-EOo"/>
-                                                        <exclude reference="nE8-Wi-hxo"/>
-                                                        <exclude reference="npX-hg-wDx"/>
-                                                        <exclude reference="zM9-la-Hez"/>
                                                         <exclude reference="5cT-V7-foA"/>
                                                         <exclude reference="Jft-bb-z7v"/>
                                                         <exclude reference="LAd-sS-5DC"/>
@@ -121,6 +117,11 @@
                                                         <exclude reference="MKp-x2-KOl"/>
                                                         <exclude reference="Ote-Wc-MPn"/>
                                                         <exclude reference="aNU-6I-ncR"/>
+                                                        <exclude reference="Yrg-MQ-mVT"/>
+                                                        <exclude reference="h6h-Xl-EOo"/>
+                                                        <exclude reference="nE8-Wi-hxo"/>
+                                                        <exclude reference="npX-hg-wDx"/>
+                                                        <exclude reference="zM9-la-Hez"/>
                                                     </mask>
                                                 </variation>
                                                 <variation key="heightClass=regular">
@@ -140,11 +141,6 @@
                                                         <include reference="Ppa-fa-xqr"/>
                                                         <include reference="gbM-GH-jDk"/>
                                                         <include reference="w0a-Ew-kUB"/>
-                                                        <include reference="Yrg-MQ-mVT"/>
-                                                        <include reference="h6h-Xl-EOo"/>
-                                                        <include reference="nE8-Wi-hxo"/>
-                                                        <include reference="npX-hg-wDx"/>
-                                                        <exclude reference="zM9-la-Hez"/>
                                                         <include reference="5cT-V7-foA"/>
                                                         <include reference="Jft-bb-z7v"/>
                                                         <include reference="LAd-sS-5DC"/>
@@ -153,12 +149,17 @@
                                                         <include reference="MKp-x2-KOl"/>
                                                         <include reference="Ote-Wc-MPn"/>
                                                         <include reference="aNU-6I-ncR"/>
+                                                        <include reference="Yrg-MQ-mVT"/>
+                                                        <include reference="h6h-Xl-EOo"/>
+                                                        <include reference="nE8-Wi-hxo"/>
+                                                        <include reference="npX-hg-wDx"/>
+                                                        <exclude reference="zM9-la-Hez"/>
                                                     </mask>
                                                 </variation>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNE-hM-UfM" userLabel="MoviePlayerView">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.58039218189999997" green="0.043137256059999997" blue="0.039215687659999998" alpha="1" colorSpace="deviceRGB"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

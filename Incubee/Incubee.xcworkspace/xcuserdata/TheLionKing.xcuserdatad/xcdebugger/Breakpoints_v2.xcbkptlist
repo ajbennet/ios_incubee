@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/ViewController/Home/ICCardViewController.m"
-            timestampString = "461005738.231716"
+            timestampString = "468130535.425538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "-setIncubee:"
             landmarkType = "5">
          </BreakpointContent>
@@ -752,6 +752,22 @@
             startingLineNumber = "245"
             endingLineNumber = "245"
             landmarkName = "-setupTitleView"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Incubee/Source/ViewController/Home/ICCardViewController.m"
+            timestampString = "468129681.620077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "-showMovie"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

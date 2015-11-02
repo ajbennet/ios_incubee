@@ -258,10 +258,35 @@
                                      multiplier:1.0
                                      constant:0];
         
+        
+        NSLayoutConstraint *topConstr = [NSLayoutConstraint
+                                         constraintWithItem:_moviePlayer.view
+                                         attribute:NSLayoutAttributeTop
+                                         relatedBy:0
+                                         toItem:_moviePlayerView
+                                         attribute:NSLayoutAttributeTop
+                                         multiplier:1.0
+                                         constant:0.0];
+        
+        NSLayoutConstraint *bottomConstr = [NSLayoutConstraint
+                                         constraintWithItem:_moviePlayer.view
+                                         attribute:NSLayoutAttributeBottom
+                                         relatedBy:0
+                                         toItem:_moviePlayerView
+                                         attribute:NSLayoutAttributeBottom
+                                         multiplier:1.0
+                                         constant:0.0];
+        
         [_moviePlayerView addConstraint:width];
         
         [_moviePlayerView addConstraint:height];
+        [_moviePlayerView addConstraint:topConstr];
+        [_moviePlayerView addConstraint:bottomConstr];
         
+        [_moviePlayerView layoutIfNeeded];
+        
+        [_moviePlayer.view layoutIfNeeded];
+
         _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
         
         _moviePlayer.shouldAutoplay = NO;
