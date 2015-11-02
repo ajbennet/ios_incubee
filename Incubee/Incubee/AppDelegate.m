@@ -104,4 +104,9 @@ didDisconnectWithUser:(GIDGoogleUser *)user
     // ...
 }
 
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window  {
+    
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 @end
