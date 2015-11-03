@@ -54,6 +54,7 @@
     
     _chatArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getMessages:_to]];
     
+    NSLog(@"%@",_chatArray);
     [_chatTableView reloadData];
 
     _chatTableView.contentOffset = CGPointMake(0, 0);

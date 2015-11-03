@@ -55,7 +55,7 @@
         
         float timesoneOffset = ([[NSTimeZone systemTimeZone] secondsFromGMT]/3600.0);
         
-        _outgoingDateLable.text = [[PPDateManager sharedInstance] convertDateToString:_message.stime withDateFormatterStyle:@"hh:mm" andOffset:timesoneOffset];
+        _outgoingDateLable.text = [[PPDateManager sharedInstance] convertDateToString:_message.stime withDateFormatterStyle:@"hh:mm:ss a dd/MMM/yyyy" andOffset:timesoneOffset];
     }
     else
     {
@@ -74,7 +74,7 @@
         
         float timesoneOffset = ([[NSTimeZone systemTimeZone] secondsFromGMT]/3600.0);
 // hh:mm:ss a dd/MMM/yyyy
-        _incomingDateLable.text = [[PPDateManager sharedInstance] convertDateToString:_message.stime withDateFormatterStyle:@"hh:mm" andOffset:timesoneOffset];
+        _incomingDateLable.text = [[PPDateManager sharedInstance] convertDateToString:_message.stime withDateFormatterStyle:@"hh:mm:ss a dd/MMM/yyyy" andOffset:timesoneOffset];
     }
     
 }

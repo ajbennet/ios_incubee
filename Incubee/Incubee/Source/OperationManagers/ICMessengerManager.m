@@ -116,13 +116,16 @@ static ICMessengerManager *sharedMessengerInstance = nil;
     {
         Customer *aCustomer =  [allCustomer objectAtIndex:i];
         
-        if(i+1 == allCustomer.count)
+        if(aCustomer.userName==nil)
         {
-            [[ICAppManager sharedInstance] getCustomerDetails:aCustomer.userId withRequest:nil notifyTo:self forSelector:nil];
-        }
-        else
-        {
-           [[ICAppManager sharedInstance] getCustomerDetails:aCustomer.userId withRequest:nil notifyTo:self forSelector:@selector(allCustomerDetailRetrived:)];
+            if(i+1 == allCustomer.count)
+            {
+                [[ICAppManager sharedInstance] getCustomerDetails:aCustomer.userId withRequest:nil notifyTo:self forSelector:nil];
+            }
+            else
+            {
+                [[ICAppManager sharedInstance] getCustomerDetails:aCustomer.userId withRequest:nil notifyTo:self forSelector:@selector(allCustomerDetailRetrived:)];
+            }
         }
     }
 

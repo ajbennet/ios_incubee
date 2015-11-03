@@ -551,7 +551,11 @@ static ICDataManager *sharedDataManagerInstance = nil;
         NSPredicate *prd = [NSPredicate predicateWithFormat:@"(to LIKE %@)",inMsgId];
         
         [request setPredicate:prd];
-
+        
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"stime" ascending:YES];
+        
+        [request setSortDescriptors:@[sortDescriptor]];
+        
         NSError *error = nil;
         
         NSArray *objects = [context executeFetchRequest:request error:&error];
@@ -645,10 +649,6 @@ static ICDataManager *sharedDataManagerInstance = nil;
             }
 
             aCustomer.userId = userId;
-
-            aCustomer.userName = nil;
-            
-            aCustomer.imageUrl = nil;
             
         }
 
@@ -708,8 +708,8 @@ static ICDataManager *sharedDataManagerInstance = nil;
             
             NSNumber *nTime = [NSNumber numberWithLongLong:[[aDic valueForKey:@"time"] longLongValue]];
             NSNumber *nsTime = [NSNumber numberWithLongLong:[[aDic valueForKey:@"stime"] longLongValue]] ;
-            aMessage.time = [NSDate dateWithTimeIntervalSince1970:nTime.doubleValue];
-            aMessage.stime = [NSDate dateWithTimeIntervalSince1970:nsTime.doubleValue];
+            aMessage.time = [NSDate dateWithTimeIntervalSince1970:(nTime.doubleValue)/1000];
+            aMessage.stime = [NSDate dateWithTimeIntervalSince1970:(nsTime.doubleValue)/1000];
             
             aMessage.status = NULL_TO_NIL([aDic objectForKey:@"status"]);
             aMessage.name = NULL_TO_NIL([aDic objectForKey:@"name"]);
