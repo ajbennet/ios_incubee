@@ -213,7 +213,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+    
     [self setupSegment];
     
     [self loadAndRefreshUI];
@@ -287,7 +287,11 @@
                     cell = [[ProjectTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PROJECT_TABLEVIEW_CELL];
                 }
                 
-                [cell setIncubee:[_projectArray objectAtIndex:indexPath.row]];
+                NSDictionary *d = [_projectArray objectAtIndex:indexPath.row];
+                
+                Incubee *incu = [d objectForKey:@"CHAT_INCUBEE"];
+                
+                [cell setIncubee:incu];
                 
                 // Configure the cell...
                 
@@ -330,7 +334,14 @@
                 cell = [[ProjectTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PROJECT_TABLEVIEW_CELL];
             }
             
-            [cell setIncubee:[_projectArray objectAtIndex:indexPath.row]];
+            NSDictionary *d = [_projectArray objectAtIndex:indexPath.row];
+            
+            Incubee *incu = [d objectForKey:@"CHAT_INCUBEE"];
+            
+            [cell setIncubee:incu];
+
+            
+//            [cell setIncubee:[_projectArray objectAtIndex:indexPath.row]];
             
             // Configure the cell...
             
@@ -364,7 +375,9 @@
         switch (_segmentController.selectedSegmentIndex) {
             case 0:
             {
-                Incubee *prIncubee =  [_projectArray objectAtIndex:indexPath.row];
+                NSDictionary *d = [_projectArray objectAtIndex:indexPath.row];
+                
+                Incubee *prIncubee = [d objectForKey:@"CHAT_INCUBEE"];
                 
                 toChat = prIncubee.incubeeId;
                 
@@ -395,8 +408,9 @@
     else
     {
         {
+            NSDictionary *d = [_projectArray objectAtIndex:indexPath.row];
             
-            Incubee *prIncubee =  [_projectArray objectAtIndex:indexPath.row];
+            Incubee *prIncubee = [d objectForKey:@"CHAT_INCUBEE"];
             
             toChat = prIncubee.incubeeId;
             
@@ -480,7 +494,6 @@
         _savedProjectLable.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
         
         _savedProjectLable.layer.cornerRadius = 5.0f;
-
         
         _savedProjectLable.hidden = NO;
         
@@ -496,7 +509,8 @@
         switch (_segmentController.selectedSegmentIndex) {
             case 0:
                 
-                _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getFollowedProjects]];
+//                _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getFollowedProjects]];
+                _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getAllSavedIncubeeChatArray]];
                 
                 break;
                 
@@ -513,7 +527,8 @@
     }
     else
     {
-        _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getFollowedProjects]];
+//        _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getFollowedProjects]];
+        _projectArray = [[NSMutableArray alloc] initWithArray:[[ICDataManager sharedInstance] getAllSavedIncubeeChatArray]];
     }
     
     [_projectTableView reloadData];

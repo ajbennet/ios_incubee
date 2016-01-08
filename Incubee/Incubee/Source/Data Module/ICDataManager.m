@@ -146,6 +146,8 @@ static ICDataManager *sharedDataManagerInstance = nil;
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark - Incubee -
+
 -(void)followProject:(NSString*)incubeeId{
 
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -375,6 +377,63 @@ static ICDataManager *sharedDataManagerInstance = nil;
     return nil;
 
 
+}
+
+-(int)getIncubeeUnreadCount:(NSString*)incubeeId{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"Messages" inManagedObjectContext:context]];
+        
+        NSPredicate *prd = [NSPredicate predicateWithFormat:@"((to LIKE %@) AND (status LIKE %@) AND (dir LIKE %@))",incubeeId,@"NEW",@"I"];
+        
+        [request setPredicate:prd];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+
+        if (results && [results count] > 0)
+        {
+            return ((int)results.count);
+        }
+    }
+    
+    return 0;
+    
+}
+
+-(Incubee*)getIncubee:(NSString*)incubeeId{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"Incubee" inManagedObjectContext:context]];
+        
+        NSPredicate *prd = [NSPredicate predicateWithFormat:@"(incubeeId LIKE %@)",incubeeId];
+        
+        [request setPredicate:prd];
+
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        if (results && [results count] > 0)
+        {
+            Incubee *aIncubee = [results objectAtIndex:0];
+            
+            return aIncubee;
+        }
+    }
+
+    return nil;
 }
 
 #pragma mark - User -
@@ -888,6 +947,50 @@ static ICDataManager *sharedDataManagerInstance = nil;
     
     return nil;
     
+}
+
+-(NSArray*)getAllSavedIncubeeChatArray{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"Messages" inManagedObjectContext:context]];
+        
+        NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K BEGINSWITH[cd] %@",@"to",@"inc"];
+        
+        [request setPredicate:pre];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        if (results && [results count] > 0)
+        {
+            NSMutableArray *chatArray = [[NSMutableArray alloc]init];
+            
+            NSSet *onGoingChatIncubee = [NSSet setWithArray:[results valueForKey:@"to"]];
+            
+            for(NSString *incubeeChat in onGoingChatIncubee)
+            {
+                Incubee *incubee = [self getIncubee:incubeeChat];
+                
+                int newCount = [self getIncubeeUnreadCount:incubeeChat];
+                
+                NSDictionary *chatDic = [[NSDictionary alloc] initWithObjectsAndKeys:incubee,@"CHAT_INCUBEE",[NSNumber numberWithInt:newCount],@"CHAT_COUNT",nil];
+                
+                [chatArray addObject:chatDic];
+            }
+            
+            return chatArray;
+            
+        }
+        
+    }
+    return nil;
+
 }
 
 -(NSString*)getIncubeeImageUrl:(NSString*)inIncubeeId{

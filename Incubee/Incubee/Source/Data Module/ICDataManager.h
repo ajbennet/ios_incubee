@@ -72,5 +72,5 @@
 
 -(NSString*)getIncubeeName:(NSString*)inIncubeeId;
 
-
+-(NSArray*)getAllSavedIncubeeChatArray;
 @end
