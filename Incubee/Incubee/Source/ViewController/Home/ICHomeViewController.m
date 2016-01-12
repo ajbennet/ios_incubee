@@ -16,7 +16,9 @@
 #import "ICMessengerManager.h"
 
 
-@interface ICHomeViewController ()
+@interface ICHomeViewController (Private)
+
+-(void)showLoginScreen;
 
 @end
 
@@ -845,18 +847,5 @@
     
 }
 
-#pragma mark - Login Screen -
-
--(void)showLoginScreen{
-    
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ICLoginViewController" bundle:nil];
-    
-    UINavigationController *loginNavigationController = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationStoryBoard"];
-    
-    loginNavigationController.modalPresentationStyle = UIModalPresentationCustom;
-    
-    [self presentViewController:loginNavigationController animated:YES completion:nil];
-    
-}
 
 @end

@@ -56,22 +56,25 @@
 		57C98C471B5129DD002F6E81 /* ICUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C98C461B5129DD002F6E81 /* ICUtilityManager.m */; };
 		57D52CC11B581DEE008EA1E5 /* ICUserAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D52CC01B581DEE008EA1E5 /* ICUserAccountManager.m */; };
 		57E724E61B4063E90066C0A5 /* ICImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E724E51B4063E90066C0A5 /* ICImageManager.m */; };
-		58009CA91BE725480041AEBF /* PPDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58009CA81BE725480041AEBF /* PPDateManager.m */; settings = {ASSET_TAGS = (); }; };
+		58009CA91BE725480041AEBF /* PPDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58009CA81BE725480041AEBF /* PPDateManager.m */; };
 		5808FD8F1B8E23920053451A /* ICMessengerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5808FD8E1B8E23920053451A /* ICMessengerManager.m */; };
 		583C9B321B8F882600A1FF1E /* ICBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C9B311B8F882600A1FF1E /* ICBaseViewController.m */; };
+		584513B61C456C68006867A4 /* AppContainerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 584513B51C456C68006867A4 /* AppContainerStoryboard.storyboard */; };
+		584513B91C456C92006867A4 /* ICAppContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584513B81C456C92006867A4 /* ICAppContainerViewController.m */; };
+		584513BD1C456E3B006867A4 /* ICInvestorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584513BC1C456E3B006867A4 /* ICInvestorViewController.m */; };
 		5864EB631B86434C00091C94 /* ICChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB621B86434C00091C94 /* ICChatViewController.m */; };
 		5864EB721B86490B00091C94 /* ICChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB711B86490B00091C94 /* ICChatTableViewCell.m */; };
 		58BD4A191B6CA28C00EC85C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58BD4A181B6CA28C00EC85C4 /* GoogleService-Info.plist */; };
-		58C645181BDCA81C00BBA9FA /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645051BDCA81C00BBA9FA /* User+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		58C645191BDCA81C00BBA9FA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645071BDCA81C00BBA9FA /* User.m */; settings = {ASSET_TAGS = (); }; };
-		58C6451A1BDCA81C00BBA9FA /* Incubee+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645091BDCA81C00BBA9FA /* Incubee+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		58C6451B1BDCA81C00BBA9FA /* Incubee.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C6450B1BDCA81C00BBA9FA /* Incubee.m */; settings = {ASSET_TAGS = (); }; };
-		58C6451C1BDCA81C00BBA9FA /* Customer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C6450D1BDCA81C00BBA9FA /* Customer+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		58C6451D1BDCA81C00BBA9FA /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C6450F1BDCA81C00BBA9FA /* Customer.m */; settings = {ASSET_TAGS = (); }; };
-		58C6451E1BDCA81C00BBA9FA /* Messages+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645111BDCA81C00BBA9FA /* Messages+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		58C6451F1BDCA81C00BBA9FA /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645131BDCA81C00BBA9FA /* Messages.m */; settings = {ASSET_TAGS = (); }; };
-		58C645201BDCA81C00BBA9FA /* IncubeeImage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645151BDCA81C00BBA9FA /* IncubeeImage+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		58C645211BDCA81C00BBA9FA /* IncubeeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645171BDCA81C00BBA9FA /* IncubeeImage.m */; settings = {ASSET_TAGS = (); }; };
+		58C645181BDCA81C00BBA9FA /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645051BDCA81C00BBA9FA /* User+CoreDataProperties.m */; };
+		58C645191BDCA81C00BBA9FA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645071BDCA81C00BBA9FA /* User.m */; };
+		58C6451A1BDCA81C00BBA9FA /* Incubee+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645091BDCA81C00BBA9FA /* Incubee+CoreDataProperties.m */; };
+		58C6451B1BDCA81C00BBA9FA /* Incubee.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C6450B1BDCA81C00BBA9FA /* Incubee.m */; };
+		58C6451C1BDCA81C00BBA9FA /* Customer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C6450D1BDCA81C00BBA9FA /* Customer+CoreDataProperties.m */; };
+		58C6451D1BDCA81C00BBA9FA /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C6450F1BDCA81C00BBA9FA /* Customer.m */; };
+		58C6451E1BDCA81C00BBA9FA /* Messages+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645111BDCA81C00BBA9FA /* Messages+CoreDataProperties.m */; };
+		58C6451F1BDCA81C00BBA9FA /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645131BDCA81C00BBA9FA /* Messages.m */; };
+		58C645201BDCA81C00BBA9FA /* IncubeeImage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645151BDCA81C00BBA9FA /* IncubeeImage+CoreDataProperties.m */; };
+		58C645211BDCA81C00BBA9FA /* IncubeeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C645171BDCA81C00BBA9FA /* IncubeeImage.m */; };
 		930CB1D550C9E950F61E556D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB03A56CF3D54AE87702E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -169,6 +172,11 @@
 		580954C31B91FD8E00660B25 /* ICNetworkConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICNetworkConstant.h; path = "Source/Network Module/ICNetworkConstant.h"; sourceTree = "<group>"; };
 		583C9B301B8F882600A1FF1E /* ICBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICBaseViewController.h; path = Source/ViewController/ICBaseViewController.h; sourceTree = "<group>"; };
 		583C9B311B8F882600A1FF1E /* ICBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICBaseViewController.m; path = Source/ViewController/ICBaseViewController.m; sourceTree = "<group>"; };
+		584513B51C456C68006867A4 /* AppContainerStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AppContainerStoryboard.storyboard; path = Source/ViewController/Storyboards/AppContainerStoryboard.storyboard; sourceTree = "<group>"; };
+		584513B71C456C92006867A4 /* ICAppContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICAppContainerViewController.h; path = Source/ViewController/ICAppContainerViewController.h; sourceTree = "<group>"; };
+		584513B81C456C92006867A4 /* ICAppContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICAppContainerViewController.m; path = Source/ViewController/ICAppContainerViewController.m; sourceTree = "<group>"; };
+		584513BB1C456E3B006867A4 /* ICInvestorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICInvestorViewController.h; path = Source/ViewController/Investor/ICInvestorViewController.h; sourceTree = "<group>"; };
+		584513BC1C456E3B006867A4 /* ICInvestorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICInvestorViewController.m; path = Source/ViewController/Investor/ICInvestorViewController.m; sourceTree = "<group>"; };
 		5864EB611B86434C00091C94 /* ICChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICChatViewController.h; path = Source/ViewController/Messanger/ICChatViewController.h; sourceTree = "<group>"; };
 		5864EB621B86434C00091C94 /* ICChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICChatViewController.m; path = Source/ViewController/Messanger/ICChatViewController.m; sourceTree = "<group>"; };
 		5864EB701B86490B00091C94 /* ICChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICChatTableViewCell.h; path = Source/ViewController/Messanger/ICChatTableViewCell.h; sourceTree = "<group>"; };
@@ -316,8 +324,11 @@
 		5780CAEE1B3E819D0090ADCE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				584513B71C456C92006867A4 /* ICAppContainerViewController.h */,
+				584513B81C456C92006867A4 /* ICAppContainerViewController.m */,
 				583C9B301B8F882600A1FF1E /* ICBaseViewController.h */,
 				583C9B311B8F882600A1FF1E /* ICBaseViewController.m */,
+				584513BA1C456E16006867A4 /* Investor */,
 				5780CAF41B3E82F20090ADCE /* Storyboards */,
 				5780CAF31B3E81C60090ADCE /* Search */,
 				5780CAF21B3E81C00090ADCE /* Profile */,
@@ -386,6 +397,7 @@
 				5780CAF61B3E831D0090ADCE /* ICLoginViewController.storyboard */,
 				5780CAF71B3E831D0090ADCE /* LaunchScreen.xib */,
 				5780CAF81B3E831D0090ADCE /* Main.storyboard */,
+				584513B51C456C68006867A4 /* AppContainerStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -498,6 +510,15 @@
 				58C645171BDCA81C00BBA9FA /* IncubeeImage.m */,
 			);
 			name = "Managed Objects";
+			sourceTree = "<group>";
+		};
+		584513BA1C456E16006867A4 /* Investor */ = {
+			isa = PBXGroup;
+			children = (
+				584513BB1C456E3B006867A4 /* ICInvestorViewController.h */,
+				584513BC1C456E3B006867A4 /* ICInvestorViewController.m */,
+			);
+			name = Investor;
 			sourceTree = "<group>";
 		};
 		70B51E13AD9040D6964063DB /* Pods */ = {
@@ -616,6 +637,7 @@
 				579D46921B41B0D200168438 /* Lato-Regular.ttf in Resources */,
 				5780CAF91B3E831D0090ADCE /* CardViewStoryboard.storyboard in Resources */,
 				5780CAFC1B3E831D0090ADCE /* Main.storyboard in Resources */,
+				584513B61C456C68006867A4 /* AppContainerStoryboard.storyboard in Resources */,
 				5780CAFA1B3E831D0090ADCE /* ICLoginViewController.storyboard in Resources */,
 				579D46961B41B0D200168438 /* Lato-ThinItalic.ttf in Resources */,
 				579D46871B41B0D200168438 /* Lato-Bold.ttf in Resources */,
@@ -694,6 +716,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				584513B91C456C92006867A4 /* ICAppContainerViewController.m in Sources */,
 				576C4DC11B3F1402008AA2EB /* ICIncubeeLoginViewController.m in Sources */,
 				570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */,
 				58009CA91BE725480041AEBF /* PPDateManager.m in Sources */,
@@ -712,6 +735,7 @@
 				5780CB051B3E834F0090ADCE /* ICLoginViewController.m in Sources */,
 				58C6451F1BDCA81C00BBA9FA /* Messages.m in Sources */,
 				57C98C471B5129DD002F6E81 /* ICUtilityManager.m in Sources */,
+				584513BD1C456E3B006867A4 /* ICInvestorViewController.m in Sources */,
 				58C645181BDCA81C00BBA9FA /* User+CoreDataProperties.m in Sources */,
 				5780CB391B3E8A250090ADCE /* ICJSONParsingOperations.m in Sources */,
 				58C645211BDCA81C00BBA9FA /* IncubeeImage.m in Sources */,

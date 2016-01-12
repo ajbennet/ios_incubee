@@ -27,34 +27,34 @@
     [[UINavigationBar appearance] setTintColor:[[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"]];
 
     
-    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    UITabBar *tabBar = tabBarController.tabBar;
-    UITabBarItem *tabBarItem1
-    = [tabBar.items objectAtIndex:0];
-    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
-    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
-    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
-    
-    
-    tabBarItem1.selectedImage = [[UIImage imageNamed:@"HomeTabIconSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    tabBarItem1.image = [[UIImage imageNamed:@"HomeTabIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] ;
-    tabBarItem1.title = @"";
-    
-    tabBarItem2.selectedImage = [[UIImage imageNamed:@"SearchTabIconSelected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-    tabBarItem2.image = [[UIImage imageNamed:@"SearchTabIcon"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-    tabBarItem2.title = @"";
-
-    tabBarItem3.selectedImage = [[UIImage imageNamed:@"MsgTabIconSelected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-    tabBarItem3.image = [[UIImage imageNamed:@"MsgTabIcon"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-    tabBarItem3.title = @"";
-    
-    tabBarItem4.selectedImage = [[UIImage imageNamed:@"ProfileTabIconSelected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-    tabBarItem4.image = [[UIImage imageNamed:@"ProfileTabIcon"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-    tabBarItem4.title = @"";
-    tabBarItem1.imageInsets = tabBarItem2.imageInsets = tabBarItem3.imageInsets = tabBarItem4.imageInsets = UIEdgeInsetsMake(12, 0, -12, 0);;
-
-    
-    return YES;
+//    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+//    UITabBar *tabBar = tabBarController.tabBar;
+//    UITabBarItem *tabBarItem1
+//    = [tabBar.items objectAtIndex:0];
+//    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+//    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+//    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+//    
+//    
+//    tabBarItem1.selectedImage = [[UIImage imageNamed:@"HomeTabIconSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    tabBarItem1.image = [[UIImage imageNamed:@"HomeTabIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] ;
+//    tabBarItem1.title = @"";
+//    
+//    tabBarItem2.selectedImage = [[UIImage imageNamed:@"SearchTabIconSelected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+//    tabBarItem2.image = [[UIImage imageNamed:@"SearchTabIcon"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+//    tabBarItem2.title = @"";
+//
+//    tabBarItem3.selectedImage = [[UIImage imageNamed:@"MsgTabIconSelected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+//    tabBarItem3.image = [[UIImage imageNamed:@"MsgTabIcon"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+//    tabBarItem3.title = @"";
+//    
+//    tabBarItem4.selectedImage = [[UIImage imageNamed:@"ProfileTabIconSelected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+//    tabBarItem4.image = [[UIImage imageNamed:@"ProfileTabIcon"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+//    tabBarItem4.title = @"";
+//    tabBarItem1.imageInsets = tabBarItem2.imageInsets = tabBarItem3.imageInsets = tabBarItem4.imageInsets = UIEdgeInsetsMake(12, 0, -12, 0);;
+//
+//    
+//    return YES;
 
      return YES;
 }

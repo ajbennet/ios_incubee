@@ -136,9 +136,12 @@
 
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
-    [viewController dismissViewControllerAnimated:YES completion:nil];
+    [viewController dismissViewControllerAnimated:YES completion:^{
+      
+        [self dismissViewControllerAnimated:YES completion:nil];
 
-    [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+
     
 }
 

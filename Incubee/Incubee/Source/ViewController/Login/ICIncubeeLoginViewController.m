@@ -113,7 +113,8 @@
 // pressed the Sign In button
 - (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error {
     
-    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+
 }
 
 - (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController{

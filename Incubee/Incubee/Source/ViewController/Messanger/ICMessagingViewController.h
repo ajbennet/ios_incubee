@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ICBaseViewController.h"
 
-@interface ICMessagingViewController : UIViewController
+@interface ICMessagingViewController : ICBaseViewController
 
 @property(nonatomic,strong)NSMutableArray *projectArray;
 

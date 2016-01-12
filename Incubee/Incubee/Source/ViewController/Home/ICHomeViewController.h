@@ -11,7 +11,9 @@
 #import "ICRequest.h"
 #import "Incubee.h"
 
-@interface ICHomeViewController : UIViewController <ICCardViewDelegate>{
+#import "ICBaseViewController.h"
+
+@interface ICHomeViewController : ICBaseViewController <ICCardViewDelegate>{
 
     BOOL isFirstTimeLoading;
 }

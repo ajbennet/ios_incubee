@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ICBaseViewController.h"
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : ICBaseViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *versionLable;
 

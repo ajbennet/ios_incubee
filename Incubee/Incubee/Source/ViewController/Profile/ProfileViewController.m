@@ -8,7 +8,9 @@
 
 #import "ProfileViewController.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController (Private)
+
+-(void)showLoginScreen;
 
 @end
 

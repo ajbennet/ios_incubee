@@ -1,20 +1,18 @@
 //
-//  ICBaseViewController.m
+//  ICInvestorViewController.m
 //  Incubee
 //
-//  Created by Rithesh Rao on 27/08/15.
-//  Copyright (c) 2015 Incubee. All rights reserved.
+//  Created by Rithesh Rao on 12/01/16.
+//  Copyright © 2016 Incubee. All rights reserved.
 //
 
-#import "ICBaseViewController.h"
+#import "ICInvestorViewController.h"
 
-@interface ICBaseViewController (Private)
-
-
+@interface ICInvestorViewController ()
 
 @end
 
-@implementation ICBaseViewController
+@implementation ICInvestorViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,12 +33,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-#pragma mark - Login Screen -
-
--(void)showLoginScreen{
-    
-    
-}
 
 @end

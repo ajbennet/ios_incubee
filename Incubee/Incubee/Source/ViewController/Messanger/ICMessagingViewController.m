@@ -182,7 +182,9 @@
 
 @end
 
-@interface ICMessagingViewController ()
+@interface ICMessagingViewController (Private)
+
+-(void)showLoginScreen;
 
 @end
 
