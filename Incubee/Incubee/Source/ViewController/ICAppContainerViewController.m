@@ -18,7 +18,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self checkForUserLogin];
+//    [self checkForUserLogin];
+    
+    
+    UIStoryboard *st = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UITabBarController *controller = [st instantiateViewControllerWithIdentifier:@"TabbarControllerStoryboard"];
+    [self addChildViewController:controller];
+    controller.view.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view addSubview:controller.view];
+    [controller didMoveToParentViewController:self];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,7 +46,7 @@
     
     loginNavigationController.modalPresentationStyle = UIModalPresentationCustom;
     
-    [self presentViewController:loginNavigationController animated:YES completion:nil];
+    [self.navigationController presentViewController:loginNavigationController animated:YES completion:nil];
 }
 
 /*
