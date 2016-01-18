@@ -16,6 +16,8 @@
 #import "ICAppManager.h"
 #import "ICAppManager+Networking.h"
 #import "ICDataManager.h"
+#import "ICUtilityManager.h"
+#import "ICImageManager.h"
 
 
 #endif

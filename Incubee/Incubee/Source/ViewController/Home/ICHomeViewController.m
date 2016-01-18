@@ -33,7 +33,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoginScreen) name:@"ShowLogin" object:nil];
 
-    _projectList = [[ICDataManager sharedInstance] getAllProjects];
+    _projectList = [[ICDataManager sharedInstance] getAllIncubees];
     
     [self setupCards];
     
@@ -800,7 +800,7 @@
     
     if(inRequest.error == nil)
     {
-        _projectList = [[ICDataManager sharedInstance] getAllProjects];
+        _projectList = [[ICDataManager sharedInstance] getAllIncubees];
 
         if(isFirstTimeLoading)
         {            

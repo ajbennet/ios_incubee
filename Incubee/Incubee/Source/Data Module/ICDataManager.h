@@ -28,7 +28,7 @@
 
 -(void)saveProjectList:(NSArray*)inArray;
 
--(NSArray*)getAllProjects;
+-(NSArray*)getAllIncubees;
 
 -(NSArray*)getFollowedProjects;
 

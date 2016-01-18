@@ -291,7 +291,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
     
 }
 
--(NSArray*)getAllProjects{
+-(NSArray*)getAllIncubees{
 
     NSManagedObjectContext *context = [self managedObjectContext];
     
@@ -316,7 +316,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 -(NSArray*)getFollowedProjects{
 
-    NSArray *allProjects = [self getAllProjects];
+    NSArray *allProjects = [self getAllIncubees];
     
     NSPredicate *prd = [NSPredicate predicateWithFormat:@"(projectFollowing == %@)",[NSNumber numberWithBool:YES]];
     

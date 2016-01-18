@@ -6,9 +6,97 @@
 //  Copyright © 2016 Incubee. All rights reserved.
 //
 
+
+@interface ICInvestorTbCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet ICImageView *incubeeImage;
+@property (strong, nonatomic) IBOutlet UILabel *incubeTitle;
+@property (strong, nonatomic) IBOutlet UILabel *incubeeDesc;
+@property(nonatomic,strong)Incubee *incubee;
+
+@end
+
+@implementation ICInvestorTbCell
+
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    if(self)
+    {
+        return self;
+    }
+    
+    return nil;
+}
+
+-(void)setIncubee:(Incubee *)incubee{
+
+    _incubee = incubee;
+    
+    _incubeTitle.text = _incubee.companyName;
+    
+    _incubeeDesc.text = _incubee.highConcept;
+    
+    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_incubee.incubeeId];
+    
+    if(imArray.count>=1)
+    {
+        NSString *urlString1 = ((IncubeeImage*)[imArray objectAtIndex:0]).imageUrl;
+        
+        ICImageManager *im1 = [[ICImageManager alloc] init];
+        
+        [_incubeeImage setImageUrl:urlString1];
+        
+        [im1 getImage:urlString1 withDelegate:self];
+    }
+    else
+    {
+    
+        _incubeeImage.image = nil;
+    }
+}
+
+-(void)imageDataRecived:(NSData*)inImageData ofURL:(NSString *)inUrl{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if([_incubeeImage.imageUrl isEqualToString:inUrl])
+        {
+            _incubeeImage.image = [UIImage imageWithData:inImageData];
+            
+            _incubeeImage.layer.cornerRadius = _incubeeImage.bounds.size.width/2;
+            
+            _incubeeImage.layer.masksToBounds = YES;
+            
+        }
+    });
+    
+}
+
+@end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #import "ICInvestorViewController.h"
 
-@interface ICInvestorViewController ()
+@interface ICInvestorViewController (){
+
+    NSArray *incubeeList;
+}
+
 
 @end
 
@@ -19,6 +107,10 @@
     // Do any additional setup after loading the view.
     
 //    self.navigationController.navigationBarHidden = YES;
+    
+    self.title = @"#DEV_Investors_Title";
+    
+    [self reloadDataRefreshUI];
     
 }
 
@@ -37,27 +129,37 @@
 }
 */
 
+#pragma mark - Private -
+
+-(void)reloadDataRefreshUI{
+
+    incubeeList = [[ICDataManager sharedInstance] getAllIncubees];
+    
+    
+}
+
 #pragma mark - UITableView -
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return 1;
+    return incubeeList.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"incubeeCell"];
+    ICInvestorTbCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InvestorCellId"];
     
     if(!cell)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"incubeeCell"];
+        cell = [[ICInvestorTbCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InvestorCellId"];
         
     }
     
+    Incubee *aIncubee = [incubeeList objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = @"Incubee";
-    
+    [cell setIncubee:aIncubee];
+
     return cell;
 
 }
