@@ -10,6 +10,8 @@
 
 @interface ICAppContainerViewController ()
 
+@property(nonatomic,strong)UITabBarController *tabController;
+
 @end
 
 @implementation ICAppContainerViewController
@@ -18,17 +20,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    [self checkForUserLogin];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(investorLoggedIn) name:USER_AS_FOUNDER_NOTIFICATION object:nil];
     
+    [self setupUIAsGuest];
     
-    UIStoryboard *st = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    UITabBarController *controller = [st instantiateViewControllerWithIdentifier:@"TabbarControllerStoryboard"];
-    [self addChildViewController:controller];
-    controller.view.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
-    [self.view addSubview:controller.view];
-    [controller didMoveToParentViewController:self];
-
+    [self checkForUserLogin];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,6 +43,46 @@
     loginNavigationController.modalPresentationStyle = UIModalPresentationCustom;
     
     [self.navigationController presentViewController:loginNavigationController animated:YES completion:nil];
+}
+
+
+-(void)setupUIAsGuest{
+
+    UIStoryboard *st = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+     _tabController = [st instantiateViewControllerWithIdentifier:@"TabbarControllerStoryboard"];
+    
+    [self addChildViewController:_tabController];
+    
+    _tabController.view.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
+    
+    [self.view addSubview:_tabController.view];
+    
+    [_tabController didMoveToParentViewController:self];
+
+}
+
+-(void)investorLoggedIn{
+
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    [_tabController removeFromParentViewController];
+    
+    [_tabController.view removeFromSuperview];
+    
+    UIStoryboard *st = [UIStoryboard storyboardWithName:@"ICInvestorStoryboard" bundle:nil];
+    
+    UINavigationController* nav = [st instantiateViewControllerWithIdentifier:@"InvestorStoryBoard"];
+
+    [self addChildViewController:nav];
+    
+    nav.view.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
+    
+    [self.view addSubview:nav.view];
+    
+    [nav didMoveToParentViewController:self];
+
+    
 }
 
 /*

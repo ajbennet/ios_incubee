@@ -53,6 +53,7 @@
 
 -(NSString*)getFounderId;
 
+-(USER_LOGIN_MODE)getUserLoginMode;
 
 #pragma mark - Message - 
 

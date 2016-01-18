@@ -561,7 +561,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
         {
             User *aUser = [results objectAtIndex:0];
             
-            aUser.isFounder = [NSNumber numberWithBool:YES];
+            aUser.userLoginMode = [NSNumber numberWithInt:USER_LOGIN_MODE_FOUNDER];
             
             aUser.founderCompanyId = inCompanyId;
             
@@ -582,7 +582,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
     User *aUser = [self getUser];
     
-    return [aUser.isFounder boolValue];
+    return ([aUser.userLoginMode integerValue] == USER_LOGIN_MODE_FOUNDER ) ? YES : NO;
 
 }
 
@@ -591,6 +591,17 @@ static ICDataManager *sharedDataManagerInstance = nil;
     User *aUser = [self getUser];
     
     return aUser.founderCompanyId;
+    
+}
+
+-(USER_LOGIN_MODE)getUserLoginMode{
+
+    
+    
+    
+    
+    return USER_LOGIN_MODE_GUEST;
+    
     
 }
 #pragma mark - Message -

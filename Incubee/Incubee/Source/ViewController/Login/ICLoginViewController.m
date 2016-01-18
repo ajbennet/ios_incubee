@@ -178,7 +178,12 @@
 
 - (IBAction)noThanksTapped:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:USER_AS_FOUNDER_NOTIFICATION object:nil];
+        
+        
+    }];
     
 }
 

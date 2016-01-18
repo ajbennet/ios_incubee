@@ -6,11 +6,7 @@
 //  Copyright (c) 2015 Incubee. All rights reserved.
 //
 
-//#ifndef Incubee_ICConstants_h
-//#define Incubee_ICConstants_h
-//
-//
-//#endif
+#import <Foundation/Foundation.h>
 
 #define NULL_TO_NIL(obj) ({ __typeof__ (obj) __obj = (obj); __obj == [NSNull null] ? nil : obj; })
 
@@ -23,3 +19,15 @@ typedef enum : NSUInteger {
     CHAT_VIEW_CUSTOMER_TO_FOUNDER,
     CHAT_VIEW_FOUNDER_TO_CUSTOMER
 } CHAT_VIEW_MODE;
+
+typedef enum : NSUInteger {
+    USER_LOGIN_MODE_GUEST,
+    USER_LOGIN_MODE_FOUNDER,
+    USER_LOGIN_MODE_CUSTOMER,
+    USER_LOGIN_MODE_INVESTOR
+} USER_LOGIN_MODE;
+
+
+#pragma mark - Notifications -
+
+#define USER_AS_FOUNDER_NOTIFICATION @"USER_AS_FOUNDER_NOTIFICATION"
