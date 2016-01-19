@@ -165,4 +165,43 @@
 }
 
 
+- (IBAction)inviteButtonTapped:(id)sender {
+    
+    UIAlertView *linkMediaAlert = [[UIAlertView alloc] initWithTitle:@"Email" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Okay",nil];
+    
+    linkMediaAlert.tag = 234;
+    
+    linkMediaAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    [linkMediaAlert show];
+
+}
+
+#pragma mark - UIAlertView Delegates -
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(alertView.tag == 234 && buttonIndex == 1)
+    {
+        [[alertView textFieldAtIndex:0] resignFirstResponder];
+        
+    }
+}
+
+
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
+{
+    if (alertView.alertViewStyle == UIAlertViewStylePlainTextInput)
+    {
+        if(alertView.tag == 234)
+        {
+            if([[[alertView textFieldAtIndex:0] text] length] == 0 )
+            {
+                return NO;
+            }
+        }
+    }
+    
+    return YES;
+}
+
 @end

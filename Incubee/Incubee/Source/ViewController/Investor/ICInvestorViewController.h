@@ -12,4 +12,5 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *investorTableView;
 
+- (IBAction)inviteButtonTapped:(id)sender;
 @end

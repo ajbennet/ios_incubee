@@ -65,10 +65,12 @@
 -(void)investorLoggedIn{
 
     NSLog(@"%@",NSStringFromSelector(_cmd));
-    
-    [_tabController removeFromParentViewController];
-    
+
+    // Clearing the current view controller.
+    [_tabController willMoveToParentViewController:nil];
     [_tabController.view removeFromSuperview];
+    [_tabController removeFromParentViewController];
+    _tabController = nil;
     
     UIStoryboard *st = [UIStoryboard storyboardWithName:@"ICInvestorStoryboard" bundle:nil];
     
