@@ -31,3 +31,12 @@ typedef enum : NSUInteger {
 #pragma mark - Notifications -
 
 #define USER_AS_FOUNDER_NOTIFICATION @"USER_AS_FOUNDER_NOTIFICATION"
+
+#pragma mark - ALERTVIEW TAGS -
+
+#define ALERTTAG_INVITE_EMAIL 300
+
+#pragma mark - STRING CONST -
+
+#define INVITE @"Invite"
+

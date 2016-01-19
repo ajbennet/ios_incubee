@@ -52,6 +52,59 @@ static ICUtilityManager *sharedUtilityInstance = nil;
     return [UIColor blackColor];
 }
 
+-(BOOL)isValidEmail:(NSString*)inEmailId{
+    //No @ symbol
+    NSArray *n1 = [inEmailId componentsSeparatedByString: @"@"];
+    if ([n1 count] != 2)
+    {
+        return FALSE;
+    }
+    //First letter is @
+    if ([[inEmailId substringToIndex:1] isEqualToString:@"@"])
+    {
+        return FALSE;
+    }
+    // last letter is @
+    if ([[inEmailId substringFromIndex:[inEmailId length] -1] isEqualToString:@"@"])
+    {
+        return FALSE;
+    }
+    //No dot symbol
+    n1 = [inEmailId componentsSeparatedByString: @"."];
+    if ([n1 count] <= 1)
+    {
+        return FALSE;
+    }
+    //First letter is dot
+    if ([[inEmailId substringToIndex:1] isEqualToString:@"."])
+    {
+        return FALSE;
+    }
+    // last letter is dot
+    if ([[inEmailId substringFromIndex:[inEmailId length] -1] isEqualToString:@"."])
+    {
+        return FALSE;
+    }
+    //Check for spaces
+    int len1 = (int)[inEmailId length];
+    for (int i = 0; i < len1; i++)
+    {
+        char a = toupper([inEmailId characterAtIndex:i]);
+        if (isspace(a))
+        {
+            return FALSE;
+        }
+    }
+    //Check after @ is there dot before and after
+    n1 = [inEmailId componentsSeparatedByString: @"@"];
+    NSString *after = [n1 objectAtIndex:1];
+    if ([[after substringToIndex:1] isEqualToString:@"."])
+    {		
+        return FALSE;
+    }
+    
+    return TRUE;
+}
 
 @end
 

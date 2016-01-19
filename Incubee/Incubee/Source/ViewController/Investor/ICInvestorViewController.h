@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ICInvestorViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface ICInvestorViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *investorTableView;
 

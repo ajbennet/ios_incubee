@@ -76,6 +76,7 @@
 		58EB82341C4D4185005917D0 /* Messages+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EB82291C4D4185005917D0 /* Messages+CoreDataProperties.m */; };
 		58EB82351C4D4185005917D0 /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EB822B1C4D4185005917D0 /* Messages.m */; };
 		58EB82371C4D47C4005917D0 /* ICInvestorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EB82361C4D47C4005917D0 /* ICInvestorStoryboard.storyboard */; };
+		58F558D01C4EAC240071DBCB /* ICIncubeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F558CF1C4EAC240071DBCB /* ICIncubeeViewController.m */; };
 		930CB1D550C9E950F61E556D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB03A56CF3D54AE87702E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -205,6 +206,8 @@
 		58EB822A1C4D4185005917D0 /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messages.h; path = "Source/Data Module/ManagedObjects/Messages.h"; sourceTree = "<group>"; };
 		58EB822B1C4D4185005917D0 /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Messages.m; path = "Source/Data Module/ManagedObjects/Messages.m"; sourceTree = "<group>"; };
 		58EB82361C4D47C4005917D0 /* ICInvestorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ICInvestorStoryboard.storyboard; path = Source/ViewController/Storyboards/ICInvestorStoryboard.storyboard; sourceTree = "<group>"; };
+		58F558CE1C4EAC240071DBCB /* ICIncubeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICIncubeeViewController.h; path = Source/ViewController/Investor/ICIncubeeViewController.h; sourceTree = "<group>"; };
+		58F558CF1C4EAC240071DBCB /* ICIncubeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICIncubeeViewController.m; path = Source/ViewController/Investor/ICIncubeeViewController.m; sourceTree = "<group>"; };
 		79BDB03A56CF3D54AE87702E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -520,6 +523,8 @@
 			children = (
 				584513BB1C456E3B006867A4 /* ICInvestorViewController.h */,
 				584513BC1C456E3B006867A4 /* ICInvestorViewController.m */,
+				58F558CE1C4EAC240071DBCB /* ICIncubeeViewController.h */,
+				58F558CF1C4EAC240071DBCB /* ICIncubeeViewController.m */,
 			);
 			name = Investor;
 			sourceTree = "<group>";
@@ -738,6 +743,7 @@
 				5808FD8F1B8E23920053451A /* ICMessengerManager.m in Sources */,
 				58EB82351C4D4185005917D0 /* Messages.m in Sources */,
 				58EB822D1C4D4185005917D0 /* User.m in Sources */,
+				58F558D01C4EAC240071DBCB /* ICIncubeeViewController.m in Sources */,
 				5780CB3B1B3E8A250090ADCE /* ICOperationManager.m in Sources */,
 				5864EB631B86434C00091C94 /* ICChatViewController.m in Sources */,
 				5780CB051B3E834F0090ADCE /* ICLoginViewController.m in Sources */,

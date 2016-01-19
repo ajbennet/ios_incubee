@@ -6,6 +6,7 @@
 //  Copyright © 2016 Incubee. All rights reserved.
 //
 
+#include "ICIncubeeViewController.h"
 
 @interface ICInvestorTbCell : UITableViewCell
 
@@ -107,10 +108,23 @@
     // Do any additional setup after loading the view.
     
 //    self.navigationController.navigationBarHidden = YES;
+    [self reloadDataRefreshUI];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
     
     self.title = @"#DEV_Investors_Title";
+
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+
+    [super viewWillDisappear:animated];
     
-    [self reloadDataRefreshUI];
+    self.title = @"";
+
     
 }
 
@@ -164,14 +178,32 @@
 
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+
+    UIStoryboard *st = [UIStoryboard storyboardWithName:@"ICInvestorStoryboard" bundle:nil];
+    
+    ICIncubeeViewController *incubeeViewController = [st instantiateViewControllerWithIdentifier:@"ICIncubeeVCStoryboard"];
+    
+    incubeeViewController.incubee = [incubeeList objectAtIndex:indexPath.row];
+
+    [self.navigationController pushViewController:incubeeViewController animated:YES];
+
+}
+
+#pragma mark - IBActions -
 
 - (IBAction)inviteButtonTapped:(id)sender {
     
-    UIAlertView *linkMediaAlert = [[UIAlertView alloc] initWithTitle:@"Email" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Okay",nil];
+    UIAlertView *linkMediaAlert = [[UIAlertView alloc] initWithTitle:@"Invite a founder" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:INVITE,nil];
     
-    linkMediaAlert.tag = 234;
+    linkMediaAlert.tag = ALERTTAG_INVITE_EMAIL;
     
     linkMediaAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    ((UITextField*)([linkMediaAlert textFieldAtIndex:0])).placeholder = @"Email address";
+    
+    ((UITextField*)([linkMediaAlert textFieldAtIndex:0])).delegate = self;
     
     [linkMediaAlert show];
 
@@ -180,7 +212,7 @@
 #pragma mark - UIAlertView Delegates -
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    if(alertView.tag == 234 && buttonIndex == 1)
+    if(alertView.tag == ALERTTAG_INVITE_EMAIL && buttonIndex == 1)
     {
         [[alertView textFieldAtIndex:0] resignFirstResponder];
         
@@ -192,16 +224,16 @@
 {
     if (alertView.alertViewStyle == UIAlertViewStylePlainTextInput)
     {
-        if(alertView.tag == 234)
+        if(alertView.tag == ALERTTAG_INVITE_EMAIL)
         {
-            if([[[alertView textFieldAtIndex:0] text] length] == 0 )
+            if([[[alertView textFieldAtIndex:0] text] length] > 0 && [[ICUtilityManager sharedInstance] isValidEmail:[[alertView textFieldAtIndex:0] text]] )
             {
-                return NO;
+                return YES;
             }
         }
     }
     
-    return YES;
+    return NO;
 }
 
 @end

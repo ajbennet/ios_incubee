@@ -15,6 +15,7 @@
 
 -(UIColor*)getColorFromRGB:(NSString*)inColorCode;
 
+-(BOOL)isValidEmail:(NSString*)inEmailId;
 @end
 
 @interface ICImageView : UIImageView
