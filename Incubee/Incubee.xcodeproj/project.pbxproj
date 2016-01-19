@@ -591,7 +591,7 @@
 		570388D31B31E67300BB9D40 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Incubee;
 				TargetAttributes = {
 					570388DA1B31E67300BB9D40 = {
@@ -823,7 +823,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "b97a5551-f499-4484-b838-5e29cdcdd553";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
