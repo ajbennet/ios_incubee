@@ -10,6 +10,8 @@
 
 @interface ICIncubeeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
+@property (strong, nonatomic) IBOutlet ICImageView *bannerImageView;
+
 @property(nonatomic,strong)Incubee *incubee;
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLable;

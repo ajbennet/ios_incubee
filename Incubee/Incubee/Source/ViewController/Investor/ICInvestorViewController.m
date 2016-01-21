@@ -107,7 +107,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    self.navigationController.navigationBarHidden = YES;
     [self reloadDataRefreshUI];
 }
 
@@ -117,6 +116,7 @@
     
     self.title = @"#DEV_Investors_Title";
 
+    self.navigationController.navigationBarHidden = YES;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -125,6 +125,7 @@
     
     self.title = @"";
 
+    self.navigationController.navigationBarHidden = NO;
     
 }
 
