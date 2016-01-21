@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ICIncubeeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface ICIncubeeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet ICImageView *bannerImageView;
 
@@ -31,7 +31,9 @@
 
 - (IBAction)submitReviewTapped:(id)sender;
 
-@property (strong, nonatomic) IBOutlet UITableView *writeReviewTableView;
 
+@property (strong, nonatomic) IBOutlet UITextField *reviewTitle;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *reviewContainerBottomConstraints;
+@property (strong, nonatomic) IBOutlet UITextView *commentsTextView;
 
 @end
