@@ -32,8 +32,20 @@
 - (IBAction)submitReviewTapped:(id)sender;
 
 
-@property (strong, nonatomic) IBOutlet UITextField *reviewTitle;
+
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *reviewContainerBottomConstraints;
+
+@property (strong, nonatomic) IBOutlet UITextField *reviewTitle;
+
+@property (strong, nonatomic) IBOutlet UISegmentedControl *meetSegment;
+
+@property (strong, nonatomic) IBOutlet UISegmentedControl *statusSegment;
+
 @property (strong, nonatomic) IBOutlet UITextView *commentsTextView;
 
+- (IBAction)meetStatusChanged:(id)sender;
+
+- (IBAction)statusSegValueChanged:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIView *topItemContainer;
 @end

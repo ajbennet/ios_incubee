@@ -138,6 +138,8 @@
             
             lab.text = @"Be the first person review it";
             
+            lab.font = [UIFont fontWithName:@"Lato-bold" size:25.0f];
+
             lab.textColor = [UIColor whiteColor];
             
             [headView addSubview:lab];
@@ -229,11 +231,36 @@
 
 #pragma mark - Review -
 
+-(void)resetWriteReview{
+
+    _reviewTitle.text = nil;
+    
+    _meetSegment.selectedSegmentIndex = 0;
+    
+    _statusSegment.selectedSegmentIndex = 0;
+    
+    
+}
+
+
 -(void)writeReviewHeaderTapped{
 
+    [self resetWriteReview];
+    
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
+    _writeReviewView.transform = CGAffineTransformMakeTranslation(0, 800);
+    
     _writeReviewView.hidden = NO;
+
+
+    [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.60 initialSpringVelocity:0.5 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
+        
+        _writeReviewView.transform = CGAffineTransformIdentity;
+
+    } completion:^(BOOL finished) {
+        
+    }];
 
 }
 
@@ -242,12 +269,41 @@
 
 - (IBAction)cancelReviewTapped:(id)sender {
     
-    _writeReviewView.hidden = YES;
+    
+    [self resignTextFirstResponders];
+    
+    [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.60 initialSpringVelocity:0.5 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
+        
+        _writeReviewView.transform = CGAffineTransformMakeTranslation(0, 800);
+        
+        
+    } completion:^(BOOL finished) {
+        
+        _writeReviewView.transform = CGAffineTransformIdentity;
+        
+        _writeReviewView.hidden = YES;
+        
+    }];
 }
 
 - (IBAction)submitReviewTapped:(id)sender {
+
+    [self resignTextFirstResponders];
     
+    [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.60 initialSpringVelocity:0.5 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
+        
+        _writeReviewView.transform = CGAffineTransformMakeTranslation(0, 800);
+
+        
+    } completion:^(BOOL finished) {
+        
+        _writeReviewView.transform = CGAffineTransformIdentity;
+
         _writeReviewView.hidden = YES;
+
+    }];
+
+    
 }
 
 #pragma mark - TextView -
@@ -288,6 +344,7 @@
 
 -(void)keyboardWillHide:(NSNotification*) notification
 {
+        _topItemContainer.hidden = NO;
     {
         _reviewContainerBottomConstraints.constant =  5.0f;
         
@@ -301,6 +358,13 @@
 
 -(void)keyboardDidShow:(NSNotification*) notification
 {
+    if(![_commentsTextView isFirstResponder])
+    {
+        return;
+    }
+    
+    _topItemContainer.hidden = YES;
+    
     NSInteger keyboardHeight = [self getKeyBoardHeight:notification];
     
     if(keyboardHeight!=0)
@@ -316,5 +380,30 @@
         
     }
     
+}
+
+-(void)resignTextFirstResponders{
+
+    if([_reviewTitle isFirstResponder])
+    {
+        [_reviewTitle resignFirstResponder];
+    }
+    
+    
+    if([_commentsTextView isFirstResponder])
+    {
+        [_commentsTextView resignFirstResponder];
+    }
+
+}
+
+- (IBAction)meetStatusChanged:(id)sender {
+    
+    [self resignTextFirstResponders];
+}
+
+- (IBAction)statusSegValueChanged:(id)sender {
+    
+        [self resignTextFirstResponders];
 }
 @end
