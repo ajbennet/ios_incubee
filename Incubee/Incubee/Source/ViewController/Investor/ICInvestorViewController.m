@@ -315,6 +315,8 @@
     
     searchModeOn = YES;
     
+    searchBar.showsCancelButton = YES;
+    
     [self searchAndReload];
     
     return YES;
