@@ -28,6 +28,82 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_incubee.incubeeId];
+
+    if(imArray.count == 4)
+    {
+        _topLeftImageView.hidden = _topRightImageView.hidden = _bottomLeftImageView.hidden = _bottomRightImageView.hidden = NO;
+        
+        _bannerImageView.hidden = YES;
+        
+        
+        //    Image1
+        {
+            NSString *urlString1 = ((IncubeeImage*)[imArray objectAtIndex:0]).imageUrl;
+            
+            ICImageManager *im1 = [[ICImageManager alloc] init];
+            
+            [_topLeftImageView setImageUrl:urlString1];
+            
+            [im1 getImage:urlString1 withDelegate:self];
+        }
+        //    Image2
+        {
+            
+            NSString *urlString2 = ((IncubeeImage*)[imArray objectAtIndex:1]).imageUrl;
+            
+            ICImageManager *im2 = [[ICImageManager alloc] init];
+            
+            [_topRightImageView setImageUrl:urlString2];
+            
+            [im2 getImage:urlString2 withDelegate:self];
+        }
+        //    Image3
+        {
+            
+            
+            NSString *urlString3 = ((IncubeeImage*)[imArray objectAtIndex:2]).imageUrl;
+            
+            ICImageManager *im3 = [[ICImageManager alloc] init];
+            
+            
+            [_bottomLeftImageView setImageUrl:urlString3];
+            
+            [im3 getImage:urlString3 withDelegate:self];
+        }
+        //    Image4
+        {
+            
+            NSString *urlString4 = ((IncubeeImage*)[imArray objectAtIndex:3]).imageUrl;
+            
+            ICImageManager *im4 = [[ICImageManager alloc] init];
+            
+            [_bottomRightImageView setImageUrl:urlString4];
+            
+            [im4 getImage:urlString4 withDelegate:self];
+        }
+        
+    }
+    else if(imArray.count >= 1)
+    {
+        _topLeftImageView.hidden = _topRightImageView.hidden = _bottomLeftImageView.hidden = _bottomRightImageView.hidden = YES;
+        
+        _bannerImageView.hidden = NO;
+        
+        NSString *urlString1 = ((IncubeeImage*)[imArray objectAtIndex:0]).imageUrl;
+        
+        ICImageManager *im1 = [[ICImageManager alloc] init];
+        
+        [_bannerImageView setImageUrl:urlString1];
+        
+        [im1 getImage:urlString1 withDelegate:self];
+    }
+    
+    
+    
+    [self showMovie];
+    
+    
     self.title = _incubee.companyName;
     
     _titleLable.text = _incubee.companyName;
@@ -45,24 +121,6 @@
     
     _investorsProfileImageView.layer.cornerRadius = 50.0f;
     
-    NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_incubee.incubeeId];
-
-    if(imArray.count>=1)
-    {
-        NSString *urlString1 = ((IncubeeImage*)[imArray objectAtIndex:0]).imageUrl;
-        
-        ICImageManager *im1 = [[ICImageManager alloc] init];
-        
-        [_bannerImageView setImageUrl:urlString1];
-        
-        [im1 getImage:urlString1 withDelegate:self];
-    }
-    else
-    {
-        
-        _bannerImageView.image = nil;
-    }
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -84,18 +142,6 @@
     // Pass the selected object to the new view controller.
 }
 */
--(void)imageDataRecived:(NSData*)inImageData ofURL:(NSString *)inUrl{
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        if([_bannerImageView.imageUrl isEqualToString:inUrl])
-        {
-            _bannerImageView.image = [UIImage imageWithData:inImageData];
-        }
-    });
-    
-}
-
 
 #pragma mark - UITableView -
 
@@ -136,9 +182,11 @@
             
             lab.textAlignment = NSTextAlignmentCenter;
             
-            lab.text = @"Be the first person review it";
+            lab.text = [NSString stringWithFormat:@"Be the first person to review\n %@",_incubee.companyName];
             
-            lab.font = [UIFont fontWithName:@"Lato-bold" size:25.0f];
+            lab.font = [UIFont fontWithName:@"Lato-bold" size:20.0f];
+            
+            lab.numberOfLines = 0;
 
             lab.textColor = [UIColor whiteColor];
             
@@ -228,6 +276,100 @@
 //    }
 //    
 //}
+
+-(void)showMovie{
+    
+    if(_moviePlayer)
+    {
+        [_moviePlayer stop];
+        
+        [_moviePlayer.view removeFromSuperview];
+        
+        _moviePlayer = nil;
+    }
+    
+    if(_incubee.video!=nil)
+    {
+        _moviePlayerView.hidden = NO;
+        
+        _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_incubee.video]];
+        
+        _moviePlayer.view.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        [_moviePlayerView addSubview:_moviePlayer.view];
+        
+        NSLayoutConstraint *width =[NSLayoutConstraint
+                                    constraintWithItem:_moviePlayer.view
+                                    attribute:NSLayoutAttributeWidth
+                                    relatedBy:0
+                                    toItem:_moviePlayerView
+                                    attribute:NSLayoutAttributeWidth
+                                    multiplier:1.0
+                                    constant:0];
+        
+        NSLayoutConstraint *height =[NSLayoutConstraint
+                                     constraintWithItem:_moviePlayer.view
+                                     attribute:NSLayoutAttributeHeight
+                                     relatedBy:0
+                                     toItem:_moviePlayerView
+                                     attribute:NSLayoutAttributeHeight
+                                     multiplier:1.0
+                                     constant:0];
+        
+        
+        NSLayoutConstraint *topConstr = [NSLayoutConstraint
+                                         constraintWithItem:_moviePlayer.view
+                                         attribute:NSLayoutAttributeTop
+                                         relatedBy:0
+                                         toItem:_moviePlayerView
+                                         attribute:NSLayoutAttributeTop
+                                         multiplier:1.0
+                                         constant:0.0];
+        
+        NSLayoutConstraint *bottomConstr = [NSLayoutConstraint
+                                            constraintWithItem:_moviePlayer.view
+                                            attribute:NSLayoutAttributeBottom
+                                            relatedBy:0
+                                            toItem:_moviePlayerView
+                                            attribute:NSLayoutAttributeBottom
+                                            multiplier:1.0
+                                            constant:0.0];
+        
+        [_moviePlayerView addConstraint:width];
+        
+        [_moviePlayerView addConstraint:height];
+        [_moviePlayerView addConstraint:topConstr];
+        [_moviePlayerView addConstraint:bottomConstr];
+        
+        [_moviePlayerView layoutIfNeeded];
+        
+        [_moviePlayer.view layoutIfNeeded];
+        
+        _moviePlayer.controlStyle =  MPMovieControlStyleEmbedded;
+        
+        _moviePlayer.shouldAutoplay = NO;
+        
+        _moviePlayer.repeatMode = NO;
+        
+        _moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
+        
+        [_moviePlayer setFullscreen:NO animated:NO];
+        
+        [_moviePlayer prepareToPlay];
+        
+        [_moviePlayer.view setBackgroundColor:[UIColor clearColor]];
+        
+        [_moviePlayerView bringSubviewToFront:_moviePlayer.view];
+        
+        [_moviePlayer pause];
+    }
+    else
+    {
+        _moviePlayerView.hidden = YES;
+    }
+    
+}
+
 
 #pragma mark - Review -
 
@@ -405,5 +547,40 @@
 - (IBAction)statusSegValueChanged:(id)sender {
     
         [self resignTextFirstResponders];
+}
+
+-(void)imageDataRecived:(NSData*)inImageData ofURL:(NSString *)inUrl{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if([_topLeftImageView.imageUrl isEqualToString:inUrl])
+        {
+            _topLeftImageView.image = [UIImage imageWithData:inImageData];
+            
+        }
+        else if([_topRightImageView.imageUrl isEqualToString:inUrl])
+        {
+            _topRightImageView.image = [UIImage imageWithData:inImageData];
+            
+        }
+        else if([_bottomRightImageView.imageUrl isEqualToString:inUrl])
+        {
+            _bottomRightImageView.image = [UIImage imageWithData:inImageData];
+            
+        }
+        else if([_bottomLeftImageView.imageUrl isEqualToString:inUrl])
+        {
+            _bottomLeftImageView.image = [UIImage imageWithData:inImageData];
+            
+        }
+        else if([_bannerImageView.imageUrl isEqualToString:inUrl])
+        {
+            _bannerImageView.image = [UIImage imageWithData:inImageData];
+            
+        }
+        
+        
+    });
+    
 }
 @end

@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MPMoviePlayerController.h>
+#import <MediaPlayer/MPMoviePlayerViewController.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface ICIncubeeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextViewDelegate>
 
@@ -25,6 +28,8 @@
 @property (strong, nonatomic) IBOutlet UIView *writeReviewView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *investorsProfileImageView;
+
+@property(nonatomic,strong) MPMoviePlayerController *moviePlayer;
 
 
 - (IBAction)cancelReviewTapped:(id)sender;
@@ -48,4 +53,16 @@
 - (IBAction)statusSegValueChanged:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIView *topItemContainer;
+
+
+@property (weak, nonatomic) IBOutlet ICImageView *bottomRightImageView;
+@property (weak, nonatomic) IBOutlet ICImageView *bottomLeftImageView;
+
+@property (weak, nonatomic) IBOutlet ICImageView *topRightImageView;
+
+@property (weak, nonatomic) IBOutlet ICImageView *topLeftImageView;
+
+
+@property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
+
 @end
