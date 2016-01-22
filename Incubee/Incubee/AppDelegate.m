@@ -25,16 +25,9 @@
     
     
     [[UINavigationBar appearance] setTintColor:[[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"]];
-
-    
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowColor = [UIColor colorWithWhite:.0f alpha:1.f];
-    shadow.shadowOffset = CGSizeMake(0, -1);
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{
-                                                           NSForegroundColorAttributeName: [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"],
-                                                           NSShadowAttributeName: shadow,
-                                                           NSFontAttributeName: [UIFont fontWithName:@"Lato-bold" size:25.0f]
+                                                           NSForegroundColorAttributeName: [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"],NSFontAttributeName: [UIFont fontWithName:@"Lato-bold" size:25.0f]
                                                            }];
 //    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
 //    UITabBar *tabBar = tabBarController.tabBar;

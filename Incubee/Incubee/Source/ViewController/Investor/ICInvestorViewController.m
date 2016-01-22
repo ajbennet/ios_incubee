@@ -221,6 +221,8 @@
     {
         cell = [[ICInvestorTbCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InvestorCellId"];
         
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
     }
     
     Incubee *aIncubee;
