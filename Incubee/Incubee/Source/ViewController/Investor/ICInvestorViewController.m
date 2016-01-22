@@ -77,25 +77,15 @@
 
 @end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #import "ICInvestorViewController.h"
 
 @interface ICInvestorViewController (){
 
     NSArray *incubeeList;
+    
+    NSArray *searchIncubeeList;
+    
+    BOOL searchModeOn;
 }
 
 
@@ -106,6 +96,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+
+    
     
     [self reloadDataRefreshUI];
 }
@@ -134,6 +130,49 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Keyboard Hide/Unhide -
+
+- (NSInteger)getKeyBoardHeight:(NSNotification *)notification
+{
+    NSDictionary* keyboardInfo = [notification userInfo];
+    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    NSInteger keyboardHeight = keyboardFrameBeginRect.size.height;
+    return keyboardHeight;
+}
+
+-(void)keyboardWillHide:(NSNotification*) notification
+{
+    {
+        _tableViewBottonConstraint.constant =  50.0f;
+        
+        [UIView animateWithDuration:0.25f animations:^{
+            
+            [self.view layoutIfNeeded];
+            
+        }];
+    }
+}
+
+-(void)keyboardDidShow:(NSNotification*) notification
+{
+    NSInteger keyboardHeight = [self getKeyBoardHeight:notification];
+    
+    if(keyboardHeight!=0)
+    {
+        _tableViewBottonConstraint.constant = keyboardHeight;
+        
+        [UIView animateWithDuration:0.25f animations:^{
+            
+            [self.view layoutIfNeeded];
+            
+        }];
+        
+        
+    }
+    
+}
+
 /*
 #pragma mark - Navigation
 
@@ -152,12 +191,25 @@
     
     
 }
+#pragma mark - UIScrollView -
+
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//
+//    [_searchBar resignFirstResponder];
+//}
 
 #pragma mark - UITableView -
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return incubeeList.count;
+    if(searchModeOn)
+    {
+        return searchIncubeeList.count;
+    }
+    else
+    {
+        return incubeeList.count;
+    }
 }
 
 
@@ -171,7 +223,16 @@
         
     }
     
-    Incubee *aIncubee = [incubeeList objectAtIndex:indexPath.row];
+    Incubee *aIncubee;
+    
+    if(searchModeOn)
+    {
+        aIncubee = [searchIncubeeList objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        aIncubee = [incubeeList objectAtIndex:indexPath.row];
+    }
     
     [cell setIncubee:aIncubee];
 
@@ -180,13 +241,23 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
-
+    
+    Incubee *aIncubee;
+    
+    if(searchModeOn)
+    {
+        aIncubee = [searchIncubeeList objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        aIncubee = [incubeeList objectAtIndex:indexPath.row];
+    }
+    
     UIStoryboard *st = [UIStoryboard storyboardWithName:@"ICInvestorStoryboard" bundle:nil];
     
     ICIncubeeViewController *incubeeViewController = [st instantiateViewControllerWithIdentifier:@"ICIncubeeVCStoryboard"];
     
-    incubeeViewController.incubee = [incubeeList objectAtIndex:indexPath.row];
+    incubeeViewController.incubee = aIncubee;
 
     [self.navigationController pushViewController:incubeeViewController animated:YES];
 
@@ -235,6 +306,96 @@
     }
     
     return NO;
+}
+
+#pragma mark - UISearchBarDelegate -
+
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    
+    searchModeOn = YES;
+    
+    [self searchAndReload];
+    
+    return YES;
+}
+
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    
+    
+}
+
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
+
+    return YES;
+
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+
+    searchModeOn = NO;
+
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+
+    [self searchAndReload];
+}
+
+
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+
+    searchBar.showsCancelButton = YES;
+    
+    [_searchBar resignFirstResponder];
+    
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+
+    searchBar.showsCancelButton = NO;
+
+    _searchBar.text = nil;
+    
+    searchModeOn = NO;
+    
+    [_searchBar resignFirstResponder];
+    
+    [self searchAndReload];
+
+}
+
+
+-(void)searchAndReload{
+
+    if(searchModeOn){
+    NSString *searchText = _searchBar.text;
+    
+    if(searchText.length>0)
+    {
+        NSPredicate *searchPred = [NSPredicate predicateWithFormat:@"companyName CONTAINS [c]%@ OR founder CONTAINS [c]%@ OR highConcept CONTAINS [c]%@",searchText,searchText,searchText];
+        
+        searchIncubeeList = [incubeeList filteredArrayUsingPredicate:searchPred];
+        
+        NSLog(@"%@ & count %d",searchText,(int)searchIncubeeList.count);
+        
+    }
+    else
+    {
+        searchIncubeeList = incubeeList;
+        
+    }
+    
+    [_investorTableView reloadData];
+    }
+    else
+    {
+        [_investorTableView reloadData];
+    }
+    
 }
 
 @end

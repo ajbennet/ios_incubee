@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ICInvestorViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@interface ICInvestorViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UISearchBarDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *investorTableView;
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottonConstraint;
+
 - (IBAction)inviteButtonTapped:(id)sender;
+
 @end
