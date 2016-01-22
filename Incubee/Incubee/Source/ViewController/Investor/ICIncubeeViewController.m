@@ -163,7 +163,7 @@
         
         UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _reviewTableView.frame.size.width, 80.0f)];
         
-        headView.backgroundColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"];
+        headView.backgroundColor = [UIColor whiteColor];;
         
         
         UIButton *aWriteReviewButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -174,8 +174,9 @@
         
         [headView addSubview:aWriteReviewButton];
         
-        
-        if(reviewArray.count==0)
+//        if(reviewArray.count!=0)
+
+        if(![_incubee.companyName isEqualToString:@"Hipmunk"])
         {
             
             UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _reviewTableView.frame.size.width, 80.0f)];
@@ -188,7 +189,7 @@
             
             lab.numberOfLines = 0;
 
-            lab.textColor = [UIColor whiteColor];
+            lab.textColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"];
             
             [headView addSubview:lab];
             
@@ -204,23 +205,27 @@
             
             ratingLab.textAlignment = NSTextAlignmentCenter;
             
-            ratingLab.font = [UIFont fontWithName:@"Lato-bold" size:35.0f];
+            ratingLab.font = [UIFont fontWithName:@"Lato-bold" size:40.0f];
             
             [headView addSubview:ratingLab];
             
-            UIImageView *rattingImView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 5.0f, tableView.frame.size.width - 120.f, 40.0f)];
+            UIImageView *rattingImView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 5.0f, tableView.frame.size.width - 120.f, 30.0f)];
             
             rattingImView.backgroundColor = [UIColor grayColor];
             
             [headView addSubview:rattingImView];
             
-            UILabel *writeReviewLabl = [[UILabel alloc] initWithFrame:CGRectMake(100, 45.0f, tableView.frame.size.width - 120.f, 30.0f)];
+            UILabel *writeReviewLabl = [[UILabel alloc] initWithFrame:CGRectMake(100, 35.0f, tableView.frame.size.width - 120.f, 40.0f)];
             
-            writeReviewLabl.text = @"Write you're review";
+            writeReviewLabl.text = [NSString stringWithFormat:@"Write you're review on\n %@",_incubee.companyName];
             
+            writeReviewLabl.font = [UIFont fontWithName:@"Lato-bold" size:15.0f];
+
             writeReviewLabl.textAlignment = NSTextAlignmentCenter;
             
-            writeReviewLabl.textColor = [UIColor whiteColor];
+            writeReviewLabl.numberOfLines = 0;
+            
+            writeReviewLabl.textColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"];
             
             [headView addSubview:writeReviewLabl];
             
