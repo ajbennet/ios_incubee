@@ -15,6 +15,7 @@
 #import "User.h"
 #import "Messages.h"
 #import "Customer.h"
+#import "Review.h"
 
 @interface ICDataManager : NSObject
 
@@ -80,4 +81,7 @@
 -(NSString*)getIncubeeName:(NSString*)inIncubeeId;
 
 -(NSArray*)getAllSavedIncubeeChatArray;
+
+#pragma mark - Review -
+-(void)saveReviewArray:(NSArray*)inReviewArray;
 @end

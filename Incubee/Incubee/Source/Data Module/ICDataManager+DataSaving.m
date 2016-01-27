@@ -79,6 +79,14 @@
 
             }
                 break;
+            case IC_GET_INCUBEE_REVIEW:
+            {
+                NSArray *array = [inRequest.parsedResponse objectForKey:@"reviews"];
+                
+                [self saveReviewArray:array];
+
+            }
+                break;
                 
             default:
                 break;

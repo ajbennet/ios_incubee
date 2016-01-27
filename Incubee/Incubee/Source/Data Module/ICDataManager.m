@@ -1091,4 +1091,82 @@ static ICDataManager *sharedDataManagerInstance = nil;
     
 }
 
+#pragma mark - Review -
+-(void)saveReviewArray:(NSArray*)inReviewArray{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        for(NSDictionary *aDic in inReviewArray)
+        {
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            
+            [request setEntity:[NSEntityDescription entityForName:@"Review" inManagedObjectContext:context]];
+            
+            NSError *errorDb = nil;
+            
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"incubee_id LIKE %@ AND user_id LIKE %@",[aDic objectForKey:@"incubee_id"],[aDic objectForKey:@"user_id"]];
+            
+            [request setPredicate:predicate];
+            
+            NSArray *results = [context executeFetchRequest:request error:&errorDb];
+            
+            Review *aReview;
+            
+            if (results && [results count] > 0)
+            {
+                aReview = [results objectAtIndex:0];
+            }
+            else
+            {
+                aReview = [NSEntityDescription
+                            insertNewObjectForEntityForName:@"Review"
+                            inManagedObjectContext:context];
+            }
+            
+            aReview.incubee_id = NULL_TO_NIL([aDic objectForKey:@"incubee_id"]);
+            aReview.reviewTitle = NULL_TO_NIL([aDic objectForKey:@"title"]);
+            aReview.reviewDescription = NULL_TO_NIL(([aDic objectForKey:@"description"]));
+            aReview.rating = ([NSNumber numberWithInt:[[aDic valueForKey:@"rating"] intValue]]);
+            aReview.user_id = NULL_TO_NIL([aDic objectForKey:@"user_id"]);
+            
+            aReview.meeting = NULL_TO_NIL([aDic objectForKey:@"meeting"]);
+            aReview.status = NULL_TO_NIL([aDic objectForKey:@"status"]);
+            
+            NSNumber *nsTime = [NSNumber numberWithLongLong:[[aDic valueForKey:@"date"] longLongValue]] ;
+
+            aReview.date = [NSDate dateWithTimeIntervalSince1970:(nsTime.doubleValue)/1000];
+            
+            aReview.replies = ([NSNumber numberWithInt:[[aDic valueForKey:@"replies"] intValue]]);
+            
+            aReview.views = ([NSNumber numberWithInt:[[aDic valueForKey:@"views"] intValue]]);
+            
+            aReview.likes = ([NSNumber numberWithInt:[[aDic valueForKey:@"likes"] intValue]]);
+            
+            aReview.dislikes = ([NSNumber numberWithInt:[[aDic valueForKey:@"dislikes"] intValue]]);
+            
+        }
+        
+        
+        NSError *dbError = nil;
+        
+        [context save:&dbError];
+        
+        if(dbError==nil)
+        {
+            NSLog(@"All Review Saved!");
+        }
+        else
+        {
+            NSLog(@"Unable to save review : %@",dbError.localizedDescription);
+        }
+        
+    }
+
+    
+    
+
+}
+
 @end
