@@ -55,6 +55,8 @@
 
 -(BOOL)isInvestor;
 
+-(BOOL)isChatEnabled;
+
 -(NSString*)getFounderId;
 
 -(USER_LOGIN_MODE)getUserLoginMode;

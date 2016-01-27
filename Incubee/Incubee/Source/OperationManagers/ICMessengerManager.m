@@ -55,14 +55,19 @@ static ICMessengerManager *sharedMessengerInstance = nil;
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
-    [[ICAppManager sharedInstance] getAllChat:nil notifyTo:self forSelector:@selector(allChatResponse:)];
-    
-    if([[ICDataManager sharedInstance] isFounder])
+    if([[ICDataManager sharedInstance] isChatEnabled])
     {
-        [[ICAppManager sharedInstance] getAllCustomerIncubee:nil notifyTo:self forSelector:@selector(customerSyncIncubee:)];
-
+        
+        [[ICAppManager sharedInstance] getAllChat:nil notifyTo:self forSelector:@selector(allChatResponse:)];
+        
+        if([[ICDataManager sharedInstance] isFounder])
+        {
+            [[ICAppManager sharedInstance] getAllCustomerIncubee:nil notifyTo:self forSelector:@selector(customerSyncIncubee:)];
+            
+        }
+        
     }
-
+    
 }
 
 #pragma mark - Update UI -

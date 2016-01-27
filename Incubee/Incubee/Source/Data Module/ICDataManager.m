@@ -632,6 +632,15 @@ static ICDataManager *sharedDataManagerInstance = nil;
     return ([aUser.userLoginMode integerValue] == USER_LOGIN_MODE_INVESTOR ) ? YES : NO;
     
 }
+
+-(BOOL)isChatEnabled{
+
+    User *aUser = [self getUser];
+    
+    return (([aUser.userLoginMode integerValue] == USER_LOGIN_MODE_CUSTOMER) || ([aUser.userLoginMode integerValue] == USER_LOGIN_MODE_FOUNDER) ) ? YES : NO;
+
+}
+
 -(NSString*)getFounderId{
     
     User *aUser = [self getUser];
