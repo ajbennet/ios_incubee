@@ -227,6 +227,26 @@
     
 }
 
+-(void)getReview:(NSString*)inIncubeeId withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
+
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_GET_INCUBEE_REVIEW;
+    
+    req.requestMethod = ICRequestMethodGet;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+    
+    req.isTokenRequired = NO;
+    
+    [req setRequestingURL:[NSURL URLWithString:kGetIncubeeReview(inIncubeeId)]];
+    
+    [self sendRequestObject:req];
+    
+}
+
 
 #pragma mark - Chat -
 -(void)getAllChat:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
