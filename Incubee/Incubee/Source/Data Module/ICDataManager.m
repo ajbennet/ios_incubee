@@ -477,7 +477,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
         aUser.token = user.authentication.accessToken;
         
         aUser.tokenExpDate = user.authentication.accessTokenExpirationDate;
-        
+                
         NSError *error = nil;
         
         [context save:&error];
@@ -578,6 +578,45 @@ static ICDataManager *sharedDataManagerInstance = nil;
     }
     
 }
+
+-(void)setUserMode:(USER_LOGIN_MODE)inUserLoginMode{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:context]];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        ;
+        
+        if(results.count>0)
+        {
+            User *aUser = [results objectAtIndex:0];
+            
+            aUser.userLoginMode = [NSNumber numberWithInt:USER_LOGIN_MODE_FOUNDER];
+            
+            NSError *error = nil;
+            
+            [context save:&error];
+            
+            if(error==nil)
+            {
+                NSLog(@"User Updated as Founder");
+            }
+            
+        }
+    }
+
+    
+}
+
+
 -(BOOL)isFounder{
 
     User *aUser = [self getUser];
@@ -586,6 +625,13 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 }
 
+-(BOOL)isInvestor{
+
+    User *aUser = [self getUser];
+    
+    return ([aUser.userLoginMode integerValue] == USER_LOGIN_MODE_INVESTOR ) ? YES : NO;
+    
+}
 -(NSString*)getFounderId{
     
     User *aUser = [self getUser];

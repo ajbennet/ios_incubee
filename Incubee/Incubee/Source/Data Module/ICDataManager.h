@@ -49,7 +49,11 @@
 
 -(void)setUserAsFounder:(NSString*)inCompanyId;
 
+-(void)setUserMode:(USER_LOGIN_MODE)inUserLoginMode;
+
 -(BOOL)isFounder;
+
+-(BOOL)isInvestor;
 
 -(NSString*)getFounderId;
 

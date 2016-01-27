@@ -74,9 +74,28 @@
                     {
                         NSDictionary *serviceDataDic = NULL_TO_NIL([((NSDictionary*)parsedRespo) valueForKey:@"servicedata"]);
                         
-                        if(serviceDataDic && [serviceDataDic objectForKey:@"company_id"])
+                        if(serviceDataDic)
                         {
-                            [[ICDataManager sharedInstance] setUserAsFounder:[serviceDataDic valueForKey:@"company_id"]];
+                            NSString *userMode = [serviceDataDic valueForKey:@"user_type"];
+                            
+                            if([userMode isEqualToString:@"I"])
+                            {
+                                [[ICDataManager sharedInstance] setUserMode:USER_LOGIN_MODE_INVESTOR];
+                            }
+                            if([userMode isEqualToString:@"U"])
+                            {
+                                if([serviceDataDic objectForKey:@"company_id"])
+                                {
+                                    [[ICDataManager sharedInstance] setUserAsFounder:[serviceDataDic valueForKey:@"company_id"]];
+                                }
+                                else
+                                {
+                                    [[ICDataManager sharedInstance] setUserMode:USER_LOGIN_MODE_CUSTOMER];
+                                }
+
+                            }
+                            
+
                         }
 
                     }

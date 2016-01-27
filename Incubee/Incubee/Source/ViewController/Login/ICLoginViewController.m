@@ -180,7 +180,7 @@
     
     [self dismissViewControllerAnimated:YES completion:^{
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:USER_AS_FOUNDER_NOTIFICATION object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:USER_AS_FOUNDER_NOTIFICATION object:nil];
         
         
     }];

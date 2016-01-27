@@ -92,11 +92,20 @@ didDisconnectWithUser:(GIDGoogleUser *)user
     {
         NSLog(@"Signup + Logged In");
         
+        if([[ICDataManager sharedInstance] isInvestor])
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:USER_AS_FOUNDER_NOTIFICATION object:nil];
+            
+        }
+        else
+        {
+        
         [[ICAppManager sharedInstance] getAllLikedIncubee:nil notifyTo:self forSelector:@selector(userLikedIncubee:)];
         
         if([[ICDataManager sharedInstance] isFounder])
         {
             [[ICAppManager sharedInstance] getAllCustomerIncubee:nil notifyTo:self forSelector:@selector(customerSyncIncubee:)];
+        }
         }
     }
     else
