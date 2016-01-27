@@ -1164,8 +1164,42 @@ static ICDataManager *sharedDataManagerInstance = nil;
         
     }
 
+}
+
+-(NSArray*)getReviewArray:(NSString*)inIncubeeId{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSEntityDescription *entity = [NSEntityDescription  entityForName:@"Review" inManagedObjectContext:context];
+        
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:entity];
+        
+        NSPredicate *prd = [NSPredicate predicateWithFormat:@"(incubee_id LIKE %@)",inIncubeeId];
+        
+        [request setPredicate:prd];
+        
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+        
+        [request setSortDescriptors:@[sortDescriptor]];
+        
+        NSError *error = nil;
+        
+        NSArray *objects = [context executeFetchRequest:request error:&error];
+        
+        if (objects != nil) {
+            
+            return objects;
+            // Handle the error.
+        }
+        
+    }
     
     
+    return nil;
 
 }
 

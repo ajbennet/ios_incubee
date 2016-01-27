@@ -84,4 +84,6 @@
 
 #pragma mark - Review -
 -(void)saveReviewArray:(NSArray*)inReviewArray;
+
+-(NSArray*)getReviewArray:(NSString*)inIncubeeId;
 @end

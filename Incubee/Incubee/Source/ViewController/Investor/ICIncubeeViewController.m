@@ -18,6 +18,8 @@
 
     NSArray *reviewArray;
     
+    NSDictionary *reviewDataDic;
+    
 }
 @end
 
@@ -171,7 +173,6 @@
         
         headView.backgroundColor = [UIColor whiteColor];;
         
-        
         UIButton *aWriteReviewButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
         [aWriteReviewButton addTarget:self action:@selector(writeReviewHeaderTapped) forControlEvents:UIControlEventTouchUpInside];
@@ -180,9 +181,7 @@
         
         [headView addSubview:aWriteReviewButton];
         
-//        if(reviewArray.count!=0)
-
-        if(![_incubee.companyName isEqualToString:@"Hipmunk"])
+        if(reviewArray.count==0)
         {
             
             UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _reviewTableView.frame.size.width, 80.0f)];
@@ -200,14 +199,13 @@
             [headView addSubview:lab];
             
             return headView;
-            
         }
         else
         {
             
             UILabel *ratingLab = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 70.0f, 70.0f)];
             
-            ratingLab.text = @"4.7";
+            ratingLab.text = [[reviewDataDic valueForKey:@"averageRating"] stringValue];
             
             ratingLab.textAlignment = NSTextAlignmentCenter;
             
@@ -237,7 +235,6 @@
             
             return headView;
             
-            
         }
     }
     else
@@ -255,7 +252,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 1;
+    
+    return reviewArray.count == 0 ? 1 : reviewArray.count;
 }
 
 
@@ -268,10 +266,17 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:EMPTYREVIEWCELL];
             
         }
-        
-        [cell.textLabel setText:@"No reviews yet"];
     
-    
+    if(reviewArray.count==0)
+    {
+        [cell.textLabel setText:@"No reviews"];
+    }
+    else
+    {
+        Review *review = [reviewArray objectAtIndex:indexPath.row];
+
+        [cell.textLabel setText:review.reviewTitle];
+    }
     
     [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
     
@@ -400,7 +405,15 @@
 
 - (void)reviewLoaded:(ICRequest*)inRequest{
 
+    reviewArray = [[ICDataManager sharedInstance] getReviewArray:_incubee.incubeeId];
+    
+    reviewDataDic = [inRequest.parsedResponse objectForKey:@"reviewData"];
+    
     [self showLoadingReview:NO];
+    
+    
+    [_reviewTableView reloadData];
+    
     
     if(inRequest.error == nil)
     {
