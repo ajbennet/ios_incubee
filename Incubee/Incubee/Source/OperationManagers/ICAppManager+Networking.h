@@ -30,6 +30,9 @@
 
 -(void)getReview:(NSString*)inIncubeeId withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
 
+-(void)submitReview:(NSDictionary*)reviewDic withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
+
+
 #pragma mark - Chat -
 
 -(void)getAllChat:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;

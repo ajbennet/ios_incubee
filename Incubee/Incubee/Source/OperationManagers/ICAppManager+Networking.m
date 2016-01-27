@@ -248,6 +248,47 @@
 }
 
 
+-(void)submitReview:(NSDictionary*)reviewDic withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
+
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_SUBMIT_REVIEW;
+    
+    req.isTokenRequired = YES;
+    
+    req.requestMethod = ICRequestMethodPost;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+    
+    [req setRequestingURL:[NSURL URLWithString:kSubmitReview([[ICDataManager sharedInstance] getUserId])]];
+    
+    
+    NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
+    
+    [d setValue:[reviewDic valueForKey:REVIEW_TITLE] forKey:@"title"];
+    [d setValue:[reviewDic valueForKey:REVIEW_DESC] forKey:@"description"];
+    [d setValue:[reviewDic valueForKey:REVIEW_INCUBEE_ID] forKey:@"incubee_id"];
+    [d setValue:[reviewDic valueForKey:REVIEW_RATING] forKey:@"rating"];
+    [d setValue:[reviewDic valueForKey:REVIEW_MEETING] forKey:@"meeting"];
+    [d setValue:[reviewDic valueForKey:REVIEW_STATUS] forKey:@"status"];
+    
+    
+    [req setReqDataDict:(NSMutableDictionary*)d];
+    
+    [self sendRequestObject:req];
+
+    
+    
+    
+}
+
+
+
+
+
+
 #pragma mark - Chat -
 -(void)getAllChat:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
 
