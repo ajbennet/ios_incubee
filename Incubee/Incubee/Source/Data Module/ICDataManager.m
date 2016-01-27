@@ -599,7 +599,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
         {
             User *aUser = [results objectAtIndex:0];
             
-            aUser.userLoginMode = [NSNumber numberWithInt:USER_LOGIN_MODE_FOUNDER];
+            aUser.userLoginMode = [NSNumber numberWithInt:inUserLoginMode];
             
             NSError *error = nil;
             
