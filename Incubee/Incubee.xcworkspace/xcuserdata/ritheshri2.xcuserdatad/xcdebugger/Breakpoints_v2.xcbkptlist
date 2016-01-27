@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Incubee/Source/ViewController/Investor/ICInvestorViewController.m"
-            timestampString = "475178298.717737"
+            filePath = "Incubee/Source/Data Module/ICDataManager.m"
+            timestampString = "475604516.321146"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "1097"
+            endingLineNumber = "1097"
+            landmarkName = "-saveReviewArray:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,61 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Incubee/Source/OperationManagers/ICUserAccountManager.m"
-            timestampString = "475567388.582922"
+            filePath = "Incubee/Source/Data Module/ICDataManager+DataSaving.m"
+            timestampString = "475604580.945454"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "-loginResponse:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Incubee/Source/OperationManagers/ICJSONParsingOperations.m"
-            timestampString = "475568046.977865"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-main"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Incubee/Source/OperationManagers/ICUserAccountManager.m"
-            timestampString = "475567972.476221"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "-signIn:didSignInForUser:withError:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Incubee/Source/OperationManagers/ICJSONParsingOperations.m"
-            timestampString = "475568082.639531"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "-main"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-saveResponse:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,44 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Incubee/Source/Data Module/ICDataManager.m"
-            timestampString = "475568135.201374"
+            timestampString = "475604901.723828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "584"
-            endingLineNumber = "584"
-            landmarkName = "-setUserMode:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Incubee/Source/OperationManagers/ICMessengerManager.m"
-            timestampString = "475588910.997015"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "-syncChat"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Incubee/Source/Data Module/ICDataManager.m"
-            timestampString = "475589632.661606"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "638"
-            endingLineNumber = "638"
-            landmarkName = "-isChatEnabled"
+            startingLineNumber = "1152"
+            endingLineNumber = "1152"
+            landmarkName = "-saveReviewArray:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
