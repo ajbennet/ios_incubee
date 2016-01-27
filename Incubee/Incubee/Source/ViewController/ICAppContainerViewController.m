@@ -80,7 +80,18 @@
     
     nav.view.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
     
+    
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.0];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight
+                           forView:self.view
+                             cache:YES];
+    
     [self.view addSubview:nav.view];
+    [UIView commitAnimations];
+
+    
     
     [nav didMoveToParentViewController:self];
 

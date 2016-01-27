@@ -62,6 +62,8 @@
 
 -(USER_LOGIN_MODE)getUserLoginMode;
 
+-(NSString*)getUserProfilePic;
+
 #pragma mark - Message - 
 
 -(NSArray*)getMessages:(NSString*)inMsgId;

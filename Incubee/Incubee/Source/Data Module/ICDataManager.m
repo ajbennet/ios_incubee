@@ -477,6 +477,16 @@ static ICDataManager *sharedDataManagerInstance = nil;
         aUser.token = user.authentication.accessToken;
         
         aUser.tokenExpDate = user.authentication.accessTokenExpirationDate;
+        
+        if (user.profile.hasImage)
+        {
+            NSUInteger dimension = 200;
+            
+            NSURL *imageURL = [user.profile imageURLWithDimension:dimension];
+            
+            aUser.imageURL = [imageURL absoluteString];
+        }
+
                 
         NSError *error = nil;
         
@@ -650,15 +660,19 @@ static ICDataManager *sharedDataManagerInstance = nil;
 }
 
 -(USER_LOGIN_MODE)getUserLoginMode{
-
-    
-    
-    
     
     return USER_LOGIN_MODE_GUEST;
     
-    
 }
+
+-(NSString*)getUserProfilePic{
+
+    User *aUser = [self getUser];
+    
+    return aUser.imageURL;
+
+}
+
 #pragma mark - Message -
 
 -(NSArray*)getMessages:(NSString*)inMsgId{

@@ -28,7 +28,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *writeReviewView;
 
-@property (strong, nonatomic) IBOutlet UIImageView *investorsProfileImageView;
+@property (strong, nonatomic) IBOutlet ICImageView *investorsProfileImageView;
 
 @property(nonatomic,strong) MPMoviePlayerController *moviePlayer;
 

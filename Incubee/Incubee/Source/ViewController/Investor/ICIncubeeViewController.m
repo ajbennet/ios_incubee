@@ -117,11 +117,19 @@
     [_reviewTableView reloadData];
     
     
-    _investorsProfileImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    _investorsProfileImageView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
     
     _investorsProfileImageView.layer.borderWidth = 2.0f;
     
     _investorsProfileImageView.layer.cornerRadius = 50.0f;
+    
+    
+    ICImageManager *im1 = [[ICImageManager alloc] init];
+    
+    [_investorsProfileImageView setImageUrl:[[ICDataManager sharedInstance] getUserProfilePic]];
+    
+    [im1 getImage:[[ICDataManager sharedInstance] getUserProfilePic] withDelegate:self];
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
     
@@ -214,6 +222,8 @@
             [headView addSubview:ratingLab];
             
             StarRatingControl *rattingView = [[StarRatingControl alloc] initWithFrame:CGRectMake(100, 5.0f, tableView.frame.size.width - 120.f, 30.0f)];
+            
+            rattingView.userInteractionEnabled = NO;
             
             rattingView.rating = [[reviewDataDic valueForKey:@"averageRating"] intValue];
             
@@ -668,7 +678,11 @@
             _bannerImageView.image = [UIImage imageWithData:inImageData];
             
         }
+        else if([_investorsProfileImageView.imageUrl isEqualToString:inUrl]){
         
+            _investorsProfileImageView.image = [UIImage imageWithData:inImageData];
+
+        }
         
     });
     
