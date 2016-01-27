@@ -383,6 +383,20 @@
 
 
 #pragma mark - Review -
+-(void)reviewSubmitted:(ICRequest*)inRequest{
+
+    if(inRequest.error == nil)
+    {
+        
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error : %ld",(long)inRequest.error.code] message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
+    }
+
+}
 
 - (void)reviewLoaded:(ICRequest*)inRequest{
 
@@ -479,6 +493,19 @@
 - (IBAction)submitReviewTapped:(id)sender {
 
     [self resignTextFirstResponders];
+    
+    
+    NSMutableDictionary *reviewDic = [[NSMutableDictionary alloc] init];
+    
+    [reviewDic setObject:_reviewTitle.text forKey:REVIEW_TITLE];
+    [reviewDic setObject:_commentsTextView.text forKey:REVIEW_DESC];
+    [reviewDic setObject:_incubee.incubeeId forKey:REVIEW_INCUBEE_ID];
+    [reviewDic setObject:[NSNumber numberWithInt:4] forKey:REVIEW_RATING];
+    [reviewDic setObject:@"PER" forKey:REVIEW_MEETING];
+    [reviewDic setObject:@"INT" forKey:REVIEW_STATUS];
+    
+    
+    [[ICAppManager sharedInstance] submitReview:reviewDic withRequest:nil notifyTo:self forSelector:@selector(reviewSubmitted:)];
     
     [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.60 initialSpringVelocity:0.5 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
         
