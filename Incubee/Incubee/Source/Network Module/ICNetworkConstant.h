@@ -50,6 +50,10 @@
 
 #define kGetIncubeeReview(incubeeId) [NSString stringWithFormat:@"%@%@/incubee/rest/%@/review/%@",SERVER_REST_PROTOCOL,SERVER_HOST,SERVER_API_VERSION,incubeeId]
 
+#define kSubmitReview(userId) [NSString stringWithFormat:@"%@%@/incubee/rest/%@/review?uid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,SERVER_API_VERSION,userId]
+
+
+
 #define kGetAllFounderChatMsg(userId) [NSString stringWithFormat:@"%@%@/rest/%@/msg/all?eid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,SERVER_API_VERSION,userId]
 
 #define ksendChatMsg(userId) [NSString stringWithFormat:@"%@%@/rest/%@/msg?eid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,SERVER_API_VERSION,userId]
