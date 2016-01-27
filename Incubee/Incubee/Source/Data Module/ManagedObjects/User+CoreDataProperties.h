@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.h
 //  Incubee
 //
-//  Created by Rithesh Rao on 18/01/16.
+//  Created by Rithesh Rao on 27/01/16.
 //  Copyright © 2016 Incubee. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -18,11 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *email;
 @property (nullable, nonatomic, retain) NSString *founderCompanyId;
 @property (nullable, nonatomic, retain) NSString *imageURL;
-@property (nullable, nonatomic, retain) NSNumber *userLoginMode;
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSString *token;
 @property (nullable, nonatomic, retain) NSDate *tokenExpDate;
 @property (nullable, nonatomic, retain) NSString *userId;
+@property (nullable, nonatomic, retain) NSNumber *userLoginMode;
 
 @end
 

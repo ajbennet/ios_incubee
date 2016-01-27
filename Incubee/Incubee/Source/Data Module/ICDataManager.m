@@ -720,10 +720,12 @@ static ICDataManager *sharedDataManagerInstance = nil;
             
             NSArray *results = [context executeFetchRequest:request error:&errorDb];
             
-            Incubee *aIncubee = [results objectAtIndex:0];
+            if(results.count>0)
+            {
+                Incubee *aIncubee = [results objectAtIndex:0];
             
-            aIncubee.projectFollowing = [NSNumber numberWithBool:YES];
-            
+                aIncubee.projectFollowing = [NSNumber numberWithBool:YES];
+            }            
         }
         
         NSError *er = nil;

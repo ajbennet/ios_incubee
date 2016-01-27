@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.m
 //  Incubee
 //
-//  Created by Rithesh Rao on 18/01/16.
+//  Created by Rithesh Rao on 27/01/16.
 //  Copyright © 2016 Incubee. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,10 +16,10 @@
 @dynamic email;
 @dynamic founderCompanyId;
 @dynamic imageURL;
-@dynamic userLoginMode;
 @dynamic name;
 @dynamic token;
 @dynamic tokenExpDate;
 @dynamic userId;
+@dynamic userLoginMode;
 
 @end
