@@ -21,6 +21,7 @@
         <mutableArray key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -562,6 +563,34 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jd-So-bl6" userLabel="LoadingPage">
+                                <rect key="frame" x="0.0" y="260" width="600" height="340"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MW1-1G-Tsx">
+                                        <rect key="frame" x="282" y="151" width="37" height="37"/>
+                                        <color key="color" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading reviews.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bL-iK-uua">
+                                        <rect key="frame" x="236" y="196" width="128" height="21"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                        <color key="textColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="MW1-1G-Tsx" firstAttribute="centerX" secondItem="7jd-So-bl6" secondAttribute="centerX" id="1c2-Lc-MkG"/>
+                                    <constraint firstItem="2bL-iK-uua" firstAttribute="centerY" secondItem="7jd-So-bl6" secondAttribute="centerY" id="Pie-Bc-thF"/>
+                                    <constraint firstItem="MW1-1G-Tsx" firstAttribute="centerY" secondItem="7jd-So-bl6" secondAttribute="centerY" id="cwr-Za-YEB"/>
+                                    <constraint firstItem="2bL-iK-uua" firstAttribute="centerX" secondItem="7jd-So-bl6" secondAttribute="centerX" id="e0V-Hu-1hu"/>
+                                    <constraint firstItem="2bL-iK-uua" firstAttribute="top" secondItem="MW1-1G-Tsx" secondAttribute="bottom" constant="8" id="ynB-lq-5BZ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Pie-Bc-thF"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -570,10 +599,14 @@
                             <constraint firstItem="QI8-Ii-YSr" firstAttribute="leading" secondItem="gan-W6-WTJ" secondAttribute="leading" id="6Af-zz-tJz"/>
                             <constraint firstItem="U1R-r3-qPB" firstAttribute="leading" secondItem="gan-W6-WTJ" secondAttribute="leading" id="AdM-6D-40r"/>
                             <constraint firstItem="QI8-Ii-YSr" firstAttribute="top" secondItem="gan-W6-WTJ" secondAttribute="top" id="C8T-JC-b5S"/>
+                            <constraint firstItem="7jd-So-bl6" firstAttribute="trailing" secondItem="kvK-DC-K0o" secondAttribute="trailing" id="Cng-NR-qjY"/>
                             <constraint firstAttribute="trailing" secondItem="QI8-Ii-YSr" secondAttribute="trailing" id="IRY-xS-YXq"/>
                             <constraint firstItem="kvK-DC-K0o" firstAttribute="top" secondItem="U1R-r3-qPB" secondAttribute="bottom" id="Ky2-3v-5KO"/>
+                            <constraint firstItem="7jd-So-bl6" firstAttribute="bottom" secondItem="kvK-DC-K0o" secondAttribute="bottom" id="MOL-oY-eRo"/>
                             <constraint firstAttribute="trailing" secondItem="U1R-r3-qPB" secondAttribute="trailing" id="VRt-Xy-uaT"/>
+                            <constraint firstItem="7jd-So-bl6" firstAttribute="leading" secondItem="kvK-DC-K0o" secondAttribute="leading" id="Wuu-aL-ftt"/>
                             <constraint firstItem="U1R-r3-qPB" firstAttribute="height" secondItem="gan-W6-WTJ" secondAttribute="height" multiplier="0.4" id="eI3-4Y-VHZ"/>
+                            <constraint firstItem="7jd-So-bl6" firstAttribute="top" secondItem="kvK-DC-K0o" secondAttribute="top" id="guL-TP-LUj"/>
                             <constraint firstItem="U1R-r3-qPB" firstAttribute="top" secondItem="W2u-Cg-RUy" secondAttribute="bottom" id="oPI-8L-BwC"/>
                             <constraint firstItem="kvK-DC-K0o" firstAttribute="leading" secondItem="gan-W6-WTJ" secondAttribute="leading" id="r9v-qn-OhR"/>
                             <constraint firstItem="HtK-rP-0Sz" firstAttribute="top" secondItem="QI8-Ii-YSr" secondAttribute="bottom" id="yrr-kE-Opw"/>
@@ -590,7 +623,9 @@
                         <outlet property="investorsProfileImageView" destination="Yq8-s2-6YD" id="Kno-wE-GBc"/>
                         <outlet property="meetSegment" destination="CHL-vC-Chp" id="H0v-rD-k90"/>
                         <outlet property="moviePlayerView" destination="5li-kp-dbg" id="YeI-GU-nbC"/>
+                        <outlet property="reloadActivityIndicator" destination="MW1-1G-Tsx" id="84G-oA-kzF"/>
                         <outlet property="reviewContainerBottomConstraints" destination="0Ub-Ue-J1q" id="7DR-oO-i2P"/>
+                        <outlet property="reviewLoadingView" destination="7jd-So-bl6" id="vRn-eI-lVC"/>
                         <outlet property="reviewTableView" destination="kvK-DC-K0o" id="V3e-GN-5PQ"/>
                         <outlet property="reviewTitle" destination="dwf-cQ-Reb" id="SyT-lB-JJk"/>
                         <outlet property="statusSegment" destination="dRg-Ci-MYt" id="CtX-KI-JWU"/>

@@ -126,6 +126,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 
     self.navigationController.navigationBarHidden = NO;
+    
+    [self showLoadingReview:YES];
+
+    [[ICAppManager sharedInstance] getReview:_incubee.incubeeId withRequest:nil notifyTo:self forSelector:@selector(reviewLoaded:)];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -377,6 +383,43 @@
 
 
 #pragma mark - Review -
+
+- (void)reviewLoaded:(ICRequest*)inRequest{
+
+    [self showLoadingReview:NO];
+    
+    if(inRequest.error == nil)
+    {
+        
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error : %ld",(long)inRequest.error.code] message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
+        
+    }
+
+
+}
+
+-(void)showLoadingReview:(BOOL)inShow{
+
+    if(inShow)
+    {
+        [_reloadActivityIndicator startAnimating];
+        
+        [_reviewLoadingView setHidden:NO];
+    }
+    else
+    {
+    
+        [_reloadActivityIndicator stopAnimating];
+        
+        [_reviewLoadingView setHidden:YES];
+    }
+    
+}
 
 -(void)resetWriteReview{
 

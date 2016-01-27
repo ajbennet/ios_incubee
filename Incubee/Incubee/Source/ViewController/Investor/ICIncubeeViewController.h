@@ -62,6 +62,8 @@
 
 @property (weak, nonatomic) IBOutlet ICImageView *topLeftImageView;
 
+@property (weak, nonatomic) IBOutlet UIView *reviewLoadingView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *reloadActivityIndicator;
 
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 
