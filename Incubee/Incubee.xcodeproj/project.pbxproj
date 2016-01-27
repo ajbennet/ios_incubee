@@ -65,18 +65,20 @@
 		5864EB631B86434C00091C94 /* ICChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB621B86434C00091C94 /* ICChatViewController.m */; };
 		5864EB721B86490B00091C94 /* ICChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB711B86490B00091C94 /* ICChatTableViewCell.m */; };
 		58BD4A191B6CA28C00EC85C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58BD4A181B6CA28C00EC85C4 /* GoogleService-Info.plist */; };
-		58EB822C1C4D4185005917D0 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EB82191C4D4185005917D0 /* User+CoreDataProperties.m */; };
-		58EB822D1C4D4185005917D0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EB821B1C4D4185005917D0 /* User.m */; };
-		58EB822E1C4D4185005917D0 /* Customer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EB821D1C4D4185005917D0 /* Customer+CoreDataProperties.m */; };
-		58EB822F1C4D4185005917D0 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EB821F1C4D4185005917D0 /* Customer.m */; };
-		58EB82301C4D4185005917D0 /* Incubee+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EB82211C4D4185005917D0 /* Incubee+CoreDataProperties.m */; };
-		58EB82311C4D4185005917D0 /* Incubee.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EB82231C4D4185005917D0 /* Incubee.m */; };
-		58EB82321C4D4185005917D0 /* IncubeeImage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EB82251C4D4185005917D0 /* IncubeeImage+CoreDataProperties.m */; };
-		58EB82331C4D4185005917D0 /* IncubeeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EB82271C4D4185005917D0 /* IncubeeImage.m */; };
-		58EB82341C4D4185005917D0 /* Messages+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EB82291C4D4185005917D0 /* Messages+CoreDataProperties.m */; };
-		58EB82351C4D4185005917D0 /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EB822B1C4D4185005917D0 /* Messages.m */; };
 		58EB82371C4D47C4005917D0 /* ICInvestorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EB82361C4D47C4005917D0 /* ICInvestorStoryboard.storyboard */; };
 		58F558D01C4EAC240071DBCB /* ICIncubeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F558CF1C4EAC240071DBCB /* ICIncubeeViewController.m */; };
+		79CBD3BC1C590C5C00D07441 /* Review+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3A51C590C5C00D07441 /* Review+CoreDataProperties.m */; };
+		79CBD3BD1C590C5C00D07441 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3A71C590C5C00D07441 /* Review.m */; };
+		79CBD3BE1C590C5C00D07441 /* Incubee+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3A91C590C5C00D07441 /* Incubee+CoreDataProperties.m */; };
+		79CBD3BF1C590C5C00D07441 /* Incubee.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3AB1C590C5C00D07441 /* Incubee.m */; };
+		79CBD3C01C590C5C00D07441 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3AD1C590C5C00D07441 /* User+CoreDataProperties.m */; };
+		79CBD3C11C590C5C00D07441 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3AF1C590C5C00D07441 /* User.m */; };
+		79CBD3C21C590C5C00D07441 /* Customer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3B11C590C5C00D07441 /* Customer+CoreDataProperties.m */; };
+		79CBD3C31C590C5C00D07441 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3B31C590C5C00D07441 /* Customer.m */; };
+		79CBD3C41C590C5C00D07441 /* IncubeeImage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3B51C590C5C00D07441 /* IncubeeImage+CoreDataProperties.m */; };
+		79CBD3C51C590C5C00D07441 /* IncubeeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3B71C590C5C00D07441 /* IncubeeImage.m */; };
+		79CBD3C61C590C5C00D07441 /* Messages+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3B91C590C5C00D07441 /* Messages+CoreDataProperties.m */; };
+		79CBD3C71C590C5C00D07441 /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3BB1C590C5C00D07441 /* Messages.m */; };
 		930CB1D550C9E950F61E556D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB03A56CF3D54AE87702E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -185,30 +187,34 @@
 		5864EB711B86490B00091C94 /* ICChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICChatTableViewCell.m; path = Source/ViewController/Messanger/ICChatTableViewCell.m; sourceTree = "<group>"; };
 		58BD4A181B6CA28C00EC85C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		58E47B111B94CF7F00053C60 /* ICConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICConstants.h; path = Source/OperationManagers/ICConstants.h; sourceTree = "<group>"; };
-		58EB82181C4D4185005917D0 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "Source/Data Module/ManagedObjects/User+CoreDataProperties.h"; sourceTree = "<group>"; };
-		58EB82191C4D4185005917D0 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/User+CoreDataProperties.m"; sourceTree = "<group>"; };
-		58EB821A1C4D4185005917D0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "Source/Data Module/ManagedObjects/User.h"; sourceTree = "<group>"; };
-		58EB821B1C4D4185005917D0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "Source/Data Module/ManagedObjects/User.m"; sourceTree = "<group>"; };
-		58EB821C1C4D4185005917D0 /* Customer+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Customer+CoreDataProperties.h"; path = "Source/Data Module/ManagedObjects/Customer+CoreDataProperties.h"; sourceTree = "<group>"; };
-		58EB821D1C4D4185005917D0 /* Customer+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Customer+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/Customer+CoreDataProperties.m"; sourceTree = "<group>"; };
-		58EB821E1C4D4185005917D0 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Customer.h; path = "Source/Data Module/ManagedObjects/Customer.h"; sourceTree = "<group>"; };
-		58EB821F1C4D4185005917D0 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Customer.m; path = "Source/Data Module/ManagedObjects/Customer.m"; sourceTree = "<group>"; };
-		58EB82201C4D4185005917D0 /* Incubee+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Incubee+CoreDataProperties.h"; path = "Source/Data Module/ManagedObjects/Incubee+CoreDataProperties.h"; sourceTree = "<group>"; };
-		58EB82211C4D4185005917D0 /* Incubee+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Incubee+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/Incubee+CoreDataProperties.m"; sourceTree = "<group>"; };
-		58EB82221C4D4185005917D0 /* Incubee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Incubee.h; path = "Source/Data Module/ManagedObjects/Incubee.h"; sourceTree = "<group>"; };
-		58EB82231C4D4185005917D0 /* Incubee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Incubee.m; path = "Source/Data Module/ManagedObjects/Incubee.m"; sourceTree = "<group>"; };
-		58EB82241C4D4185005917D0 /* IncubeeImage+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IncubeeImage+CoreDataProperties.h"; path = "Source/Data Module/ManagedObjects/IncubeeImage+CoreDataProperties.h"; sourceTree = "<group>"; };
-		58EB82251C4D4185005917D0 /* IncubeeImage+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IncubeeImage+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/IncubeeImage+CoreDataProperties.m"; sourceTree = "<group>"; };
-		58EB82261C4D4185005917D0 /* IncubeeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncubeeImage.h; path = "Source/Data Module/ManagedObjects/IncubeeImage.h"; sourceTree = "<group>"; };
-		58EB82271C4D4185005917D0 /* IncubeeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncubeeImage.m; path = "Source/Data Module/ManagedObjects/IncubeeImage.m"; sourceTree = "<group>"; };
-		58EB82281C4D4185005917D0 /* Messages+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Messages+CoreDataProperties.h"; path = "Source/Data Module/ManagedObjects/Messages+CoreDataProperties.h"; sourceTree = "<group>"; };
-		58EB82291C4D4185005917D0 /* Messages+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Messages+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/Messages+CoreDataProperties.m"; sourceTree = "<group>"; };
-		58EB822A1C4D4185005917D0 /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messages.h; path = "Source/Data Module/ManagedObjects/Messages.h"; sourceTree = "<group>"; };
-		58EB822B1C4D4185005917D0 /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Messages.m; path = "Source/Data Module/ManagedObjects/Messages.m"; sourceTree = "<group>"; };
 		58EB82361C4D47C4005917D0 /* ICInvestorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ICInvestorStoryboard.storyboard; path = Source/ViewController/Storyboards/ICInvestorStoryboard.storyboard; sourceTree = "<group>"; };
 		58F558CE1C4EAC240071DBCB /* ICIncubeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICIncubeeViewController.h; path = Source/ViewController/Investor/ICIncubeeViewController.h; sourceTree = "<group>"; };
 		58F558CF1C4EAC240071DBCB /* ICIncubeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICIncubeeViewController.m; path = Source/ViewController/Investor/ICIncubeeViewController.m; sourceTree = "<group>"; };
 		79BDB03A56CF3D54AE87702E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		79CBD3A41C590C5C00D07441 /* Review+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Review+CoreDataProperties.h"; path = "Source/Data Module/ManagedObjects/Review+CoreDataProperties.h"; sourceTree = "<group>"; };
+		79CBD3A51C590C5C00D07441 /* Review+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Review+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/Review+CoreDataProperties.m"; sourceTree = "<group>"; };
+		79CBD3A61C590C5C00D07441 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Review.h; path = "Source/Data Module/ManagedObjects/Review.h"; sourceTree = "<group>"; };
+		79CBD3A71C590C5C00D07441 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Review.m; path = "Source/Data Module/ManagedObjects/Review.m"; sourceTree = "<group>"; };
+		79CBD3A81C590C5C00D07441 /* Incubee+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Incubee+CoreDataProperties.h"; path = "Source/Data Module/ManagedObjects/Incubee+CoreDataProperties.h"; sourceTree = "<group>"; };
+		79CBD3A91C590C5C00D07441 /* Incubee+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Incubee+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/Incubee+CoreDataProperties.m"; sourceTree = "<group>"; };
+		79CBD3AA1C590C5C00D07441 /* Incubee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Incubee.h; path = "Source/Data Module/ManagedObjects/Incubee.h"; sourceTree = "<group>"; };
+		79CBD3AB1C590C5C00D07441 /* Incubee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Incubee.m; path = "Source/Data Module/ManagedObjects/Incubee.m"; sourceTree = "<group>"; };
+		79CBD3AC1C590C5C00D07441 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "Source/Data Module/ManagedObjects/User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		79CBD3AD1C590C5C00D07441 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		79CBD3AE1C590C5C00D07441 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "Source/Data Module/ManagedObjects/User.h"; sourceTree = "<group>"; };
+		79CBD3AF1C590C5C00D07441 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "Source/Data Module/ManagedObjects/User.m"; sourceTree = "<group>"; };
+		79CBD3B01C590C5C00D07441 /* Customer+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Customer+CoreDataProperties.h"; path = "Source/Data Module/ManagedObjects/Customer+CoreDataProperties.h"; sourceTree = "<group>"; };
+		79CBD3B11C590C5C00D07441 /* Customer+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Customer+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/Customer+CoreDataProperties.m"; sourceTree = "<group>"; };
+		79CBD3B21C590C5C00D07441 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Customer.h; path = "Source/Data Module/ManagedObjects/Customer.h"; sourceTree = "<group>"; };
+		79CBD3B31C590C5C00D07441 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Customer.m; path = "Source/Data Module/ManagedObjects/Customer.m"; sourceTree = "<group>"; };
+		79CBD3B41C590C5C00D07441 /* IncubeeImage+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IncubeeImage+CoreDataProperties.h"; path = "Source/Data Module/ManagedObjects/IncubeeImage+CoreDataProperties.h"; sourceTree = "<group>"; };
+		79CBD3B51C590C5C00D07441 /* IncubeeImage+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IncubeeImage+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/IncubeeImage+CoreDataProperties.m"; sourceTree = "<group>"; };
+		79CBD3B61C590C5C00D07441 /* IncubeeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncubeeImage.h; path = "Source/Data Module/ManagedObjects/IncubeeImage.h"; sourceTree = "<group>"; };
+		79CBD3B71C590C5C00D07441 /* IncubeeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncubeeImage.m; path = "Source/Data Module/ManagedObjects/IncubeeImage.m"; sourceTree = "<group>"; };
+		79CBD3B81C590C5C00D07441 /* Messages+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Messages+CoreDataProperties.h"; path = "Source/Data Module/ManagedObjects/Messages+CoreDataProperties.h"; sourceTree = "<group>"; };
+		79CBD3B91C590C5C00D07441 /* Messages+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Messages+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/Messages+CoreDataProperties.m"; sourceTree = "<group>"; };
+		79CBD3BA1C590C5C00D07441 /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messages.h; path = "Source/Data Module/ManagedObjects/Messages.h"; sourceTree = "<group>"; };
+		79CBD3BB1C590C5C00D07441 /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Messages.m; path = "Source/Data Module/ManagedObjects/Messages.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -494,26 +500,30 @@
 		581D9FAA1B66BDC200270A16 /* Managed Objects */ = {
 			isa = PBXGroup;
 			children = (
-				58EB82181C4D4185005917D0 /* User+CoreDataProperties.h */,
-				58EB82191C4D4185005917D0 /* User+CoreDataProperties.m */,
-				58EB821A1C4D4185005917D0 /* User.h */,
-				58EB821B1C4D4185005917D0 /* User.m */,
-				58EB821C1C4D4185005917D0 /* Customer+CoreDataProperties.h */,
-				58EB821D1C4D4185005917D0 /* Customer+CoreDataProperties.m */,
-				58EB821E1C4D4185005917D0 /* Customer.h */,
-				58EB821F1C4D4185005917D0 /* Customer.m */,
-				58EB82201C4D4185005917D0 /* Incubee+CoreDataProperties.h */,
-				58EB82211C4D4185005917D0 /* Incubee+CoreDataProperties.m */,
-				58EB82221C4D4185005917D0 /* Incubee.h */,
-				58EB82231C4D4185005917D0 /* Incubee.m */,
-				58EB82241C4D4185005917D0 /* IncubeeImage+CoreDataProperties.h */,
-				58EB82251C4D4185005917D0 /* IncubeeImage+CoreDataProperties.m */,
-				58EB82261C4D4185005917D0 /* IncubeeImage.h */,
-				58EB82271C4D4185005917D0 /* IncubeeImage.m */,
-				58EB82281C4D4185005917D0 /* Messages+CoreDataProperties.h */,
-				58EB82291C4D4185005917D0 /* Messages+CoreDataProperties.m */,
-				58EB822A1C4D4185005917D0 /* Messages.h */,
-				58EB822B1C4D4185005917D0 /* Messages.m */,
+				79CBD3A41C590C5C00D07441 /* Review+CoreDataProperties.h */,
+				79CBD3A51C590C5C00D07441 /* Review+CoreDataProperties.m */,
+				79CBD3A61C590C5C00D07441 /* Review.h */,
+				79CBD3A71C590C5C00D07441 /* Review.m */,
+				79CBD3A81C590C5C00D07441 /* Incubee+CoreDataProperties.h */,
+				79CBD3A91C590C5C00D07441 /* Incubee+CoreDataProperties.m */,
+				79CBD3AA1C590C5C00D07441 /* Incubee.h */,
+				79CBD3AB1C590C5C00D07441 /* Incubee.m */,
+				79CBD3AC1C590C5C00D07441 /* User+CoreDataProperties.h */,
+				79CBD3AD1C590C5C00D07441 /* User+CoreDataProperties.m */,
+				79CBD3AE1C590C5C00D07441 /* User.h */,
+				79CBD3AF1C590C5C00D07441 /* User.m */,
+				79CBD3B01C590C5C00D07441 /* Customer+CoreDataProperties.h */,
+				79CBD3B11C590C5C00D07441 /* Customer+CoreDataProperties.m */,
+				79CBD3B21C590C5C00D07441 /* Customer.h */,
+				79CBD3B31C590C5C00D07441 /* Customer.m */,
+				79CBD3B41C590C5C00D07441 /* IncubeeImage+CoreDataProperties.h */,
+				79CBD3B51C590C5C00D07441 /* IncubeeImage+CoreDataProperties.m */,
+				79CBD3B61C590C5C00D07441 /* IncubeeImage.h */,
+				79CBD3B71C590C5C00D07441 /* IncubeeImage.m */,
+				79CBD3B81C590C5C00D07441 /* Messages+CoreDataProperties.h */,
+				79CBD3B91C590C5C00D07441 /* Messages+CoreDataProperties.m */,
+				79CBD3BA1C590C5C00D07441 /* Messages.h */,
+				79CBD3BB1C590C5C00D07441 /* Messages.m */,
 			);
 			name = "Managed Objects";
 			sourceTree = "<group>";
@@ -725,42 +735,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58EB822C1C4D4185005917D0 /* User+CoreDataProperties.m in Sources */,
+				79CBD3C01C590C5C00D07441 /* User+CoreDataProperties.m in Sources */,
 				584513B91C456C92006867A4 /* ICAppContainerViewController.m in Sources */,
 				576C4DC11B3F1402008AA2EB /* ICIncubeeLoginViewController.m in Sources */,
 				570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */,
-				58EB82331C4D4185005917D0 /* IncubeeImage.m in Sources */,
-				58EB82341C4D4185005917D0 /* Messages+CoreDataProperties.m in Sources */,
+				79CBD3BC1C590C5C00D07441 /* Review+CoreDataProperties.m in Sources */,
 				58009CA91BE725480041AEBF /* PPDateManager.m in Sources */,
-				58EB822E1C4D4185005917D0 /* Customer+CoreDataProperties.m in Sources */,
 				5780CB0E1B3E83740090ADCE /* ICDataManager.m in Sources */,
-				58EB82301C4D4185005917D0 /* Incubee+CoreDataProperties.m in Sources */,
+				79CBD3C61C590C5C00D07441 /* Messages+CoreDataProperties.m in Sources */,
 				57E724E61B4063E90066C0A5 /* ICImageManager.m in Sources */,
-				58EB82311C4D4185005917D0 /* Incubee.m in Sources */,
 				57D52CC11B581DEE008EA1E5 /* ICUserAccountManager.m in Sources */,
 				5780CB0A1B3E835B0090ADCE /* ICHomeViewController.m in Sources */,
 				5780CAFF1B3E833C0090ADCE /* ProfileViewController.m in Sources */,
 				5808FD8F1B8E23920053451A /* ICMessengerManager.m in Sources */,
-				58EB82351C4D4185005917D0 /* Messages.m in Sources */,
-				58EB822D1C4D4185005917D0 /* User.m in Sources */,
 				58F558D01C4EAC240071DBCB /* ICIncubeeViewController.m in Sources */,
 				5780CB3B1B3E8A250090ADCE /* ICOperationManager.m in Sources */,
 				5864EB631B86434C00091C94 /* ICChatViewController.m in Sources */,
 				5780CB051B3E834F0090ADCE /* ICLoginViewController.m in Sources */,
+				79CBD3C41C590C5C00D07441 /* IncubeeImage+CoreDataProperties.m in Sources */,
 				57C98C471B5129DD002F6E81 /* ICUtilityManager.m in Sources */,
 				584513BD1C456E3B006867A4 /* ICInvestorViewController.m in Sources */,
+				79CBD3BF1C590C5C00D07441 /* Incubee.m in Sources */,
 				5780CB391B3E8A250090ADCE /* ICJSONParsingOperations.m in Sources */,
+				79CBD3C11C590C5C00D07441 /* User.m in Sources */,
+				79CBD3C31C590C5C00D07441 /* Customer.m in Sources */,
+				79CBD3C51C590C5C00D07441 /* IncubeeImage.m in Sources */,
+				79CBD3C71C590C5C00D07441 /* Messages.m in Sources */,
 				5780CB0B1B3E835B0090ADCE /* ICCardViewController.m in Sources */,
+				79CBD3C21C590C5C00D07441 /* Customer+CoreDataProperties.m in Sources */,
+				79CBD3BE1C590C5C00D07441 /* Incubee+CoreDataProperties.m in Sources */,
 				583C9B321B8F882600A1FF1E /* ICBaseViewController.m in Sources */,
 				5780CB1E1B3E86BD0090ADCE /* ICAppManager+Networking.m in Sources */,
-				58EB822F1C4D4185005917D0 /* Customer.m in Sources */,
+				79CBD3BD1C590C5C00D07441 /* Review.m in Sources */,
 				5780CB1B1B3E86490090ADCE /* ICAppManager.m in Sources */,
 				5780CB4B1B3E9E1C0090ADCE /* ICDataManager+DataSaving.m in Sources */,
 				5780CB291B3E87840090ADCE /* Reachability.m in Sources */,
 				5780CB281B3E87840090ADCE /* ICRequest.m in Sources */,
 				5780CB021B3E83460090ADCE /* ICMessagingViewController.m in Sources */,
 				5864EB721B86490B00091C94 /* ICChatTableViewCell.m in Sources */,
-				58EB82321C4D4185005917D0 /* IncubeeImage+CoreDataProperties.m in Sources */,
 				5780CB421B3E925C0090ADCE /* ICDataSavingOperations.m in Sources */,
 				5780CB171B3E84A00090ADCE /* IncubeeModel.xcdatamodeld in Sources */,
 				5780CB3A1B3E8A250090ADCE /* ICNetworkOperation.m in Sources */,
