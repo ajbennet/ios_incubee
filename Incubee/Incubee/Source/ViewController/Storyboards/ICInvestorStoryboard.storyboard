@@ -412,21 +412,9 @@
                                                             <action selector="statusSegValueChanged:" destination="Oeg-0i-TGs" eventType="valueChanged" id="27b-kH-fwO"/>
                                                         </connections>
                                                     </segmentedControl>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHJ-DO-wYN" userLabel="RatingView">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHJ-DO-wYN" userLabel="RatingView" customClass="StarRatingControl">
                                                         <rect key="frame" x="20" y="175" width="550" height="81"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating UI #TODO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFE-mB-LMd">
-                                                                <rect key="frame" x="209" y="30" width="132" height="21"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <color key="backgroundColor" red="1" green="0.97008059000000002" blue="0.17244731190000001" alpha="0.52704741379310349" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstItem="xFE-mB-LMd" firstAttribute="centerX" secondItem="fHJ-DO-wYN" secondAttribute="centerX" id="Wn4-xZ-DxI"/>
-                                                            <constraint firstItem="xFE-mB-LMd" firstAttribute="centerY" secondItem="fHJ-DO-wYN" secondAttribute="centerY" id="soF-8w-O66"/>
-                                                        </constraints>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -628,6 +616,7 @@
                         <outlet property="reviewLoadingView" destination="7jd-So-bl6" id="vRn-eI-lVC"/>
                         <outlet property="reviewTableView" destination="kvK-DC-K0o" id="V3e-GN-5PQ"/>
                         <outlet property="reviewTitle" destination="dwf-cQ-Reb" id="SyT-lB-JJk"/>
+                        <outlet property="starRatingView" destination="fHJ-DO-wYN" id="fuB-5c-gtU"/>
                         <outlet property="statusSegment" destination="dRg-Ci-MYt" id="CtX-KI-JWU"/>
                         <outlet property="topItemContainer" destination="NUG-yn-zAV" id="q4Q-b7-8ha"/>
                         <outlet property="topLeftImageView" destination="Tu2-92-lIz" id="hGr-d0-w4g"/>

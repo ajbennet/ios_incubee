@@ -213,11 +213,11 @@
             
             [headView addSubview:ratingLab];
             
-            UIImageView *rattingImView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 5.0f, tableView.frame.size.width - 120.f, 30.0f)];
+            StarRatingControl *rattingView = [[StarRatingControl alloc] initWithFrame:CGRectMake(100, 5.0f, tableView.frame.size.width - 120.f, 30.0f)];
             
-            rattingImView.backgroundColor = [UIColor grayColor];
+            rattingView.rating = [[reviewDataDic valueForKey:@"averageRating"] intValue];
             
-            [headView addSubview:rattingImView];
+            [headView addSubview:rattingView];
             
             UILabel *writeReviewLabl = [[UILabel alloc] initWithFrame:CGRectMake(100, 35.0f, tableView.frame.size.width - 120.f, 40.0f)];
             
@@ -411,6 +411,8 @@
     
     [self showLoadingReview:NO];
     
+    
+    _starRatingView.rating = 4;
     
     [_reviewTableView reloadData];
     

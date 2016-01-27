@@ -10,6 +10,7 @@
 #import <MediaPlayer/MPMoviePlayerController.h>
 #import <MediaPlayer/MPMoviePlayerViewController.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "StarRatingControl.h"
 
 @interface ICIncubeeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextViewDelegate>
 
@@ -67,4 +68,5 @@
 
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 
+@property (weak, nonatomic) IBOutlet StarRatingControl *starRatingView;
 @end

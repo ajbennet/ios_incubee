@@ -79,6 +79,7 @@
 		79CBD3C51C590C5C00D07441 /* IncubeeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3B71C590C5C00D07441 /* IncubeeImage.m */; };
 		79CBD3C61C590C5C00D07441 /* Messages+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3B91C590C5C00D07441 /* Messages+CoreDataProperties.m */; };
 		79CBD3C71C590C5C00D07441 /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CBD3BB1C590C5C00D07441 /* Messages.m */; };
+		79F4932F1C5931EA00C79F58 /* StarRatingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F4932E1C5931EA00C79F58 /* StarRatingControl.m */; };
 		930CB1D550C9E950F61E556D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB03A56CF3D54AE87702E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -215,6 +216,8 @@
 		79CBD3B91C590C5C00D07441 /* Messages+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Messages+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/Messages+CoreDataProperties.m"; sourceTree = "<group>"; };
 		79CBD3BA1C590C5C00D07441 /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messages.h; path = "Source/Data Module/ManagedObjects/Messages.h"; sourceTree = "<group>"; };
 		79CBD3BB1C590C5C00D07441 /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Messages.m; path = "Source/Data Module/ManagedObjects/Messages.m"; sourceTree = "<group>"; };
+		79F4932D1C5931EA00C79F58 /* StarRatingControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRatingControl.h; sourceTree = "<group>"; };
+		79F4932E1C5931EA00C79F58 /* StarRatingControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRatingControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +338,8 @@
 		5780CAEE1B3E819D0090ADCE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				79F4932D1C5931EA00C79F58 /* StarRatingControl.h */,
+				79F4932E1C5931EA00C79F58 /* StarRatingControl.m */,
 				584513B71C456C92006867A4 /* ICAppContainerViewController.h */,
 				584513B81C456C92006867A4 /* ICAppContainerViewController.m */,
 				583C9B301B8F882600A1FF1E /* ICBaseViewController.h */,
@@ -761,6 +766,7 @@
 				79CBD3C31C590C5C00D07441 /* Customer.m in Sources */,
 				79CBD3C51C590C5C00D07441 /* IncubeeImage.m in Sources */,
 				79CBD3C71C590C5C00D07441 /* Messages.m in Sources */,
+				79F4932F1C5931EA00C79F58 /* StarRatingControl.m in Sources */,
 				5780CB0B1B3E835B0090ADCE /* ICCardViewController.m in Sources */,
 				79CBD3C21C590C5C00D07441 /* Customer+CoreDataProperties.m in Sources */,
 				79CBD3BE1C590C5C00D07441 /* Incubee+CoreDataProperties.m in Sources */,
