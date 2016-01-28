@@ -159,7 +159,15 @@
 	_currentIdx = (int)rating;
     
 	[_stars enumerateObjectsUsingBlock:^(UIImageView *star, NSUInteger idx, BOOL *stop) {
-		star.highlighted = (idx < _currentIdx);
+        
+        if(_currentIdx == -1)
+        {
+            star.highlighted = NO;
+        }
+        else
+        {
+            star.highlighted = (idx < _currentIdx);
+        }
 	}];
 }
 

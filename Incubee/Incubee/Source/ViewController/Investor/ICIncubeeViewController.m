@@ -10,7 +10,59 @@
 
 #define EMPTYREVIEWCELL @"EmptyReviewCell"
 
+#define REVIEWCELLID @"ReviewCellId"
+
 #define TEXT_INPUT_CELL_ID @"TextInputCellIdentifier"
+
+
+@interface  ICReviewTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet ICImageView *reviewImageView;
+@property (weak, nonatomic) IBOutlet UILabel *reviewTitle;
+@property (weak, nonatomic) IBOutlet StarRatingControl *reviewRating;
+@property (weak, nonatomic) IBOutlet UILabel *reviewDesc;
+
+@property(nonatomic,strong)Review *review;
+@end
+
+@implementation ICReviewTableViewCell
+
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    
+    if(self){
+    
+        
+        return self;
+    }
+    
+    return nil;
+}
+
+
+-(void)setReview:(Review *)review{
+
+    _review = review;
+    
+    _reviewTitle.text = review.reviewTitle;
+    
+    _reviewDesc.text = review.reviewDescription;
+    
+    _reviewRating.rating = review.rating.intValue;
+    
+    _reviewImageView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
+    
+    _reviewImageView.layer.borderWidth = 4.0f;
+    
+    _reviewImageView.layer.cornerRadius = _reviewImageView.frame.size.width/2;
+
+
+}
+
+@end
+
 
 
 @interface ICIncubeeViewController ()
@@ -19,6 +71,10 @@
     NSArray *reviewArray;
     
     NSDictionary *reviewDataDic;
+    
+    NSString *meetSelected;
+    
+    NSString *statusSelected;
     
 }
 @end
@@ -211,17 +267,19 @@
         else
         {
             
-            UILabel *ratingLab = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 70.0f, 70.0f)];
+            UILabel *ratingLab = [[UILabel alloc] initWithFrame:CGRectMake(10,5,100,50.0f)];
+            
+            ratingLab.backgroundColor = [UIColor clearColor];
             
             ratingLab.text = [[reviewDataDic valueForKey:@"averageRating"] stringValue];
             
             ratingLab.textAlignment = NSTextAlignmentCenter;
             
-            ratingLab.font = [UIFont fontWithName:@"Lato-bold" size:40.0f];
+            ratingLab.font = [UIFont fontWithName:@"Lato-bold" size:60.0f];
             
             [headView addSubview:ratingLab];
             
-            StarRatingControl *rattingView = [[StarRatingControl alloc] initWithFrame:CGRectMake(100, 5.0f, tableView.frame.size.width - 120.f, 30.0f)];
+            StarRatingControl *rattingView = [[StarRatingControl alloc] initWithFrame:CGRectMake(3.0f,60.0f,120.0f,40.0f)];
             
             rattingView.userInteractionEnabled = NO;
             
@@ -229,11 +287,11 @@
             
             [headView addSubview:rattingView];
             
-            UILabel *writeReviewLabl = [[UILabel alloc] initWithFrame:CGRectMake(100, 35.0f, tableView.frame.size.width - 120.f, 40.0f)];
+            UILabel *writeReviewLabl = [[UILabel alloc] initWithFrame:CGRectMake(100,50.0f, tableView.frame.size.width - 120.f, 40.0f)];
             
-            writeReviewLabl.text = [NSString stringWithFormat:@"Write you're review on\n %@",_incubee.companyName];
+            writeReviewLabl.text = [NSString stringWithFormat:@"Write you're review on %@",_incubee.companyName];
             
-            writeReviewLabl.font = [UIFont fontWithName:@"Lato-bold" size:15.0f];
+            writeReviewLabl.font = [UIFont fontWithName:@"Lato-bold" size:10.0f];
 
             writeReviewLabl.textAlignment = NSTextAlignmentCenter;
             
@@ -269,28 +327,46 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:EMPTYREVIEWCELL];
+    
+    if(reviewArray.count==0)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:EMPTYREVIEWCELL];
         
         if(!cell)
         {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:EMPTYREVIEWCELL];
             
         }
-    
-    if(reviewArray.count==0)
-    {
+        
         [cell.textLabel setText:@"No reviews"];
+        
+        [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
+        
+        return cell;
+
     }
     else
     {
+        
+        
+        ICReviewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REVIEWCELLID];
+        
+        if(!cell)
+        {
+            cell = [[ICReviewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:REVIEWCELLID];
+            
+        }
+
+        
         Review *review = [reviewArray objectAtIndex:indexPath.row];
 
-        [cell.textLabel setText:review.reviewTitle];
+        [cell setReview:review];
+        
+        return cell;
+
     }
     
-    [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
     
-    return cell;
     
 }
 
@@ -403,6 +479,11 @@
     if(inRequest.error == nil)
     {
         
+        [self showLoadingReview:YES];
+        
+        [[ICAppManager sharedInstance] getReview:_incubee.incubeeId withRequest:nil notifyTo:self forSelector:@selector(reviewLoaded:)];
+
+        
     }
     else
     {
@@ -462,12 +543,19 @@
 
 -(void)resetWriteReview{
 
+    meetSelected = nil;
+    
+    statusSelected = nil;
+    
     _reviewTitle.text = nil;
     
-    _meetSegment.selectedSegmentIndex = 0;
+    _commentsTextView.text = nil;
     
-    _statusSegment.selectedSegmentIndex = 0;
+    _starRatingView.rating = -1;
     
+    _meetSegment.selectedSegmentIndex = -1;
+    
+    _statusSegment.selectedSegmentIndex = -1;
     
 }
 
@@ -515,19 +603,72 @@
     }];
 }
 
+-(BOOL)validateReviewSection{
+
+    NSString *reviewError = nil;
+    
+    if(_commentsTextView.text.length<1)
+    {
+        reviewError = @"Please write 'Comments'";
+        
+    }
+    
+    else if(_starRatingView.rating==-1)
+    {
+        reviewError = @"Please rate this Product";
+
+        
+    }
+    
+    else if(([statusSelected isEqualToString:@"INT"] || [statusSelected isEqualToString:@"INV"] || [statusSelected isEqualToString:@"PAS"]) == NO)
+    {
+        
+        reviewError = @"Please select 'Status'";
+
+    }
+    
+    else if(([meetSelected isEqualToString:@"PER"] || [meetSelected isEqualToString:@"PHO"]) == NO)
+    {
+        
+        reviewError = @"Please select 'Meet'";
+        
+    }
+    else if(_reviewTitle.text.length<1)
+    {
+        reviewError = @"Please write 'Title'";
+        
+    }
+    
+    if(reviewError == nil)
+    {
+        return  YES;
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:reviewError delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    
+    [alert show];
+    
+    return NO;
+
+}
+
 - (IBAction)submitReviewTapped:(id)sender {
 
     [self resignTextFirstResponders];
     
+    if([self validateReviewSection]==NO)
+    {
+        return;
+    }
     
     NSMutableDictionary *reviewDic = [[NSMutableDictionary alloc] init];
     
     [reviewDic setObject:_reviewTitle.text forKey:REVIEW_TITLE];
     [reviewDic setObject:_commentsTextView.text forKey:REVIEW_DESC];
     [reviewDic setObject:_incubee.incubeeId forKey:REVIEW_INCUBEE_ID];
-    [reviewDic setObject:[NSNumber numberWithInt:4] forKey:REVIEW_RATING];
-    [reviewDic setObject:@"PER" forKey:REVIEW_MEETING];
-    [reviewDic setObject:@"INT" forKey:REVIEW_STATUS];
+    [reviewDic setObject:[NSNumber numberWithInt:(int)_starRatingView.rating] forKey:REVIEW_RATING];
+    [reviewDic setObject:meetSelected forKey:REVIEW_MEETING];
+    [reviewDic setObject:statusSelected forKey:REVIEW_STATUS];
     
     
     [[ICAppManager sharedInstance] submitReview:reviewDic withRequest:nil notifyTo:self forSelector:@selector(reviewSubmitted:)];
@@ -641,11 +782,40 @@
 
 - (IBAction)meetStatusChanged:(id)sender {
     
+    UISegmentedControl *seg = (UISegmentedControl*)sender;
+    
+    switch (seg.selectedSegmentIndex) {
+        case 0:
+            meetSelected = @"PER";
+            break;
+        case 1:
+            meetSelected = @"PHO";
+            break;
+        default:
+            break;
+    }
+    
     [self resignTextFirstResponders];
 }
 
 - (IBAction)statusSegValueChanged:(id)sender {
     
+    UISegmentedControl *seg = (UISegmentedControl*)sender;
+    
+    switch (seg.selectedSegmentIndex) {
+        case 0:
+            statusSelected = @"INT";
+            break;
+        case 1:
+            statusSelected = @"INV";
+            break;
+        case 2:
+            statusSelected = @"PAS";
+            break;
+        default:
+            break;
+    }
+
         [self resignTextFirstResponders];
 }
 
