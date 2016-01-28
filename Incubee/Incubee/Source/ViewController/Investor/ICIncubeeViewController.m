@@ -388,7 +388,7 @@
                 
                 [imview setImage:[UIImage imageNamed:@"star_highlighted"]];
                 
-                ICRatingProgressView *progreeView = [[ICRatingProgressView alloc] initWithFrame:CGRectMake(30, i*he, r.size.width-40,he )];
+                ICRatingProgressView *progreeView = [[ICRatingProgressView alloc] initWithFrame:CGRectMake(30, i*he+1, r.size.width-40,he-2 )];
                 
 
                 UILabel *ratingNumberLab = [[UILabel alloc] initWithFrame:CGRectMake(3, 0, progreeView.frame.size.width, progreeView.frame.size.height)];
@@ -413,32 +413,32 @@
                 
                 progreeView.progress = percent/100.0f;
                 
+                [allRatingView addSubview:progreeView];
+
                 switch (rating) {
                     case 5:
                         progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#9FC160"];
-
+                        
                         break;
                     case 4:
                         progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#AED653"];
-
+                        
                         break;
                     case 3:
                         progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FDD854"];
-
+                        
                         break;
                     case 2:
                         progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FCB34E"];
-
+                        
                         break;
                     case 1:
-                        progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#F88C5D"];
-
+                         progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#F88C5D"];
+                        
                         break;
                     default:
                         break;
                 }
-                
-                [allRatingView addSubview:progreeView];
                 
                 NSMutableAttributedString *myString= [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%i",rating--]];
                 
@@ -447,8 +447,6 @@
                 [allRatingView addSubview:lab];
                 
                 [allRatingView addSubview:imview];
-
-                
             
             }
             
@@ -869,6 +867,12 @@
 
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 #pragma mark - Keyboard Hide/Unhide -
 
 - (NSInteger)getKeyBoardHeight:(NSNotification *)notification
