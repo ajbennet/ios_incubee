@@ -1217,4 +1217,35 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 }
 
+-(BOOL)isReviewWritten:(NSString*)inIncubeeId{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSEntityDescription *entity = [NSEntityDescription  entityForName:@"Review" inManagedObjectContext:context];
+        
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:entity];
+        
+        NSPredicate *prd = [NSPredicate predicateWithFormat:@"(incubee_id LIKE %@ AND user_id LIKE %@)",inIncubeeId,[self getUserId]];
+        
+        [request setPredicate:prd];
+        
+        NSError *error = nil;
+        
+        NSArray *objects = [context executeFetchRequest:request error:&error];
+        
+        if (objects.count > 0) {
+            
+            return YES;
+        }
+    }
+    
+    return NO;
+
+
+}
+
 @end

@@ -286,20 +286,47 @@
             rattingView.rating = [[reviewDataDic valueForKey:@"averageRating"] intValue];
             
             [headView addSubview:rattingView];
-            
-            UILabel *writeReviewLabl = [[UILabel alloc] initWithFrame:CGRectMake(100,50.0f, tableView.frame.size.width - 120.f, 40.0f)];
-            
-            writeReviewLabl.text = [NSString stringWithFormat:@"Write you're review on %@",_incubee.companyName];
-            
-            writeReviewLabl.font = [UIFont fontWithName:@"Lato-bold" size:10.0f];
 
-            writeReviewLabl.textAlignment = NSTextAlignmentCenter;
+            aWriteReviewButton.userInteractionEnabled = NO;
+
             
-            writeReviewLabl.numberOfLines = 0;
+            UIImageView *allRatingView = [[UIImageView alloc] initWithFrame:CGRectZero];
             
-            writeReviewLabl.textColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"];
+            allRatingView.backgroundColor = [UIColor redColor];
             
-            [headView addSubview:writeReviewLabl];
+            [headView addSubview:allRatingView];
+            
+            if([[ICDataManager sharedInstance] isReviewWritten:_incubee.incubeeId]==NO)
+            {
+                
+                allRatingView.frame =   CGRectMake(125.0f,5,tableView.frame.size.width-130.0f , 60);
+                
+                
+                aWriteReviewButton.userInteractionEnabled = YES;
+                
+                UILabel *writeReviewLabl = [[UILabel alloc] initWithFrame:CGRectMake(125,50.0f, tableView.frame.size.width - 130.f, 40.0f)];
+                
+                writeReviewLabl.text = [NSString stringWithFormat:@"Write you're review on %@",_incubee.companyName];
+                
+                writeReviewLabl.font = [UIFont fontWithName:@"Lato-bold" size:10.0f];
+                
+                writeReviewLabl.textAlignment = NSTextAlignmentCenter;
+                
+                writeReviewLabl.numberOfLines = 0;
+                
+                writeReviewLabl.textColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"];
+                
+                [headView addSubview:writeReviewLabl];
+                
+            }
+            else
+            {
+            
+                aWriteReviewButton.userInteractionEnabled = NO;
+
+                 allRatingView.frame =   CGRectMake(125.0f,5,tableView.frame.size.width-130.0f , 70);
+            }
+
             
             return headView;
             
@@ -577,6 +604,7 @@
 
     } completion:^(BOOL finished) {
         
+        [_reviewTitle becomeFirstResponder];
     }];
 
 }

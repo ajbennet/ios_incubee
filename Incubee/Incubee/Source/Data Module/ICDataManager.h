@@ -88,4 +88,6 @@
 -(void)saveReviewArray:(NSArray*)inReviewArray;
 
 -(NSArray*)getReviewArray:(NSString*)inIncubeeId;
+
+-(BOOL)isReviewWritten:(NSString*)inIncubeeId;
 @end
