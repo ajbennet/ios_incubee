@@ -14,6 +14,29 @@
 
 #define TEXT_INPUT_CELL_ID @"TextInputCellIdentifier"
 
+@interface ICRatingProgressView : UIView
+
+@property(nonatomic,strong)UIColor *progressColor;
+
+@property(nonatomic,assign)float progress;
+
+@end
+
+@implementation ICRatingProgressView
+
+-(void)drawRect:(CGRect)rect{
+    
+    CGRect topRect = CGRectMake(0, 0, (rect.size.width * _progress), rect.size.height);
+    // Fill the rectangle with grey
+    [_progressColor setFill];
+    
+    UIRectFill( topRect );
+
+}
+
+@end
+
+
 
 @interface  ICReviewTableViewCell : UITableViewCell
 
@@ -267,7 +290,7 @@
         else
         {
             
-            UILabel *ratingLab = [[UILabel alloc] initWithFrame:CGRectMake(10,5,100,50.0f)];
+            UILabel *ratingLab = [[UILabel alloc] initWithFrame:CGRectMake(10,0,100,40.0f)];
             
             ratingLab.backgroundColor = [UIColor clearColor];
             
@@ -275,11 +298,14 @@
             
             ratingLab.textAlignment = NSTextAlignmentCenter;
             
-            ratingLab.font = [UIFont fontWithName:@"Lato-bold" size:60.0f];
+            ratingLab.font = [UIFont fontWithName:@"Lato-bold" size:40.0f];
             
             [headView addSubview:ratingLab];
             
-            StarRatingControl *rattingView = [[StarRatingControl alloc] initWithFrame:CGRectMake(3.0f,60.0f,120.0f,40.0f)];
+            
+            
+            
+            StarRatingControl *rattingView = [[StarRatingControl alloc] initWithFrame:CGRectMake(3.0f,40.0f,120.0f,40.0f)];
             
             rattingView.userInteractionEnabled = NO;
             
@@ -287,12 +313,29 @@
             
             [headView addSubview:rattingView];
 
+            
+            
+            UILabel *totalRatingLab = [[UILabel alloc] initWithFrame:CGRectMake(10,60,100,20.0f)];
+            
+            totalRatingLab.backgroundColor = [UIColor clearColor];
+            
+            totalRatingLab.text = [NSString stringWithFormat:@"%@ total",[[reviewDataDic valueForKey:@"noOfRatings"] stringValue]];
+            
+            totalRatingLab.textAlignment = NSTextAlignmentCenter;
+            
+            totalRatingLab.font = [UIFont fontWithName:@"Lato" size:10.0f];
+            
+            [headView addSubview:totalRatingLab];
+
+            
+            
+            
             aWriteReviewButton.userInteractionEnabled = NO;
 
             
             UIImageView *allRatingView = [[UIImageView alloc] initWithFrame:CGRectZero];
             
-            allRatingView.backgroundColor = [UIColor redColor];
+            allRatingView.backgroundColor = [UIColor clearColor];
             
             [headView addSubview:allRatingView];
             
@@ -327,6 +370,90 @@
                  allRatingView.frame =   CGRectMake(125.0f,5,tableView.frame.size.width-130.0f , 70);
             }
 
+            
+            CGRect r = allRatingView.frame;
+            
+            float he = r.size.height/5;
+            
+            uint rating = 5;
+            
+            for(uint i = 0;i<5;i++)
+            {
+                UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(20, i*he, 20.0f, he)];
+                
+                lab.font = [UIFont fontWithName:@"Lato" size:10.0f];
+
+                UIImageView *imview = [[UIImageView alloc] initWithFrame:CGRectMake(0, i*he, 20.0f, he)];
+                imview.contentMode = UIViewContentModeScaleAspectFit;
+                
+                [imview setImage:[UIImage imageNamed:@"star_highlighted"]];
+                
+                ICRatingProgressView *progreeView = [[ICRatingProgressView alloc] initWithFrame:CGRectMake(30, i*he, r.size.width-40,he )];
+                
+
+                UILabel *ratingNumberLab = [[UILabel alloc] initWithFrame:CGRectMake(3, 0, progreeView.frame.size.width, progreeView.frame.size.height)];
+                
+                ratingNumberLab.font = [UIFont fontWithName:@"Lato" size:10.0f];
+                
+                ratingNumberLab.textAlignment = NSTextAlignmentLeft;
+
+                [progreeView addSubview:ratingNumberLab];
+                
+                
+                NSArray *ratingArray = [reviewDataDic objectForKey:@"noOfStars"];
+                
+                int currentRating = [[ratingArray objectAtIndex:(rating-1)] intValue];
+                
+                ratingNumberLab.text = [NSString stringWithFormat:@"%i",currentRating];
+                
+                int percent = currentRating * 100/[[reviewDataDic valueForKey:@"noOfRatings"] intValue];
+                
+                
+                progreeView.backgroundColor = [UIColor clearColor];
+                
+                progreeView.progress = percent/100.0f;
+                
+                switch (rating) {
+                    case 5:
+                        progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#9FC160"];
+
+                        break;
+                    case 4:
+                        progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#AED653"];
+
+                        break;
+                    case 3:
+                        progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FDD854"];
+
+                        break;
+                    case 2:
+                        progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FCB34E"];
+
+                        break;
+                    case 1:
+                        progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#F88C5D"];
+
+                        break;
+                    default:
+                        break;
+                }
+                
+                [allRatingView addSubview:progreeView];
+                
+                NSMutableAttributedString *myString= [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%i",rating--]];
+                
+                lab.attributedText = myString;
+                
+                [allRatingView addSubview:lab];
+                
+                [allRatingView addSubview:imview];
+
+                
+            
+            }
+            
+            
+            
             
             return headView;
             
