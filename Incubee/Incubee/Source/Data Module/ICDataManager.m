@@ -922,6 +922,8 @@ static ICDataManager *sharedDataManagerInstance = nil;
             aCustomer.imageUrl = NULL_TO_NIL([inCustomer valueForKey:@"image_url"]);
 
             aCustomer.email = NULL_TO_NIL([inCustomer valueForKey:@"email"]);
+            
+            aCustomer.userId = NULL_TO_NIL([inCustomer valueForKey:@"id"]);
         
         NSError *er = nil;
         
@@ -1075,6 +1077,38 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 }
 
+
+-(BOOL)isUserAvailable:(NSString*)inCustomerUserId{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"Customer" inManagedObjectContext:context]];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId LIKE %@",inCustomerUserId];
+        
+        [request setPredicate:predicate];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        Customer *aCustomer;
+        
+        if (results && [results count] > 0)
+        {
+            aCustomer = [results objectAtIndex:0];
+            
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
 -(NSString*)getIncubeeImageUrl:(NSString*)inIncubeeId{
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -1196,7 +1230,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
         
         [request setPredicate:prd];
         
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
         
         [request setSortDescriptors:@[sortDescriptor]];
         

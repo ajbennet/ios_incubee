@@ -77,11 +77,39 @@
     
     _reviewImageView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
     
-    _reviewImageView.layer.borderWidth = 4.0f;
+    _reviewImageView.layer.borderWidth = 1.0f;
+    
+    _reviewImageView.backgroundColor = [UIColor whiteColor];
     
     _reviewImageView.layer.cornerRadius = _reviewImageView.frame.size.width/2;
 
+    NSString *reviewImageURL = [[ICDataManager sharedInstance] getCustomerPic:_review.user_id];
+    
+    _reviewImageView.image = [UIImage imageNamed:@"LikeButton"];
 
+    if(reviewImageURL)
+    {
+        ICImageManager *im1 = [[ICImageManager alloc] init];
+        
+        [_reviewImageView setImageUrl:reviewImageURL];
+        
+        [im1 getImage:reviewImageURL withDelegate:self];
+    }
+}
+
+-(void)imageDataRecived:(NSData*)inImageData ofURL:(NSString *)inUrl{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if([_reviewImageView.imageUrl isEqualToString:inUrl])
+        {
+            _reviewImageView.image = [UIImage imageWithData:inImageData];
+            
+            _reviewImageView.layer.masksToBounds = YES;
+            
+        }
+    });
+    
 }
 
 @end
@@ -500,7 +528,6 @@
     else
     {
         
-        
         ICReviewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REVIEWCELLID];
         
         if(!cell)
@@ -509,10 +536,16 @@
             
         }
 
-        
         Review *review = [reviewArray objectAtIndex:indexPath.row];
 
         [cell setReview:review];
+        
+        if([[ICDataManager sharedInstance] isUserAvailable:review.user_id]==NO)
+        {
+            [[ICAppManager sharedInstance] getCustomerDetails:review.user_id withRequest:nil notifyTo:self forSelector:@selector(customerDetailRetrived:)];
+            
+        }
+        
         
         return cell;
 
@@ -626,6 +659,15 @@
 
 
 #pragma mark - Review -
+
+-(void)customerDetailRetrived:(ICRequest*)inRequest{
+
+    if(inRequest.error == nil)
+    {
+        [_reviewTableView reloadData];
+    }
+}
+
 -(void)reviewSubmitted:(ICRequest*)inRequest{
 
     if(inRequest.error == nil)
@@ -672,6 +714,10 @@
         
     }
 
+    
+    
+    
+    
 
 }
 

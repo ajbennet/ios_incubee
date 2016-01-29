@@ -84,6 +84,8 @@
 
 -(NSArray*)getAllSavedIncubeeChatArray;
 
+-(BOOL)isUserAvailable:(NSString*)inCustomerUserId;
+
 #pragma mark - Review -
 -(void)saveReviewArray:(NSArray*)inReviewArray;
 

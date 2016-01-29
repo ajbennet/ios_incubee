@@ -44,7 +44,10 @@
                                                   {
                                                       [[ICImageStore sharedInstance] setData:[NSData dataWithContentsOfURL:location] withKey:_imageURL];
                                                       
-                                                      [_delegate imageDataRecived:[NSData dataWithContentsOfURL:location] ofURL:inUrl];
+                                                      if(_delegate && [_delegate respondsToSelector:@selector(imageDataRecived:ofURL:)])
+                                                      {
+                                                          [_delegate imageDataRecived:[NSData dataWithContentsOfURL:location] ofURL:inUrl];
+                                                      }
                                                       
                                                       [session finishTasksAndInvalidate];
                                                   }

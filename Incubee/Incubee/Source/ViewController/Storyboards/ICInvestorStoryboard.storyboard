@@ -83,6 +83,7 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UaD-Lf-OeQ" customClass="ICImageView">
                                                     <rect key="frame" x="8" y="8" width="64" height="64"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="UaD-Lf-OeQ" secondAttribute="height" multiplier="1:1" id="EM0-N4-f2G"/>
                                                     </constraints>
