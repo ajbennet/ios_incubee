@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -13,12 +13,12 @@
             <string>Lato-Bold</string>
             <string>Lato-Bold</string>
             <string>Lato-Bold</string>
-            <string>Lato-Bold</string>
         </mutableArray>
         <mutableArray key="Lato-Light.ttf">
             <string>Lato-Light</string>
         </mutableArray>
         <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
@@ -62,7 +62,7 @@
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Project | Founder | Concept" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPg-fA-ljk">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="ZfX-2M-IgA" id="tCt-MR-prm"/>
@@ -71,7 +71,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wNI-PM-3Re">
                                 <rect key="frame" x="0.0" y="44" width="600" height="442"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InvestorCellId" id="f9Z-Te-25h" customClass="ICInvestorTbCell">
@@ -87,21 +87,6 @@
                                                         <constraint firstAttribute="width" secondItem="UaD-Lf-OeQ" secondAttribute="height" multiplier="1:1" id="EM0-N4-f2G"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRq-M3-CU9">
-                                                    <rect key="frame" x="80" y="4" width="516" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="HjX-fY-pTH"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
-                                                    <color key="textColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRT-RU-PRJ">
-                                                    <rect key="frame" x="80" y="37" width="512" height="39"/>
-                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                                    <color key="textColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WO7-Rf-lLM" userLabel="BottomLine">
                                                     <rect key="frame" x="5" y="79" width="590" height="1"/>
                                                     <color key="backgroundColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -112,19 +97,35 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRq-M3-CU9">
+                                                    <rect key="frame" x="76" y="16" width="516" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="HjX-fY-pTH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRT-RU-PRJ">
+                                                    <rect key="frame" x="80" y="41" width="509" height="30"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="JRT-RU-PRJ" secondAttribute="bottom" constant="4" id="2oa-E3-WgX"/>
-                                                <constraint firstItem="JRT-RU-PRJ" firstAttribute="top" secondItem="PRq-M3-CU9" secondAttribute="bottom" constant="8" id="6GE-uQ-gg7"/>
+                                                <constraint firstItem="JRT-RU-PRJ" firstAttribute="top" secondItem="PRq-M3-CU9" secondAttribute="bottom" id="6GE-uQ-gg7"/>
                                                 <constraint firstItem="JRT-RU-PRJ" firstAttribute="leading" secondItem="UaD-Lf-OeQ" secondAttribute="trailing" constant="8" id="6hr-qe-xCO"/>
                                                 <constraint firstAttribute="trailing" secondItem="WO7-Rf-lLM" secondAttribute="trailing" constant="5" id="CgP-uO-3CL"/>
                                                 <constraint firstItem="PRq-M3-CU9" firstAttribute="leading" secondItem="UaD-Lf-OeQ" secondAttribute="trailing" constant="8" id="GI1-mM-IUQ"/>
                                                 <constraint firstItem="UaD-Lf-OeQ" firstAttribute="leading" secondItem="t9A-Cc-TyC" secondAttribute="leading" constant="8" id="PXx-sD-oFi"/>
                                                 <constraint firstAttribute="bottom" secondItem="WO7-Rf-lLM" secondAttribute="bottom" id="QgN-7D-3lM"/>
-                                                <constraint firstAttribute="trailing" secondItem="JRT-RU-PRJ" secondAttribute="trailing" constant="8" id="fGa-dA-Nmu"/>
+                                                <constraint firstAttribute="trailing" secondItem="JRT-RU-PRJ" secondAttribute="trailing" constant="4" id="fGa-dA-Nmu"/>
                                                 <constraint firstAttribute="bottom" secondItem="UaD-Lf-OeQ" secondAttribute="bottom" constant="8" id="khF-d7-UMh"/>
                                                 <constraint firstAttribute="trailing" secondItem="PRq-M3-CU9" secondAttribute="trailing" constant="4" id="o9e-Uj-eUI"/>
-                                                <constraint firstItem="PRq-M3-CU9" firstAttribute="top" secondItem="t9A-Cc-TyC" secondAttribute="top" constant="4" id="pfD-6X-WhI"/>
+                                                <constraint firstItem="PRq-M3-CU9" firstAttribute="top" secondItem="t9A-Cc-TyC" secondAttribute="top" constant="15" id="pfD-6X-WhI"/>
                                                 <constraint firstItem="WO7-Rf-lLM" firstAttribute="leading" secondItem="t9A-Cc-TyC" secondAttribute="leading" constant="5" id="tk0-Ao-JCn"/>
                                                 <constraint firstItem="UaD-Lf-OeQ" firstAttribute="top" secondItem="t9A-Cc-TyC" secondAttribute="top" constant="8" id="vl8-3O-ig9"/>
                                             </constraints>
@@ -141,8 +142,8 @@
                                     <outlet property="delegate" destination="ZfX-2M-IgA" id="90m-LO-dK0"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxL-j5-8CD">
-                                <rect key="frame" x="20" y="496" width="560" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxL-j5-8CD">
+                                <rect key="frame" x="20" y="498" width="560" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="EGs-qm-8J5"/>
@@ -156,7 +157,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wNI-PM-3Re" firstAttribute="top" secondItem="yB2-pE-Vy2" secondAttribute="top" id="1kP-Vp-TIZ"/>
                             <constraint firstItem="BPg-fA-ljk" firstAttribute="top" secondItem="zoC-0e-Re8" secondAttribute="bottom" id="240-Ok-MFy"/>

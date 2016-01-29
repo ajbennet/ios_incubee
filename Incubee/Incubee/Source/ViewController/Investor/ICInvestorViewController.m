@@ -37,6 +37,8 @@
     
     _incubeTitle.text = _incubee.companyName;
     
+    [_incubeeDesc sizeToFit];
+    
     _incubeeDesc.text = _incubee.highConcept;
     
     NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_incubee.incubeeId];
