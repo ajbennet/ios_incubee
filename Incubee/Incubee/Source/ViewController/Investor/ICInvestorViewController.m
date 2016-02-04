@@ -290,6 +290,12 @@
 
 }
 
+- (IBAction)addButtonTapped:(id)sender {
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+}
+
 #pragma mark - UIAlertView Delegates -
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     

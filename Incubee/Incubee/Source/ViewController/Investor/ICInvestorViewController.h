@@ -18,6 +18,8 @@
 
 - (IBAction)inviteButtonTapped:(id)sender;
 
+- (IBAction)addButtonTapped:(id)sender;
+
 #pragma mark - Network -
 -(void)inviteFounderRequest:(ICRequest*)inRequest;
 
