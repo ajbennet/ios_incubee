@@ -297,6 +297,9 @@
     {
         [[alertView textFieldAtIndex:0] resignFirstResponder];
         
+        
+        [[ICAppManager sharedInstance] inviteFounder:((UITextField*)[alertView textFieldAtIndex:0]).text withRequest:nil notifyTo:self forSelector:@selector(inviteFounderRequest:)];
+        
     }
 }
 
@@ -408,5 +411,26 @@
     }
     
 }
+
+#pragma mark - Network -
+-(void)inviteFounderRequest:(ICRequest*)inRequest{
+
+    if(inRequest.error == nil)
+    {
+        
+        
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error : %ld",(long)inRequest.error.code] message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
+    }
+    
+    
+
+}
+
+
 
 @end

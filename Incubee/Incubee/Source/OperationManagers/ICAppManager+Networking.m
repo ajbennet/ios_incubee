@@ -284,6 +284,25 @@
     
 }
 
+-(void)inviteFounder:(NSString*)inEmail withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
+    
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_INVITE_FOUNDER;
+    
+    req.isTokenRequired = YES;
+    
+    req.requestMethod = ICRequestMethodPost;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+    
+    [req setRequestingURL:[NSURL URLWithString:kInviteFounder(inEmail,[[ICDataManager sharedInstance] getUserId])]];
+    
+    [self sendRequestObject:req];
+}
+
 
 
 

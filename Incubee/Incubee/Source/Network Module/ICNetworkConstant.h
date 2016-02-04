@@ -52,7 +52,7 @@
 
 #define kSubmitReview(userId) [NSString stringWithFormat:@"%@%@/incubee/rest/%@/review?uid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,SERVER_API_VERSION,userId]
 
-
+#define kInviteFounder(emailId,userId) [NSString stringWithFormat:@"%@%@/incubee/rest/%@/invite/%@?uid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,SERVER_API_VERSION,emailId,userId]
 
 #define kGetAllFounderChatMsg(userId) [NSString stringWithFormat:@"%@%@/rest/%@/msg/all?eid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,SERVER_API_VERSION,userId]
 

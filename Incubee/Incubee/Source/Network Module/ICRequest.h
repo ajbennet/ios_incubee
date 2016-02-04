@@ -24,7 +24,8 @@ typedef enum
     IC_GET_ALL_CHAT,
     IC_GET_FOUNDER_CHAT_ALL,
     IC_SEND_CHAT_MSG,
-    IC_SUBMIT_REVIEW
+    IC_SUBMIT_REVIEW,
+    IC_INVITE_FOUNDER
 } REQUESTID;
 
 typedef enum // Naming Conventions of the Enum's to be decided
