@@ -150,6 +150,23 @@
 
 -(void)keyboardWillHide:(NSNotification*) notification
 {
+    if([_adhocEmailTextFiled isFirstResponder] || [_adhocTitleTextField isFirstResponder])
+    {
+        return;
+    }
+    else if([_commentReviewTextView isFirstResponder])
+    {
+    
+        _adhocBottomConstraitns.constant =  0.0f;
+        
+        [UIView animateWithDuration:0.25f animations:^{
+            
+            [self.view layoutIfNeeded];
+            
+        }];
+
+    }
+    else
     {
         _tableViewBottonConstraint.constant =  50.0f;
         
@@ -163,6 +180,35 @@
 
 -(void)keyboardDidShow:(NSNotification*) notification
 {
+    
+    if([_adhocEmailTextFiled isFirstResponder] || [_adhocTitleTextField isFirstResponder])
+    {
+        return;
+    }
+    else if([_commentReviewTextView isFirstResponder])
+    {
+    
+        _adhocTopView.hidden = YES;
+        
+        NSInteger keyboardHeight = [self getKeyBoardHeight:notification];
+        
+        if(keyboardHeight!=0)
+        {
+            _adhocBottomConstraitns.constant = keyboardHeight-30.0f;
+            
+            [UIView animateWithDuration:0.25f animations:^{
+                
+                [self.view layoutIfNeeded];
+                
+            }];
+            
+            
+        }
+        
+    }
+    else
+    {
+    
     NSInteger keyboardHeight = [self getKeyBoardHeight:notification];
     
     if(keyboardHeight!=0)
@@ -176,6 +222,7 @@
         }];
         
         
+    }
     }
     
 }
@@ -198,6 +245,37 @@
     
     
 }
+
+-(void)searchAndReload{
+    
+    if(searchModeOn){
+        NSString *searchText = _searchBar.text;
+        
+        if(searchText.length>0)
+        {
+            NSPredicate *searchPred = [NSPredicate predicateWithFormat:@"companyName CONTAINS [c]%@ OR founder CONTAINS [c]%@ OR highConcept CONTAINS [c]%@",searchText,searchText,searchText];
+            
+            searchIncubeeList = [incubeeList filteredArrayUsingPredicate:searchPred];
+            
+            NSLog(@"%@ & count %d",searchText,(int)searchIncubeeList.count);
+            
+        }
+        else
+        {
+            searchIncubeeList = incubeeList;
+            
+        }
+        
+        [_investorTableView reloadData];
+    }
+    else
+    {
+        [_investorTableView reloadData];
+    }
+    
+}
+
+
 #pragma mark - UIScrollView -
 
 //-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -291,6 +369,10 @@
 }
 
 - (IBAction)addButtonTapped:(id)sender {
+    
+    
+    
+    _adhocView.hidden = NO;
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
@@ -389,35 +471,6 @@
 }
 
 
--(void)searchAndReload{
-
-    if(searchModeOn){
-    NSString *searchText = _searchBar.text;
-    
-    if(searchText.length>0)
-    {
-        NSPredicate *searchPred = [NSPredicate predicateWithFormat:@"companyName CONTAINS [c]%@ OR founder CONTAINS [c]%@ OR highConcept CONTAINS [c]%@",searchText,searchText,searchText];
-        
-        searchIncubeeList = [incubeeList filteredArrayUsingPredicate:searchPred];
-        
-        NSLog(@"%@ & count %d",searchText,(int)searchIncubeeList.count);
-        
-    }
-    else
-    {
-        searchIncubeeList = incubeeList;
-        
-    }
-    
-    [_investorTableView reloadData];
-    }
-    else
-    {
-        [_investorTableView reloadData];
-    }
-    
-}
-
 #pragma mark - Network -
 -(void)inviteFounderRequest:(ICRequest*)inRequest{
 
@@ -439,4 +492,72 @@
 
 
 
+- (IBAction)adhocSubmitTapped:(id)sender {
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    _adhocView.hidden = YES;
+    
+    
+    if([_commentReviewTextView isFirstResponder])
+    {
+    
+        _adhocBottomConstraitns.constant =  0.0f;
+        
+        [UIView animateWithDuration:0.25f animations:^{
+            
+            [self.view layoutIfNeeded];
+            
+        }];
+        
+    [_commentReviewTextView resignFirstResponder];
+
+    }
+
+    
+    
+    
+}
+
+- (IBAction)adhocCancelTapped:(id)sender {
+    
+    
+    _adhocView.hidden = YES;
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+}
+
+#pragma mark - UITextField Delegate -
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField{}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+
+    if([_adhocTitleTextField isFirstResponder] || [_adhocEmailTextFiled isFirstResponder])
+    {
+        [textField resignFirstResponder];
+    
+    }
+    
+    return YES;
+}
+
+- (IBAction)statusValueChanged:(id)sender {
+}
+
+- (IBAction)meetValueChanged:(id)sender {
+}
 @end

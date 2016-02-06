@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ICInvestorViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UISearchBarDelegate>
+@interface ICInvestorViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UISearchBarDelegate,UITextViewDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *investorTableView;
 
@@ -16,11 +16,51 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottonConstraint;
 
+
 - (IBAction)inviteButtonTapped:(id)sender;
 
 - (IBAction)addButtonTapped:(id)sender;
 
 #pragma mark - Network -
 -(void)inviteFounderRequest:(ICRequest*)inRequest;
+
+
+#pragma mark - Adhoc -
+
+@property (weak, nonatomic) IBOutlet UIView *adhocView;
+
+@property (weak, nonatomic) IBOutlet UIButton *adhocSubmit;
+
+@property (weak, nonatomic) IBOutlet UIButton *adhocCancel;
+
+- (IBAction)adhocSubmitTapped:(id)sender;
+
+- (IBAction)adhocCancelTapped:(id)sender;
+
+
+
+@property (weak, nonatomic) IBOutlet UITextField *adhocTitleTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *adhocEmailTextFiled;
+
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *meetSegmentView;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *statusSegmentView;
+
+@property (weak, nonatomic) IBOutlet StarRatingControl *starRatingView;
+
+
+@property (weak, nonatomic) IBOutlet UITextView *commentReviewTextView;
+
+
+@property (weak, nonatomic) IBOutlet UIView *adhocTopView;
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *adhocBottomConstraitns;
+
+- (IBAction)statusValueChanged:(id)sender;
+
+- (IBAction)meetValueChanged:(id)sender;
 
 @end
