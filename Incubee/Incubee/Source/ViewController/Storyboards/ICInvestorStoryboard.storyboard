@@ -152,14 +152,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LikeButton" translatesAutoresizingMaskIntoConstraints="NO" id="gJG-Nl-K97">
+                                                    <rect key="frame" x="8" y="8" width="62" height="62"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="gJG-Nl-K97" secondAttribute="height" multiplier="1:1" id="OCR-hB-Fzp"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6Q-Ut-uzc" userLabel="Titlelable">
-                                                    <rect key="frame" x="5" y="5" width="590" height="40"/>
+                                                    <rect key="frame" x="78" y="5" width="517" height="40"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                     <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgJ-kB-8MB" userLabel="emailID">
-                                                    <rect key="frame" x="5" y="48" width="590" height="26"/>
+                                                    <rect key="frame" x="78" y="48" width="517" height="26"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                     <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -179,15 +185,26 @@
                                                 <constraint firstItem="N6Q-Ut-uzc" firstAttribute="height" secondItem="FPV-qb-Mzc" secondAttribute="height" multiplier="0.5" id="5yi-zn-nlo"/>
                                                 <constraint firstAttribute="bottom" secondItem="NaM-1x-JRt" secondAttribute="bottom" constant="1" id="Bwh-ki-Lpz"/>
                                                 <constraint firstAttribute="trailing" secondItem="N6Q-Ut-uzc" secondAttribute="trailing" constant="5" id="G1C-08-bOw"/>
+                                                <constraint firstItem="jgJ-kB-8MB" firstAttribute="leading" secondItem="gJG-Nl-K97" secondAttribute="trailing" constant="8" id="KCy-4D-WO1"/>
                                                 <constraint firstItem="jgJ-kB-8MB" firstAttribute="leading" secondItem="FPV-qb-Mzc" secondAttribute="leading" constant="5" id="LfJ-FL-Fii"/>
                                                 <constraint firstItem="jgJ-kB-8MB" firstAttribute="top" secondItem="N6Q-Ut-uzc" secondAttribute="bottom" constant="3" id="Trg-GK-0Mr"/>
+                                                <constraint firstItem="gJG-Nl-K97" firstAttribute="leading" secondItem="FPV-qb-Mzc" secondAttribute="leading" constant="8" id="U0k-2g-Bwf"/>
+                                                <constraint firstItem="N6Q-Ut-uzc" firstAttribute="leading" secondItem="gJG-Nl-K97" secondAttribute="trailing" constant="8" id="XOb-hf-bP7"/>
                                                 <constraint firstAttribute="trailing" secondItem="NaM-1x-JRt" secondAttribute="trailing" constant="5" id="fLA-5m-UzI"/>
+                                                <constraint firstItem="gJG-Nl-K97" firstAttribute="top" secondItem="FPV-qb-Mzc" secondAttribute="top" constant="8" id="gDD-bI-mZv"/>
                                                 <constraint firstItem="N6Q-Ut-uzc" firstAttribute="top" secondItem="FPV-qb-Mzc" secondAttribute="top" constant="5" id="kDr-bN-8Tq"/>
                                                 <constraint firstAttribute="trailing" secondItem="jgJ-kB-8MB" secondAttribute="trailing" constant="5" id="qBh-M1-hC5"/>
                                                 <constraint firstItem="NaM-1x-JRt" firstAttribute="leading" secondItem="FPV-qb-Mzc" secondAttribute="leading" constant="5" id="rOK-d4-PNX"/>
+                                                <constraint firstItem="NaM-1x-JRt" firstAttribute="top" secondItem="gJG-Nl-K97" secondAttribute="bottom" constant="8" id="vJ9-gm-FSs"/>
                                                 <constraint firstAttribute="bottom" secondItem="jgJ-kB-8MB" secondAttribute="bottom" constant="6" id="vNY-UL-UEM"/>
                                                 <constraint firstItem="N6Q-Ut-uzc" firstAttribute="leading" secondItem="FPV-qb-Mzc" secondAttribute="leading" constant="5" id="xKn-KV-9e1"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="xKn-KV-9e1"/>
+                                                    <exclude reference="LfJ-FL-Fii"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="adhocEmailLable" destination="jgJ-kB-8MB" id="tLj-6x-SXx"/>
@@ -1002,4 +1019,7 @@
             <point key="canvasLocation" x="1897" y="564"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LikeButton" width="57" height="57"/>
+    </resources>
 </document>
