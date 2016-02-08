@@ -85,7 +85,9 @@
 
     NSString *reviewImageURL = [[ICDataManager sharedInstance] getCustomerPic:_review.user_id];
     
-    _reviewImageView.image = [UIImage imageNamed:@"LikeButton"];
+    _reviewImageView.image = [UIImage imageNamed:@"person_silhouette"];
+    
+    _reviewImageView.clipsToBounds = YES;
 
     if(reviewImageURL)
     {

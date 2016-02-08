@@ -240,7 +240,7 @@
                                     <action selector="inviteButtonTapped:" destination="ZfX-2M-IgA" eventType="touchUpInside" id="uD0-aB-ZWR"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-xs-1Wu" userLabel="AdhocView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-xs-1Wu" userLabel="AdhocView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="491"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deM-xg-5pa" userLabel="AdhocInvestorsView">
@@ -255,7 +255,7 @@
                                                             <constraint firstAttribute="height" constant="30" id="4M9-nG-yGW"/>
                                                         </constraints>
                                                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="ZfX-2M-IgA" id="0Bk-78-OmS"/>
@@ -264,7 +264,7 @@
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JS4-fB-cVv">
                                                         <rect key="frame" x="293" y="10" width="272" height="30"/>
                                                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="ZfX-2M-IgA" id="RJH-6h-n1S"/>
@@ -279,7 +279,7 @@
                                                                     <constraint firstAttribute="height" constant="30" id="4VN-jQ-Bqq"/>
                                                                 </constraints>
                                                                 <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="ZfX-2M-IgA" id="vJQ-oD-Eag"/>
@@ -291,16 +291,15 @@
                                                                 <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="mZ2-E6-bVE">
-                                                                <rect key="frame" x="58" y="63" width="492" height="29"/>
+                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="iz1-wO-PGP">
+                                                                <rect key="frame" x="67" y="63" width="483" height="29"/>
                                                                 <segments>
-                                                                    <segment title="Invested"/>
-                                                                    <segment title="Intrested"/>
-                                                                    <segment title="Passed"/>
+                                                                    <segment title="In Person"/>
+                                                                    <segment title="Phone"/>
                                                                 </segments>
                                                                 <color key="tintColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <connections>
-                                                                    <action selector="statusValueChanged:" destination="ZfX-2M-IgA" eventType="valueChanged" id="mJL-eM-h1b"/>
+                                                                    <action selector="meetValueChanged:" destination="ZfX-2M-IgA" eventType="valueChanged" id="eDR-Qp-f7J"/>
                                                                 </connections>
                                                             </segmentedControl>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BZ-jK-88b">
@@ -312,40 +311,44 @@
                                                                 <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="iz1-wO-PGP">
-                                                                <rect key="frame" x="67" y="106" width="483" height="29"/>
+                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="mZ2-E6-bVE">
+                                                                <rect key="frame" x="67" y="107" width="483" height="29"/>
                                                                 <segments>
-                                                                    <segment title="In Person"/>
-                                                                    <segment title="Phone"/>
+                                                                    <segment title="Invested"/>
+                                                                    <segment title="Intrested"/>
+                                                                    <segment title="Passed"/>
                                                                 </segments>
                                                                 <color key="tintColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <connections>
-                                                                    <action selector="meetValueChanged:" destination="ZfX-2M-IgA" eventType="valueChanged" id="siC-i6-IBm"/>
+                                                                    <action selector="statusValueChanged:" destination="ZfX-2M-IgA" eventType="valueChanged" id="keI-v1-ciz"/>
                                                                 </connections>
                                                             </segmentedControl>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="mZ2-E6-bVE" secondAttribute="trailing" id="2Fb-IQ-6Zd"/>
-                                                            <constraint firstItem="mZ2-E6-bVE" firstAttribute="leading" secondItem="NHS-bA-Jxe" secondAttribute="trailing" constant="5" id="8Oj-mV-0me"/>
-                                                            <constraint firstItem="mZ2-E6-bVE" firstAttribute="centerY" secondItem="NHS-bA-Jxe" secondAttribute="centerY" id="Ge4-H9-xdo"/>
+                                                            <constraint firstAttribute="trailing" secondItem="iz1-wO-PGP" secondAttribute="trailing" id="EMn-zd-wi7"/>
+                                                            <constraint firstAttribute="trailing" secondItem="mZ2-E6-bVE" secondAttribute="trailing" id="Ek5-nU-1fe"/>
                                                             <constraint firstAttribute="bottom" secondItem="NHS-bA-Jxe" secondAttribute="bottom" multiplier="4:2" id="Vrg-K6-esg"/>
-                                                            <constraint firstAttribute="trailing" secondItem="iz1-wO-PGP" secondAttribute="trailing" id="dX1-jd-iPb"/>
+                                                            <constraint firstItem="iz1-wO-PGP" firstAttribute="centerY" secondItem="NHS-bA-Jxe" secondAttribute="centerY" id="Vrg-wa-TyR"/>
+                                                            <constraint firstItem="iz1-wO-PGP" firstAttribute="leading" secondItem="NHS-bA-Jxe" secondAttribute="trailing" constant="14" id="ZOK-wK-AhW"/>
                                                             <constraint firstItem="NHS-bA-Jxe" firstAttribute="leading" secondItem="csv-3h-i5E" secondAttribute="leading" id="fH3-7J-SN4"/>
                                                             <constraint firstAttribute="bottom" secondItem="pcd-oy-CKy" secondAttribute="bottom" multiplier="4:1" id="gHy-2U-cHP"/>
                                                             <constraint firstItem="6BZ-jK-88b" firstAttribute="leading" secondItem="csv-3h-i5E" secondAttribute="leading" id="ih6-UG-EVY"/>
                                                             <constraint firstAttribute="trailing" secondItem="pcd-oy-CKy" secondAttribute="trailing" id="jIp-NK-nQ8"/>
-                                                            <constraint firstItem="iz1-wO-PGP" firstAttribute="leading" secondItem="6BZ-jK-88b" secondAttribute="trailing" constant="5" id="ksL-Nw-kVG"/>
-                                                            <constraint firstItem="6BZ-jK-88b" firstAttribute="top" secondItem="mZ2-E6-bVE" secondAttribute="bottom" constant="14" id="kyC-Ff-TXb"/>
+                                                            <constraint firstItem="mZ2-E6-bVE" firstAttribute="leading" secondItem="iz1-wO-PGP" secondAttribute="leading" id="kVW-6q-aNd"/>
                                                             <constraint firstItem="pcd-oy-CKy" firstAttribute="leading" secondItem="csv-3h-i5E" secondAttribute="leading" id="mKk-lT-4Df"/>
-                                                            <constraint firstItem="6BZ-jK-88b" firstAttribute="centerY" secondItem="iz1-wO-PGP" secondAttribute="centerY" id="oHd-Cg-kUj"/>
+                                                            <constraint firstItem="6BZ-jK-88b" firstAttribute="top" secondItem="NHS-bA-Jxe" secondAttribute="bottom" constant="15" id="mWo-hH-gfq"/>
                                                             <constraint firstItem="pcd-oy-CKy" firstAttribute="centerX" secondItem="csv-3h-i5E" secondAttribute="centerX" id="vBR-rZ-F6K"/>
                                                             <constraint firstAttribute="bottom" secondItem="6BZ-jK-88b" secondAttribute="bottom" multiplier="4:3" id="vJh-pi-oa8"/>
+                                                            <constraint firstItem="6BZ-jK-88b" firstAttribute="bottom" secondItem="mZ2-E6-bVE" secondAttribute="bottom" id="yVd-QF-7Oq"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCf-mj-Ewj" customClass="StarRatingControl">
-                                                        <rect key="frame" x="15" y="195" width="550" height="65"/>
+                                                        <rect key="frame" x="15" y="195" width="550" height="40"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="nBP-Dk-Ene"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -369,6 +372,7 @@
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="plc-cF-XqZ"/>
+                                                        <exclude reference="9UI-Mz-kjf"/>
                                                     </mask>
                                                 </variation>
                                             </view>
@@ -501,10 +505,10 @@
                         <outlet property="adhocView" destination="hGb-xs-1Wu" id="7qO-nk-aBE"/>
                         <outlet property="commentReviewTextView" destination="e5o-pq-sFD" id="SfB-wn-nfE"/>
                         <outlet property="investorTableView" destination="wNI-PM-3Re" id="4Cm-6j-cB0"/>
-                        <outlet property="meetSegmentView" destination="iz1-wO-PGP" id="JHH-Es-X2Q"/>
+                        <outlet property="meetSegmentView" destination="iz1-wO-PGP" id="0l7-fL-A8Q"/>
                         <outlet property="searchBar" destination="BPg-fA-ljk" id="Jjq-vo-vfm"/>
                         <outlet property="starRatingView" destination="tCf-mj-Ewj" id="rtc-zl-cWs"/>
-                        <outlet property="statusSegmentView" destination="mZ2-E6-bVE" id="ZhF-Nn-1fK"/>
+                        <outlet property="statusSegmentView" destination="mZ2-E6-bVE" id="x88-3k-KPL"/>
                         <outlet property="tableViewBottonConstraint" destination="Rrz-rZ-boR" id="eli-nz-pN7"/>
                     </connections>
                 </viewController>
@@ -653,7 +657,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2nL-yB-RYw" customClass="ICImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2nL-yB-RYw" customClass="ICImageView">
                                                     <rect key="frame" x="8" y="4" width="72" height="72"/>
                                                     <color key="backgroundColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>

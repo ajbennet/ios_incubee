@@ -197,7 +197,7 @@
 
 -(void)keyboardWillHide:(NSNotification*) notification
 {
-    if([_adhocEmailTextFiled isFirstResponder] || [_adhocTitleTextField isFirstResponder])
+    if([_adhocEmailTextFiled isFirstResponder] || [_adhocTitleTextField isFirstResponder] || [_adhocNameTextFiled isFirstResponder])
     {
         return;
     }
@@ -228,7 +228,7 @@
 -(void)keyboardDidShow:(NSNotification*) notification
 {
     
-    if([_adhocEmailTextFiled isFirstResponder] || [_adhocTitleTextField isFirstResponder])
+    if([_adhocEmailTextFiled isFirstResponder] || [_adhocTitleTextField isFirstResponder] || [_adhocNameTextFiled isFirstResponder])
     {
         return;
     }
@@ -327,7 +327,12 @@
     }
     else if(_adhocTitleTextField.text.length<1)
     {
-        reviewError = @"Please write 'Title'";
+        reviewError = @"Please write 'Review Title'";
+        
+    }
+    else if(_adhocNameTextFiled.text.length<1)
+    {
+        reviewError = @"Please write 'Name'";
         
     }
     
@@ -347,6 +352,7 @@
 -(void)reloadDataRefreshUI{
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
         incubeeList = [[ICDataManager sharedInstance] getAllIncubees];
         
         adhocIncubeeList = [[ICDataManager sharedInstance] getAllAdhocIncubeeList];
@@ -845,6 +851,7 @@
     
     NSMutableDictionary *adhocIncubeeDic = [[NSMutableDictionary alloc] init];
     
+    [adhocIncubeeDic setObject:_adhocNameTextFiled.text forKey:ADHOC_INCUBEE_NAME];
     [adhocIncubeeDic setObject:_adhocTitleTextField.text forKey:ADHOC_INCUBEE_TITLE];
     [adhocIncubeeDic setObject:_adhocEmailTextFiled.text forKey:ADHOC_INCUBEE_EMAIL];
     [adhocIncubeeDic setObject:meetSelected forKey:ADHOC_INCUBEE_MEETING];
@@ -890,7 +897,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
 
-    if([_adhocTitleTextField isFirstResponder] || [_adhocEmailTextFiled isFirstResponder])
+    if([_adhocTitleTextField isFirstResponder] || [_adhocEmailTextFiled isFirstResponder] || [_adhocNameTextFiled isFirstResponder])
     {
         [textField resignFirstResponder];
     

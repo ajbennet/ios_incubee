@@ -326,7 +326,7 @@
     
     NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
     
-    [d setValue:[adhocInvubeeDic valueForKey:ADHOC_INCUBEE_TITLE] forKey:@"name"];
+    [d setValue:[adhocInvubeeDic valueForKey:ADHOC_INCUBEE_NAME] forKey:@"name"];
     [d setValue:[adhocInvubeeDic valueForKey:ADHOC_INCUBEE_EMAIL] forKey:@"email_id"];
     
     [req setReqDataDict:(NSMutableDictionary*)d];
