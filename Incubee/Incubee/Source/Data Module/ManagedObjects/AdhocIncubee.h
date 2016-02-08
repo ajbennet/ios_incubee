@@ -1,5 +1,5 @@
 //
-//  User.h
+//  AdhocIncubee.h
 //  Incubee
 //
 //  Created by Rithesh Rao on 08/02/16.
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface User : NSManagedObject
+@interface AdhocIncubee : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -19,4 +19,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "User+CoreDataProperties.h"
+#import "AdhocIncubee+CoreDataProperties.h"

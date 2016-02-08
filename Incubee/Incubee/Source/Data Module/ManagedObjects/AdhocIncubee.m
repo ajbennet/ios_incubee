@@ -1,15 +1,14 @@
 //
-//  Incubee.m
+//  AdhocIncubee.m
 //  Incubee
 //
 //  Created by Rithesh Rao on 08/02/16.
 //  Copyright © 2016 Incubee. All rights reserved.
 //
 
-#import "Incubee.h"
-#import "IncubeeImage.h"
+#import "AdhocIncubee.h"
 
-@implementation Incubee
+@implementation AdhocIncubee
 
 // Insert code here to add functionality to your managed object subclass
 

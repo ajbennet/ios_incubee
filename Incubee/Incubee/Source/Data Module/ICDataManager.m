@@ -1282,4 +1282,88 @@ static ICDataManager *sharedDataManagerInstance = nil;
 
 }
 
+#pragma mark - Investor -
+
+-(void)saveAdHocIncubees:(NSArray*)inAdHocIncubeeArray{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        for(NSDictionary *aDic in inAdHocIncubeeArray)
+        {
+    
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            
+            [request setEntity:[NSEntityDescription entityForName:@"AdhocIncubee" inManagedObjectContext:context]];
+            
+            NSError *errorDb = nil;
+            
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"adhocIncubeeId LIKE %@",[aDic valueForKey:@"id"]];
+            
+            [request setPredicate:predicate];
+            
+            NSArray *results = [context executeFetchRequest:request error:&errorDb];
+            
+            AdhocIncubee *aAdhocIncubee;
+            
+            if (results && [results count] > 0)
+            {
+                aAdhocIncubee = [results objectAtIndex:0];
+            }
+            else
+            {
+                aAdhocIncubee = [NSEntityDescription
+                           insertNewObjectForEntityForName:@"AdhocIncubee"
+                           inManagedObjectContext:context];
+            }
+
+            aAdhocIncubee.adhocIncubeeId = NULL_TO_NIL([aDic objectForKey:@"id"]);
+            
+            aAdhocIncubee.emailId = NULL_TO_NIL([aDic objectForKey:@"email_id"]);
+            
+            aAdhocIncubee.adhocIncubeeName = NULL_TO_NIL([aDic objectForKey:@"name"]);
+
+            aAdhocIncubee.createdById = NULL_TO_NIL([aDic objectForKey:@"created_by_id"]);
+            
+        }
+        
+        
+        NSError *er = nil;
+        
+        [context save:&er];
+        
+        if(er==nil)
+        {
+            NSLog(@"Adhoc Incubee Saved !!");
+        }
+
+    }
+
+}
+
+-(NSArray*)getAllAdhocIncubeeList{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"AdhocIncubee" inManagedObjectContext:context]];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        if (results && [results count] > 0)
+        {
+            return results;
+        }
+    }
+    
+    return nil;
+}
+
+
 @end

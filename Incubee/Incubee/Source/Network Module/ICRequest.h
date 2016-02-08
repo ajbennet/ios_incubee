@@ -26,7 +26,8 @@ typedef enum
     IC_SEND_CHAT_MSG,
     IC_SUBMIT_REVIEW,
     IC_INVITE_FOUNDER,
-    IC_ADD_ADHOC_INCUBEE
+    IC_ADD_ADHOC_INCUBEE,
+    IC_GET_ALL_ADHOC_INCUBEE
 } REQUESTID;
 
 typedef enum // Naming Conventions of the Enum's to be decided

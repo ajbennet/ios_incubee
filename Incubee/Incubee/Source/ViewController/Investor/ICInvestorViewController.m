@@ -8,6 +8,45 @@
 
 #include "ICIncubeeViewController.h"
 
+#define ADHOC_INCUBEE_CELL_ID @"AdhocIncubeeCellId"
+
+@interface ICAdhocIncubeeTbCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *adhocTitleLable;
+
+@property (weak, nonatomic) IBOutlet UILabel *adhocEmailLable;
+
+@property(nonatomic,strong)AdhocIncubee *adhocIncubee;
+
+@end
+
+@implementation ICAdhocIncubeeTbCell
+
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    if(self)
+    {
+        return self;
+    }
+    
+    return nil;
+}
+
+-(void)setAdhocIncubee:(AdhocIncubee *)adhocIncubee{
+
+    _adhocIncubee = adhocIncubee;
+    
+    _adhocTitleLable.text = _adhocIncubee.adhocIncubeeName;
+    
+    _adhocEmailLable.text = _adhocIncubee.emailId;
+    
+}
+
+@end
+
+
 @interface ICInvestorTbCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet ICImageView *incubeeImage;
@@ -85,7 +124,11 @@
 
     NSArray *incubeeList;
     
+    NSArray *adhocIncubeeList;
+    
     NSArray *searchIncubeeList;
+    
+    NSArray *searchAdhocIncubeeList;
     
     BOOL searchModeOn;
 }
@@ -109,6 +152,9 @@
 //    self.navigationController.navigationBar.shadowImage = [UIImage new];
 //    self.navigationController.navigationBar.translucent = YES;
 
+    
+    [[ICAppManager sharedInstance] getAllAdhocIncubees:nil notifyTo:self atSelector:@selector(getAllIncubeesRequest:)];
+    
     
     [self reloadDataRefreshUI];
 }
@@ -301,6 +347,7 @@
 
     incubeeList = [[ICDataManager sharedInstance] getAllIncubees];
     
+    adhocIncubeeList = [[ICDataManager sharedInstance] getAllAdhocIncubeeList];
     
 }
 
@@ -317,10 +364,16 @@
             
             NSLog(@"%@ & count %d",searchText,(int)searchIncubeeList.count);
             
+            NSPredicate *searchAdhocPred = [NSPredicate predicateWithFormat:@"adhocIncubeeName CONTAINS [c]%@ OR emailId CONTAINS [c]%@",searchText,searchText];
+            
+            searchAdhocIncubeeList = [adhocIncubeeList filteredArrayUsingPredicate:searchAdhocPred];
+    
         }
         else
         {
             searchIncubeeList = incubeeList;
+            
+            searchAdhocIncubeeList = adhocIncubeeList;
             
         }
         
@@ -402,50 +455,105 @@
 
 #pragma mark - UITableView -
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 
-    if(searchModeOn)
-    {
-        return searchIncubeeList.count;
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    if(section==0){
+        
+        if(searchModeOn)
+        {
+            return searchIncubeeList.count;
+        }
+        else
+        {
+            return incubeeList.count;
+        }
     }
     else
     {
-        return incubeeList.count;
+        if(searchModeOn)
+        {
+            return searchAdhocIncubeeList.count;
+        }
+        else
+        {
+            return adhocIncubeeList.count;
+        }
+        
     }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    ICInvestorTbCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InvestorCellId"];
     
-    if(!cell)
-    {
-        cell = [[ICInvestorTbCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InvestorCellId"];
+    if(indexPath.section==0){
         
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        ICInvestorTbCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InvestorCellId"];
         
-    }
-    
-    Incubee *aIncubee;
-    
-    if(searchModeOn)
-    {
-        aIncubee = [searchIncubeeList objectAtIndex:indexPath.row];
+        if(!cell)
+        {
+            cell = [[ICInvestorTbCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InvestorCellId"];
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+        }
+        
+        Incubee *aIncubee;
+        
+        if(searchModeOn)
+        {
+            aIncubee = [searchIncubeeList objectAtIndex:indexPath.row];
+        }
+        else
+        {
+            aIncubee = [incubeeList objectAtIndex:indexPath.row];
+        }
+        
+        [cell setIncubee:aIncubee];
+        
+        return cell;
     }
     else
     {
-        aIncubee = [incubeeList objectAtIndex:indexPath.row];
+        
+        
+        ICAdhocIncubeeTbCell *cell = [tableView dequeueReusableCellWithIdentifier:ADHOC_INCUBEE_CELL_ID];
+        
+        if(!cell)
+        {
+            cell = [[ICAdhocIncubeeTbCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ADHOC_INCUBEE_CELL_ID];
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+        }
+        
+        AdhocIncubee *aAdhocIncubee;
+        
+        if(searchModeOn)
+        {
+            aAdhocIncubee = [searchAdhocIncubeeList objectAtIndex:indexPath.row];
+        }
+        else
+        {
+            aAdhocIncubee = [adhocIncubeeList objectAtIndex:indexPath.row];
+        }
+        
+        [cell setAdhocIncubee:aAdhocIncubee];
+        
+        return cell;
+
+        
     }
     
-    [cell setIncubee:aIncubee];
-
-    return cell;
-
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if(indexPath.section == 0){
     Incubee *aIncubee;
     
     if(searchModeOn)
@@ -464,6 +572,7 @@
     incubeeViewController.incubee = aIncubee;
 
     [self.navigationController pushViewController:incubeeViewController animated:YES];
+    }
 
 }
 
@@ -666,6 +775,24 @@
         [alertView show];
     }
 
+}
+
+-(void)getAllIncubeesRequest:(ICRequest*)inRequest{
+
+    if(inRequest.error == nil)
+    {
+        
+        [self reloadDataRefreshUI];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error : %ld",(long)inRequest.error.code] message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
+    }
+
+
+    
 }
 
 

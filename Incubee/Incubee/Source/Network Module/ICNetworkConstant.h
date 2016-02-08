@@ -58,8 +58,9 @@
 
 #define ksendChatMsg(userId) [NSString stringWithFormat:@"%@%@/rest/%@/msg?eid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,SERVER_API_VERSION,userId]
 
-
 #define kAddAdhocIncubee(userId) [NSString stringWithFormat:@"%@%@/incubee/rest/%@/adhocincubee?uid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,SERVER_API_VERSION,userId]
+
+#define kGetAllAdhocIncubee  [NSString stringWithFormat:@"%@%@/incubee/rest/%@/adhocincubee",SERVER_REST_PROTOCOL,SERVER_HOST,SERVER_API_VERSION]
 
 
 #pragma mark - Request Method -

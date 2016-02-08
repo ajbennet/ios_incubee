@@ -2,7 +2,7 @@
 //  Customer+CoreDataProperties.h
 //  Incubee
 //
-//  Created by Rithesh Rao on 27/01/16.
+//  Created by Rithesh Rao on 08/02/16.
 //  Copyright © 2016 Incubee. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu

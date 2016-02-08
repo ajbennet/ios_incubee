@@ -1,5 +1,5 @@
 //
-//  Customer+CoreDataProperties.m
+//  AdhocIncubee+CoreDataProperties.m
 //  Incubee
 //
 //  Created by Rithesh Rao on 08/02/16.
@@ -9,13 +9,13 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Customer+CoreDataProperties.h"
+#import "AdhocIncubee+CoreDataProperties.h"
 
-@implementation Customer (CoreDataProperties)
+@implementation AdhocIncubee (CoreDataProperties)
 
-@dynamic email;
-@dynamic imageUrl;
-@dynamic userId;
-@dynamic userName;
+@dynamic adhocIncubeeId;
+@dynamic emailId;
+@dynamic adhocIncubeeName;
+@dynamic createdById;
 
 @end

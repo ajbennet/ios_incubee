@@ -87,7 +87,17 @@
 
             }
                 break;
+            case IC_GET_ALL_ADHOC_INCUBEE:
+            {
+            
+                NSArray *adhocInvubeeListArray = [inRequest.parsedResponse objectForKey:@"incubeeList"];
                 
+                NSLog(@"adhocInvubeeListArray : %@",adhocInvubeeListArray);
+                
+                [self saveAdHocIncubees:adhocInvubeeListArray];
+
+            }
+                break;
             default:
                 break;
         }

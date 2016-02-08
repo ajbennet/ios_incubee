@@ -333,6 +333,25 @@
 
 }
 
+-(void)getAllAdhocIncubees:(ICRequest**)inRequest notifyTo:(id)aViewController atSelector:(SEL)inSelector{
+
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_GET_ALL_ADHOC_INCUBEE;
+    
+    req.isTokenRequired = YES;
+
+    req.requestMethod = ICRequestMethodGet;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+        
+    [req setRequestingURL:[NSURL URLWithString:kGetAllAdhocIncubee]];
+    
+    [self sendRequestObject:req];
+
+}
 
 
 

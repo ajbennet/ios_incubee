@@ -38,6 +38,7 @@
 
 -(void)addAdhocInvubee:(NSDictionary*)adhocInvubeeDic withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
 
+-(void)getAllAdhocIncubees:(ICRequest**)inRequest notifyTo:(id)aViewController atSelector:(SEL)inSelector;
 
 
 #pragma mark - Chat -

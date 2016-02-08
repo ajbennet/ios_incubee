@@ -38,6 +38,8 @@
 
 -(void)adhocIncubeeAddRequest:(ICRequest*)inRequest;
 
+-(void)getAllIncubeesRequest:(ICRequest*)inRequest;
+
 #pragma mark - Adhoc -
 
 @property (weak, nonatomic) IBOutlet UIView *adhocView;

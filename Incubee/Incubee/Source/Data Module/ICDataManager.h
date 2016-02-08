@@ -16,6 +16,7 @@
 #import "Messages.h"
 #import "Customer.h"
 #import "Review.h"
+#import "AdhocIncubee.h"
 
 @interface ICDataManager : NSObject
 
@@ -92,4 +93,11 @@
 -(NSArray*)getReviewArray:(NSString*)inIncubeeId;
 
 -(BOOL)isReviewWritten:(NSString*)inIncubeeId;
+
+#pragma mark - Investor -
+
+-(void)saveAdHocIncubees:(NSArray*)inAdHocIncubeeArray;
+
+-(NSArray*)getAllAdhocIncubeeList;
+
 @end
