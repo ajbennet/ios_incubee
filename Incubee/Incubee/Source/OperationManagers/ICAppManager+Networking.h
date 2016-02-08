@@ -28,11 +28,16 @@
 
 -(void)getCustomerDetails:(NSString*)inCustomerId withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
 
+#pragma mark - Investor -
+
 -(void)getReview:(NSString*)inIncubeeId withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
 
 -(void)submitReview:(NSDictionary*)reviewDic withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
 
 -(void)inviteFounder:(NSString*)inEmail withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
+
+-(void)addAdhocInvubee:(NSDictionary*)adhocInvubeeDic withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector;
+
 
 
 #pragma mark - Chat -

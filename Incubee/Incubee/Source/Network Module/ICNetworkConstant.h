@@ -58,6 +58,10 @@
 
 #define ksendChatMsg(userId) [NSString stringWithFormat:@"%@%@/rest/%@/msg?eid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,SERVER_API_VERSION,userId]
 
+
+#define kAddAdhocIncubee(userId) [NSString stringWithFormat:@"%@%@/incubee/rest/%@/adhocincubee?uid=%@",SERVER_REST_PROTOCOL,SERVER_HOST,SERVER_API_VERSION,userId]
+
+
 #pragma mark - Request Method -
 
 #define ICRequestMethodGet @"GET"

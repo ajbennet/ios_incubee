@@ -239,6 +239,64 @@
 
 #pragma mark - Private -
 
+-(BOOL)validateReviewSection{
+    
+    NSString *reviewError = nil;
+    
+    if(_commentReviewTextView.text.length<1)
+    {
+        reviewError = @"Please write 'Comments'";
+        
+    }
+    
+    else if(_starRatingView.rating==-1)
+    {
+        reviewError = @"Please rate this Product";
+        
+        
+    }
+    
+    else if(([statusSelected isEqualToString:@"INT"] || [statusSelected isEqualToString:@"INV"] || [statusSelected isEqualToString:@"PAS"]) == NO)
+    {
+        
+        reviewError = @"Please select 'Status'";
+        
+    }
+    
+    else if(([meetSelected isEqualToString:@"PER"] || [meetSelected isEqualToString:@"PHO"]) == NO)
+    {
+        
+        reviewError = @"Please select 'Meet'";
+        
+    }
+    else if(_adhocTitleTextField.text.length<1){
+    
+        reviewError = @"Please input 'EmailId'";
+
+    }
+    else if([[ICUtilityManager sharedInstance] isValidEmail:_adhocEmailTextFiled.text]==NO)
+    {
+        reviewError = @"Email is not valid";
+    }
+    else if(_adhocTitleTextField.text.length<1)
+    {
+        reviewError = @"Please write 'Title'";
+        
+    }
+    
+    if(reviewError == nil)
+    {
+        return  YES;
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:reviewError delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    
+    [alert show];
+    
+    return NO;
+    
+}
+
 -(void)reloadDataRefreshUI{
 
     incubeeList = [[ICDataManager sharedInstance] getAllIncubees];
@@ -273,6 +331,65 @@
         [_investorTableView reloadData];
     }
     
+}
+
+-(void)resignAdHocResponders{
+    
+    _adhocTopView.hidden = NO;
+    
+    if([_adhocTitleTextField isFirstResponder])
+    {
+        [_adhocTitleTextField resignFirstResponder];
+    }
+    
+    if([_adhocEmailTextFiled isFirstResponder])
+    {
+        [_adhocEmailTextFiled resignFirstResponder];
+    }
+    
+    if([_commentReviewTextView isFirstResponder])
+    {
+        [_commentReviewTextView resignFirstResponder];
+    }
+
+}
+
+-(void)resetAdhocInputView{
+
+    _adhocTopView.hidden = NO;
+
+    adhocTitle = nil;
+    
+    adhocEmail = nil;
+    
+    meetSelected = nil;
+    
+    statusSelected = nil;
+    
+    adhocComments = nil;
+    
+    _adhocTitleTextField.text = nil;
+    
+    _adhocEmailTextFiled.text = nil;
+    
+    _commentReviewTextView.text = nil;
+    
+    _meetSegmentView.selectedSegmentIndex = -1;
+    
+    _statusSegmentView.selectedSegmentIndex = -1;
+    
+    
+    _starRatingView.rating = -1;
+    
+    _adhocBottomConstraitns.constant =  0.0f;
+    
+    [UIView animateWithDuration:0.25f animations:^{
+        
+        [self.view layoutIfNeeded];
+        
+    }];
+
+
 }
 
 
@@ -352,6 +469,48 @@
 
 #pragma mark - IBActions -
 
+- (IBAction)statusValueChanged:(id)sender {
+    
+    UISegmentedControl *seg = (UISegmentedControl*)sender;
+    
+    switch (seg.selectedSegmentIndex) {
+        case 0:
+            statusSelected = @"INT";
+            break;
+        case 1:
+            statusSelected = @"INV";
+            break;
+        case 2:
+            statusSelected = @"PAS";
+            break;
+        default:
+            break;
+    }
+    
+    [self resignAdHocResponders];
+    
+}
+
+- (IBAction)meetValueChanged:(id)sender {
+    
+    UISegmentedControl *seg = (UISegmentedControl*)sender;
+    
+    switch (seg.selectedSegmentIndex) {
+        case 0:
+            meetSelected = @"PER";
+            break;
+        case 1:
+            meetSelected = @"PHO";
+            break;
+        default:
+            break;
+    }
+    
+    [self resignAdHocResponders];
+    
+}
+
+
 - (IBAction)inviteButtonTapped:(id)sender {
     
     UIAlertView *linkMediaAlert = [[UIAlertView alloc] initWithTitle:@"Invite a founder" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:INVITE,nil];
@@ -370,7 +529,7 @@
 
 - (IBAction)addButtonTapped:(id)sender {
     
-    
+    [self resetAdhocInputView];
     
     _adhocView.hidden = NO;
     
@@ -490,18 +649,60 @@
 
 }
 
+-(void)adhocIncubeeAddRequest:(ICRequest*)inRequest{
+
+    if(inRequest.error == nil)
+    {
+        
+        NSArray *resposeIncubeeList = [inRequest.parsedResponse objectForKey:@"incubeeList"];
+
+        NSLog(@"resposeIncubeeList : %@",resposeIncubeeList);
+        
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error : %ld",(long)inRequest.error.code] message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
+    }
+
+}
 
 
 - (IBAction)adhocSubmitTapped:(id)sender {
+    
+    [self resignAdHocResponders];
+    
+    if(![self validateReviewSection])
+    {
+        return;
+    }
+    
+    NSMutableDictionary *adhocIncubeeDic = [[NSMutableDictionary alloc] init];
+    
+    [adhocIncubeeDic setObject:_adhocTitleTextField.text forKey:ADHOC_INCUBEE_TITLE];
+    [adhocIncubeeDic setObject:_adhocEmailTextFiled.text forKey:ADHOC_INCUBEE_EMAIL];
+    [adhocIncubeeDic setObject:meetSelected forKey:ADHOC_INCUBEE_MEETING];
+    [adhocIncubeeDic setObject:statusSelected forKey:ADHOC_INCUBEE_STATUS];
+    [adhocIncubeeDic setObject:[NSNumber numberWithInt:(int)_starRatingView.rating] forKey:ADHOC_INCUBEE_RATING];
+    [adhocIncubeeDic setObject:_commentReviewTextView.text forKey:ADHOC_INCUBEE_DESC];
+    
+    
+    [[ICAppManager sharedInstance] addAdhocInvubee:adhocIncubeeDic withRequest:nil notifyTo:self forSelector:@selector(adhocIncubeeAddRequest:)];
+    
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
     
     _adhocView.hidden = YES;
     
+}
+
+- (IBAction)adhocCancelTapped:(id)sender {
+    
     
     if([_commentReviewTextView isFirstResponder])
     {
-    
+        
         _adhocBottomConstraitns.constant =  0.0f;
         
         [UIView animateWithDuration:0.25f animations:^{
@@ -510,38 +711,16 @@
             
         }];
         
-    [_commentReviewTextView resignFirstResponder];
-
+        [_commentReviewTextView resignFirstResponder];
+        
     }
 
-    
-    
-    
-}
-
-- (IBAction)adhocCancelTapped:(id)sender {
-    
-    
     _adhocView.hidden = YES;
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
 }
 
 #pragma mark - UITextField Delegate -
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-
-    return YES;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField{}
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
-
-    return YES;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField{}
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -555,9 +734,4 @@
     return YES;
 }
 
-- (IBAction)statusValueChanged:(id)sender {
-}
-
-- (IBAction)meetValueChanged:(id)sender {
-}
 @end

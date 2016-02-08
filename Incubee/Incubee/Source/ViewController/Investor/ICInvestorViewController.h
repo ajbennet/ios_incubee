@@ -8,7 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ICInvestorViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UISearchBarDelegate,UITextViewDelegate,UITextFieldDelegate>
+@interface ICInvestorViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UISearchBarDelegate,UITextViewDelegate,UITextFieldDelegate>{
+
+    NSString *adhocTitle;
+    
+    NSString *adhocEmail;
+    
+    NSString *meetSelected;
+    
+    NSString *statusSelected;
+    
+    NSString *adhocComments;
+
+}
 
 @property (strong, nonatomic) IBOutlet UITableView *investorTableView;
 
@@ -24,6 +36,7 @@
 #pragma mark - Network -
 -(void)inviteFounderRequest:(ICRequest*)inRequest;
 
+-(void)adhocIncubeeAddRequest:(ICRequest*)inRequest;
 
 #pragma mark - Adhoc -
 

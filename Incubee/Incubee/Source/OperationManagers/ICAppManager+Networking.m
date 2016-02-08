@@ -227,6 +227,8 @@
     
 }
 
+#pragma mark - Investor -
+
 -(void)getReview:(NSString*)inIncubeeId withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
 
     ICRequest *req = [[ICRequest alloc] init];
@@ -304,6 +306,32 @@
 }
 
 
+-(void)addAdhocInvubee:(NSDictionary*)adhocInvubeeDic withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
+
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_ADD_ADHOC_INCUBEE;
+    
+    req.isTokenRequired = YES;
+    
+    req.requestMethod = ICRequestMethodPost;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+    
+    [req setRequestingURL:[NSURL URLWithString:kAddAdhocIncubee([[ICDataManager sharedInstance] getUserId])]];
+    
+    NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
+    
+    [d setValue:[adhocInvubeeDic valueForKey:ADHOC_INCUBEE_TITLE] forKey:@"name"];
+    [d setValue:[adhocInvubeeDic valueForKey:ADHOC_INCUBEE_EMAIL] forKey:@"email_id"];
+    
+    [req setReqDataDict:(NSMutableDictionary*)d];
+    
+    [self sendRequestObject:req];
+
+}
 
 
 

@@ -171,7 +171,7 @@
                                     <action selector="inviteButtonTapped:" destination="ZfX-2M-IgA" eventType="touchUpInside" id="uD0-aB-ZWR"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-xs-1Wu" userLabel="AdhocView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGb-xs-1Wu" userLabel="AdhocView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="491"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deM-xg-5pa" userLabel="AdhocInvestorsView">
@@ -202,7 +202,7 @@
                                                                 </constraints>
                                                                 <color key="textColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="ZfX-2M-IgA" id="vJQ-oD-Eag"/>
                                                                 </connections>
@@ -213,7 +213,7 @@
                                                                 <color key="textColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mZ2-E6-bVE">
+                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="mZ2-E6-bVE">
                                                                 <rect key="frame" x="58" y="63" width="492" height="29"/>
                                                                 <segments>
                                                                     <segment title="Invested"/>
@@ -234,7 +234,7 @@
                                                                 <color key="textColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iz1-wO-PGP">
+                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="iz1-wO-PGP">
                                                                 <rect key="frame" x="67" y="106" width="483" height="29"/>
                                                                 <segments>
                                                                     <segment title="In Person"/>
