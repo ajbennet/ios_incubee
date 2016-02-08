@@ -98,6 +98,8 @@
     
     req.requestId = IC_GOOGLE_SIGNUP;
     
+    req.requestMethod = ICRequestMethodPost;
+
     [self addRequestActivityObserver:req];
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
