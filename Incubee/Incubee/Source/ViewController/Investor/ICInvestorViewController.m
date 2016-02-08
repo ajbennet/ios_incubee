@@ -762,10 +762,25 @@
 
     if(inRequest.error == nil)
     {
-        
         NSArray *resposeIncubeeList = [inRequest.parsedResponse objectForKey:@"incubeeList"];
 
         NSLog(@"resposeIncubeeList : %@",resposeIncubeeList);
+        
+        NSDictionary *adhocIncube = [resposeIncubeeList objectAtIndex:0];
+        
+        // On Success write Review
+        
+        NSMutableDictionary *reviewDic = [[NSMutableDictionary alloc] init];
+        
+        [reviewDic setObject:_adhocTitleTextField.text forKey:REVIEW_TITLE];
+        [reviewDic setObject:_commentReviewTextView.text forKey:REVIEW_DESC];
+        [reviewDic setObject:[adhocIncube valueForKey:@"id"] forKey:REVIEW_INCUBEE_ID];
+        [reviewDic setObject:[NSNumber numberWithInt:(int)_starRatingView.rating] forKey:REVIEW_RATING];
+        [reviewDic setObject:meetSelected forKey:REVIEW_MEETING];
+        [reviewDic setObject:statusSelected forKey:REVIEW_STATUS];
+        
+        
+        [[ICAppManager sharedInstance] submitReview:reviewDic withRequest:nil notifyTo:self forSelector:@selector(reviewSubmittedForCreatedAdhocIncubee:)];
         
     }
     else
@@ -795,6 +810,23 @@
     
 }
 
+
+-(void)reviewSubmittedForCreatedAdhocIncubee:(ICRequest*)inRequest{
+
+    if(inRequest.error == nil)
+    {
+        
+        [[ICAppManager sharedInstance] getAllAdhocIncubees:nil notifyTo:self atSelector:@selector(getAllIncubeesRequest:)];
+
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Error : %ld",(long)inRequest.error.code] message:inRequest.error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
+    }
+    
+}
 
 - (IBAction)adhocSubmitTapped:(id)sender {
     

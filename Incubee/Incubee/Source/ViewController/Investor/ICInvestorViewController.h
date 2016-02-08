@@ -40,6 +40,8 @@
 
 -(void)getAllIncubeesRequest:(ICRequest*)inRequest;
 
+-(void)reviewSubmittedForCreatedAdhocIncubee:(ICRequest*)inRequest;
+
 #pragma mark - Adhoc -
 
 @property (weak, nonatomic) IBOutlet UIView *adhocView;
