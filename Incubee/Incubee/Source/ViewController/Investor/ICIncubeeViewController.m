@@ -75,7 +75,7 @@
     
     _reviewRating.rating = review.rating.intValue;
     
-    _reviewImageView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
+    _reviewImageView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"].CGColor;
     
     _reviewImageView.layer.borderWidth = 1.0f;
     
