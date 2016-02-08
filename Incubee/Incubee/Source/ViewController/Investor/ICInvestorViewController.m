@@ -153,10 +153,11 @@
 //    self.navigationController.navigationBar.translucent = YES;
 
     
+//    [self reloadDataRefreshUI];
+
     [[ICAppManager sharedInstance] getAllAdhocIncubees:nil notifyTo:self atSelector:@selector(getAllIncubeesRequest:)];
     
     
-    [self reloadDataRefreshUI];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -345,10 +346,15 @@
 
 -(void)reloadDataRefreshUI{
 
-    incubeeList = [[ICDataManager sharedInstance] getAllIncubees];
-    
-    adhocIncubeeList = [[ICDataManager sharedInstance] getAllAdhocIncubeeList];
-    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        incubeeList = [[ICDataManager sharedInstance] getAllIncubees];
+        
+        adhocIncubeeList = [[ICDataManager sharedInstance] getAllAdhocIncubeeList];
+        
+        [_investorTableView reloadData];
+
+});
+
 }
 
 -(void)searchAndReload{
