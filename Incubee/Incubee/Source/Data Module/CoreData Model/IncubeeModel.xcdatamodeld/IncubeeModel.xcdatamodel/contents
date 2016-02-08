@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 4.3">
+    <entity name="AdhocIncubee" representedClassName="AdhocIncubee" syncable="YES">
+        <attribute name="adhocIncubeeId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="adhocIncubeeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdById" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="emailId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Customer" representedClassName="Customer" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
@@ -74,7 +80,8 @@
         <element name="Incubee" positionX="25" positionY="141" width="128" height="298"/>
         <element name="IncubeeImage" positionX="295" positionY="27" width="128" height="88"/>
         <element name="Messages" positionX="-198" positionY="228" width="128" height="240"/>
-        <element name="User" positionX="-207" positionY="6" width="128" height="165"/>
         <element name="Review" positionX="0" positionY="153" width="128" height="225"/>
+        <element name="User" positionX="-207" positionY="6" width="128" height="165"/>
+        <element name="AdhocIncubee" positionX="0" positionY="153" width="128" height="105"/>
     </elements>
 </model>
