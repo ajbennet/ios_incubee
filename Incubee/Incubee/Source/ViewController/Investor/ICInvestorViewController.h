@@ -60,6 +60,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *adhocEmailTextFiled;
 
+@property (weak, nonatomic) IBOutlet UITextField *adhocNameTextFiled;
+
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *meetSegmentView;
 
