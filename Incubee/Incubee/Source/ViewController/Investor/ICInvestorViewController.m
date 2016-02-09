@@ -435,6 +435,8 @@
     
     _adhocTitleTextField.text = nil;
     
+    _adhocNameTextFiled.text = nil;
+    
     _adhocEmailTextFiled.text = nil;
     
     _commentReviewTextView.text = nil;
