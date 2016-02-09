@@ -209,6 +209,13 @@
         
         [im1 getImage:urlString1 withDelegate:self];
     }
+    else if(!imArray)
+    {
+        _topLeftImageView.hidden = _topRightImageView.hidden = _bottomLeftImageView.hidden = _bottomRightImageView.hidden = YES;
+        
+        _bannerImageView.hidden = NO;
+
+    }
     
     
     
@@ -474,9 +481,9 @@
                 
                 lab.attributedText = myString;
                 
-                [allRatingView addSubview:lab];
+//                [allRatingView addSubview:lab];
                 
-                [allRatingView addSubview:imview];
+//                [allRatingView addSubview:imview];
             
             }
             

@@ -81,6 +81,8 @@
     _incubeeDesc.text = _incubee.highConcept;
     
     NSArray *imArray = [[ICDataManager sharedInstance] getImageURLs:_incubee.incubeeId];
+
+    [_incubeeImage setImage:[UIImage imageNamed:@"LikeButton"]];
     
     if(imArray.count>=1)
     {
@@ -91,11 +93,6 @@
         [_incubeeImage setImageUrl:urlString1];
         
         [im1 getImage:urlString1 withDelegate:self];
-    }
-    else
-    {
-    
-        _incubeeImage.image = nil;
     }
 }
 
@@ -667,11 +664,8 @@
         
     } completion:^(BOOL finished) {
         
+        [_adhocNameTextFiled becomeFirstResponder];
     }];
-
-    
-    
-    
     
     
 }
