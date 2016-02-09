@@ -318,7 +318,7 @@
             
             lab.numberOfLines = 0;
 
-            lab.textColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"];
+            lab.textColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"];
             
             [headView addSubview:lab];
             

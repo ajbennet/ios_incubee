@@ -24,10 +24,10 @@
     [GIDSignIn sharedInstance].delegate = self;
     
     
-    [[UINavigationBar appearance] setTintColor:[[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"]];
+    [[UINavigationBar appearance] setTintColor:[[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"]];
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{
-                                                           NSForegroundColorAttributeName: [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"],NSFontAttributeName: [UIFont fontWithName:@"Lato-bold" size:25.0f]
+                                                           NSForegroundColorAttributeName: [[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"],NSFontAttributeName: [UIFont fontWithName:@"Lato-bold" size:25.0f]
                                                            }];
 //    
 //    return YES;
