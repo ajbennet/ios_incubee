@@ -683,7 +683,6 @@
 
     } completion:^(BOOL finished) {
         
-        [_reviewTitle becomeFirstResponder];
     }];
 
 }
