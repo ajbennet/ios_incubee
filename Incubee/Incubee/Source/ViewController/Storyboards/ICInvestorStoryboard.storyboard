@@ -557,7 +557,7 @@
                                                 <rect key="frame" x="300" y="120" width="300" height="120"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="0.47869073275862067" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="0.72944504310000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="bBY-aA-TBh" firstAttribute="height" secondItem="1uc-tM-7u2" secondAttribute="height" multiplier="0.5" id="03s-xm-G7g"/>
                                             <constraint firstAttribute="trailing" secondItem="0ff-B3-iRM" secondAttribute="trailing" id="1yB-0x-OAB"/>
@@ -582,36 +582,36 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5li-kp-dbg" userLabel="movieView">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="161"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="180"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTZ-vp-KMs">
-                                        <rect key="frame" x="0.0" y="160" width="600" height="80"/>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTZ-vp-KMs">
+                                        <rect key="frame" x="0.0" y="180" width="600" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="companyDesc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ph8-O1-DAW">
-                                                <rect key="frame" x="5" y="0.0" width="590" height="30"/>
+                                                <rect key="frame" x="5" y="0.0" width="590" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="eJb-6n-p16"/>
+                                                    <constraint firstAttribute="height" constant="20" id="eJb-6n-p16"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sp9-4G-Hwy" userLabel="HighConcept">
-                                                <rect key="frame" x="5" y="30" width="590" height="50"/>
+                                                <rect key="frame" x="5" y="20" width="590" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="TXC-ry-KTJ"/>
+                                                    <constraint firstAttribute="height" constant="40" id="TXC-ry-KTJ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.52494612068965518" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="0.72944504310344827" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="sp9-4G-Hwy" secondAttribute="trailing" constant="5" id="1YV-aj-GrJ"/>
-                                            <constraint firstAttribute="height" constant="80" id="5bs-eA-wJw"/>
+                                            <constraint firstAttribute="height" constant="60" id="5bs-eA-wJw"/>
                                             <constraint firstAttribute="trailing" secondItem="ph8-O1-DAW" secondAttribute="trailing" constant="5" id="6gD-sJ-uKI"/>
                                             <constraint firstItem="ph8-O1-DAW" firstAttribute="leading" secondItem="ZTZ-vp-KMs" secondAttribute="leading" constant="5" id="BdW-iW-lGe"/>
                                             <constraint firstAttribute="bottom" secondItem="sp9-4G-Hwy" secondAttribute="bottom" id="Oxc-wZ-IDh"/>
@@ -634,6 +634,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="5li-kp-dbg" secondAttribute="trailing" id="0e2-ZC-Pka"/>
+                                    <constraint firstAttribute="bottom" secondItem="5li-kp-dbg" secondAttribute="bottom" constant="60" id="9vj-ew-ZMu"/>
                                     <constraint firstItem="ZTZ-vp-KMs" firstAttribute="leading" secondItem="U1R-r3-qPB" secondAttribute="leading" id="CdZ-8G-Ky9"/>
                                     <constraint firstItem="ZTZ-vp-KMs" firstAttribute="top" secondItem="5li-kp-dbg" secondAttribute="bottom" constant="-1" id="Npy-qe-U2G"/>
                                     <constraint firstItem="1uc-tM-7u2" firstAttribute="leading" secondItem="U1R-r3-qPB" secondAttribute="leading" id="PEU-MG-fcw"/>
@@ -649,6 +650,7 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="fvb-KO-ojS"/>
+                                        <exclude reference="Npy-qe-U2G"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -1030,6 +1032,7 @@
                         <outlet property="bottomRightImageView" destination="ciT-yd-fTG" id="TY2-6T-FmA"/>
                         <outlet property="commentsTextView" destination="cs3-zz-pij" id="ueO-mv-r1s"/>
                         <outlet property="compnayLable" destination="ph8-O1-DAW" id="dYn-39-2st"/>
+                        <outlet property="detailsTextContainerView" destination="ZTZ-vp-KMs" id="rjQ-cc-JM9"/>
                         <outlet property="highConceptLbl" destination="sp9-4G-Hwy" id="2W2-Js-ucX"/>
                         <outlet property="investorsProfileImageView" destination="Yq8-s2-6YD" id="Kno-wE-GBc"/>
                         <outlet property="meetSegment" destination="CHL-vC-Chp" id="H0v-rD-k90"/>

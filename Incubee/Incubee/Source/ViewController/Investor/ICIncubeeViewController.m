@@ -482,6 +482,9 @@
     
     if(_incubee.video!=nil)
     {
+        
+        _detailsTextContainerView.backgroundColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"];
+        
         _moviePlayerView.hidden = NO;
         
         _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:_incubee.video]];

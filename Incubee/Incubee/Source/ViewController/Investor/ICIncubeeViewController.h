@@ -69,4 +69,5 @@
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 
 @property (weak, nonatomic) IBOutlet StarRatingControl *starRatingView;
+@property (weak, nonatomic) IBOutlet UIView *detailsTextContainerView;
 @end
