@@ -654,9 +654,25 @@
     
     [self resetAdhocInputView];
     
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    _adhocView.transform = CGAffineTransformMakeTranslation(0, 800);
+    
     _adhocView.hidden = NO;
     
-    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.60 initialSpringVelocity:0.5 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
+        
+        _adhocView.transform = CGAffineTransformIdentity;
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+
+    
+    
+    
+    
     
 }
 
