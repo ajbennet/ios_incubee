@@ -327,7 +327,7 @@
         else
         {
             
-            UILabel *ratingLab = [[UILabel alloc] initWithFrame:CGRectMake(10,0,100,40.0f)];
+            UILabel *ratingLab = [[UILabel alloc] initWithFrame:CGRectMake(10,5,50,60.0f)];
             
             ratingLab.backgroundColor = [UIColor clearColor];
             
@@ -342,7 +342,7 @@
             
             
             
-            StarRatingControl *rattingView = [[StarRatingControl alloc] initWithFrame:CGRectMake(3.0f,40.0f,120.0f,40.0f)];
+            StarRatingControl *rattingView = [[StarRatingControl alloc] initWithFrame:CGRectMake(60.0f,20.0f,120.0f,40.0f)];
             
             rattingView.userInteractionEnabled = NO;
             
@@ -352,7 +352,7 @@
 
             
             
-            UILabel *totalRatingLab = [[UILabel alloc] initWithFrame:CGRectMake(10,60,100,20.0f)];
+            UILabel *totalRatingLab = [[UILabel alloc] initWithFrame:CGRectMake(60,40,120,20.0f)];
             
             totalRatingLab.backgroundColor = [UIColor clearColor];
             
@@ -360,7 +360,7 @@
             
             totalRatingLab.textAlignment = NSTextAlignmentCenter;
             
-            totalRatingLab.font = [UIFont fontWithName:@"Lato" size:10.0f];
+            totalRatingLab.font = [UIFont fontWithName:@"Lato" size:12.0f];
             
             [headView addSubview:totalRatingLab];
 
@@ -379,12 +379,12 @@
             if([[ICDataManager sharedInstance] isReviewWritten:_incubee.incubeeId]==NO)
             {
                 
-                allRatingView.frame =   CGRectMake(125.0f,5,tableView.frame.size.width-130.0f , 60);
+                allRatingView.frame =   CGRectMake(180.0f,5,tableView.frame.size.width-190.0f , 60);
                 
                 
                 aWriteReviewButton.userInteractionEnabled = YES;
                 
-                UILabel *writeReviewLabl = [[UILabel alloc] initWithFrame:CGRectMake(125,50.0f, tableView.frame.size.width - 130.f, 40.0f)];
+                UILabel *writeReviewLabl = [[UILabel alloc] initWithFrame:CGRectMake(5,50.0f, tableView.frame.size.width - 10.f, 40.0f)];
                 
                 writeReviewLabl.text = [NSString stringWithFormat:@"Write you're review on %@",_incubee.companyName];
                 
@@ -394,7 +394,7 @@
                 
                 writeReviewLabl.numberOfLines = 0;
                 
-                writeReviewLabl.textColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"];
+                writeReviewLabl.textColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"];
                 
                 [headView addSubview:writeReviewLabl];
                 
@@ -416,21 +416,13 @@
             
             for(uint i = 0;i<5;i++)
             {
-                UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(20, i*he, 20.0f, he)];
-                
-                lab.font = [UIFont fontWithName:@"Lato" size:10.0f];
 
-                UIImageView *imview = [[UIImageView alloc] initWithFrame:CGRectMake(0, i*he, 20.0f, he)];
-                imview.contentMode = UIViewContentModeScaleAspectFit;
-                
-                [imview setImage:[UIImage imageNamed:@"star_highlighted"]];
-                
-                ICRatingProgressView *progreeView = [[ICRatingProgressView alloc] initWithFrame:CGRectMake(30, i*he+1, r.size.width-40,he-2 )];
+                ICRatingProgressView *progreeView = [[ICRatingProgressView alloc] initWithFrame:CGRectMake(5, i*he, r.size.width-10,he)];
                 
 
                 UILabel *ratingNumberLab = [[UILabel alloc] initWithFrame:CGRectMake(3, 0, progreeView.frame.size.width, progreeView.frame.size.height)];
                 
-                ratingNumberLab.font = [UIFont fontWithName:@"Lato" size:10.0f];
+                ratingNumberLab.font = [UIFont fontWithName:@"Lato" size:8.0f];
                 
                 ratingNumberLab.textAlignment = NSTextAlignmentLeft;
 
@@ -441,7 +433,6 @@
                 
                 int currentRating = [[ratingArray objectAtIndex:(rating-1)] intValue];
                 
-                ratingNumberLab.text = [NSString stringWithFormat:@"%i",currentRating];
                 
                 int percent = currentRating * 100/[[reviewDataDic valueForKey:@"noOfRatings"] intValue];
                 
@@ -451,44 +442,50 @@
                 progreeView.progress = percent/100.0f;
                 
                 [allRatingView addSubview:progreeView];
+                
+                progreeView.layer.borderWidth = 0.0f;
+                
 
-                switch (rating) {
+                switch (rating--) {
                     case 5:
                         progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#9FC160"];
+                
+                        progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#9FC160"].CGColor;
+                        
+                        ratingNumberLab.text =[NSString stringWithFormat:@"\u2606\u2606\u2606\u2606\u2606"];
+
                         
                         break;
                     case 4:
                         progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#AED653"];
+                                                ratingNumberLab.text = @"\u2606\u2606\u2606\u2606";
+                        progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#AED653"].CGColor;
                         
                         break;
                     case 3:
                         progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FDD854"];
+                                                ratingNumberLab.text = @"\u2606\u2606\u2606";
+                        progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FDD854"].CGColor;
                         
                         break;
                     case 2:
                         progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FCB34E"];
+                                                ratingNumberLab.text = @"\u2606\u2606";
+                        progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FCB34E"].CGColor;
                         
                         break;
                     case 1:
                          progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#F88C5D"];
+                                                ratingNumberLab.text = @"\u2606";
+                        
+                        progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#F88C5D"].CGColor;
                         
                         break;
                     default:
                         break;
                 }
                 
-                NSMutableAttributedString *myString= [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%i",rating--]];
-                
-                lab.attributedText = myString;
-                
-//                [allRatingView addSubview:lab];
-                
-//                [allRatingView addSubview:imview];
-            
             }
-            
-            
-            
             
             return headView;
             
