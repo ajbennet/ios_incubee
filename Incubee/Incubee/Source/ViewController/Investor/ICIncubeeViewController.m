@@ -7,115 +7,14 @@
 //
 
 #import "ICIncubeeViewController.h"
+#import "ICReviewTableViewCell.h"
+#import "ICRatingProgressView.h"
 
 #define EMPTYREVIEWCELL @"EmptyReviewCell"
 
 #define REVIEWCELLID @"ReviewCellId"
 
 #define TEXT_INPUT_CELL_ID @"TextInputCellIdentifier"
-
-@interface ICRatingProgressView : UIView
-
-@property(nonatomic,strong)UIColor *progressColor;
-
-@property(nonatomic,assign)float progress;
-
-@end
-
-@implementation ICRatingProgressView
-
--(void)drawRect:(CGRect)rect{
-    
-    CGRect topRect = CGRectMake(0, 0, (rect.size.width * _progress), rect.size.height);
-    // Fill the rectangle with grey
-    [_progressColor setFill];
-    
-    UIRectFill( topRect );
-
-}
-
-@end
-
-
-
-@interface  ICReviewTableViewCell : UITableViewCell
-
-@property (weak, nonatomic) IBOutlet ICImageView *reviewImageView;
-@property (weak, nonatomic) IBOutlet UILabel *reviewTitle;
-@property (weak, nonatomic) IBOutlet StarRatingControl *reviewRating;
-@property (weak, nonatomic) IBOutlet UILabel *reviewDesc;
-
-@property(nonatomic,strong)Review *review;
-@end
-
-@implementation ICReviewTableViewCell
-
--(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
-    
-    if(self){
-    
-        
-        return self;
-    }
-    
-    return nil;
-}
-
-
--(void)setReview:(Review *)review{
-
-    _review = review;
-    
-    _reviewTitle.text = review.reviewTitle;
-    
-    _reviewDesc.text = review.reviewDescription;
-    
-    _reviewRating.rating = review.rating.intValue;
-    
-    _reviewImageView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"].CGColor;
-    
-    _reviewImageView.layer.borderWidth = 1.0f;
-    
-    _reviewImageView.backgroundColor = [UIColor whiteColor];
-    
-    _reviewImageView.layer.cornerRadius = _reviewImageView.frame.size.width/2;
-
-    NSString *reviewImageURL = [[ICDataManager sharedInstance] getCustomerPic:_review.user_id];
-    
-    _reviewImageView.image = [UIImage imageNamed:@"person_silhouette"];
-    
-    _reviewImageView.clipsToBounds = YES;
-
-    if(reviewImageURL)
-    {
-        ICImageManager *im1 = [[ICImageManager alloc] init];
-        
-        [_reviewImageView setImageUrl:reviewImageURL];
-        
-        [im1 getImage:reviewImageURL withDelegate:self];
-    }
-}
-
--(void)imageDataRecived:(NSData*)inImageData ofURL:(NSString *)inUrl{
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        if([_reviewImageView.imageUrl isEqualToString:inUrl])
-        {
-            _reviewImageView.image = [UIImage imageWithData:inImageData];
-            
-            _reviewImageView.layer.masksToBounds = YES;
-            
-        }
-    });
-    
-}
-
-@end
-
 
 
 @interface ICIncubeeViewController ()
@@ -404,7 +303,7 @@
             
                 aWriteReviewButton.userInteractionEnabled = NO;
 
-                 allRatingView.frame =   CGRectMake(125.0f,5,tableView.frame.size.width-130.0f , 70);
+                 allRatingView.frame =   CGRectMake(180.0f,5,tableView.frame.size.width-190.0f , 70);
             }
 
             
@@ -895,29 +794,6 @@
 }
 
 #pragma mark - TextView -
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-
-    return YES;
-}
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
-
-    return YES;
-}
-
-- (void)textViewDidBeginEditing:(UITextView *)textView{
-
-
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView{
-
-
-}
-
-- (void)textViewDidChange:(UITextView *)textView{
-
-
-}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
@@ -1030,6 +906,7 @@
         [self resignTextFirstResponders];
 }
 
+#pragma markr - ICImageManagerDelegate -
 -(void)imageDataRecived:(NSData*)inImageData ofURL:(NSString *)inUrl{
     
     dispatch_async(dispatch_get_main_queue(), ^{

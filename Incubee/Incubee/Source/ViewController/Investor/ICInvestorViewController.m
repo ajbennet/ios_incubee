@@ -565,26 +565,52 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if(indexPath.section == 0){
-    Incubee *aIncubee;
-    
-    if(searchModeOn)
-    {
-        aIncubee = [searchIncubeeList objectAtIndex:indexPath.row];
+        Incubee *aIncubee;
+        
+        if(searchModeOn)
+        {
+            aIncubee = [searchIncubeeList objectAtIndex:indexPath.row];
+        }
+        else
+        {
+            aIncubee = [incubeeList objectAtIndex:indexPath.row];
+        }
+        
+        UIStoryboard *st = [UIStoryboard storyboardWithName:@"ICInvestorStoryboard" bundle:nil];
+        
+        ICIncubeeViewController *incubeeViewController = [st instantiateViewControllerWithIdentifier:@"ICIncubeeVCStoryboard"];
+        
+        incubeeViewController.incubee = aIncubee;
+        
+        [self.navigationController pushViewController:incubeeViewController animated:YES];
     }
     else
     {
-        aIncubee = [incubeeList objectAtIndex:indexPath.row];
+    
+        AdhocIncubee *aAdhocIncubee;
+        
+        if(searchModeOn)
+        {
+            aAdhocIncubee = [searchAdhocIncubeeList objectAtIndex:indexPath.row];
+        }
+        else
+        {
+            aAdhocIncubee = [adhocIncubeeList objectAtIndex:indexPath.row];
+        }
+
+        
+        UIStoryboard *st = [UIStoryboard storyboardWithName:@"ICInvestorStoryboard" bundle:nil];
+        
+        ICAdhocIncubeeViewController *adHocViewController = [st instantiateViewControllerWithIdentifier:@"AdhocIncubeeViewStoryBoard"];
+        
+        adHocViewController.adhocIncubee = aAdhocIncubee;
+        
+        [self.navigationController pushViewController:adHocViewController animated:YES];
+
+        
+    
     }
     
-    UIStoryboard *st = [UIStoryboard storyboardWithName:@"ICInvestorStoryboard" bundle:nil];
-    
-    ICIncubeeViewController *incubeeViewController = [st instantiateViewControllerWithIdentifier:@"ICIncubeeVCStoryboard"];
-    
-    incubeeViewController.incubee = aIncubee;
-
-    [self.navigationController pushViewController:incubeeViewController animated:YES];
-    }
-
 }
 
 #pragma mark - IBActions -

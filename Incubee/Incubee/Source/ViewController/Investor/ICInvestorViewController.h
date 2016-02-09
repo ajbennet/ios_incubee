@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ICAdhocIncubeeViewController.h"
 
 @interface ICInvestorViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UISearchBarDelegate,UITextViewDelegate,UITextFieldDelegate>{
 
