@@ -132,7 +132,10 @@
     [_reviewTableView reloadData];
     
     
-    _investorsProfileImageView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"].CGColor;
+    _investorsProfileImageView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    
+//    _investorsProfileImageView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"].CGColor;
+    
     
     _investorsProfileImageView.layer.borderWidth = 2.0f;
     
