@@ -795,7 +795,7 @@
                                     <outlet property="delegate" destination="Oeg-0i-TGs" id="JSZ-VT-92k"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QI8-Ii-YSr" userLabel="WriteReviewView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QI8-Ii-YSr" userLabel="WriteReviewView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ub7-8c-9kf" userLabel="Container">
