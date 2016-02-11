@@ -258,7 +258,7 @@
             
             lab.text = [NSString stringWithFormat:@"Be the first person to review\n %@",_adhocIncubee.adhocIncubeeName];
             
-            lab.font = [UIFont fontWithName:@"Lato-bold" size:20.0f];
+            lab.font = [UIFont fontWithName:@"Lato-regular" size:17.0f];
             
             lab.numberOfLines = 0;
             
