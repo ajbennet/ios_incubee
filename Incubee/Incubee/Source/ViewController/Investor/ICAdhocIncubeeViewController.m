@@ -133,6 +133,7 @@
             [_reviewTitle becomeFirstResponder];
         }];
 }
+
 - (void)reviewLoaded:(ICRequest*)inRequest{
     
     [self showLoadingReview:NO];
@@ -154,6 +155,55 @@
         
     }
     
+    
+}
+
+-(BOOL)validateReviewSection{
+    
+    NSString *reviewError = nil;
+    
+    if(_commentsTextView.text.length<1)
+    {
+        reviewError = @"Please write 'Comments'";
+        
+    }
+    
+    else if(_starRatingView.rating==-1)
+    {
+        reviewError = @"Please rate this Product";
+        
+        
+    }
+    
+    else if(([statusSelected isEqualToString:@"INT"] || [statusSelected isEqualToString:@"INV"] || [statusSelected isEqualToString:@"PAS"]) == NO)
+    {
+        
+        reviewError = @"Please select 'Status'";
+        
+    }
+    
+    else if(([meetSelected isEqualToString:@"PER"] || [meetSelected isEqualToString:@"PHO"]) == NO)
+    {
+        
+        reviewError = @"Please select 'Meet'";
+        
+    }
+    else if(_reviewTitle.text.length<1)
+    {
+        reviewError = @"Please write 'Title'";
+        
+    }
+    
+    if(reviewError == nil)
+    {
+        return  YES;
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:reviewError delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    
+    [alert show];
+    
+    return NO;
     
 }
 
@@ -455,6 +505,8 @@
     
 }
 
+#pragma mark - IBAction -
+
 - (IBAction)cancelReviewTapped:(id)sender{
 
     {
@@ -514,55 +566,6 @@
     
 }
 
--(BOOL)validateReviewSection{
-    
-    NSString *reviewError = nil;
-    
-    if(_commentsTextView.text.length<1)
-    {
-        reviewError = @"Please write 'Comments'";
-        
-    }
-    
-    else if(_starRatingView.rating==-1)
-    {
-        reviewError = @"Please rate this Product";
-        
-        
-    }
-    
-    else if(([statusSelected isEqualToString:@"INT"] || [statusSelected isEqualToString:@"INV"] || [statusSelected isEqualToString:@"PAS"]) == NO)
-    {
-        
-        reviewError = @"Please select 'Status'";
-        
-    }
-    
-    else if(([meetSelected isEqualToString:@"PER"] || [meetSelected isEqualToString:@"PHO"]) == NO)
-    {
-        
-        reviewError = @"Please select 'Meet'";
-        
-    }
-    else if(_reviewTitle.text.length<1)
-    {
-        reviewError = @"Please write 'Title'";
-        
-    }
-    
-    if(reviewError == nil)
-    {
-        return  YES;
-    }
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:reviewError delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-    
-    [alert show];
-    
-    return NO;
-    
-}
-
 - (IBAction)meetStatusChanged:(id)sender {
     
     UISegmentedControl *seg = (UISegmentedControl*)sender;
@@ -580,6 +583,7 @@
     
     [self resignTextFirstResponders];
 }
+
 - (IBAction)statusSegValueChanged:(id)sender {
     
     UISegmentedControl *seg = (UISegmentedControl*)sender;
@@ -634,7 +638,7 @@
 
 
 
-#pragma markr - ICImageManagerDelegate -
+#pragma mark - ICImageManagerDelegate -
 
 -(void)imageDataRecived:(NSData*)inImageData ofURL:(NSString *)inUrl{
     
