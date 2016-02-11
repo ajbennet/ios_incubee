@@ -237,7 +237,7 @@
     
     if(tableView == _adhocTableView)
     {
-        UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _adhocTableView.frame.size.width, 80.0f)];
+        UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _adhocTableView.frame.size.width, 100.0f)];
         
         headView.backgroundColor = [UIColor whiteColor];;
         
@@ -300,7 +300,7 @@
             
             totalRatingLab.backgroundColor = [UIColor clearColor];
             
-            totalRatingLab.text = [NSString stringWithFormat:@"%@ total",[[reviewDataDic valueForKey:@"noOfRatings"] stringValue]];
+            totalRatingLab.text = [NSString stringWithFormat:@"%@ reviews",[[reviewDataDic valueForKey:@"noOfRatings"] stringValue]];
             
             totalRatingLab.textAlignment = NSTextAlignmentCenter;
             
@@ -323,7 +323,7 @@
             if([[ICDataManager sharedInstance] isReviewWritten:_adhocIncubee.adhocIncubeeId]==NO)
             {
                 
-                allRatingView.frame =   CGRectMake(180.0f,5,tableView.frame.size.width-190.0f , 60);
+                allRatingView.frame =   CGRectMake(200.0f,15,tableView.frame.size.width-210.0f , 20);
                 
                 
                 aWriteReviewButton.userInteractionEnabled = YES;
@@ -348,7 +348,7 @@
                 
                 aWriteReviewButton.userInteractionEnabled = NO;
                 
-                allRatingView.frame =   CGRectMake(180.0f,5,tableView.frame.size.width-190.0f , 70);
+                allRatingView.frame =   CGRectMake(200.0f,15,tableView.frame.size.width-210.0f , 30);
             }
             
             
@@ -361,12 +361,12 @@
             for(uint i = 0;i<5;i++)
             {
                 
-                ICRatingProgressView *progreeView = [[ICRatingProgressView alloc] initWithFrame:CGRectMake(5, i*he, r.size.width-10,he)];
+                ICRatingProgressView *progreeView = [[ICRatingProgressView alloc] initWithFrame:CGRectMake(5, i*he+8, r.size.width-10,he)];
                 
                 
                 UILabel *ratingNumberLab = [[UILabel alloc] initWithFrame:CGRectMake(3, 0, progreeView.frame.size.width, progreeView.frame.size.height)];
                 
-                ratingNumberLab.font = [UIFont fontWithName:@"Lato" size:8.0f];
+                ratingNumberLab.font = [UIFont fontWithName:@"Lato" size:4.0f];
                 
                 ratingNumberLab.textAlignment = NSTextAlignmentLeft;
                 
