@@ -10,7 +10,7 @@
 #import "AdhocIncubee.h"
 #import "StarRatingControl.h"
 
-@interface ICAdhocIncubeeViewController : UIViewController
+@interface ICAdhocIncubeeViewController : UIViewController<ICImageManagerDelegate>
 
 @property(nonatomic,assign)AdhocIncubee *adhocIncubee;
 

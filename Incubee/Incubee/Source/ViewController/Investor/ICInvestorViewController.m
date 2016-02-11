@@ -10,6 +10,9 @@
 
 #define ADHOC_INCUBEE_CELL_ID @"AdhocIncubeeCellId"
 
+
+#pragma mark - ICAdhocIncubeeTbCell -
+
 @interface ICAdhocIncubeeTbCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *adhocTitleLable;
@@ -46,6 +49,7 @@
 
 @end
 
+#pragma mark - ICInvestorTbCell -
 
 @interface ICInvestorTbCell : UITableViewCell
 
@@ -116,6 +120,8 @@
 @end
 
 #import "ICInvestorViewController.h"
+
+#pragma mark - ICInvestorViewController -
 
 @interface ICInvestorViewController (){
 
@@ -456,14 +462,6 @@
 
 }
 
-
-#pragma mark - UIScrollView -
-
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//
-//    [_searchBar resignFirstResponder];
-//}
-
 #pragma mark - UITableView -
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -696,6 +694,59 @@
     
 }
 
+- (IBAction)adhocSubmitTapped:(id)sender {
+    
+    [self resignAdHocResponders];
+    
+    if(![self validateReviewSection])
+    {
+        return;
+    }
+    
+    NSMutableDictionary *adhocIncubeeDic = [[NSMutableDictionary alloc] init];
+    
+    [adhocIncubeeDic setObject:_adhocNameTextFiled.text forKey:ADHOC_INCUBEE_NAME];
+    [adhocIncubeeDic setObject:_adhocTitleTextField.text forKey:ADHOC_INCUBEE_TITLE];
+    [adhocIncubeeDic setObject:_adhocEmailTextFiled.text forKey:ADHOC_INCUBEE_EMAIL];
+    [adhocIncubeeDic setObject:meetSelected forKey:ADHOC_INCUBEE_MEETING];
+    [adhocIncubeeDic setObject:statusSelected forKey:ADHOC_INCUBEE_STATUS];
+    [adhocIncubeeDic setObject:[NSNumber numberWithInt:(int)_starRatingView.rating] forKey:ADHOC_INCUBEE_RATING];
+    [adhocIncubeeDic setObject:_commentReviewTextView.text forKey:ADHOC_INCUBEE_DESC];
+    
+    
+    [[ICAppManager sharedInstance] addAdhocInvubee:adhocIncubeeDic withRequest:nil notifyTo:self forSelector:@selector(adhocIncubeeAddRequest:)];
+    
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    _adhocView.hidden = YES;
+    
+}
+
+- (IBAction)adhocCancelTapped:(id)sender {
+    
+    
+    if([_commentReviewTextView isFirstResponder])
+    {
+        
+        _adhocBottomConstraitns.constant =  0.0f;
+        
+        [UIView animateWithDuration:0.25f animations:^{
+            
+            [self.view layoutIfNeeded];
+            
+        }];
+        
+        [_commentReviewTextView resignFirstResponder];
+        
+    }
+    
+    _adhocView.hidden = YES;
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+}
+
+
 #pragma mark - UIAlertView Delegates -
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
@@ -876,58 +927,6 @@
         [alertView show];
     }
     
-}
-
-- (IBAction)adhocSubmitTapped:(id)sender {
-    
-    [self resignAdHocResponders];
-    
-    if(![self validateReviewSection])
-    {
-        return;
-    }
-    
-    NSMutableDictionary *adhocIncubeeDic = [[NSMutableDictionary alloc] init];
-    
-    [adhocIncubeeDic setObject:_adhocNameTextFiled.text forKey:ADHOC_INCUBEE_NAME];
-    [adhocIncubeeDic setObject:_adhocTitleTextField.text forKey:ADHOC_INCUBEE_TITLE];
-    [adhocIncubeeDic setObject:_adhocEmailTextFiled.text forKey:ADHOC_INCUBEE_EMAIL];
-    [adhocIncubeeDic setObject:meetSelected forKey:ADHOC_INCUBEE_MEETING];
-    [adhocIncubeeDic setObject:statusSelected forKey:ADHOC_INCUBEE_STATUS];
-    [adhocIncubeeDic setObject:[NSNumber numberWithInt:(int)_starRatingView.rating] forKey:ADHOC_INCUBEE_RATING];
-    [adhocIncubeeDic setObject:_commentReviewTextView.text forKey:ADHOC_INCUBEE_DESC];
-    
-    
-    [[ICAppManager sharedInstance] addAdhocInvubee:adhocIncubeeDic withRequest:nil notifyTo:self forSelector:@selector(adhocIncubeeAddRequest:)];
-    
-    
-    NSLog(@"%@",NSStringFromSelector(_cmd));
-    
-    _adhocView.hidden = YES;
-    
-}
-
-- (IBAction)adhocCancelTapped:(id)sender {
-    
-    
-    if([_commentReviewTextView isFirstResponder])
-    {
-        
-        _adhocBottomConstraitns.constant =  0.0f;
-        
-        [UIView animateWithDuration:0.25f animations:^{
-            
-            [self.view layoutIfNeeded];
-            
-        }];
-        
-        [_commentReviewTextView resignFirstResponder];
-        
-    }
-
-    _adhocView.hidden = YES;
-    
-    NSLog(@"%@",NSStringFromSelector(_cmd));
 }
 
 #pragma mark - UITextField Delegate -
