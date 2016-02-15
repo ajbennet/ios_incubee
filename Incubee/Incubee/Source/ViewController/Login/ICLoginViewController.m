@@ -88,7 +88,7 @@
     [[_loginButton titleLabel] setLineBreakMode:NSLineBreakByWordWrapping];
 
     
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginProcessCompleted) name:USER_SIGNIN_COMPLETED_NOTIFICATION object:nil];
     
     
     
@@ -109,6 +109,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dealloc{
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+}
 
 #pragma mark - GIDSigninUIDelegate -
 // Stop the UIActivityIndicatorView animation that was started when the user
@@ -155,6 +160,8 @@
 }
 */
 
+#pragma mark - IBAction -
+
 - (IBAction)loginButtonTapped:(id)sender {
     
     NSLog(@"%@",NSStringFromSelector(_cmd));
@@ -187,6 +194,7 @@
     
 }
 
+#pragma mark - Private -
 
 -(void)configureGoogleButton{
     
@@ -208,4 +216,10 @@
 
 }
 
+
+-(void)loginProcessCompleted{
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
 @end

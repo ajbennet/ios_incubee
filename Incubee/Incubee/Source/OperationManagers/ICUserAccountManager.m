@@ -88,6 +88,8 @@ didDisconnectWithUser:(GIDGoogleUser *)user
 
 - (void)loginResponse:(ICRequest*)inRequest{
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:USER_SIGNIN_COMPLETED_NOTIFICATION object:nil];
+    
     if(inRequest.error == nil)
     {
         NSLog(@"Signup + Logged In");
