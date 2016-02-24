@@ -803,6 +803,8 @@
 
 -(void)keyboardWillHide:(NSNotification*) notification
 {
+    _commentsDoneButton.hidden = YES;
+    
         _topItemContainer.hidden = NO;
     {
         _reviewContainerBottomConstraints.constant =  5.0f;
@@ -821,6 +823,9 @@
     {
         return;
     }
+    
+    
+    _commentsDoneButton.hidden = NO;
     
     _topItemContainer.hidden = YES;
     
@@ -921,4 +926,8 @@
     
 }
 
+- (IBAction)commetnsDoneTapped:(id)sender {
+    
+    [_commentsTextView resignFirstResponder];
+}
 @end

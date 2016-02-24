@@ -668,6 +668,12 @@
 
 -(void)keyboardWillHide:(NSNotification*) notification
 {
+    if([_commentsTextView isFirstResponder])
+    {
+    
+        _commetsDoneButton.hidden = YES;
+    }
+    
     _topItemContainer.hidden = NO;
     {
         _reviewContainerBottomConstraints.constant =  5.0f;
@@ -686,6 +692,8 @@
     {
         return;
     }
+    
+    _commetsDoneButton.hidden = NO;
     
     _topItemContainer.hidden = YES;
     
@@ -707,4 +715,8 @@
 }
 
 
+- (IBAction)commetsDoneTaped:(id)sender {
+    
+    [_commetsDoneButton resignFirstResponder];
+}
 @end

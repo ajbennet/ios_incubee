@@ -207,6 +207,8 @@
     else if([_commentReviewTextView isFirstResponder])
     {
     
+        _adhocDoneButton.hidden = YES;
+        
         _adhocBottomConstraitns.constant =  0.0f;
         
         [UIView animateWithDuration:0.25f animations:^{
@@ -237,7 +239,8 @@
     }
     else if([_commentReviewTextView isFirstResponder])
     {
-    
+        _adhocDoneButton.hidden = NO;
+        
         _adhocTopView.hidden = YES;
         
         NSInteger keyboardHeight = [self getKeyBoardHeight:notification];
@@ -943,4 +946,9 @@
     return YES;
 }
 
+- (IBAction)commetsDoneTapped:(id)sender {
+    
+    [self resignAdHocResponders];
+    
+}
 @end

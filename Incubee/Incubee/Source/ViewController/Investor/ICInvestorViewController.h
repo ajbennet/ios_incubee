@@ -83,4 +83,9 @@
 
 - (IBAction)meetValueChanged:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *adhocDoneButton;
+
+
+- (IBAction)commetsDoneTapped:(id)sender;
+
 @end

@@ -35,6 +35,13 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -500,9 +507,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaU-H1-dFO">
                                                 <rect key="frame" x="15" y="358" width="273" height="33"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <state key="normal" title="Cancel">
-                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="adhocCancelTapped:" destination="ZfX-2M-IgA" eventType="touchUpInside" id="3oL-Wt-uCK"/>
@@ -511,12 +518,23 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSc-wt-sxU">
                                                 <rect key="frame" x="293" y="358" width="272" height="33"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <state key="normal" title="Submit">
-                                                    <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="adhocSubmitTapped:" destination="ZfX-2M-IgA" eventType="touchUpInside" id="Mhz-Ia-Cg2"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdd-De-Zay">
+                                                <rect key="frame" x="15" y="359" width="550" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                <state key="normal" title="Done">
+                                                    <color key="titleColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="commetsDoneTapped:" destination="ZfX-2M-IgA" eventType="touchUpInside" id="m8t-sL-dTN"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -531,6 +549,8 @@
                                             <constraint firstItem="EaU-H1-dFO" firstAttribute="width" secondItem="fSc-wt-sxU" secondAttribute="width" id="Hh9-e5-e48"/>
                                             <constraint firstItem="EaU-H1-dFO" firstAttribute="leading" secondItem="deM-xg-5pa" secondAttribute="leading" constant="15" id="K3X-PA-PIv"/>
                                             <constraint firstItem="fSc-wt-sxU" firstAttribute="top" secondItem="e5o-pq-sFD" secondAttribute="bottom" constant="8" symbolic="YES" id="KJb-EO-oGr"/>
+                                            <constraint firstItem="Tdd-De-Zay" firstAttribute="leading" secondItem="deM-xg-5pa" secondAttribute="leading" constant="15" id="KO5-kl-LvJ"/>
+                                            <constraint firstItem="Tdd-De-Zay" firstAttribute="top" secondItem="e5o-pq-sFD" secondAttribute="bottom" constant="9" id="OHx-Zs-NYM"/>
                                             <constraint firstAttribute="trailing" secondItem="e5o-pq-sFD" secondAttribute="trailing" constant="15" id="TfJ-YT-Ojz"/>
                                             <constraint firstItem="9jX-69-pfI" firstAttribute="leading" secondItem="deM-xg-5pa" secondAttribute="leading" id="UBw-ha-rID"/>
                                             <constraint firstItem="EaU-H1-dFO" firstAttribute="top" secondItem="e5o-pq-sFD" secondAttribute="bottom" constant="8" symbolic="YES" id="Uyj-3e-GcQ"/>
@@ -539,6 +559,7 @@
                                             <constraint firstItem="e5o-pq-sFD" firstAttribute="top" secondItem="gpP-ak-58f" secondAttribute="bottom" id="ZAh-g4-Us0"/>
                                             <constraint firstItem="9jX-69-pfI" firstAttribute="height" secondItem="deM-xg-5pa" secondAttribute="height" multiplier="0.6" id="ehv-uN-z1D"/>
                                             <constraint firstItem="fSc-wt-sxU" firstAttribute="leading" secondItem="EaU-H1-dFO" secondAttribute="trailing" constant="5" id="gVz-ZX-tVp"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tdd-De-Zay" secondAttribute="trailing" constant="15" id="q93-e3-4gw"/>
                                             <constraint firstAttribute="bottom" secondItem="L3p-28-qAi" secondAttribute="bottom" constant="99" id="rBE-bN-fI1"/>
                                         </constraints>
                                     </view>
@@ -596,6 +617,7 @@
                     <connections>
                         <outlet property="adhocBottomConstraitns" destination="xSk-z3-1lD" id="hsq-3w-GLh"/>
                         <outlet property="adhocCancel" destination="EaU-H1-dFO" id="l48-nl-IQZ"/>
+                        <outlet property="adhocDoneButton" destination="Tdd-De-Zay" id="vSa-ON-eOg"/>
                         <outlet property="adhocEmailTextFiled" destination="JS4-fB-cVv" id="rmO-aY-mo7"/>
                         <outlet property="adhocNameTextFiled" destination="0yg-pn-KPZ" id="Vn6-87-104"/>
                         <outlet property="adhocSubmit" destination="fSc-wt-sxU" id="ThH-Mg-KqH"/>
@@ -1016,7 +1038,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <state key="normal" title="Cancel">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -1039,7 +1061,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <state key="normal" title="Submit">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -1051,10 +1073,25 @@
                                                     <action selector="submitReviewTapped:" destination="Oeg-0i-TGs" eventType="touchUpInside" id="bUx-Ru-OG0"/>
                                                 </connections>
                                             </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrD-1L-hwa">
+                                                <rect key="frame" x="20" y="465" width="550" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="tFT-2h-8oi"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                <state key="normal" title="Done">
+                                                    <color key="titleColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="commetnsDoneTapped:" destination="Oeg-0i-TGs" eventType="touchUpInside" id="YJx-xc-Hdv"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="7lu-5L-gRn" secondAttribute="bottom" constant="20" id="5gX-0u-pnh"/>
+                                            <constraint firstAttribute="trailing" secondItem="HrD-1L-hwa" secondAttribute="trailing" constant="20" id="8Vd-2V-hFD"/>
                                             <constraint firstItem="nLC-5L-VEJ" firstAttribute="top" secondItem="cs3-zz-pij" secondAttribute="bottom" constant="1" id="Ab2-kg-xmp"/>
                                             <constraint firstItem="7lu-5L-gRn" firstAttribute="centerX" secondItem="ub7-8c-9kf" secondAttribute="centerX" id="DvQ-2q-ftd"/>
                                             <constraint firstItem="cJT-HC-IRn" firstAttribute="top" secondItem="NUG-yn-zAV" secondAttribute="bottom" constant="19" id="E15-3O-hsx"/>
@@ -1066,12 +1103,14 @@
                                             <constraint firstItem="7lu-5L-gRn" firstAttribute="width" secondItem="cUm-Gr-lY0" secondAttribute="width" id="MYB-87-r3g"/>
                                             <constraint firstItem="cs3-zz-pij" firstAttribute="top" secondItem="cJT-HC-IRn" secondAttribute="bottom" constant="5" id="Qxg-gg-IVk"/>
                                             <constraint firstAttribute="bottom" secondItem="7lu-5L-gRn" secondAttribute="bottom" constant="30" id="RDf-jY-gPh"/>
+                                            <constraint firstItem="HrD-1L-hwa" firstAttribute="leading" secondItem="ub7-8c-9kf" secondAttribute="leading" constant="20" id="SLk-zM-cwE"/>
                                             <constraint firstItem="cUm-Gr-lY0" firstAttribute="centerX" secondItem="ub7-8c-9kf" secondAttribute="centerX" id="VNd-jl-uFN"/>
                                             <constraint firstAttribute="trailing" secondItem="cUm-Gr-lY0" secondAttribute="trailing" constant="20" id="YJM-Yc-RzM"/>
                                             <constraint firstAttribute="trailing" secondItem="cs3-zz-pij" secondAttribute="trailing" constant="20" id="ZJ0-Qs-zA9"/>
                                             <constraint firstAttribute="bottom" secondItem="7lu-5L-gRn" secondAttribute="bottom" constant="8" id="a5b-DN-GTr"/>
                                             <constraint firstItem="7lu-5L-gRn" firstAttribute="top" secondItem="cUm-Gr-lY0" secondAttribute="bottom" constant="10" id="a7u-xS-f6F"/>
                                             <constraint firstAttribute="trailing" secondItem="NUG-yn-zAV" secondAttribute="trailing" id="cwO-BG-bMG"/>
+                                            <constraint firstAttribute="bottom" secondItem="HrD-1L-hwa" secondAttribute="bottom" constant="30" id="ekn-d7-hu2"/>
                                             <constraint firstAttribute="trailing" secondItem="nLC-5L-VEJ" secondAttribute="trailing" constant="15" id="hMO-YW-nzV"/>
                                             <constraint firstItem="7lu-5L-gRn" firstAttribute="top" secondItem="cs3-zz-pij" secondAttribute="bottom" constant="36" id="jOP-6D-tgY"/>
                                             <constraint firstItem="7lu-5L-gRn" firstAttribute="centerX" secondItem="ub7-8c-9kf" secondAttribute="centerX" id="kkr-uj-1KH"/>
@@ -1181,6 +1220,7 @@
                         <outlet property="bannerImageView" destination="0ff-B3-iRM" id="Rk5-0t-gPG"/>
                         <outlet property="bottomLeftImageView" destination="p1S-eV-umw" id="CKa-dC-4Rx"/>
                         <outlet property="bottomRightImageView" destination="ciT-yd-fTG" id="TY2-6T-FmA"/>
+                        <outlet property="commentsDoneButton" destination="HrD-1L-hwa" id="qsZ-nN-l2O"/>
                         <outlet property="commentsTextView" destination="cs3-zz-pij" id="nBF-T7-kdc"/>
                         <outlet property="compnayLable" destination="ph8-O1-DAW" id="dYn-39-2st"/>
                         <outlet property="detailsTextContainerView" destination="ZTZ-vp-KMs" id="rjQ-cc-JM9"/>
@@ -1521,9 +1561,9 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="hI3-11-rZk"/>
                                                     <constraint firstAttribute="height" constant="40" id="wqK-u7-GTd"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <state key="normal" title="Cancel">
-                                                    <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -1544,9 +1584,9 @@
                                                     <constraint firstAttribute="height" constant="30" id="Xwv-k7-gM1"/>
                                                     <constraint firstAttribute="width" constant="56" id="tyg-jt-f9E"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <state key="normal" title="Submit">
-                                                    <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -1558,15 +1598,30 @@
                                                     <action selector="submitReviewTapped:" destination="moQ-7b-m97" eventType="touchUpInside" id="EUr-cw-asA"/>
                                                 </connections>
                                             </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zT-Es-MT5">
+                                                <rect key="frame" x="20" y="465" width="550" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="M21-Ef-Hdc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                <state key="normal" title="Done">
+                                                    <color key="titleColor" red="0.027450980390000001" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="commetsDoneTaped:" destination="moQ-7b-m97" eventType="touchUpInside" id="Txl-uw-oZN"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="9zT-Es-MT5" firstAttribute="leading" secondItem="BdI-b7-ht6" secondAttribute="leading" constant="20" id="0Fx-ND-EjO"/>
                                             <constraint firstItem="ymM-wG-GAS" firstAttribute="top" secondItem="V6Z-qq-udJ" secondAttribute="bottom" constant="1" id="33h-Yc-tL8"/>
                                             <constraint firstAttribute="bottom" secondItem="ryf-ns-Sgp" secondAttribute="bottom" constant="20" id="4EU-bB-AUO"/>
                                             <constraint firstAttribute="bottom" secondItem="ryf-ns-Sgp" secondAttribute="bottom" constant="30" id="4xp-8f-3Kq"/>
                                             <constraint firstItem="0uH-rM-swZ" firstAttribute="leading" secondItem="BdI-b7-ht6" secondAttribute="leading" id="6hX-xt-1jG"/>
                                             <constraint firstItem="V6Z-qq-udJ" firstAttribute="top" secondItem="gbY-kB-KWP" secondAttribute="bottom" constant="5" id="8bT-ga-bUJ"/>
                                             <constraint firstItem="gbY-kB-KWP" firstAttribute="leading" secondItem="V6Z-qq-udJ" secondAttribute="leading" id="AH3-yb-XiU"/>
+                                            <constraint firstAttribute="trailing" secondItem="9zT-Es-MT5" secondAttribute="trailing" constant="20" id="Cyh-Ry-XHU"/>
                                             <constraint firstItem="V6Z-qq-udJ" firstAttribute="leading" secondItem="BdI-b7-ht6" secondAttribute="leading" constant="20" id="EwC-tS-JmR"/>
                                             <constraint firstItem="ryf-ns-Sgp" firstAttribute="top" secondItem="ymM-wG-GAS" secondAttribute="bottom" constant="34" id="K87-WM-x5I"/>
                                             <constraint firstAttribute="trailing" secondItem="V6Z-qq-udJ" secondAttribute="trailing" constant="20" id="KEt-Ay-0Ib"/>
@@ -1577,6 +1632,7 @@
                                             <constraint firstItem="nEk-S5-8PW" firstAttribute="leading" secondItem="ryf-ns-Sgp" secondAttribute="trailing" constant="6" id="V6Q-rC-2b2"/>
                                             <constraint firstItem="ryf-ns-Sgp" firstAttribute="centerX" secondItem="BdI-b7-ht6" secondAttribute="centerX" id="Vxr-ka-O3d"/>
                                             <constraint firstAttribute="bottom" secondItem="nEk-S5-8PW" secondAttribute="bottom" constant="30" id="YFP-Nf-bb8"/>
+                                            <constraint firstAttribute="bottom" secondItem="9zT-Es-MT5" secondAttribute="bottom" constant="30" id="d71-sN-oF9"/>
                                             <constraint firstAttribute="trailing" secondItem="ymM-wG-GAS" secondAttribute="trailing" constant="20" id="uq2-rI-cri"/>
                                             <constraint firstAttribute="trailing" secondItem="nEk-S5-8PW" secondAttribute="trailing" constant="20" id="vfN-44-UHS"/>
                                             <constraint firstItem="ymM-wG-GAS" firstAttribute="leading" secondItem="BdI-b7-ht6" secondAttribute="leading" constant="20" id="wT8-u1-XEb"/>
@@ -1669,6 +1725,7 @@
                     <connections>
                         <outlet property="adhocTableView" destination="tGB-M1-SGs" id="6iE-rV-dUo"/>
                         <outlet property="commentsTextView" destination="V6Z-qq-udJ" id="euJ-Gd-EqD"/>
+                        <outlet property="commetsDoneButton" destination="9zT-Es-MT5" id="QNI-cl-9Q4"/>
                         <outlet property="emailIdLable" destination="aMU-BM-eZq" id="epb-nR-TCy"/>
                         <outlet property="investorsProfileImageView" destination="hq2-le-Blp" id="4kN-wj-sYe"/>
                         <outlet property="meetSegment" destination="dtJ-DR-1g9" id="ChK-wC-d6S"/>
