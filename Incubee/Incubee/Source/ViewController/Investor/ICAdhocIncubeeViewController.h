@@ -47,4 +47,12 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *reloadActivityIndicator;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewContainerBottomConstraints;
 @property (weak, nonatomic) IBOutlet UIView *reviewLoadingView;
+
+@property (weak, nonatomic) IBOutlet UIButton *commetsDoneButton;
+
+- (IBAction)commetsDoneTaped:(id)sender;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerTopSpace;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewSectionTopConstraint;
 @end

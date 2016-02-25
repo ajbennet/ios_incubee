@@ -200,18 +200,23 @@
 
 -(void)keyboardWillHide:(NSNotification*) notification
 {
-    if([_adhocEmailTextFiled isFirstResponder] || [_adhocTitleTextField isFirstResponder] || [_adhocNameTextFiled isFirstResponder])
+    if([_adhocEmailTextFiled isFirstResponder] || [_adhocNameTextFiled isFirstResponder])
     {
         return;
     }
-    else if([_commentReviewTextView isFirstResponder])
+    else if([_commentReviewTextView isFirstResponder] || [_adhocTitleTextField isFirstResponder])
     {
-    
-        _adhocBottomConstraitns.constant =  0.0f;
+    _reviewSectionTopViewConstraint.constant = 230.0f;
+        
+        _adhocDoneButton.hidden = YES;
+        
+        _adhocBottomConstraitns.constant =  5.0f;
         
         [UIView animateWithDuration:0.25f animations:^{
             
-            [self.view layoutIfNeeded];
+            [_adhocView layoutIfNeeded];
+
+            [_adhocConatainerView layoutIfNeeded];
             
         }];
 
@@ -231,25 +236,30 @@
 -(void)keyboardDidShow:(NSNotification*) notification
 {
     
-    if([_adhocEmailTextFiled isFirstResponder] || [_adhocTitleTextField isFirstResponder] || [_adhocNameTextFiled isFirstResponder])
+    if([_adhocEmailTextFiled isFirstResponder] || [_adhocNameTextFiled isFirstResponder])
     {
         return;
     }
-    else if([_commentReviewTextView isFirstResponder])
+    else if([_commentReviewTextView isFirstResponder] || [_adhocTitleTextField isFirstResponder])
     {
-    
+        
+        _reviewSectionTopViewConstraint.constant = 0.0f;
+        
+        _adhocDoneButton.hidden = NO;
+        
         _adhocTopView.hidden = YES;
         
         NSInteger keyboardHeight = [self getKeyBoardHeight:notification];
         
         if(keyboardHeight!=0)
         {
-            _adhocBottomConstraitns.constant = keyboardHeight-30.0f;
+            _adhocBottomConstraitns.constant = keyboardHeight+5;
             
             [UIView animateWithDuration:0.25f animations:^{
                 
-                [self.view layoutIfNeeded];
+                [_adhocView layoutIfNeeded];
                 
+                [_adhocConatainerView layoutIfNeeded];
             }];
             
             
@@ -420,6 +430,10 @@
         [_commentReviewTextView resignFirstResponder];
     }
 
+    if([_adhocNameTextFiled isFirstResponder])
+    {
+        [_adhocNameTextFiled resignFirstResponder];
+    }
 }
 
 -(void)resetAdhocInputView{
@@ -688,7 +702,6 @@
         
     } completion:^(BOOL finished) {
         
-        [_adhocNameTextFiled becomeFirstResponder];
     }];
     
     
@@ -729,7 +742,7 @@
     if([_commentReviewTextView isFirstResponder])
     {
         
-        _adhocBottomConstraitns.constant =  0.0f;
+        _adhocBottomConstraitns.constant =  5.0f;
         
         [UIView animateWithDuration:0.25f animations:^{
             
@@ -936,11 +949,16 @@
 
     if([_adhocTitleTextField isFirstResponder] || [_adhocEmailTextFiled isFirstResponder] || [_adhocNameTextFiled isFirstResponder])
     {
-        [textField resignFirstResponder];
+        [self resignAdHocResponders];
     
     }
     
     return YES;
 }
 
+- (IBAction)commetsDoneTapped:(id)sender {
+    
+    [self resignAdHocResponders];
+    
+}
 @end

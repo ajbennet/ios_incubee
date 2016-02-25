@@ -139,7 +139,7 @@
     
     _investorsProfileImageView.layer.borderWidth = 2.0f;
     
-    _investorsProfileImageView.layer.cornerRadius = 50.0f;
+    _investorsProfileImageView.layer.cornerRadius = 40.0f;
     
     
     ICImageManager *im1 = [[ICImageManager alloc] init];
@@ -803,9 +803,17 @@
 
 -(void)keyboardWillHide:(NSNotification*) notification
 {
+    _commentsDoneButton.hidden = YES;
+    
+    _investorsProfileImageView.hidden = NO;
+    
         _topItemContainer.hidden = NO;
     {
         _reviewContainerBottomConstraints.constant =  5.0f;
+        
+        _topConstrainOfContainer.constant = -40.0f;
+        
+        _reviewSectionTopConstrinat.constant = 190.0f;
         
         [UIView animateWithDuration:0.25f animations:^{
             
@@ -817,10 +825,9 @@
 
 -(void)keyboardDidShow:(NSNotification*) notification
 {
-    if(![_commentsTextView isFirstResponder])
-    {
-        return;
-    }
+    _investorsProfileImageView.hidden = YES;
+    
+    _commentsDoneButton.hidden = NO;
     
     _topItemContainer.hidden = YES;
     
@@ -828,7 +835,11 @@
     
     if(keyboardHeight!=0)
     {
-        _reviewContainerBottomConstraints.constant = keyboardHeight;
+        _topConstrainOfContainer.constant = -80.0f;
+        
+        _reviewContainerBottomConstraints.constant = keyboardHeight+5;
+        
+        _reviewSectionTopConstrinat.constant = 0.0f;
         
         [UIView animateWithDuration:0.25f animations:^{
             
@@ -921,4 +932,8 @@
     
 }
 
+- (IBAction)commetnsDoneTapped:(id)sender {
+    
+    [self resignTextFirstResponders];
+}
 @end
