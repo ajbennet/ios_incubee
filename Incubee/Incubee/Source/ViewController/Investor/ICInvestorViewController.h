@@ -76,9 +76,11 @@
 
 @property (weak, nonatomic) IBOutlet UIView *adhocTopView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewSectionTopViewConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *adhocBottomConstraitns;
 
+@property (weak, nonatomic) IBOutlet UIView *adhocConatainerView;
 - (IBAction)statusValueChanged:(id)sender;
 
 - (IBAction)meetValueChanged:(id)sender;
