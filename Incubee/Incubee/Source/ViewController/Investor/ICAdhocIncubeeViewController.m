@@ -46,7 +46,7 @@
     
     _investorsProfileImageView.layer.borderWidth = 2.0f;
     
-    _investorsProfileImageView.layer.cornerRadius = 50.0f;
+    _investorsProfileImageView.layer.cornerRadius = 40.0f;
     
     
     ICImageManager *im1 = [[ICImageManager alloc] init];
@@ -130,7 +130,6 @@
             
         } completion:^(BOOL finished) {
             
-            [_reviewTitle becomeFirstResponder];
         }];
 }
 
@@ -668,17 +667,23 @@
 
 -(void)keyboardWillHide:(NSNotification*) notification
 {
-    if([_commentsTextView isFirstResponder])
     {
-    
+        _investorsProfileImageView.hidden = NO;
+        
         _commetsDoneButton.hidden = YES;
     }
     
     _topItemContainer.hidden = NO;
     {
-        _reviewContainerBottomConstraints.constant =  5.0f;
+        _reviewContainerBottomConstraints.constant =  0.0f;
+        
+        _reviewSectionTopConstraint.constant = 185.0f;
+        
+        _containerTopSpace.constant = -40.0f;
         
         [UIView animateWithDuration:0.25f animations:^{
+            
+            [_containerView layoutIfNeeded];
             
             [_writeReviewView layoutIfNeeded];
             
@@ -688,14 +693,12 @@
 
 -(void)keyboardDidShow:(NSNotification*) notification
 {
-    if(![_commentsTextView isFirstResponder])
-    {
-        return;
-    }
-    
+   
     _commetsDoneButton.hidden = NO;
     
     _topItemContainer.hidden = YES;
+    
+    _investorsProfileImageView.hidden = YES;
     
     NSInteger keyboardHeight = [self getKeyBoardHeight:notification];
     
@@ -703,7 +706,13 @@
     {
         _reviewContainerBottomConstraints.constant = keyboardHeight;
         
+        _reviewSectionTopConstraint.constant = 0;
+        
+        _containerTopSpace.constant = -80.0f;
+        
         [UIView animateWithDuration:0.25f animations:^{
+            
+            [_containerView layoutIfNeeded];
             
             [_writeReviewView layoutIfNeeded];
             
@@ -717,6 +726,6 @@
 
 - (IBAction)commetsDoneTaped:(id)sender {
     
-    [_commetsDoneButton resignFirstResponder];
+    [self resignTextFirstResponders];
 }
 @end

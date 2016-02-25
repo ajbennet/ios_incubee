@@ -52,4 +52,7 @@
 
 - (IBAction)commetsDoneTaped:(id)sender;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerTopSpace;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewSectionTopConstraint;
 @end
