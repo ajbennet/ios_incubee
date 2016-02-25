@@ -1291,7 +1291,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DSg-Dn-cXy">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LikeButton" translatesAutoresizingMaskIntoConstraints="NO" id="RS9-4m-OBy">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LikeButton" translatesAutoresizingMaskIntoConstraints="NO" id="RS9-4m-OBy">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
@@ -1349,7 +1349,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="RS9-4m-OBy" firstAttribute="leading" secondItem="DSg-Dn-cXy" secondAttribute="leading" id="4D3-k4-t0B"/>
                                     <constraint firstAttribute="bottom" secondItem="n0z-gE-Kfc" secondAttribute="bottom" id="7BK-wv-WPU"/>
+                                    <constraint firstAttribute="bottom" secondItem="RS9-4m-OBy" secondAttribute="bottom" id="8kZ-pB-CWr"/>
+                                    <constraint firstAttribute="trailing" secondItem="RS9-4m-OBy" secondAttribute="trailing" id="9Td-kg-Sa9"/>
+                                    <constraint firstItem="RS9-4m-OBy" firstAttribute="top" secondItem="DSg-Dn-cXy" secondAttribute="top" id="A2r-OO-A5W"/>
                                     <constraint firstAttribute="trailing" secondItem="n0z-gE-Kfc" secondAttribute="trailing" id="MBQ-kM-6Hl"/>
                                     <constraint firstItem="n0z-gE-Kfc" firstAttribute="leading" secondItem="DSg-Dn-cXy" secondAttribute="leading" id="iqO-Qj-fXr"/>
                                 </constraints>
