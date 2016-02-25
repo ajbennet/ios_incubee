@@ -70,6 +70,9 @@
 
 @property (weak, nonatomic) IBOutlet StarRatingControl *starRatingView;
 @property (weak, nonatomic) IBOutlet UIView *detailsTextContainerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstrainOfContainer;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewSectionTopConstrinat;
 
 @property (weak, nonatomic) IBOutlet UIButton *commentsDoneButton;
 - (IBAction)commetnsDoneTapped:(id)sender;
