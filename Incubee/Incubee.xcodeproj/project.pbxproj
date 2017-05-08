@@ -67,6 +67,9 @@
 		58BD4A191B6CA28C00EC85C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58BD4A181B6CA28C00EC85C4 /* GoogleService-Info.plist */; };
 		58EB82371C4D47C4005917D0 /* ICInvestorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EB82361C4D47C4005917D0 /* ICInvestorStoryboard.storyboard */; };
 		58F558D01C4EAC240071DBCB /* ICIncubeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F558CF1C4EAC240071DBCB /* ICIncubeeViewController.m */; };
+		607A2AE61EC0E2E9006C0C2A /* libGoogleToolboxForMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE21EC0E2E9006C0C2A /* libGoogleToolboxForMac.a */; };
+		607A2AE71EC0E2E9006C0C2A /* libGTMOAuth2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE31EC0E2E9006C0C2A /* libGTMOAuth2.a */; };
+		607A2AE81EC0E2E9006C0C2A /* libGTMSessionFetcher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE41EC0E2E9006C0C2A /* libGTMSessionFetcher.a */; };
 		7919FACE1C686820002E5D5D /* Messages+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAB31C686820002E5D5D /* Messages+CoreDataProperties.m */; };
 		7919FACF1C686820002E5D5D /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAB51C686820002E5D5D /* Messages.m */; };
 		7919FAD01C686820002E5D5D /* Customer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAB71C686820002E5D5D /* Customer+CoreDataProperties.m */; };
@@ -85,7 +88,6 @@
 		797E81131C69FD2100362B4E /* ICReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E81121C69FD2100362B4E /* ICReviewTableViewCell.m */; };
 		797E81161C69FD8200362B4E /* ICRatingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E81151C69FD8200362B4E /* ICRatingProgressView.m */; };
 		79F4932F1C5931EA00C79F58 /* StarRatingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F4932E1C5931EA00C79F58 /* StarRatingControl.m */; };
-		930CB1D550C9E950F61E556D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BDB03A56CF3D54AE87702E /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,9 @@
 /* Begin PBXFileReference section */
 		0A44A87BDEBA45C48AA4DD6B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		29B27AB27E2276910CB9B434 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2C1C81E02FC29195949F1755 /* Pods-Incubee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Incubee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Incubee/Pods-Incubee.debug.xcconfig"; sourceTree = "<group>"; };
+		2E0C94B9E217328B4A1C7817 /* Pods-Incubee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Incubee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Incubee/Pods-Incubee.release.xcconfig"; sourceTree = "<group>"; };
+		5551847D6BD42FA037D8CDDE /* Pods-IncubeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IncubeeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IncubeeTests/Pods-IncubeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		570388DB1B31E67300BB9D40 /* Incubee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Incubee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		570388DF1B31E67300BB9D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		570388E01B31E67300BB9D40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -196,6 +201,9 @@
 		58EB82361C4D47C4005917D0 /* ICInvestorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ICInvestorStoryboard.storyboard; path = Source/ViewController/Storyboards/ICInvestorStoryboard.storyboard; sourceTree = "<group>"; };
 		58F558CE1C4EAC240071DBCB /* ICIncubeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICIncubeeViewController.h; path = Source/ViewController/Investor/ICIncubeeViewController.h; sourceTree = "<group>"; };
 		58F558CF1C4EAC240071DBCB /* ICIncubeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICIncubeeViewController.m; path = Source/ViewController/Investor/ICIncubeeViewController.m; sourceTree = "<group>"; };
+		607A2AE21EC0E2E9006C0C2A /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleToolboxForMac.a; path = "../../../../Library/Developer/Xcode/DerivedData/Incubee-btqdwtiteanosadhaxjtzfeiqygy/Build/Products/Debug-iphonesimulator/GoogleToolboxForMac/libGoogleToolboxForMac.a"; sourceTree = "<group>"; };
+		607A2AE31EC0E2E9006C0C2A /* libGTMOAuth2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGTMOAuth2.a; path = "../../../../Library/Developer/Xcode/DerivedData/Incubee-btqdwtiteanosadhaxjtzfeiqygy/Build/Products/Debug-iphonesimulator/GTMOAuth2/libGTMOAuth2.a"; sourceTree = "<group>"; };
+		607A2AE41EC0E2E9006C0C2A /* libGTMSessionFetcher.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGTMSessionFetcher.a; path = "../../../../Library/Developer/Xcode/DerivedData/Incubee-btqdwtiteanosadhaxjtzfeiqygy/Build/Products/Debug-iphonesimulator/GTMSessionFetcher/libGTMSessionFetcher.a"; sourceTree = "<group>"; };
 		7919FAB21C686820002E5D5D /* Messages+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Messages+CoreDataProperties.h"; path = "Source/Data Module/ManagedObjects/Messages+CoreDataProperties.h"; sourceTree = "<group>"; };
 		7919FAB31C686820002E5D5D /* Messages+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Messages+CoreDataProperties.m"; path = "Source/Data Module/ManagedObjects/Messages+CoreDataProperties.m"; sourceTree = "<group>"; };
 		7919FAB41C686820002E5D5D /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messages.h; path = "Source/Data Module/ManagedObjects/Messages.h"; sourceTree = "<group>"; };
@@ -230,9 +238,9 @@
 		797E81121C69FD2100362B4E /* ICReviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICReviewTableViewCell.m; path = Source/ViewController/Investor/ICReviewTableViewCell.m; sourceTree = "<group>"; };
 		797E81141C69FD8200362B4E /* ICRatingProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICRatingProgressView.h; path = Source/ViewController/Investor/ICRatingProgressView.h; sourceTree = "<group>"; };
 		797E81151C69FD8200362B4E /* ICRatingProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICRatingProgressView.m; path = Source/ViewController/Investor/ICRatingProgressView.m; sourceTree = "<group>"; };
-		79BDB03A56CF3D54AE87702E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F4932D1C5931EA00C79F58 /* StarRatingControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRatingControl.h; sourceTree = "<group>"; };
 		79F4932E1C5931EA00C79F58 /* StarRatingControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRatingControl.m; sourceTree = "<group>"; };
+		B17361E0DFCDFA0510D1296C /* Pods-IncubeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IncubeeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IncubeeTests/Pods-IncubeeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,10 +248,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				607A2AE61EC0E2E9006C0C2A /* libGoogleToolboxForMac.a in Frameworks */,
+				607A2AE71EC0E2E9006C0C2A /* libGTMOAuth2.a in Frameworks */,
+				607A2AE81EC0E2E9006C0C2A /* libGTMSessionFetcher.a in Frameworks */,
 				571F79561B3D2417008F727E /* Foundation.framework in Frameworks */,
 				571F79541B3D2407008F727E /* UIKit.framework in Frameworks */,
 				571F79421B3D222D008F727E /* CoreData.framework in Frameworks */,
-				930CB1D550C9E950F61E556D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +584,10 @@
 			children = (
 				29B27AB27E2276910CB9B434 /* Pods.debug.xcconfig */,
 				0A44A87BDEBA45C48AA4DD6B /* Pods.release.xcconfig */,
+				2C1C81E02FC29195949F1755 /* Pods-Incubee.debug.xcconfig */,
+				2E0C94B9E217328B4A1C7817 /* Pods-Incubee.release.xcconfig */,
+				5551847D6BD42FA037D8CDDE /* Pods-IncubeeTests.debug.xcconfig */,
+				B17361E0DFCDFA0510D1296C /* Pods-IncubeeTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -581,10 +595,12 @@
 		97C050AFCE99255923EDF539 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				607A2AE21EC0E2E9006C0C2A /* libGoogleToolboxForMac.a */,
+				607A2AE31EC0E2E9006C0C2A /* libGTMOAuth2.a */,
+				607A2AE41EC0E2E9006C0C2A /* libGTMSessionFetcher.a */,
 				571F79551B3D2417008F727E /* Foundation.framework */,
 				571F79531B3D2407008F727E /* UIKit.framework */,
 				571F79411B3D222D008F727E /* CoreData.framework */,
-				79BDB03A56CF3D54AE87702E /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -596,12 +612,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 570389011B31E67300BB9D40 /* Build configuration list for PBXNativeTarget "Incubee" */;
 			buildPhases = (
-				778564D996D391F536B87081 /* Check Pods Manifest.lock */,
+				778564D996D391F536B87081 /* [CP] Check Pods Manifest.lock */,
 				570388D71B31E67300BB9D40 /* Sources */,
 				570388D81B31E67300BB9D40 /* Frameworks */,
 				570388D91B31E67300BB9D40 /* Resources */,
-				5046D88979D535563148FB4B /* Copy Pods Resources */,
-				6391963A59AC197064530990 /* Embed Pods Frameworks */,
+				5046D88979D535563148FB4B /* [CP] Copy Pods Resources */,
+				6391963A59AC197064530990 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -616,9 +632,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 570389041B31E67300BB9D40 /* Build configuration list for PBXNativeTarget "IncubeeTests" */;
 			buildPhases = (
+				8CC9F1E65AC3BE4A512D01B7 /* [CP] Check Pods Manifest.lock */,
 				570388F31B31E67300BB9D40 /* Sources */,
 				570388F41B31E67300BB9D40 /* Frameworks */,
 				570388F51B31E67300BB9D40 /* Resources */,
+				86BC14954A57E5ABE8D37D4F /* [CP] Embed Pods Frameworks */,
+				7D654220DCF8BCBA313D54CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -636,7 +655,7 @@
 		570388D31B31E67300BB9D40 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Incubee;
 				TargetAttributes = {
 					570388DA1B31E67300BB9D40 = {
@@ -713,49 +732,94 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5046D88979D535563148FB4B /* Copy Pods Resources */ = {
+		5046D88979D535563148FB4B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Incubee/Pods-Incubee-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6391963A59AC197064530990 /* Embed Pods Frameworks */ = {
+		6391963A59AC197064530990 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Incubee/Pods-Incubee-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		778564D996D391F536B87081 /* Check Pods Manifest.lock */ = {
+		778564D996D391F536B87081 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7D654220DCF8BCBA313D54CA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IncubeeTests/Pods-IncubeeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86BC14954A57E5ABE8D37D4F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IncubeeTests/Pods-IncubeeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CC9F1E65AC3BE4A512D01B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -848,8 +912,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Abinathab Bennet (LE8F8QVAA9)";
@@ -897,8 +963,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Abinathab Bennet (FHXW64JJEE)";
@@ -932,17 +1000,22 @@
 		};
 		570389021B31E67300BB9D40 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29B27AB27E2276910CB9B434 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 2C1C81E02FC29195949F1755 /* Pods-Incubee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = FHXW64JJEE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Incubee/PrefixHeader.pch;
 				INFOPLIST_FILE = Incubee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ee.incub.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -952,16 +1025,22 @@
 		};
 		570389031B31E67300BB9D40 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A44A87BDEBA45C48AA4DD6B /* Pods.release.xcconfig */;
+			baseConfigurationReference = 2E0C94B9E217328B4A1C7817 /* Pods-Incubee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = FHXW64JJEE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Incubee/PrefixHeader.pch;
 				INFOPLIST_FILE = Incubee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ee.incub.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -971,6 +1050,7 @@
 		};
 		570389051B31E67300BB9D40 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5551847D6BD42FA037D8CDDE /* Pods-IncubeeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -994,6 +1074,7 @@
 		};
 		570389061B31E67300BB9D40 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B17361E0DFCDFA0510D1296C /* Pods-IncubeeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
