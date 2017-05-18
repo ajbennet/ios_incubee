@@ -10,3 +10,6 @@ target 'IncubeeTests' do
 
 end
 
+target 'Incubee QA' do
+    
+end

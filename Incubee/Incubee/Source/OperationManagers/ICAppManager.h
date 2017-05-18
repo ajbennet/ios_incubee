@@ -16,6 +16,7 @@
 
 @interface ICAppManager : NSObject
 
+@property(nonatomic,retain)NSString* apiBaseUrl;
 +(ICAppManager*)sharedInstance;
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17CCAAB23D9E8BB174CE2489 /* libPods-Incubee QA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA8DF7E18201BFB050FB167 /* libPods-Incubee QA.a */; };
 		570388E11B31E67300BB9D40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 570388E01B31E67300BB9D40 /* main.m */; };
 		570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 570388E31B31E67300BB9D40 /* AppDelegate.m */; };
 		570388EF1B31E67300BB9D40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570388EE1B31E67300BB9D40 /* Images.xcassets */; };
@@ -67,9 +68,90 @@
 		58BD4A191B6CA28C00EC85C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58BD4A181B6CA28C00EC85C4 /* GoogleService-Info.plist */; };
 		58EB82371C4D47C4005917D0 /* ICInvestorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EB82361C4D47C4005917D0 /* ICInvestorStoryboard.storyboard */; };
 		58F558D01C4EAC240071DBCB /* ICIncubeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F558CF1C4EAC240071DBCB /* ICIncubeeViewController.m */; };
+		6027D4F71ECB66A4008F7C04 /* ICAppContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584513B81C456C92006867A4 /* ICAppContainerViewController.m */; };
+		6027D4F81ECB66A4008F7C04 /* Customer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAB71C686820002E5D5D /* Customer+CoreDataProperties.m */; };
+		6027D4F91ECB66A4008F7C04 /* ICIncubeeLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576C4DC01B3F1402008AA2EB /* ICIncubeeLoginViewController.m */; };
+		6027D4FA1ECB66A4008F7C04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 570388E31B31E67300BB9D40 /* AppDelegate.m */; };
+		6027D4FB1ECB66A4008F7C04 /* AdhocIncubee.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAC11C686820002E5D5D /* AdhocIncubee.m */; };
+		6027D4FC1ECB66A4008F7C04 /* PPDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58009CA81BE725480041AEBF /* PPDateManager.m */; };
+		6027D4FD1ECB66A4008F7C04 /* ICDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB0D1B3E83740090ADCE /* ICDataManager.m */; };
+		6027D4FE1ECB66A4008F7C04 /* ICImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E724E51B4063E90066C0A5 /* ICImageManager.m */; };
+		6027D4FF1ECB66A4008F7C04 /* Incubee.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FABD1C686820002E5D5D /* Incubee.m */; };
+		6027D5001ECB66A4008F7C04 /* ICUserAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D52CC01B581DEE008EA1E5 /* ICUserAccountManager.m */; };
+		6027D5011ECB66A4008F7C04 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FACB1C686820002E5D5D /* User+CoreDataProperties.m */; };
+		6027D5021ECB66A4008F7C04 /* ICHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB071B3E835B0090ADCE /* ICHomeViewController.m */; };
+		6027D5031ECB66A4008F7C04 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CAFE1B3E833C0090ADCE /* ProfileViewController.m */; };
+		6027D5041ECB66A4008F7C04 /* ICMessengerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5808FD8E1B8E23920053451A /* ICMessengerManager.m */; };
+		6027D5051ECB66A4008F7C04 /* ICIncubeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F558CF1C4EAC240071DBCB /* ICIncubeeViewController.m */; };
+		6027D5061ECB66A4008F7C04 /* Messages+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAB31C686820002E5D5D /* Messages+CoreDataProperties.m */; };
+		6027D5071ECB66A4008F7C04 /* Incubee+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FABB1C686820002E5D5D /* Incubee+CoreDataProperties.m */; };
+		6027D5081ECB66A4008F7C04 /* ICOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB381B3E8A250090ADCE /* ICOperationManager.m */; };
+		6027D5091ECB66A4008F7C04 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAC91C686820002E5D5D /* Review.m */; };
+		6027D50A1ECB66A4008F7C04 /* ICChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB621B86434C00091C94 /* ICChatViewController.m */; };
+		6027D50B1ECB66A4008F7C04 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FACD1C686820002E5D5D /* User.m */; };
+		6027D50C1ECB66A4008F7C04 /* ICLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB041B3E834F0090ADCE /* ICLoginViewController.m */; };
+		6027D50D1ECB66A4008F7C04 /* ICUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C98C461B5129DD002F6E81 /* ICUtilityManager.m */; };
+		6027D50E1ECB66A4008F7C04 /* AdhocIncubee+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FABF1C686820002E5D5D /* AdhocIncubee+CoreDataProperties.m */; };
+		6027D50F1ECB66A4008F7C04 /* ICAdhocIncubeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E810F1C69F1FB00362B4E /* ICAdhocIncubeeViewController.m */; };
+		6027D5101ECB66A4008F7C04 /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAB51C686820002E5D5D /* Messages.m */; };
+		6027D5111ECB66A4008F7C04 /* ICInvestorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584513BC1C456E3B006867A4 /* ICInvestorViewController.m */; };
+		6027D5121ECB66A4008F7C04 /* ICJSONParsingOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB341B3E8A250090ADCE /* ICJSONParsingOperations.m */; };
+		6027D5131ECB66A4008F7C04 /* StarRatingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F4932E1C5931EA00C79F58 /* StarRatingControl.m */; };
+		6027D5141ECB66A4008F7C04 /* ICCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB091B3E835B0090ADCE /* ICCardViewController.m */; };
+		6027D5151ECB66A4008F7C04 /* ICBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C9B311B8F882600A1FF1E /* ICBaseViewController.m */; };
+		6027D5161ECB66A4008F7C04 /* ICAppManager+Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB1D1B3E86BD0090ADCE /* ICAppManager+Networking.m */; };
+		6027D5171ECB66A4008F7C04 /* ICAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB1A1B3E86490090ADCE /* ICAppManager.m */; };
+		6027D5181ECB66A4008F7C04 /* Review+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAC71C686820002E5D5D /* Review+CoreDataProperties.m */; };
+		6027D5191ECB66A4008F7C04 /* ICRatingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E81151C69FD8200362B4E /* ICRatingProgressView.m */; };
+		6027D51A1ECB66A4008F7C04 /* ICDataManager+DataSaving.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB4A1B3E9E1C0090ADCE /* ICDataManager+DataSaving.m */; };
+		6027D51B1ECB66A4008F7C04 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB261B3E87840090ADCE /* Reachability.m */; };
+		6027D51C1ECB66A4008F7C04 /* IncubeeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAC51C686820002E5D5D /* IncubeeImage.m */; };
+		6027D51D1ECB66A4008F7C04 /* ICRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB241B3E87840090ADCE /* ICRequest.m */; };
+		6027D51E1ECB66A4008F7C04 /* ICMessagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB011B3E83460090ADCE /* ICMessagingViewController.m */; };
+		6027D51F1ECB66A4008F7C04 /* ICChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5864EB711B86490B00091C94 /* ICChatTableViewCell.m */; };
+		6027D5201ECB66A4008F7C04 /* ICDataSavingOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB411B3E925C0090ADCE /* ICDataSavingOperations.m */; };
+		6027D5211ECB66A4008F7C04 /* IncubeeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB151B3E84A00090ADCE /* IncubeeModel.xcdatamodeld */; };
+		6027D5221ECB66A4008F7C04 /* ICNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5780CB361B3E8A250090ADCE /* ICNetworkOperation.m */; };
+		6027D5231ECB66A4008F7C04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 570388E01B31E67300BB9D40 /* main.m */; };
+		6027D5241ECB66A4008F7C04 /* ICReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E81121C69FD2100362B4E /* ICReviewTableViewCell.m */; };
+		6027D5251ECB66A4008F7C04 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAB91C686820002E5D5D /* Customer.m */; };
+		6027D5261ECB66A4008F7C04 /* IncubeeImage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAC31C686820002E5D5D /* IncubeeImage+CoreDataProperties.m */; };
+		6027D5281ECB66A4008F7C04 /* libGoogleToolboxForMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE21EC0E2E9006C0C2A /* libGoogleToolboxForMac.a */; };
+		6027D5291ECB66A4008F7C04 /* libGTMOAuth2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE31EC0E2E9006C0C2A /* libGTMOAuth2.a */; };
+		6027D52A1ECB66A4008F7C04 /* libGTMSessionFetcher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE41EC0E2E9006C0C2A /* libGTMSessionFetcher.a */; };
+		6027D52B1ECB66A4008F7C04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571F79551B3D2417008F727E /* Foundation.framework */; };
+		6027D52C1ECB66A4008F7C04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571F79531B3D2407008F727E /* UIKit.framework */; };
+		6027D52D1ECB66A4008F7C04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571F79411B3D222D008F727E /* CoreData.framework */; };
+		6027D5301ECB66A4008F7C04 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D467F1B41B0D200168438 /* Lato-MediumItalic.ttf */; };
+		6027D5311ECB66A4008F7C04 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46741B41B0D200168438 /* Lato-BlackItalic.ttf */; };
+		6027D5321ECB66A4008F7C04 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46731B41B0D200168438 /* Lato-Black.ttf */; };
+		6027D5331ECB66A4008F7C04 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46821B41B0D200168438 /* Lato-SemiboldItalic.ttf */; };
+		6027D5341ECB66A4008F7C04 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46781B41B0D200168438 /* Lato-HairlineItalic.ttf */; };
+		6027D5351ECB66A4008F7C04 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46771B41B0D200168438 /* Lato-Hairline.ttf */; };
+		6027D5361ECB66A4008F7C04 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46831B41B0D200168438 /* Lato-Thin.ttf */; };
+		6027D5371ECB66A4008F7C04 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5780CAF71B3E831D0090ADCE /* LaunchScreen.xib */; };
+		6027D5381ECB66A4008F7C04 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46801B41B0D200168438 /* Lato-Regular.ttf */; };
+		6027D5391ECB66A4008F7C04 /* CardViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5780CAF51B3E831D0090ADCE /* CardViewStoryboard.storyboard */; };
+		6027D53A1ECB66A4008F7C04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5780CAF81B3E831D0090ADCE /* Main.storyboard */; };
+		6027D53B1ECB66A4008F7C04 /* AppContainerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 584513B51C456C68006867A4 /* AppContainerStoryboard.storyboard */; };
+		6027D53C1ECB66A4008F7C04 /* ICLoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5780CAF61B3E831D0090ADCE /* ICLoginViewController.storyboard */; };
+		6027D53D1ECB66A4008F7C04 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46841B41B0D200168438 /* Lato-ThinItalic.ttf */; };
+		6027D53E1ECB66A4008F7C04 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46751B41B0D200168438 /* Lato-Bold.ttf */; };
+		6027D53F1ECB66A4008F7C04 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D467D1B41B0D200168438 /* Lato-LightItalic.ttf */; };
+		6027D5401ECB66A4008F7C04 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D467B1B41B0D200168438 /* Lato-Italic.ttf */; };
+		6027D5411ECB66A4008F7C04 /* ICInvestorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EB82361C4D47C4005917D0 /* ICInvestorStoryboard.storyboard */; };
+		6027D5421ECB66A4008F7C04 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46811B41B0D200168438 /* Lato-Semibold.ttf */; };
+		6027D5431ECB66A4008F7C04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58BD4A181B6CA28C00EC85C4 /* GoogleService-Info.plist */; };
+		6027D5441ECB66A4008F7C04 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46791B41B0D200168438 /* Lato-Heavy.ttf */; };
+		6027D5451ECB66A4008F7C04 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D467E1B41B0D200168438 /* Lato-Medium.ttf */; };
+		6027D5461ECB66A4008F7C04 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570388EE1B31E67300BB9D40 /* Images.xcassets */; };
+		6027D5471ECB66A4008F7C04 /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D467A1B41B0D200168438 /* Lato-HeavyItalic.ttf */; };
+		6027D5481ECB66A4008F7C04 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D46761B41B0D200168438 /* Lato-BoldItalic.ttf */; };
+		6027D5491ECB66A4008F7C04 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579D467C1B41B0D200168438 /* Lato-Light.ttf */; };
 		607A2AE61EC0E2E9006C0C2A /* libGoogleToolboxForMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE21EC0E2E9006C0C2A /* libGoogleToolboxForMac.a */; };
 		607A2AE71EC0E2E9006C0C2A /* libGTMOAuth2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE31EC0E2E9006C0C2A /* libGTMOAuth2.a */; };
 		607A2AE81EC0E2E9006C0C2A /* libGTMSessionFetcher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE41EC0E2E9006C0C2A /* libGTMSessionFetcher.a */; };
+		724A07961261F7225C6952EF /* libPods-Incubee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C078DFB0E02DF417658FBECB /* libPods-Incubee.a */; };
 		7919FACE1C686820002E5D5D /* Messages+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAB31C686820002E5D5D /* Messages+CoreDataProperties.m */; };
 		7919FACF1C686820002E5D5D /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAB51C686820002E5D5D /* Messages.m */; };
 		7919FAD01C686820002E5D5D /* Customer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7919FAB71C686820002E5D5D /* Customer+CoreDataProperties.m */; };
@@ -88,6 +170,8 @@
 		797E81131C69FD2100362B4E /* ICReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E81121C69FD2100362B4E /* ICReviewTableViewCell.m */; };
 		797E81161C69FD8200362B4E /* ICRatingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E81151C69FD8200362B4E /* ICRatingProgressView.m */; };
 		79F4932F1C5931EA00C79F58 /* StarRatingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F4932E1C5931EA00C79F58 /* StarRatingControl.m */; };
+		81F635711AB62352F577C50B /* libPods-Incubee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C078DFB0E02DF417658FBECB /* libPods-Incubee.a */; };
+		A335DC7861589C33D5CB3533 /* libPods-IncubeeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF2C061573869CB7FF734CE9 /* libPods-IncubeeTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,13 +185,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A44A87BDEBA45C48AA4DD6B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		29B27AB27E2276910CB9B434 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		2C1C81E02FC29195949F1755 /* Pods-Incubee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Incubee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Incubee/Pods-Incubee.debug.xcconfig"; sourceTree = "<group>"; };
-		2E0C94B9E217328B4A1C7817 /* Pods-Incubee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Incubee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Incubee/Pods-Incubee.release.xcconfig"; sourceTree = "<group>"; };
 		5551847D6BD42FA037D8CDDE /* Pods-IncubeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IncubeeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IncubeeTests/Pods-IncubeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		570388DB1B31E67300BB9D40 /* Incubee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Incubee.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		570388DF1B31E67300BB9D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		570388DF1B31E67300BB9D40 /* Incubee-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Incubee-Info.plist"; sourceTree = "<group>"; };
 		570388E01B31E67300BB9D40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		570388E21B31E67300BB9D40 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		570388E31B31E67300BB9D40 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -201,6 +281,9 @@
 		58EB82361C4D47C4005917D0 /* ICInvestorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ICInvestorStoryboard.storyboard; path = Source/ViewController/Storyboards/ICInvestorStoryboard.storyboard; sourceTree = "<group>"; };
 		58F558CE1C4EAC240071DBCB /* ICIncubeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICIncubeeViewController.h; path = Source/ViewController/Investor/ICIncubeeViewController.h; sourceTree = "<group>"; };
 		58F558CF1C4EAC240071DBCB /* ICIncubeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICIncubeeViewController.m; path = Source/ViewController/Investor/ICIncubeeViewController.m; sourceTree = "<group>"; };
+		6027D54F1ECB66A4008F7C04 /* Incubee QA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Incubee QA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6027D5501ECB66A4008F7C04 /* Incubee QA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Incubee QA-Info.plist"; path = "/Users/Ri2/Desktop/CodeVault/Incubee_iOS/Incubee/Incubee QA-Info.plist"; sourceTree = "<absolute>"; };
+		6027D5511ECB6B0C008F7C04 /* libPods-Incubee.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Incubee.a"; path = "../../../../Library/Developer/Xcode/DerivedData/Incubee-btqdwtiteanosadhaxjtzfeiqygy/Build/Products/Debug-iphonesimulator/libPods-Incubee.a"; sourceTree = "<group>"; };
 		607A2AE21EC0E2E9006C0C2A /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleToolboxForMac.a; path = "../../../../Library/Developer/Xcode/DerivedData/Incubee-btqdwtiteanosadhaxjtzfeiqygy/Build/Products/Debug-iphonesimulator/GoogleToolboxForMac/libGoogleToolboxForMac.a"; sourceTree = "<group>"; };
 		607A2AE31EC0E2E9006C0C2A /* libGTMOAuth2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGTMOAuth2.a; path = "../../../../Library/Developer/Xcode/DerivedData/Incubee-btqdwtiteanosadhaxjtzfeiqygy/Build/Products/Debug-iphonesimulator/GTMOAuth2/libGTMOAuth2.a"; sourceTree = "<group>"; };
 		607A2AE41EC0E2E9006C0C2A /* libGTMSessionFetcher.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGTMSessionFetcher.a; path = "../../../../Library/Developer/Xcode/DerivedData/Incubee-btqdwtiteanosadhaxjtzfeiqygy/Build/Products/Debug-iphonesimulator/GTMSessionFetcher/libGTMSessionFetcher.a"; sourceTree = "<group>"; };
@@ -240,7 +323,14 @@
 		797E81151C69FD8200362B4E /* ICRatingProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICRatingProgressView.m; path = Source/ViewController/Investor/ICRatingProgressView.m; sourceTree = "<group>"; };
 		79F4932D1C5931EA00C79F58 /* StarRatingControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRatingControl.h; sourceTree = "<group>"; };
 		79F4932E1C5931EA00C79F58 /* StarRatingControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRatingControl.m; sourceTree = "<group>"; };
+		8047535716B9B0F6A58502AF /* Pods-Incubee QA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Incubee QA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Incubee QA/Pods-Incubee QA.debug.xcconfig"; sourceTree = "<group>"; };
+		AF2C061573869CB7FF734CE9 /* libPods-IncubeeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IncubeeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17361E0DFCDFA0510D1296C /* Pods-IncubeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IncubeeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IncubeeTests/Pods-IncubeeTests.release.xcconfig"; sourceTree = "<group>"; };
+		BCA8DF7E18201BFB050FB167 /* libPods-Incubee QA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Incubee QA.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C078DFB0E02DF417658FBECB /* libPods-Incubee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Incubee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C118BEFE3C148DFB7F227539 /* Pods-Incubee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Incubee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Incubee/Pods-Incubee.debug.xcconfig"; sourceTree = "<group>"; };
+		DE1DB3BA303E1885FC2F43CA /* Pods-Incubee QA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Incubee QA.release.xcconfig"; path = "Pods/Target Support Files/Pods-Incubee QA/Pods-Incubee QA.release.xcconfig"; sourceTree = "<group>"; };
+		F570B9EB603495B80BD31F27 /* Pods-Incubee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Incubee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Incubee/Pods-Incubee.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +344,8 @@
 				571F79561B3D2417008F727E /* Foundation.framework in Frameworks */,
 				571F79541B3D2407008F727E /* UIKit.framework in Frameworks */,
 				571F79421B3D222D008F727E /* CoreData.framework in Frameworks */,
+				81F635711AB62352F577C50B /* libPods-Incubee.a in Frameworks */,
+				724A07961261F7225C6952EF /* libPods-Incubee.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +353,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A335DC7861589C33D5CB3533 /* libPods-IncubeeTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6027D5271ECB66A4008F7C04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6027D5281ECB66A4008F7C04 /* libGoogleToolboxForMac.a in Frameworks */,
+				6027D5291ECB66A4008F7C04 /* libGTMOAuth2.a in Frameworks */,
+				6027D52A1ECB66A4008F7C04 /* libGTMSessionFetcher.a in Frameworks */,
+				6027D52B1ECB66A4008F7C04 /* Foundation.framework in Frameworks */,
+				6027D52C1ECB66A4008F7C04 /* UIKit.framework in Frameworks */,
+				6027D52D1ECB66A4008F7C04 /* CoreData.framework in Frameworks */,
+				17CCAAB23D9E8BB174CE2489 /* libPods-Incubee QA.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +391,7 @@
 			children = (
 				570388DB1B31E67300BB9D40 /* Incubee.app */,
 				570388F71B31E67300BB9D40 /* IncubeeTests.xctest */,
+				6027D54F1ECB66A4008F7C04 /* Incubee QA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -305,7 +413,8 @@
 		570388DE1B31E67300BB9D40 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				570388DF1B31E67300BB9D40 /* Info.plist */,
+				6027D5501ECB66A4008F7C04 /* Incubee QA-Info.plist */,
+				570388DF1B31E67300BB9D40 /* Incubee-Info.plist */,
 				570388E01B31E67300BB9D40 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -582,12 +691,12 @@
 		70B51E13AD9040D6964063DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				29B27AB27E2276910CB9B434 /* Pods.debug.xcconfig */,
-				0A44A87BDEBA45C48AA4DD6B /* Pods.release.xcconfig */,
-				2C1C81E02FC29195949F1755 /* Pods-Incubee.debug.xcconfig */,
-				2E0C94B9E217328B4A1C7817 /* Pods-Incubee.release.xcconfig */,
 				5551847D6BD42FA037D8CDDE /* Pods-IncubeeTests.debug.xcconfig */,
 				B17361E0DFCDFA0510D1296C /* Pods-IncubeeTests.release.xcconfig */,
+				C118BEFE3C148DFB7F227539 /* Pods-Incubee.debug.xcconfig */,
+				F570B9EB603495B80BD31F27 /* Pods-Incubee.release.xcconfig */,
+				8047535716B9B0F6A58502AF /* Pods-Incubee QA.debug.xcconfig */,
+				DE1DB3BA303E1885FC2F43CA /* Pods-Incubee QA.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -595,12 +704,16 @@
 		97C050AFCE99255923EDF539 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6027D5511ECB6B0C008F7C04 /* libPods-Incubee.a */,
 				607A2AE21EC0E2E9006C0C2A /* libGoogleToolboxForMac.a */,
 				607A2AE31EC0E2E9006C0C2A /* libGTMOAuth2.a */,
 				607A2AE41EC0E2E9006C0C2A /* libGTMSessionFetcher.a */,
 				571F79551B3D2417008F727E /* Foundation.framework */,
 				571F79531B3D2407008F727E /* UIKit.framework */,
 				571F79411B3D222D008F727E /* CoreData.framework */,
+				C078DFB0E02DF417658FBECB /* libPods-Incubee.a */,
+				AF2C061573869CB7FF734CE9 /* libPods-IncubeeTests.a */,
+				BCA8DF7E18201BFB050FB167 /* libPods-Incubee QA.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -649,6 +762,26 @@
 			productReference = 570388F71B31E67300BB9D40 /* IncubeeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		6027D4F41ECB66A4008F7C04 /* Incubee QA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6027D54C1ECB66A4008F7C04 /* Build configuration list for PBXNativeTarget "Incubee QA" */;
+			buildPhases = (
+				64BAE3D8A1615E70CA1FAC04 /* [CP] Check Pods Manifest.lock */,
+				6027D4F61ECB66A4008F7C04 /* Sources */,
+				6027D5271ECB66A4008F7C04 /* Frameworks */,
+				6027D52F1ECB66A4008F7C04 /* Resources */,
+				20768970D2813CA9A9AE9434 /* [CP] Embed Pods Frameworks */,
+				CCF4A274D5F7BF6B5D9D6973 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Incubee QA";
+			productName = Incubee;
+			productReference = 6027D54F1ECB66A4008F7C04 /* Incubee QA.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -667,6 +800,9 @@
 						DevelopmentTeam = FHXW64JJEE;
 						TestTargetID = 570388DA1B31E67300BB9D40;
 					};
+					6027D4F41ECB66A4008F7C04 = {
+						DevelopmentTeam = FHXW64JJEE;
+					};
 				};
 			};
 			buildConfigurationList = 570388D61B31E67300BB9D40 /* Build configuration list for PBXProject "Incubee" */;
@@ -684,6 +820,7 @@
 			targets = (
 				570388DA1B31E67300BB9D40 /* Incubee */,
 				570388F61B31E67300BB9D40 /* IncubeeTests */,
+				6027D4F41ECB66A4008F7C04 /* Incubee QA */,
 			);
 		};
 /* End PBXProject section */
@@ -729,9 +866,57 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6027D52F1ECB66A4008F7C04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6027D5301ECB66A4008F7C04 /* Lato-MediumItalic.ttf in Resources */,
+				6027D5311ECB66A4008F7C04 /* Lato-BlackItalic.ttf in Resources */,
+				6027D5321ECB66A4008F7C04 /* Lato-Black.ttf in Resources */,
+				6027D5331ECB66A4008F7C04 /* Lato-SemiboldItalic.ttf in Resources */,
+				6027D5341ECB66A4008F7C04 /* Lato-HairlineItalic.ttf in Resources */,
+				6027D5351ECB66A4008F7C04 /* Lato-Hairline.ttf in Resources */,
+				6027D5361ECB66A4008F7C04 /* Lato-Thin.ttf in Resources */,
+				6027D5371ECB66A4008F7C04 /* LaunchScreen.xib in Resources */,
+				6027D5381ECB66A4008F7C04 /* Lato-Regular.ttf in Resources */,
+				6027D5391ECB66A4008F7C04 /* CardViewStoryboard.storyboard in Resources */,
+				6027D53A1ECB66A4008F7C04 /* Main.storyboard in Resources */,
+				6027D53B1ECB66A4008F7C04 /* AppContainerStoryboard.storyboard in Resources */,
+				6027D53C1ECB66A4008F7C04 /* ICLoginViewController.storyboard in Resources */,
+				6027D53D1ECB66A4008F7C04 /* Lato-ThinItalic.ttf in Resources */,
+				6027D53E1ECB66A4008F7C04 /* Lato-Bold.ttf in Resources */,
+				6027D53F1ECB66A4008F7C04 /* Lato-LightItalic.ttf in Resources */,
+				6027D5401ECB66A4008F7C04 /* Lato-Italic.ttf in Resources */,
+				6027D5411ECB66A4008F7C04 /* ICInvestorStoryboard.storyboard in Resources */,
+				6027D5421ECB66A4008F7C04 /* Lato-Semibold.ttf in Resources */,
+				6027D5431ECB66A4008F7C04 /* GoogleService-Info.plist in Resources */,
+				6027D5441ECB66A4008F7C04 /* Lato-Heavy.ttf in Resources */,
+				6027D5451ECB66A4008F7C04 /* Lato-Medium.ttf in Resources */,
+				6027D5461ECB66A4008F7C04 /* Images.xcassets in Resources */,
+				6027D5471ECB66A4008F7C04 /* Lato-HeavyItalic.ttf in Resources */,
+				6027D5481ECB66A4008F7C04 /* Lato-BoldItalic.ttf in Resources */,
+				6027D5491ECB66A4008F7C04 /* Lato-Light.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		20768970D2813CA9A9AE9434 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Incubee QA/Pods-Incubee QA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5046D88979D535563148FB4B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -762,6 +947,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Incubee/Pods-Incubee-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		64BAE3D8A1615E70CA1FAC04 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		778564D996D391F536B87081 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -774,7 +974,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7D654220DCF8BCBA313D54CA /* [CP] Copy Pods Resources */ = {
@@ -819,7 +1019,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CCF4A274D5F7BF6B5D9D6973 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Incubee QA/Pods-Incubee QA-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -885,6 +1100,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				570388FE1B31E67300BB9D40 /* IncubeeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6027D4F61ECB66A4008F7C04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6027D4F71ECB66A4008F7C04 /* ICAppContainerViewController.m in Sources */,
+				6027D4F81ECB66A4008F7C04 /* Customer+CoreDataProperties.m in Sources */,
+				6027D4F91ECB66A4008F7C04 /* ICIncubeeLoginViewController.m in Sources */,
+				6027D4FA1ECB66A4008F7C04 /* AppDelegate.m in Sources */,
+				6027D4FB1ECB66A4008F7C04 /* AdhocIncubee.m in Sources */,
+				6027D4FC1ECB66A4008F7C04 /* PPDateManager.m in Sources */,
+				6027D4FD1ECB66A4008F7C04 /* ICDataManager.m in Sources */,
+				6027D4FE1ECB66A4008F7C04 /* ICImageManager.m in Sources */,
+				6027D4FF1ECB66A4008F7C04 /* Incubee.m in Sources */,
+				6027D5001ECB66A4008F7C04 /* ICUserAccountManager.m in Sources */,
+				6027D5011ECB66A4008F7C04 /* User+CoreDataProperties.m in Sources */,
+				6027D5021ECB66A4008F7C04 /* ICHomeViewController.m in Sources */,
+				6027D5031ECB66A4008F7C04 /* ProfileViewController.m in Sources */,
+				6027D5041ECB66A4008F7C04 /* ICMessengerManager.m in Sources */,
+				6027D5051ECB66A4008F7C04 /* ICIncubeeViewController.m in Sources */,
+				6027D5061ECB66A4008F7C04 /* Messages+CoreDataProperties.m in Sources */,
+				6027D5071ECB66A4008F7C04 /* Incubee+CoreDataProperties.m in Sources */,
+				6027D5081ECB66A4008F7C04 /* ICOperationManager.m in Sources */,
+				6027D5091ECB66A4008F7C04 /* Review.m in Sources */,
+				6027D50A1ECB66A4008F7C04 /* ICChatViewController.m in Sources */,
+				6027D50B1ECB66A4008F7C04 /* User.m in Sources */,
+				6027D50C1ECB66A4008F7C04 /* ICLoginViewController.m in Sources */,
+				6027D50D1ECB66A4008F7C04 /* ICUtilityManager.m in Sources */,
+				6027D50E1ECB66A4008F7C04 /* AdhocIncubee+CoreDataProperties.m in Sources */,
+				6027D50F1ECB66A4008F7C04 /* ICAdhocIncubeeViewController.m in Sources */,
+				6027D5101ECB66A4008F7C04 /* Messages.m in Sources */,
+				6027D5111ECB66A4008F7C04 /* ICInvestorViewController.m in Sources */,
+				6027D5121ECB66A4008F7C04 /* ICJSONParsingOperations.m in Sources */,
+				6027D5131ECB66A4008F7C04 /* StarRatingControl.m in Sources */,
+				6027D5141ECB66A4008F7C04 /* ICCardViewController.m in Sources */,
+				6027D5151ECB66A4008F7C04 /* ICBaseViewController.m in Sources */,
+				6027D5161ECB66A4008F7C04 /* ICAppManager+Networking.m in Sources */,
+				6027D5171ECB66A4008F7C04 /* ICAppManager.m in Sources */,
+				6027D5181ECB66A4008F7C04 /* Review+CoreDataProperties.m in Sources */,
+				6027D5191ECB66A4008F7C04 /* ICRatingProgressView.m in Sources */,
+				6027D51A1ECB66A4008F7C04 /* ICDataManager+DataSaving.m in Sources */,
+				6027D51B1ECB66A4008F7C04 /* Reachability.m in Sources */,
+				6027D51C1ECB66A4008F7C04 /* IncubeeImage.m in Sources */,
+				6027D51D1ECB66A4008F7C04 /* ICRequest.m in Sources */,
+				6027D51E1ECB66A4008F7C04 /* ICMessagingViewController.m in Sources */,
+				6027D51F1ECB66A4008F7C04 /* ICChatTableViewCell.m in Sources */,
+				6027D5201ECB66A4008F7C04 /* ICDataSavingOperations.m in Sources */,
+				6027D5211ECB66A4008F7C04 /* IncubeeModel.xcdatamodeld in Sources */,
+				6027D5221ECB66A4008F7C04 /* ICNetworkOperation.m in Sources */,
+				6027D5231ECB66A4008F7C04 /* main.m in Sources */,
+				6027D5241ECB66A4008F7C04 /* ICReviewTableViewCell.m in Sources */,
+				6027D5251ECB66A4008F7C04 /* Customer.m in Sources */,
+				6027D5261ECB66A4008F7C04 /* IncubeeImage+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,7 +1270,7 @@
 		};
 		570389021B31E67300BB9D40 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C1C81E02FC29195949F1755 /* Pods-Incubee.debug.xcconfig */;
+			baseConfigurationReference = C118BEFE3C148DFB7F227539 /* Pods-Incubee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1008,7 +1278,13 @@
 				DEVELOPMENT_TEAM = FHXW64JJEE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Incubee/PrefixHeader.pch;
-				INFOPLIST_FILE = Incubee/Info.plist;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Incubee/Incubee-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1025,7 +1301,7 @@
 		};
 		570389031B31E67300BB9D40 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E0C94B9E217328B4A1C7817 /* Pods-Incubee.release.xcconfig */;
+			baseConfigurationReference = F570B9EB603495B80BD31F27 /* Pods-Incubee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1033,7 +1309,13 @@
 				DEVELOPMENT_TEAM = FHXW64JJEE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Incubee/PrefixHeader.pch;
-				INFOPLIST_FILE = Incubee/Info.plist;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Incubee/Incubee-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1092,6 +1374,68 @@
 			};
 			name = Release;
 		};
+		6027D54D1ECB66A4008F7C04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8047535716B9B0F6A58502AF /* Pods-Incubee QA.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = FHXW64JJEE;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Incubee/PrefixHeader.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Incubee QA-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ee.qa.incub.www;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6027D54E1ECB66A4008F7C04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE1DB3BA303E1885FC2F43CA /* Pods-Incubee QA.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = FHXW64JJEE;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Incubee/PrefixHeader.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Incubee QA-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ee.qa.incub.www;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1118,6 +1462,15 @@
 			buildConfigurations = (
 				570389051B31E67300BB9D40 /* Debug */,
 				570389061B31E67300BB9D40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6027D54C1ECB66A4008F7C04 /* Build configuration list for PBXNativeTarget "Incubee QA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6027D54D1ECB66A4008F7C04 /* Debug */,
+				6027D54E1ECB66A4008F7C04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

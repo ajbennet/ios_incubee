@@ -28,7 +28,8 @@ static ICAppManager *sharedAppManagerInstance = nil;
     
     if (self = [super init])
     {
-        
+        NSDictionary * info = [[NSBundle mainBundle] infoDictionary];
+        _apiBaseUrl =[info valueForKey:@"ApiBaseURI"];
     }
     
     return self;

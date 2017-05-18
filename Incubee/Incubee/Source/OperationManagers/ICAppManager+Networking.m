@@ -57,7 +57,7 @@
 
     req.isTokenRequired = NO;
     
-    [req setRequestingURL:[NSURL URLWithString:kGetAllCompanyURL]];
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kGetAllCompanyURL]]];
     
     [self sendRequestObject:req];
 
@@ -76,7 +76,7 @@
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-    [req setRequestingURL:[NSURL URLWithString:kGoogleLoginURL]];
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kGoogleLoginURL]]];
     
     User *user = [[ICDataManager sharedInstance] getUser];
 
@@ -104,7 +104,7 @@
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-    [req setRequestingURL:[NSURL URLWithString:kGoogleSignUpURL]];
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kGoogleSignUpURL]]];
     
     User *user = [[ICDataManager sharedInstance] getUser];
     
@@ -137,7 +137,7 @@
     
     [req setOptionalData:(NSMutableDictionary*)d];
     
-    [req setRequestingURL:[NSURL URLWithString:kLikeIncubeeURL(inCubeeId,[[ICDataManager sharedInstance] getUserId])]];
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kLikeIncubeeURL(inCubeeId,[[ICDataManager sharedInstance] getUserId])]]];
         
     [self sendRequestObject:req];
 
@@ -161,7 +161,8 @@
     
     [req setOptionalData:(NSMutableDictionary*)d];
     
-    [req setRequestingURL:[NSURL URLWithString:kAddCustomer(inCubeeId,[[ICDataManager sharedInstance] getUserId])]];
+    
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kAddCustomer(inCubeeId,[[ICDataManager sharedInstance] getUserId])]]];
     
     [self sendRequestObject:req];
     
@@ -182,7 +183,7 @@
     
     req.isTokenRequired = NO;
     
-    [req setRequestingURL:[NSURL URLWithString:kAllLikedIncubees([[ICDataManager sharedInstance] getUserId])]];
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kAllLikedIncubees([[ICDataManager sharedInstance] getUserId])]]];
     
     [self sendRequestObject:req];
 
@@ -202,7 +203,8 @@
     
     req.isTokenRequired = NO;
     
-    [req setRequestingURL:[NSURL URLWithString:kAllCustomerIncubees([[ICDataManager sharedInstance] getFounderId])]];
+    
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kAllCustomerIncubees([[ICDataManager sharedInstance] getFounderId])]]];
     
     [self sendRequestObject:req];
     
@@ -223,7 +225,8 @@
     
     req.isTokenRequired = NO;
     
-    [req setRequestingURL:[NSURL URLWithString:kCustomerDetails(inCustomerId)]];
+    
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kCustomerDetails(inCustomerId)]]];
     
     [self sendRequestObject:req];
     
@@ -245,7 +248,8 @@
     
     req.isTokenRequired = NO;
     
-    [req setRequestingURL:[NSURL URLWithString:kGetIncubeeReview(inIncubeeId)]];
+    
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kGetIncubeeReview(inIncubeeId)]]];
     
     [self sendRequestObject:req];
     
@@ -266,7 +270,8 @@
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-    [req setRequestingURL:[NSURL URLWithString:kSubmitReview([[ICDataManager sharedInstance] getUserId])]];
+    
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kSubmitReview([[ICDataManager sharedInstance] getUserId])]]];
     
     
     NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
@@ -302,7 +307,8 @@
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-    [req setRequestingURL:[NSURL URLWithString:kInviteFounder(inEmail,[[ICDataManager sharedInstance] getUserId])]];
+    
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kInviteFounder(inEmail,[[ICDataManager sharedInstance] getUserId])]]];
     
     [self sendRequestObject:req];
 }
@@ -322,7 +328,8 @@
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-    [req setRequestingURL:[NSURL URLWithString:kAddAdhocIncubee([[ICDataManager sharedInstance] getUserId])]];
+    
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kAddAdhocIncubee([[ICDataManager sharedInstance] getUserId])]]];
     
     NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
     
@@ -348,8 +355,9 @@
     [self addRequestActivityObserver:req];
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
-        
-    [req setRequestingURL:[NSURL URLWithString:kGetAllAdhocIncubee]];
+    
+    
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kGetAllAdhocIncubee]]];
     
     [self sendRequestObject:req];
 
@@ -368,7 +376,8 @@
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-    [req setRequestingURL:[NSURL URLWithString:kGetAllChatMsg([[ICDataManager sharedInstance] getUserId])]];
+    
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kGetAllChatMsg([[ICDataManager sharedInstance] getUserId])]]];
     
     [self sendRequestObject:req];
     
@@ -386,11 +395,7 @@
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-    NSString *strUrl  = kGetAllFounderChatMsg([[ICDataManager sharedInstance] getFounderId]);
-    
-    NSLog(@"IC_GET_FOUNDER_CHAT_ALL : %@",strUrl);
-
-    [req setRequestingURL:[NSURL URLWithString:strUrl]];
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kGetAllFounderChatMsg([[ICDataManager sharedInstance] getFounderId])]]];
     
     [self sendRequestObject:req];
 
@@ -411,8 +416,7 @@
     
     [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
     
-    [req setRequestingURL:[NSURL URLWithString:ksendChatMsg( inToFounder == NO ? [[ICDataManager sharedInstance] getFounderId] : [[ICDataManager sharedInstance] getUserId])]];
-    
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,ksendChatMsg( inToFounder == NO ? [[ICDataManager sharedInstance] getFounderId] : [[ICDataManager sharedInstance] getUserId])]]];    
 
     NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
     
