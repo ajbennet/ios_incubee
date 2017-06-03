@@ -199,7 +199,7 @@
     
     [headView addSubview:aWriteReviewButton];
     
-    if(reviewArray.count==0)
+    if(reviewArray.count == 0 || reviewDataDic == nil)
     {
         
         UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _reviewTableView.frame.size.width, 80.0f)];
@@ -270,7 +270,7 @@
         
         [headView addSubview:allRatingView];
         
-        if([[ICDataManager sharedInstance] isReviewWritten:_incubee.incubeeId]==NO)
+//        if([[ICDataManager sharedInstance] isReviewWritten:_incubee.incubeeId]==NO)
         {
             
             allRatingView.frame =   CGRectMake(200.0f,15,tableView.frame.size.width-210.0f , 20);
@@ -293,13 +293,13 @@
             [headView addSubview:writeReviewLabl];
             
         }
-        else
-        {
-            
-            aWriteReviewButton.userInteractionEnabled = NO;
-            
-            allRatingView.frame =   CGRectMake(200.0f,15,tableView.frame.size.width-210.0f , 30);
-        }
+//        else
+//        {
+//            
+//            aWriteReviewButton.userInteractionEnabled = NO;
+//            
+//            allRatingView.frame =   CGRectMake(200.0f,15,tableView.frame.size.width-210.0f , 30);
+//        }
         
         
         CGRect r = allRatingView.frame;
@@ -579,7 +579,12 @@
 
     reviewArray = [[ICDataManager sharedInstance] getReviewArray:_incubee.incubeeId];
     
-    reviewDataDic = [inRequest.parsedResponse objectForKey:@"reviewData"];
+    NSDictionary *aReviewData = [inRequest.parsedResponse objectForKey:@"reviewData"];
+    
+    if (aReviewData && ![aReviewData isKindOfClass:[NSNull class]]){
+    
+        reviewDataDic = aReviewData;
+    }
     
     [self showLoadingReview:NO];
     

@@ -33,19 +33,19 @@
 
 #define kGetAllChatMsg(userId) [NSString stringWithFormat:@"rest/%@/msg/all?eid=%@",SERVER_API_VERSION,userId]
 
-#define kGetIncubeeReview(incubeeId) [NSString stringWithFormat:@"incubee/rest/%@/review/%@",SERVER_API_VERSION,incubeeId]
+#define kGetIncubeeReview(incubeeId) [NSString stringWithFormat:@"rest/%@/review/%@",SERVER_API_VERSION,incubeeId]
 
-#define kSubmitReview(userId) [NSString stringWithFormat:@"incubee/rest/%@/review?uid=%@",SERVER_API_VERSION,userId]
+#define kSubmitReview(userId) [NSString stringWithFormat:@"rest/%@/review?uid=%@",SERVER_API_VERSION,userId]
 
-#define kInviteFounder(emailId,userId) [NSString stringWithFormat:@"incubee/rest/%@/invite/%@?uid=%@",SERVER_API_VERSION,emailId,userId]
+#define kInviteFounder(emailId,userId) [NSString stringWithFormat:@"rest/%@/invite/%@?uid=%@",SERVER_API_VERSION,emailId,userId]
 
 #define kGetAllFounderChatMsg(userId) [NSString stringWithFormat:@"rest/%@/msg/all?eid=%@",SERVER_API_VERSION,userId]
 
 #define ksendChatMsg(userId) [NSString stringWithFormat:@"rest/%@/msg?eid=%@",SERVER_API_VERSION,userId]
 
-#define kAddAdhocIncubee(userId) [NSString stringWithFormat:@"incubee/rest/%@/adhocincubee?uid=%@",SERVER_API_VERSION,userId]
+#define kAddAdhocIncubee(userId) [NSString stringWithFormat:@"rest/%@/adhocincubee?uid=%@",SERVER_API_VERSION,userId]
 
-#define kGetAllAdhocIncubee  [NSString stringWithFormat:@"incubee/rest/%@/adhocincubee",SERVER_API_VERSION]
+#define kGetAllAdhocIncubee  [NSString stringWithFormat:@"rest/%@/adhocincubee",SERVER_API_VERSION]
 
 
 #pragma mark - Request Method -

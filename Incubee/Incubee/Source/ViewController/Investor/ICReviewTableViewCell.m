@@ -7,6 +7,7 @@
 //
 
 #import "ICReviewTableViewCell.h"
+#import "PPDateManager.h"
 
 @implementation ICReviewTableViewCell
 
@@ -45,6 +46,12 @@
     _reviewDesc.text = review.reviewDescription;
     
     _reviewRating.rating = review.rating.intValue;
+    
+    [NSTimeZone localTimeZone];
+    
+    float timesoneOffset = ([[NSTimeZone systemTimeZone] secondsFromGMT]/3600.0);
+    
+     _dateLable.text = [[PPDateManager sharedInstance] convertDateToString:review.date withDateFormatterStyle:@"hh:mm:ss a dd/MMM/yyyy" andOffset:timesoneOffset];
     
     _reviewImageView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"].CGColor;
     

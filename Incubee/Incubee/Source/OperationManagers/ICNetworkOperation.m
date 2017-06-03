@@ -45,14 +45,31 @@
     
         [request setValue:@"Accept" forHTTPHeaderField:@"Content-Type"];
         
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    // Trunkate : 'http://' & end '/'
+    NSString *hostURl = [[[ICAppManager sharedInstance] apiBaseUrl] substringWithRange:NSMakeRange(7, [[ICAppManager sharedInstance] apiBaseUrl].length-8)];
+    
+    [request setValue:hostURl forHTTPHeaderField:@"host"];
+    
         if(_requestObject.isTokenRequired)
         {
             [request setValue:[[ICDataManager sharedInstance] getToken] forHTTPHeaderField:@"token"];
         }
     
     NSLog(@"********** RequestURL ********** %d *** :  URL : %@",_requestObject.requestId,_requestObject.requestingURL);
+    
+    NSLog(@"********** RequestHeader ********** %@",request);
+    
+    for (uint i=0; i < request.allHTTPHeaderFields.allKeys.count; i++) {
+    
+        NSString * key =request.allHTTPHeaderFields.allKeys[i];
+        
+        NSLog(@"%@ : %@",key,request.allHTTPHeaderFields[key]);
+        
+    }
+    
+    
 
     if(_requestObject.reqDataDict.allKeys.count>0)
     {

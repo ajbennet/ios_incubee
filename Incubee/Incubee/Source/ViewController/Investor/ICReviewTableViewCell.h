@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *reviewTitle;
 @property (weak, nonatomic) IBOutlet StarRatingControl *reviewRating;
 @property (weak, nonatomic) IBOutlet UILabel *reviewDesc;
+@property (strong, nonatomic) IBOutlet UILabel *dateLable;
 
 @property(nonatomic,strong)Review *review;
 
