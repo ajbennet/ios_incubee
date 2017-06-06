@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ICCardViewController.h"
 #import "ICRequest.h"
-#import "Incubee.h"
+#import "Incubee+CoreDataClass.h"
 
 #import "ICBaseViewController.h"
 

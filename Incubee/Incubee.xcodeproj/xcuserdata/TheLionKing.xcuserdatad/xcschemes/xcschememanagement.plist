@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Incubee QA.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>Incubee.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>570388F61B31E67300BB9D40</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6027D4F41ECB66A4008F7C04</key>
 		<dict>
 			<key>primary</key>
 			<true/>

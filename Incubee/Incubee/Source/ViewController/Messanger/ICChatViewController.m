@@ -8,7 +8,7 @@
 
 #import "ICChatViewController.h"
 #import "ICChatTableViewCell.h"
-#import "Messages.h"
+#import "Messages+CoreDataClass.h"
 #import "ICDataManager.h"
 #import "ICAppManager.h"
 #import "ICAppManager+Networking.h"

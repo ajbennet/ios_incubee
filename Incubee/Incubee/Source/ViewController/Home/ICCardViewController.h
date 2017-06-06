@@ -11,8 +11,8 @@
 #import <MediaPlayer/MPMoviePlayerController.h>
 #import <MediaPlayer/MPMoviePlayerViewController.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import "Incubee.h"
-#import "IncubeeImage.h"
+#import "Incubee+CoreDataClass.h"
+#import "IncubeeImage+CoreDataClass.h"
 #import "ICImageManager.h"
 #import "ICUtilityManager.h"
 

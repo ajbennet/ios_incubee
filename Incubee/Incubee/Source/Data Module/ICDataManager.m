@@ -1154,7 +1154,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
             
             NSError *errorDb = nil;
             
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"incubee_id LIKE %@ AND user_id LIKE %@",[aDic objectForKey:@"incubee_id"],[aDic objectForKey:@"user_id"]];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"review_id LIKE %@",[aDic objectForKey:@"review_id"]];
             
             [request setPredicate:predicate];
             
@@ -1194,6 +1194,7 @@ static ICDataManager *sharedDataManagerInstance = nil;
             
             aReview.dislikes = ([NSNumber numberWithInt:[[aDic valueForKey:@"dislikes"] intValue]]);
             
+            aReview.review_id = NULL_TO_NIL([aDic objectForKey:@"review_id"]);
         }
         
         

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AdhocIncubee.h"
+#import "AdhocIncubee+CoreDataClass.h"
 #import "StarRatingControl.h"
 
 @interface ICAdhocIncubeeViewController : UIViewController<ICImageManagerDelegate>

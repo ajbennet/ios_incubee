@@ -11,7 +11,7 @@
 #import "ICNetworkOperation.h"
 #import "ICNetworkConstant.h"
 
-#import "User.h"
+#import "User+CoreDataClass.h"
 
 @implementation ICAppManager (Networking)
 
