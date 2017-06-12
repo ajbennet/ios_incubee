@@ -89,14 +89,62 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Incubee/Source/ViewController/Investor/ICReviewTableViewCell.m"
-            timestampString = "518984110.223236"
+            filePath = "Incubee/Source/ViewController/Investor/ICIncubeeViewController.m"
+            timestampString = "518986846.583883"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "-setReview:"
+            startingLineNumber = "685"
+            endingLineNumber = "685"
+            landmarkName = "-editReview:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Incubee/Source/Data Module/ICDataManager.m"
+            timestampString = "518987049.852185"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1183"
+            endingLineNumber = "1183"
+            landmarkName = "-saveReviewArray:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ICDataManager saveReviewArray:]"
+                  moduleName = "Incubee QA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Ri2/Desktop/CodeVault/Incubee_iOS/Incubee/Incubee/Source/Data%20Module/ICDataManager.m"
+                  timestampString = "518987050.385091"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1183"
+                  endingLineNumber = "1183"
+                  offsetFromSymbolStart = "3223">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ICDataManager saveReviewArray:]"
+                  moduleName = "Incubee QA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Ri2/Desktop/CodeVault/Incubee_iOS/Incubee/Incubee/Source/Data%20Module/ICDataManager.m"
+                  timestampString = "518987050.388044"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1183"
+                  endingLineNumber = "1183"
+                  offsetFromSymbolStart = "3230">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

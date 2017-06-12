@@ -447,6 +447,17 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    Review *review = [reviewArray objectAtIndex:indexPath.row];
+    
+    if ([review.user_id isEqualToString:[[ICDataManager sharedInstance] getUserId]]){
+        
+        NSLog(@"Show review editor");
+        
+        [self editReview:review];
+    }
+}
 
 #pragma mark - Private -
 
@@ -664,6 +675,38 @@
         
     }];
 
+}
+
+-(void)editReview:(Review*)aReview{
+
+    [self writeReviewHeaderTapped];
+    
+ 
+    _meetSegment.selectedSegmentIndex = -1;
+    if ([aReview.meeting isEqualToString: @"PER" ]){
+        _meetSegment.selectedSegmentIndex = 0;
+    }
+    else if ([aReview.meeting isEqualToString: @"PHO"]){
+        _meetSegment.selectedSegmentIndex = 1;
+    }
+    
+    _statusSegment.selectedSegmentIndex = -1;
+
+    if ([aReview.status isEqualToString:@"INT"]){
+        _statusSegment.selectedSegmentIndex = 0;
+    }
+    else if ([aReview.status isEqualToString:@"INV"]){
+        _statusSegment.selectedSegmentIndex = 1;
+    }else if ([aReview.status isEqualToString:@"PAS"]){
+        _statusSegment.selectedSegmentIndex = 2;
+    }
+
+     _reviewTitle.text = aReview.reviewTitle;
+
+    _commentsTextView.text = aReview.reviewDescription;
+
+    _starRatingView.rating = aReview.rating.integerValue;
+    
 }
 
 
