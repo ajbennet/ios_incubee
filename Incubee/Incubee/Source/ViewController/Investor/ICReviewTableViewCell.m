@@ -13,6 +13,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [super awakeFromNib];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -75,6 +76,8 @@
         
         [im1 getImage:reviewImageURL withDelegate:self];
     }
+    
+    _editableImageView.hidden = !([_review.user_id isEqualToString:[[ICDataManager sharedInstance] getUserId]]);
 }
 
 -(void)imageDataRecived:(NSData*)inImageData ofURL:(NSString *)inUrl{

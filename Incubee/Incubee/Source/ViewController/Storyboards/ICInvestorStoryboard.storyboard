@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -28,7 +28,7 @@
             <objects>
                 <navigationController storyboardIdentifier="InvestorStoryBoard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JTo-fl-IUA" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LPS-Ar-Njl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="LPS-Ar-Njl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -800,7 +800,7 @@
                                                     <rect key="frame" x="254.5" y="4" width="112.5" height="23"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uM-nX-gho" userLabel="ReviewDesc">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7uM-nX-gho" userLabel="ReviewDesc">
                                                     <rect key="frame" x="105" y="29" width="262" height="31"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
@@ -808,7 +808,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKf-sC-kVX" userLabel="DateLable">
-                                                    <rect key="frame" x="105" y="63" width="265" height="21"/>
+                                                    <rect key="frame" x="105" y="63" width="237" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="XcP-B6-Jqm"/>
                                                     </constraints>
@@ -816,6 +816,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit_pen" translatesAutoresizingMaskIntoConstraints="NO" id="9dg-gz-Zwt">
+                                                    <rect key="frame" x="347" y="66" width="15" height="15"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="15" id="fUn-ci-DTB"/>
+                                                        <constraint firstAttribute="height" constant="15" id="rxf-Qw-hCd"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jp-R8-u38">
                                                     <rect key="frame" x="5" y="89" width="365" height="1"/>
                                                     <color key="backgroundColor" red="0.076301544904708862" green="0.51746636629104614" blue="0.40261656045913696" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -831,9 +839,12 @@
                                                 <constraint firstItem="2nL-yB-RYw" firstAttribute="top" secondItem="cUO-6c-Qwa" secondAttribute="top" constant="6" id="0Uh-eX-Gep"/>
                                                 <constraint firstItem="7uM-nX-gho" firstAttribute="leading" secondItem="2nL-yB-RYw" secondAttribute="trailing" constant="15" id="1PA-ws-EaX"/>
                                                 <constraint firstItem="dQN-as-JOy" firstAttribute="top" secondItem="cUO-6c-Qwa" secondAttribute="top" constant="4" id="4jR-Mc-N3g"/>
+                                                <constraint firstItem="9dg-gz-Zwt" firstAttribute="leading" secondItem="AKf-sC-kVX" secondAttribute="trailing" constant="5" id="65J-3A-FVZ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9dg-gz-Zwt" secondAttribute="trailing" constant="5" id="7gE-Yt-GYS"/>
                                                 <constraint firstAttribute="trailing" secondItem="7uM-nX-gho" secondAttribute="trailing" constant="8" id="AlJ-xh-y67"/>
                                                 <constraint firstItem="2nL-yB-RYw" firstAttribute="leading" secondItem="cUO-6c-Qwa" secondAttribute="leading" constant="12" id="Ewq-v6-IFE"/>
                                                 <constraint firstItem="7uM-nX-gho" firstAttribute="top" secondItem="cgh-v8-cJK" secondAttribute="bottom" constant="2" id="G9U-IJ-BsT"/>
+                                                <constraint firstItem="9dg-gz-Zwt" firstAttribute="centerY" secondItem="AKf-sC-kVX" secondAttribute="centerY" id="JsN-hV-8Ah"/>
                                                 <constraint firstAttribute="trailing" secondItem="0jp-R8-u38" secondAttribute="trailing" constant="5" id="Nfn-ta-SjJ"/>
                                                 <constraint firstItem="7uM-nX-gho" firstAttribute="top" secondItem="dQN-as-JOy" secondAttribute="bottom" constant="2" id="QX0-8i-Crz"/>
                                                 <constraint firstAttribute="trailing" secondItem="cgh-v8-cJK" secondAttribute="trailing" constant="8" id="RJI-n7-oam"/>
@@ -841,7 +852,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="dQN-as-JOy" secondAttribute="trailing" constant="8" id="XOl-TL-soK"/>
                                                 <constraint firstAttribute="bottom" secondItem="2nL-yB-RYw" secondAttribute="bottom" constant="6" id="Xmh-xo-JSC"/>
                                                 <constraint firstItem="AKf-sC-kVX" firstAttribute="bottom" secondItem="2nL-yB-RYw" secondAttribute="bottom" id="f1a-Vs-aJ9"/>
-                                                <constraint firstAttribute="trailing" secondItem="AKf-sC-kVX" secondAttribute="trailing" constant="5" id="i7J-Um-5Tk"/>
                                                 <constraint firstAttribute="bottom" secondItem="0jp-R8-u38" secondAttribute="bottom" id="jEF-8g-upf"/>
                                                 <constraint firstItem="cgh-v8-cJK" firstAttribute="leading" secondItem="2nL-yB-RYw" secondAttribute="trailing" constant="15" id="jM8-wI-d5o"/>
                                                 <constraint firstItem="AKf-sC-kVX" firstAttribute="leading" secondItem="2nL-yB-RYw" secondAttribute="trailing" constant="15" id="k7b-Rk-GKa"/>
@@ -860,6 +870,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLable" destination="AKf-sC-kVX" id="l5g-b6-2gq"/>
+                                            <outlet property="editableImageView" destination="9dg-gz-Zwt" id="zgc-QQ-agD"/>
                                             <outlet property="reviewDesc" destination="7uM-nX-gho" id="hPx-6c-zqS"/>
                                             <outlet property="reviewImageView" destination="2nL-yB-RYw" id="seh-da-ST7"/>
                                             <outlet property="reviewRating" destination="dQN-as-JOy" id="CI1-vN-xyD"/>
@@ -1777,5 +1788,6 @@
     </scenes>
     <resources>
         <image name="LikeButton" width="57" height="57"/>
+        <image name="edit_pen" width="20" height="20"/>
     </resources>
 </document>
