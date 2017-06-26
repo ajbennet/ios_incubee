@@ -33,6 +33,9 @@
 
 @implementation ICIncubeeViewController
 
+NSString *reviewEditorId = nil;
+
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -568,6 +571,7 @@
 
 -(void)reviewSubmitted:(ICRequest*)inRequest{
 
+    reviewEditorId = nil;
     if(inRequest.error == nil)
     {
         
@@ -681,13 +685,19 @@
 
     [self writeReviewHeaderTapped];
     
- 
+    reviewEditorId = aReview.review_id;
+    
     _meetSegment.selectedSegmentIndex = -1;
     if ([aReview.meeting isEqualToString: @"PER" ]){
         _meetSegment.selectedSegmentIndex = 0;
+        
     }
     else if ([aReview.meeting isEqualToString: @"PHO"]){
         _meetSegment.selectedSegmentIndex = 1;
+    }
+    
+    if (_meetSegment.selectedSegmentIndex != -1){
+        meetSelected = aReview.meeting;
     }
     
     _statusSegment.selectedSegmentIndex = -1;
@@ -701,6 +711,11 @@
         _statusSegment.selectedSegmentIndex = 2;
     }
 
+    if (_statusSegment.selectedSegmentIndex != -1){
+        statusSelected = aReview.status;
+    }
+
+    
      _reviewTitle.text = aReview.reviewTitle;
 
     _commentsTextView.text = aReview.reviewDescription;
@@ -712,6 +727,7 @@
 
 - (IBAction)cancelReviewTapped:(id)sender {
     
+    reviewEditorId = nil;
     
     [self resignTextFirstResponders];
     
@@ -796,8 +812,16 @@
     [reviewDic setObject:meetSelected forKey:REVIEW_MEETING];
     [reviewDic setObject:statusSelected forKey:REVIEW_STATUS];
     
-    
-    [[ICAppManager sharedInstance] submitReview:reviewDic withRequest:nil notifyTo:self forSelector:@selector(reviewSubmitted:)];
+    if (reviewEditorId != nil){
+        
+        [reviewDic setObject:reviewEditorId forKey:REVIEW_ID];
+        
+        [[ICAppManager sharedInstance] editReview:reviewDic withRequest:nil notifyTo:self forSelector:@selector(reviewSubmitted:)];
+        
+    }
+    else {
+        [[ICAppManager sharedInstance] submitReview:reviewDic withRequest:nil notifyTo:self forSelector:@selector(reviewSubmitted:)];
+    }
     
     [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.60 initialSpringVelocity:0.5 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
         

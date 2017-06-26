@@ -293,6 +293,46 @@
     
 }
 
+
+-(void)editReview:(NSDictionary*)reviewDic withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
+    
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_EDIT_REVIEW;
+    
+    req.isTokenRequired = YES;
+    
+    req.requestMethod = ICRequestMethodPut;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+    
+    
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kEditReview([[ICDataManager sharedInstance] getUserId],[reviewDic objectForKey:REVIEW_ID])]]];
+    
+    
+    NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
+    
+    [d setValue:[reviewDic valueForKey:REVIEW_TITLE] forKey:@"title"];
+    [d setValue:[reviewDic valueForKey:REVIEW_DESC] forKey:@"description"];
+    [d setValue:[reviewDic valueForKey:REVIEW_INCUBEE_ID] forKey:@"incubee_id"];
+    [d setValue:[reviewDic valueForKey:REVIEW_RATING] forKey:@"rating"];
+    [d setValue:[reviewDic valueForKey:REVIEW_MEETING] forKey:@"meeting"];
+    [d setValue:[reviewDic valueForKey:REVIEW_STATUS] forKey:@"status"];
+    
+    
+    [req setReqDataDict:(NSMutableDictionary*)d];
+    
+    [self sendRequestObject:req];
+    
+    
+    
+    
+}
+
+
+
 -(void)inviteFounder:(NSString*)inEmail withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
     
     ICRequest *req = [[ICRequest alloc] init];
