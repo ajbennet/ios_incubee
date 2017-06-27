@@ -294,6 +294,28 @@
 }
 
 
+-(void)deleteReview:(NSDictionary*)reviewDic withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
+    
+    ICRequest *req = [[ICRequest alloc] init];
+    
+    req.requestId = IC_DELETE_REVIEW;
+    
+    req.isTokenRequired = YES;
+    
+    req.requestMethod = ICRequestMethodDelete;
+    
+    [self addRequestActivityObserver:req];
+    
+    [self addReqComplitionListner:req forController:aViewController atSelector:inSelector];
+    
+    [req setRequestingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.apiBaseUrl,kdeleteReview([[ICDataManager sharedInstance] getUserId],[reviewDic objectForKey:REVIEW_ID])]]];
+
+    [req setReqDataDict:(NSMutableDictionary*)reviewDic];
+
+    [self sendRequestObject:req];
+    
+}
+
 -(void)editReview:(NSDictionary*)reviewDic withRequest:(ICRequest**)inRequest notifyTo:(id)aViewController forSelector:(SEL)inSelector{
     
     ICRequest *req = [[ICRequest alloc] init];

@@ -938,6 +938,38 @@ static ICDataManager *sharedDataManagerInstance = nil;
 }
 }
 
+-(Customer*)getCustomer:(NSString*)inCustomerId{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if(context)
+    {
+        
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        [request setEntity:[NSEntityDescription entityForName:@"Customer" inManagedObjectContext:context]];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId LIKE %@",inCustomerId];
+        
+        [request setPredicate:predicate];
+        
+        NSError *errorDb = nil;
+        
+        NSArray *results = [context executeFetchRequest:request error:&errorDb];
+        
+        Customer *aCustomer;
+        
+        if (results && [results count] > 0)
+        {
+            aCustomer = [results objectAtIndex:0];
+            
+            return aCustomer;
+        }
+    }
+    return nil;
+    
+}
+
 -(NSString*)getCustomerName:(NSString*)inCustomerId{
 
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -1250,6 +1282,53 @@ static ICDataManager *sharedDataManagerInstance = nil;
     
     return nil;
 
+}
+
+-(BOOL)deleteReview:(NSString *)reviewId{
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    [request setEntity:[NSEntityDescription entityForName:@"Review" inManagedObjectContext:context]];
+    
+    NSError *errorDb = nil;
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"review_id LIKE %@",reviewId];
+    
+    [request setPredicate:predicate];
+    
+    NSArray *results = [context executeFetchRequest:request error:&errorDb];
+    
+    Review *aReview;
+    
+    if (results && [results count] > 0)
+    {
+        aReview = [results objectAtIndex:0];
+        
+        [context deleteObject:aReview];
+
+    }
+    else {
+    
+        NSLog(@"Review Object not found");
+        return NO;
+
+    }
+    
+    NSError *dbError = nil;
+    
+    [context save:&dbError];
+    
+    if(dbError == nil)
+    {
+        NSLog(@"Deleted Review!");
+        return YES;
+    }
+
+    NSLog(@"Unable to Deleted Review : %@",dbError.localizedDescription);
+    return NO;
+    
 }
 
 -(BOOL)isReviewWritten:(NSString*)inIncubeeId{

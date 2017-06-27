@@ -12,7 +12,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "StarRatingControl.h"
 
-@interface ICIncubeeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextViewDelegate,ICImageManagerDelegate>
+@interface ICIncubeeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextViewDelegate,ICImageManagerDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet ICImageView *bannerImageView;
 

@@ -454,13 +454,53 @@ NSString *reviewEditorId = nil;
 
     Review *review = [reviewArray objectAtIndex:indexPath.row];
     
+//    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:@"Edit", nil];
+//    
+//    [actionSheet showInView:self.view];
+//    
+    
+    
     if ([review.user_id isEqualToString:[[ICDataManager sharedInstance] getUserId]]){
         
-        NSLog(@"Show review editor");
+        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         
-        [self editReview:review];
+        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            
+            // Cancel button tappped do nothing.
+            
+        }]];
+        
+        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+            NSLog(@"Show review editor");
+            
+            [self editReview:review];
+            
+        }]];
+        
+        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            
+            [self deleteReview:review];
+
+        }]];
+                
+        [self presentViewController:actionSheet animated:YES completion:nil];
+        
     }
+    
 }
+
+
+
+#pragma mark - ActionSheet Delegates -
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    
+    
+    
+}
+
 
 #pragma mark - Private -
 
@@ -681,6 +721,16 @@ NSString *reviewEditorId = nil;
 
 }
 
+
+-(void)deleteReview:(Review*)aReview{
+    
+    NSMutableDictionary *reviewDic = [[NSMutableDictionary alloc] init];
+    
+    [reviewDic setObject:aReview.review_id forKey:REVIEW_ID];
+    
+    [[ICAppManager sharedInstance] deleteReview:reviewDic withRequest:nil notifyTo:self forSelector:@selector(reviewSubmitted:)];    
+    
+}
 -(void)editReview:(Review*)aReview{
 
     [self writeReviewHeaderTapped];

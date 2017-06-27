@@ -77,6 +77,8 @@
 
 -(void)updateCustomerDetails:(NSDictionary*)inCustomer;
 
+-(Customer*)getCustomer:(NSString*)inCustomerId;
+
 -(NSString*)getCustomerName:(NSString*)inCustomerId;
 
 -(NSString*)getCustomerPic:(NSString*)inCustomerId;
@@ -91,6 +93,8 @@
 -(void)saveReviewArray:(NSArray*)inReviewArray;
 
 -(NSArray*)getReviewArray:(NSString*)inIncubeeId;
+
+-(BOOL)deleteReview:(NSString *)reviewId;
 
 -(BOOL)isReviewWritten:(NSString*)inIncubeeId;
 

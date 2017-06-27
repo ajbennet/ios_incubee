@@ -21,7 +21,7 @@
 
 @property(nonatomic,strong)NSString *imageURL;
 
-@property(nonatomic,assign)id<ICImageManagerDelegate> delegate;
+@property(nonatomic,weak)id<ICImageManagerDelegate> delegate;
 
 -(void)getImage:(NSString*)inUrl withDelegate:(id)inDelegate;
 

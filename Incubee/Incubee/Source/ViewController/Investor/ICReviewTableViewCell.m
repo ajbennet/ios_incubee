@@ -62,21 +62,29 @@
     
     _reviewImageView.layer.cornerRadius = _reviewImageView.frame.size.width/2;
     
-    NSString *reviewImageURL = [[ICDataManager sharedInstance] getCustomerPic:_review.user_id];
+    Customer *aCustomer = [[ICDataManager sharedInstance] getCustomer:_review.user_id];
+    
+    NSLog(@"customerName %@",aCustomer.userName);
+    
+    _reviewerName.text = aCustomer.userName ? aCustomer.userName : aCustomer.email;
     
     _reviewImageView.image = [UIImage imageNamed:@"person_silhouette"];
     
     _reviewImageView.clipsToBounds = YES;
     
-    if(reviewImageURL)
+    if(aCustomer.imageUrl)
     {
         ICImageManager *im1 = [[ICImageManager alloc] init];
         
-        [_reviewImageView setImageUrl:reviewImageURL];
+        [_reviewImageView setImageUrl:aCustomer.imageUrl];
         
-        [im1 getImage:reviewImageURL withDelegate:self];
+        [im1 getImage:aCustomer.imageUrl withDelegate:self];
     }
     
+    NSLog(@"_review.user_id %@",_review.user_id);
+    
+    NSLog(@"getUserId %@",[[ICDataManager sharedInstance] getUserId]);
+
     _editableImageView.hidden = !([_review.user_id isEqualToString:[[ICDataManager sharedInstance] getUserId]]);
 }
 

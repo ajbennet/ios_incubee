@@ -98,6 +98,16 @@
 
             }
                 break;
+                
+            case IC_DELETE_REVIEW:{
+                
+                NSString *reviewId = [inRequest.reqDataDict valueForKey:REVIEW_ID];
+                
+                if (reviewId){
+                    [self deleteReview:reviewId];
+                }
+            }
+                break;
             default:
                 break;
         }
