@@ -30,6 +30,8 @@
 
 @implementation ICAdhocIncubeeViewController
 
+NSString *editor_reviewId = nil;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -141,10 +143,18 @@
     {
         reviewArray = [[ICDataManager sharedInstance] getReviewArray:_adhocIncubee.adhocIncubeeId];
         
-        reviewDataDic = [inRequest.parsedResponse objectForKey:@"reviewData"];
+//        reviewDataDic = [inRequest.parsedResponse objectForKey:@"reviewData"];
+        
+        
+        NSDictionary *aReviewData = [inRequest.parsedResponse objectForKey:@"reviewData"];
+        
+        if (aReviewData && ![aReviewData isKindOfClass:[NSNull class]]){
+            
+            reviewDataDic = aReviewData;
+        }
         
         [_adhocTableView reloadData];
-
+        
     }
     else
     {
@@ -224,6 +234,84 @@
     
 }
 
+
+#pragma mark - Review Actions -
+
+
+-(void)writeReviewHeaderTapped{
+    
+    [self resetWriteReview];
+    
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    _writeReviewView.transform = CGAffineTransformMakeTranslation(0, 800);
+    
+    _writeReviewView.hidden = NO;
+    
+    
+    [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.60 initialSpringVelocity:0.5 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
+        
+        _writeReviewView.transform = CGAffineTransformIdentity;
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+}
+
+-(void)deleteReview:(Review*)aReview{
+    
+    NSMutableDictionary *reviewDic = [[NSMutableDictionary alloc] init];
+    
+    [reviewDic setObject:aReview.review_id forKey:REVIEW_ID];
+    
+    [[ICAppManager sharedInstance] deleteReview:reviewDic withRequest:nil notifyTo:self forSelector:@selector(reviewSubmitted:)];
+    
+}
+-(void)editReview:(Review*)aReview{
+    
+    [self writeReviewHeaderTapped];
+    
+    editor_reviewId = aReview.review_id;
+    
+    _meetSegment.selectedSegmentIndex = -1;
+    if ([aReview.meeting isEqualToString: @"PER" ]){
+        _meetSegment.selectedSegmentIndex = 0;
+        
+    }
+    else if ([aReview.meeting isEqualToString: @"PHO"]){
+        _meetSegment.selectedSegmentIndex = 1;
+    }
+    
+    if (_meetSegment.selectedSegmentIndex != -1){
+        meetSelected = aReview.meeting;
+    }
+    
+    _statusSegment.selectedSegmentIndex = -1;
+    
+    if ([aReview.status isEqualToString:@"INT"]){
+        _statusSegment.selectedSegmentIndex = 0;
+    }
+    else if ([aReview.status isEqualToString:@"INV"]){
+        _statusSegment.selectedSegmentIndex = 1;
+    }else if ([aReview.status isEqualToString:@"PAS"]){
+        _statusSegment.selectedSegmentIndex = 2;
+    }
+    
+    if (_statusSegment.selectedSegmentIndex != -1){
+        statusSelected = aReview.status;
+    }
+    
+    
+    _reviewTitle.text = aReview.reviewTitle;
+    
+    _commentsTextView.text = aReview.reviewDescription;
+    
+    _starRatingView.rating = aReview.rating.integerValue;
+    
+}
+
+
 #pragma mark - UITableView -
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
@@ -248,7 +336,7 @@
         
         [headView addSubview:aWriteReviewButton];
         
-        if(reviewArray.count==0)
+        if(reviewArray.count == 0 || reviewDataDic == nil)
         {
             
             UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _adhocTableView.frame.size.width, 80.0f)];
@@ -319,7 +407,7 @@
             
             [headView addSubview:allRatingView];
             
-            if([[ICDataManager sharedInstance] isReviewWritten:_adhocIncubee.adhocIncubeeId]==NO)
+//            if([[ICDataManager sharedInstance] isReviewWritten:_adhocIncubee.adhocIncubeeId]==NO)
             {
                 
                 allRatingView.frame =   CGRectMake(200.0f,15,tableView.frame.size.width-210.0f , 20);
@@ -342,13 +430,13 @@
                 [headView addSubview:writeReviewLabl];
                 
             }
-            else
-            {
-                
-                aWriteReviewButton.userInteractionEnabled = NO;
-                
-                allRatingView.frame =   CGRectMake(200.0f,15,tableView.frame.size.width-210.0f , 30);
-            }
+//            else
+//            {
+//                
+//                aWriteReviewButton.userInteractionEnabled = NO;
+//                
+//                allRatingView.frame =   CGRectMake(200.0f,15,tableView.frame.size.width-210.0f , 30);
+//            }
             
             
             CGRect r = allRatingView.frame;
@@ -491,7 +579,7 @@
         
         if([[ICDataManager sharedInstance] isUserAvailable:review.user_id]==NO)
         {
-//            [[ICAppManager sharedInstance] getCustomerDetails:review.user_id withRequest:nil notifyTo:self forSelector:@selector(customerDetailRetrived:)];
+            [[ICAppManager sharedInstance] getCustomerDetails:review.user_id withRequest:nil notifyTo:self forSelector:@selector(customerDetailRetrived:)];
             
         }
     
@@ -501,6 +589,46 @@
     }
     
     
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    Review *review = [reviewArray objectAtIndex:indexPath.row];
+    
+    //    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:@"Edit", nil];
+    //
+    //    [actionSheet showInView:self.view];
+    //
+    
+    
+    if ([review.user_id isEqualToString:[[ICDataManager sharedInstance] getUserId]]){
+        
+        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            
+            // Cancel button tappped do nothing.
+            
+        }]];
+        
+        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            NSLog(@"Show review editor");
+            
+            [self editReview:review];
+            
+        }]];
+        
+        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            
+            [self deleteReview:review];
+            
+        }]];
+        
+        [self presentViewController:actionSheet animated:YES completion:nil];
+        
+    }
     
 }
 
@@ -546,8 +674,16 @@
     [reviewDic setObject:meetSelected forKey:REVIEW_MEETING];
     [reviewDic setObject:statusSelected forKey:REVIEW_STATUS];
     
-    
+    if (editor_reviewId != nil){
+        
+        [reviewDic setObject:editor_reviewId forKey:REVIEW_ID];
+        
+        [[ICAppManager sharedInstance] editReview:reviewDic withRequest:nil notifyTo:self forSelector:@selector(reviewSubmitted:)];
+        
+    }
+    else {
     [[ICAppManager sharedInstance] submitReview:reviewDic withRequest:nil notifyTo:self forSelector:@selector(reviewSubmitted:)];
+    }
     
     [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.60 initialSpringVelocity:0.5 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
         
@@ -608,6 +744,8 @@
 
 -(void)reviewSubmitted:(ICRequest*)inRequest{
     
+    editor_reviewId = nil;
+
     if(inRequest.error == nil)
     {
         
@@ -624,6 +762,13 @@
     
 }
 
+-(void)customerDetailRetrived:(ICRequest*)inRequest{
+    
+    if(inRequest.error == nil)
+    {
+        [_adhocTableView reloadData];
+    }
+}
 
 
 #pragma mark - TextView -
