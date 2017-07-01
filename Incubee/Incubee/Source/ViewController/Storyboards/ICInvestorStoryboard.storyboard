@@ -28,7 +28,7 @@
             <objects>
                 <navigationController storyboardIdentifier="InvestorStoryBoard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JTo-fl-IUA" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LPS-Ar-Njl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="LPS-Ar-Njl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -135,8 +135,16 @@
                                             <outlet property="incubeeImage" destination="UaD-Lf-OeQ" id="tbP-1U-s27"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdhocIncubeeCellId" id="oVV-sn-WX9" userLabel="AdhocIncubee Cell" customClass="ICAdhocIncubeeTbCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LikeCellID" id="GiP-oV-Qbv" customClass="ICIncubeeLikeTbCell">
                                         <rect key="frame" x="0.0" y="108" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GiP-oV-Qbv" id="mzz-46-gNl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdhocIncubeeCellId" id="oVV-sn-WX9" userLabel="AdhocIncubee Cell" customClass="ICAdhocIncubeeTbCell">
+                                        <rect key="frame" x="0.0" y="188" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oVV-sn-WX9" id="FPV-qb-Mzc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>

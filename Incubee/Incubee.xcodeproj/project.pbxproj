@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17CCAAB23D9E8BB174CE2489 /* libPods-Incubee QA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA8DF7E18201BFB050FB167 /* libPods-Incubee QA.a */; };
+		119EA7EC1F0781EF00B47C82 /* ICIncubeeLikeTbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 119EA7EA1F0781EF00B47C82 /* ICIncubeeLikeTbCell.m */; };
+		119EA7ED1F0781EF00B47C82 /* ICIncubeeLikeTbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 119EA7EA1F0781EF00B47C82 /* ICIncubeeLikeTbCell.m */; };
+		119EA7EE1F0781EF00B47C82 /* ICIncubeeLikeTbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 119EA7EB1F0781EF00B47C82 /* ICIncubeeLikeTbCell.xib */; };
+		119EA7EF1F0781EF00B47C82 /* ICIncubeeLikeTbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 119EA7EB1F0781EF00B47C82 /* ICIncubeeLikeTbCell.xib */; };
+		2BC7A91EB7D1A7A2D582B3FF /* libPods-IncubeeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 410D9260057F7728C3DD3272 /* libPods-IncubeeTests.a */; };
+		514EFB34933F329D067BD603 /* libPods-Incubee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D762E75BBCFBE8EF376CF5 /* libPods-Incubee.a */; };
 		570388E11B31E67300BB9D40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 570388E01B31E67300BB9D40 /* main.m */; };
 		570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 570388E31B31E67300BB9D40 /* AppDelegate.m */; };
 		570388EF1B31E67300BB9D40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570388EE1B31E67300BB9D40 /* Images.xcassets */; };
@@ -165,13 +170,12 @@
 		607A2AE61EC0E2E9006C0C2A /* libGoogleToolboxForMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE21EC0E2E9006C0C2A /* libGoogleToolboxForMac.a */; };
 		607A2AE71EC0E2E9006C0C2A /* libGTMOAuth2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE31EC0E2E9006C0C2A /* libGTMOAuth2.a */; };
 		607A2AE81EC0E2E9006C0C2A /* libGTMSessionFetcher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE41EC0E2E9006C0C2A /* libGTMSessionFetcher.a */; };
-		724A07961261F7225C6952EF /* libPods-Incubee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C078DFB0E02DF417658FBECB /* libPods-Incubee.a */; };
+		724A07961261F7225C6952EF /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		797E81101C69F1FB00362B4E /* ICAdhocIncubeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E810F1C69F1FB00362B4E /* ICAdhocIncubeeViewController.m */; };
 		797E81131C69FD2100362B4E /* ICReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E81121C69FD2100362B4E /* ICReviewTableViewCell.m */; };
 		797E81161C69FD8200362B4E /* ICRatingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E81151C69FD8200362B4E /* ICRatingProgressView.m */; };
 		79F4932F1C5931EA00C79F58 /* StarRatingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F4932E1C5931EA00C79F58 /* StarRatingControl.m */; };
-		81F635711AB62352F577C50B /* libPods-Incubee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C078DFB0E02DF417658FBECB /* libPods-Incubee.a */; };
-		A335DC7861589C33D5CB3533 /* libPods-IncubeeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF2C061573869CB7FF734CE9 /* libPods-IncubeeTests.a */; };
+		C62DDA76317A4FC7003BC7AB /* libPods-Incubee QA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A72F59CF72536D41D03522BF /* libPods-Incubee QA.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +189,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		119EA7E91F0781EF00B47C82 /* ICIncubeeLikeTbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICIncubeeLikeTbCell.h; path = Source/ViewController/Investor/ICIncubeeLikeTbCell.h; sourceTree = "<group>"; };
+		119EA7EA1F0781EF00B47C82 /* ICIncubeeLikeTbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICIncubeeLikeTbCell.m; path = Source/ViewController/Investor/ICIncubeeLikeTbCell.m; sourceTree = "<group>"; };
+		119EA7EB1F0781EF00B47C82 /* ICIncubeeLikeTbCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ICIncubeeLikeTbCell.xib; path = Source/ViewController/Investor/ICIncubeeLikeTbCell.xib; sourceTree = "<group>"; };
+		410D9260057F7728C3DD3272 /* libPods-IncubeeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IncubeeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5551847D6BD42FA037D8CDDE /* Pods-IncubeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IncubeeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IncubeeTests/Pods-IncubeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		570388DB1B31E67300BB9D40 /* Incubee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Incubee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		570388DF1B31E67300BB9D40 /* Incubee-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Incubee-Info.plist"; sourceTree = "<group>"; };
@@ -325,10 +333,9 @@
 		79F4932D1C5931EA00C79F58 /* StarRatingControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRatingControl.h; sourceTree = "<group>"; };
 		79F4932E1C5931EA00C79F58 /* StarRatingControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRatingControl.m; sourceTree = "<group>"; };
 		8047535716B9B0F6A58502AF /* Pods-Incubee QA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Incubee QA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Incubee QA/Pods-Incubee QA.debug.xcconfig"; sourceTree = "<group>"; };
-		AF2C061573869CB7FF734CE9 /* libPods-IncubeeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IncubeeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A72F59CF72536D41D03522BF /* libPods-Incubee QA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Incubee QA.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17361E0DFCDFA0510D1296C /* Pods-IncubeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IncubeeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IncubeeTests/Pods-IncubeeTests.release.xcconfig"; sourceTree = "<group>"; };
-		BCA8DF7E18201BFB050FB167 /* libPods-Incubee QA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Incubee QA.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C078DFB0E02DF417658FBECB /* libPods-Incubee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Incubee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D762E75BBCFBE8EF376CF5 /* libPods-Incubee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Incubee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C118BEFE3C148DFB7F227539 /* Pods-Incubee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Incubee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Incubee/Pods-Incubee.debug.xcconfig"; sourceTree = "<group>"; };
 		DE1DB3BA303E1885FC2F43CA /* Pods-Incubee QA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Incubee QA.release.xcconfig"; path = "Pods/Target Support Files/Pods-Incubee QA/Pods-Incubee QA.release.xcconfig"; sourceTree = "<group>"; };
 		F570B9EB603495B80BD31F27 /* Pods-Incubee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Incubee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Incubee/Pods-Incubee.release.xcconfig"; sourceTree = "<group>"; };
@@ -345,8 +352,7 @@
 				571F79561B3D2417008F727E /* Foundation.framework in Frameworks */,
 				571F79541B3D2407008F727E /* UIKit.framework in Frameworks */,
 				571F79421B3D222D008F727E /* CoreData.framework in Frameworks */,
-				81F635711AB62352F577C50B /* libPods-Incubee.a in Frameworks */,
-				724A07961261F7225C6952EF /* libPods-Incubee.a in Frameworks */,
+				514EFB34933F329D067BD603 /* libPods-Incubee.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +360,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A335DC7861589C33D5CB3533 /* libPods-IncubeeTests.a in Frameworks */,
+				2BC7A91EB7D1A7A2D582B3FF /* libPods-IncubeeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +374,7 @@
 				6027D52B1ECB66A4008F7C04 /* Foundation.framework in Frameworks */,
 				6027D52C1ECB66A4008F7C04 /* UIKit.framework in Frameworks */,
 				6027D52D1ECB66A4008F7C04 /* CoreData.framework in Frameworks */,
-				17CCAAB23D9E8BB174CE2489 /* libPods-Incubee QA.a in Frameworks */,
+				C62DDA76317A4FC7003BC7AB /* libPods-Incubee QA.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +691,9 @@
 				797E81121C69FD2100362B4E /* ICReviewTableViewCell.m */,
 				797E81141C69FD8200362B4E /* ICRatingProgressView.h */,
 				797E81151C69FD8200362B4E /* ICRatingProgressView.m */,
+				119EA7E91F0781EF00B47C82 /* ICIncubeeLikeTbCell.h */,
+				119EA7EA1F0781EF00B47C82 /* ICIncubeeLikeTbCell.m */,
+				119EA7EB1F0781EF00B47C82 /* ICIncubeeLikeTbCell.xib */,
 			);
 			name = Investor;
 			sourceTree = "<group>";
@@ -712,9 +721,9 @@
 				571F79551B3D2417008F727E /* Foundation.framework */,
 				571F79531B3D2407008F727E /* UIKit.framework */,
 				571F79411B3D222D008F727E /* CoreData.framework */,
-				C078DFB0E02DF417658FBECB /* libPods-Incubee.a */,
-				AF2C061573869CB7FF734CE9 /* libPods-IncubeeTests.a */,
-				BCA8DF7E18201BFB050FB167 /* libPods-Incubee QA.a */,
+				C0D762E75BBCFBE8EF376CF5 /* libPods-Incubee.a */,
+				A72F59CF72536D41D03522BF /* libPods-Incubee QA.a */,
+				410D9260057F7728C3DD3272 /* libPods-IncubeeTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -839,6 +848,7 @@
 				579D46891B41B0D200168438 /* Lato-Hairline.ttf in Resources */,
 				579D46951B41B0D200168438 /* Lato-Thin.ttf in Resources */,
 				5780CAFB1B3E831D0090ADCE /* LaunchScreen.xib in Resources */,
+				119EA7EE1F0781EF00B47C82 /* ICIncubeeLikeTbCell.xib in Resources */,
 				579D46921B41B0D200168438 /* Lato-Regular.ttf in Resources */,
 				5780CAF91B3E831D0090ADCE /* CardViewStoryboard.storyboard in Resources */,
 				5780CAFC1B3E831D0090ADCE /* Main.storyboard in Resources */,
@@ -879,6 +889,7 @@
 				6027D5351ECB66A4008F7C04 /* Lato-Hairline.ttf in Resources */,
 				6027D5361ECB66A4008F7C04 /* Lato-Thin.ttf in Resources */,
 				6027D5371ECB66A4008F7C04 /* LaunchScreen.xib in Resources */,
+				119EA7EF1F0781EF00B47C82 /* ICIncubeeLikeTbCell.xib in Resources */,
 				6027D5381ECB66A4008F7C04 /* Lato-Regular.ttf in Resources */,
 				6027D5391ECB66A4008F7C04 /* CardViewStoryboard.storyboard in Resources */,
 				6027D53A1ECB66A4008F7C04 /* Main.storyboard in Resources */,
@@ -960,7 +971,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		778564D996D391F536B87081 /* [CP] Check Pods Manifest.lock */ = {
@@ -975,7 +986,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7D654220DCF8BCBA313D54CA /* [CP] Copy Pods Resources */ = {
@@ -1020,7 +1031,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		CCF4A274D5F7BF6B5D9D6973 /* [CP] Copy Pods Resources */ = {
@@ -1045,6 +1056,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				119EA7EC1F0781EF00B47C82 /* ICIncubeeLikeTbCell.m in Sources */,
 				584513B91C456C92006867A4 /* ICAppContainerViewController.m in Sources */,
 				576C4DC11B3F1402008AA2EB /* ICIncubeeLoginViewController.m in Sources */,
 				570388E41B31E67300BB9D40 /* AppDelegate.m in Sources */,
@@ -1108,6 +1120,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				119EA7ED1F0781EF00B47C82 /* ICIncubeeLikeTbCell.m in Sources */,
 				6027D4F71ECB66A4008F7C04 /* ICAppContainerViewController.m in Sources */,
 				6027D4F91ECB66A4008F7C04 /* ICIncubeeLoginViewController.m in Sources */,
 				6027D4FA1ECB66A4008F7C04 /* AppDelegate.m in Sources */,

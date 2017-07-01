@@ -9,6 +9,7 @@
 #import "ICIncubeeViewController.h"
 #import "ICReviewTableViewCell.h"
 #import "ICRatingProgressView.h"
+#import "ICIncubeeLikeTbCell.h"
 
 #define EMPTYREVIEWCELL @"EmptyReviewCell"
 
@@ -27,6 +28,8 @@
     NSString *meetSelected;
     
     NSString *statusSelected;
+    
+    int likeValue;
     
 }
 @end
@@ -159,9 +162,12 @@ NSString *reviewEditorId = nil;
     self.navigationController.navigationBarHidden = NO;
     
     [self showLoadingReview:YES];
-
-    [[ICAppManager sharedInstance] getReview:_incubee.incubeeId withRequest:nil notifyTo:self forSelector:@selector(reviewLoaded:)];
     
+    likeValue = -1;
+    
+    [_reviewTableView registerNib:[UINib nibWithNibName:@"ICIncubeeLikeTbCell" bundle:nil] forCellReuseIdentifier:@"LikeCellID"];
+    
+    [[ICAppManager sharedInstance] getReview:_incubee.incubeeId withRequest:nil notifyTo:self forSelector:@selector(reviewLoaded:)];
     
 }
 
@@ -182,271 +188,334 @@ NSString *reviewEditorId = nil;
 
 #pragma mark - UITableView -
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    switch (indexPath.section) {
+        case 1:{
+            return 80.0f;
+        }
+            break;
+        default:
+        case 0:{
+            return 40.0f;
+        }
+            break;
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
 {
-    return 80.0f;
+    switch (section) {
+        case 1:{
+            return 80.0f;
+        }
+            break;
+        default:
+        case 0:{
+            return 0.0f;
+        }
+            break;
+    }
 }
 
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _reviewTableView.frame.size.width, 100.0f)];
-    
-    headView.backgroundColor = [UIColor whiteColor];;
-    
-    UIButton *aWriteReviewButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    [aWriteReviewButton addTarget:self action:@selector(writeReviewHeaderTapped) forControlEvents:UIControlEventTouchUpInside];
-    
-    aWriteReviewButton.frame = CGRectMake(0, 0, _reviewTableView.frame.size.width, 80.0f);
-    
-    [headView addSubview:aWriteReviewButton];
-    
-    if(reviewArray.count == 0 || reviewDataDic == nil)
-    {
-        
-        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _reviewTableView.frame.size.width, 80.0f)];
-        
-        lab.textAlignment = NSTextAlignmentCenter;
-        
-        lab.text = [NSString stringWithFormat:@"Be the first person to review\n %@",_incubee.companyName];
-        
-        lab.font = [UIFont fontWithName:@"Lato-regular" size:17.0f];
-        
-        lab.numberOfLines = 0;
-        
-        lab.textColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"];
-        
-        [headView addSubview:lab];
-        
-        return headView;
-    }
-    else
-    {
-        
-        UILabel *ratingLab = [[UILabel alloc] initWithFrame:CGRectMake(10,5,50,60.0f)];
-        
-        ratingLab.backgroundColor = [UIColor clearColor];
-        
-        ratingLab.text = [[reviewDataDic valueForKey:@"averageRating"] stringValue];
-        
-        ratingLab.textAlignment = NSTextAlignmentCenter;
-        
-        ratingLab.font = [UIFont fontWithName:@"Lato-bold" size:40.0f];
-        
-        [headView addSubview:ratingLab];
-        
-        
-        
-        
-        StarRatingControl *rattingView = [[StarRatingControl alloc] initWithFrame:CGRectMake(60.0f,20.0f,120.0f,40.0f)];
-        
-        rattingView.userInteractionEnabled = NO;
-        
-        rattingView.rating = [[reviewDataDic valueForKey:@"averageRating"] intValue];
-        
-        [headView addSubview:rattingView];
-        
-        
-        
-        UILabel *totalRatingLab = [[UILabel alloc] initWithFrame:CGRectMake(60,40,120,20.0f)];
-        
-        totalRatingLab.backgroundColor = [UIColor clearColor];
-        
-        totalRatingLab.text = [NSString stringWithFormat:@"%@ reviews",[[reviewDataDic valueForKey:@"noOfRatings"] stringValue]];
-        
-        totalRatingLab.textAlignment = NSTextAlignmentCenter;
-        
-        totalRatingLab.font = [UIFont fontWithName:@"Lato" size:12.0f];
-        
-        [headView addSubview:totalRatingLab];
-        
-        
-        
-        
-        aWriteReviewButton.userInteractionEnabled = NO;
-        
-        
-        UIImageView *allRatingView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        
-        allRatingView.backgroundColor = [UIColor clearColor];
-        
-        [headView addSubview:allRatingView];
-        
-//        if([[ICDataManager sharedInstance] isReviewWritten:_incubee.incubeeId]==NO)
-        {
+    switch (section) {
+        case 1:{
             
-            allRatingView.frame =   CGRectMake(200.0f,15,tableView.frame.size.width-210.0f , 20);
+            UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _reviewTableView.frame.size.width, 100.0f)];
             
+            headView.backgroundColor = [UIColor whiteColor];;
             
-            aWriteReviewButton.userInteractionEnabled = YES;
+            UIButton *aWriteReviewButton = [UIButton buttonWithType:UIButtonTypeCustom];
             
-            UILabel *writeReviewLabl = [[UILabel alloc] initWithFrame:CGRectMake(5,50.0f, tableView.frame.size.width - 10.f, 40.0f)];
+            [aWriteReviewButton addTarget:self action:@selector(writeReviewHeaderTapped) forControlEvents:UIControlEventTouchUpInside];
             
-            writeReviewLabl.text = [NSString stringWithFormat:@"Write you're review on %@",_incubee.companyName];
+            aWriteReviewButton.frame = CGRectMake(0, 0, _reviewTableView.frame.size.width, 80.0f);
             
-            writeReviewLabl.font = [UIFont fontWithName:@"Lato-bold" size:10.0f];
+            [headView addSubview:aWriteReviewButton];
             
-            writeReviewLabl.textAlignment = NSTextAlignmentCenter;
-            
-            writeReviewLabl.numberOfLines = 0;
-            
-            writeReviewLabl.textColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"];
-            
-            [headView addSubview:writeReviewLabl];
-            
-        }
-//        else
-//        {
-//            
-//            aWriteReviewButton.userInteractionEnabled = NO;
-//            
-//            allRatingView.frame =   CGRectMake(200.0f,15,tableView.frame.size.width-210.0f , 30);
-//        }
-        
-        
-        CGRect r = allRatingView.frame;
-        
-        float he = r.size.height/5;
-        
-        uint rating = 5;
-        
-        for(uint i = 0;i<5;i++)
-        {
-            
-            ICRatingProgressView *progreeView = [[ICRatingProgressView alloc] initWithFrame:CGRectMake(5, i*he+8, r.size.width-10,he)];
-            
-            
-            UILabel *ratingNumberLab = [[UILabel alloc] initWithFrame:CGRectMake(3, 0, progreeView.frame.size.width, progreeView.frame.size.height)];
-            
-            ratingNumberLab.font = [UIFont fontWithName:@"Lato" size:4.0f];
-            
-            ratingNumberLab.textAlignment = NSTextAlignmentLeft;
-            
-            [progreeView addSubview:ratingNumberLab];
-            
-            
-            NSArray *ratingArray = [reviewDataDic objectForKey:@"noOfStars"];
-            
-            int currentRating = [[ratingArray objectAtIndex:(rating-1)] intValue];
-            
-            
-            int percent = currentRating * 100/[[reviewDataDic valueForKey:@"noOfRatings"] intValue];
-            
-            
-            progreeView.backgroundColor = [UIColor clearColor];
-            
-            progreeView.progress = percent/100.0f;
-            
-            [allRatingView addSubview:progreeView];
-            
-            progreeView.layer.borderWidth = 0.0f;
-            
-            
-            switch (rating--) {
-                case 5:
-                    progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#9FC160"];
+            if(reviewArray.count == 0 || reviewDataDic == nil)
+            {
+                
+                UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _reviewTableView.frame.size.width, 80.0f)];
+                
+                lab.textAlignment = NSTextAlignmentCenter;
+                
+                lab.text = [NSString stringWithFormat:@"Be the first person to review\n %@",_incubee.companyName];
+                
+                lab.font = [UIFont fontWithName:@"Lato-regular" size:17.0f];
+                
+                lab.numberOfLines = 0;
+                
+                lab.textColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"];
+                
+                [headView addSubview:lab];
+                
+                return headView;
+            }
+            else
+            {
+                
+                UILabel *ratingLab = [[UILabel alloc] initWithFrame:CGRectMake(10,5,50,60.0f)];
+                
+                ratingLab.backgroundColor = [UIColor clearColor];
+                
+                ratingLab.text = [[reviewDataDic valueForKey:@"averageRating"] stringValue];
+                
+                ratingLab.textAlignment = NSTextAlignmentCenter;
+                
+                ratingLab.font = [UIFont fontWithName:@"Lato-bold" size:40.0f];
+                
+                [headView addSubview:ratingLab];
+                
+                
+                
+                
+                StarRatingControl *rattingView = [[StarRatingControl alloc] initWithFrame:CGRectMake(60.0f,20.0f,120.0f,40.0f)];
+                
+                rattingView.userInteractionEnabled = NO;
+                
+                rattingView.rating = [[reviewDataDic valueForKey:@"averageRating"] intValue];
+                
+                [headView addSubview:rattingView];
+                
+                
+                
+                UILabel *totalRatingLab = [[UILabel alloc] initWithFrame:CGRectMake(60,40,120,20.0f)];
+                
+                totalRatingLab.backgroundColor = [UIColor clearColor];
+                
+                totalRatingLab.text = [NSString stringWithFormat:@"%@ reviews",[[reviewDataDic valueForKey:@"noOfRatings"] stringValue]];
+                
+                totalRatingLab.textAlignment = NSTextAlignmentCenter;
+                
+                totalRatingLab.font = [UIFont fontWithName:@"Lato" size:12.0f];
+                
+                [headView addSubview:totalRatingLab];
+                
+                
+                
+                
+                aWriteReviewButton.userInteractionEnabled = NO;
+                
+                
+                UIImageView *allRatingView = [[UIImageView alloc] initWithFrame:CGRectZero];
+                
+                allRatingView.backgroundColor = [UIColor clearColor];
+                
+                [headView addSubview:allRatingView];
+                
+                //        if([[ICDataManager sharedInstance] isReviewWritten:_incubee.incubeeId]==NO)
+                {
                     
-                    progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#9FC160"].CGColor;
-                    
-                    ratingNumberLab.text =[NSString stringWithFormat:@"\u2606\u2606\u2606\u2606\u2606"];
+                    allRatingView.frame =   CGRectMake(200.0f,15,tableView.frame.size.width-210.0f , 20);
                     
                     
-                    break;
-                case 4:
-                    progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#AED653"];
-                    ratingNumberLab.text = @"\u2606\u2606\u2606\u2606";
-                    progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#AED653"].CGColor;
+                    aWriteReviewButton.userInteractionEnabled = YES;
                     
-                    break;
-                case 3:
-                    progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FDD854"];
-                    ratingNumberLab.text = @"\u2606\u2606\u2606";
-                    progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FDD854"].CGColor;
+                    UILabel *writeReviewLabl = [[UILabel alloc] initWithFrame:CGRectMake(5,50.0f, tableView.frame.size.width - 10.f, 40.0f)];
                     
-                    break;
-                case 2:
-                    progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FCB34E"];
-                    ratingNumberLab.text = @"\u2606\u2606";
-                    progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FCB34E"].CGColor;
+                    writeReviewLabl.text = [NSString stringWithFormat:@"Write you're review on %@",_incubee.companyName];
                     
-                    break;
-                case 1:
-                    progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#F88C5D"];
-                    ratingNumberLab.text = @"\u2606";
+                    writeReviewLabl.font = [UIFont fontWithName:@"Lato-bold" size:10.0f];
                     
-                    progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#F88C5D"].CGColor;
+                    writeReviewLabl.textAlignment = NSTextAlignmentCenter;
                     
-                    break;
-                default:
-                    break;
+                    writeReviewLabl.numberOfLines = 0;
+                    
+                    writeReviewLabl.textColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#6D6D6D"];
+                    
+                    [headView addSubview:writeReviewLabl];
+                    
+                }
+                //        else
+                //        {
+                //
+                //            aWriteReviewButton.userInteractionEnabled = NO;
+                //
+                //            allRatingView.frame =   CGRectMake(200.0f,15,tableView.frame.size.width-210.0f , 30);
+                //        }
+                
+                
+                CGRect r = allRatingView.frame;
+                
+                float he = r.size.height/5;
+                
+                uint rating = 5;
+                
+                for(uint i = 0;i<5;i++)
+                {
+                    
+                    ICRatingProgressView *progreeView = [[ICRatingProgressView alloc] initWithFrame:CGRectMake(5, i*he+8, r.size.width-10,he)];
+                    
+                    
+                    UILabel *ratingNumberLab = [[UILabel alloc] initWithFrame:CGRectMake(3, 0, progreeView.frame.size.width, progreeView.frame.size.height)];
+                    
+                    ratingNumberLab.font = [UIFont fontWithName:@"Lato" size:4.0f];
+                    
+                    ratingNumberLab.textAlignment = NSTextAlignmentLeft;
+                    
+                    [progreeView addSubview:ratingNumberLab];
+                    
+                    
+                    NSArray *ratingArray = [reviewDataDic objectForKey:@"noOfStars"];
+                    
+                    int currentRating = [[ratingArray objectAtIndex:(rating-1)] intValue];
+                    
+                    
+                    int percent = currentRating * 100/[[reviewDataDic valueForKey:@"noOfRatings"] intValue];
+                    
+                    
+                    progreeView.backgroundColor = [UIColor clearColor];
+                    
+                    progreeView.progress = percent/100.0f;
+                    
+                    [allRatingView addSubview:progreeView];
+                    
+                    progreeView.layer.borderWidth = 0.0f;
+                    
+                    
+                    switch (rating--) {
+                        case 5:
+                            progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#9FC160"];
+                            
+                            progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#9FC160"].CGColor;
+                            
+                            ratingNumberLab.text =[NSString stringWithFormat:@"\u2606\u2606\u2606\u2606\u2606"];
+                            
+                            
+                            break;
+                        case 4:
+                            progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#AED653"];
+                            ratingNumberLab.text = @"\u2606\u2606\u2606\u2606";
+                            progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#AED653"].CGColor;
+                            
+                            break;
+                        case 3:
+                            progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FDD854"];
+                            ratingNumberLab.text = @"\u2606\u2606\u2606";
+                            progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FDD854"].CGColor;
+                            
+                            break;
+                        case 2:
+                            progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FCB34E"];
+                            ratingNumberLab.text = @"\u2606\u2606";
+                            progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#FCB34E"].CGColor;
+                            
+                            break;
+                        case 1:
+                            progreeView.progressColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#F88C5D"];
+                            ratingNumberLab.text = @"\u2606";
+                            
+                            progreeView.layer.borderColor = [[ICUtilityManager sharedInstance] getColorFromRGB:@"#F88C5D"].CGColor;
+                            
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                }
+                
+                return headView;
+                
             }
             
         }
-        
-        return headView;
-        
+            break;
+        default:
+        case 0:{
+            return nil;
+        }
+            break;
     }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return reviewArray.count == 0 ? 1 : reviewArray.count;
+    switch (section) {
+        case 1:{
+            return reviewArray.count == 0 ? 1 : reviewArray.count;
+        }
+            break;
+        default:
+        case 0:{
+            return 1;
+        }
+            break;
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    if(reviewArray.count==0)
-    {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:EMPTYREVIEWCELL];
-        
-        if(!cell)
-        {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:EMPTYREVIEWCELL];
+    switch (indexPath.section) {
+        case 1:{
+
+            if(reviewArray.count==0)
+            {
+                UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:EMPTYREVIEWCELL];
+                
+                if(!cell)
+                {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:EMPTYREVIEWCELL];
+                    
+                }
+                
+                [cell.textLabel setText:@"No reviews"];
+                
+                [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
+                
+                return cell;
+                
+            }
+            else
+            {
+                
+                ICReviewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REVIEWCELLID];
+                
+                if(!cell)
+                {
+                    cell = [[ICReviewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:REVIEWCELLID];
+                    
+                }
+                
+                Review *review = [reviewArray objectAtIndex:indexPath.row];
+                
+                [cell setReview:review];
+                
+                if([[ICDataManager sharedInstance] isUserAvailable:review.user_id]==NO)
+                {
+                    [[ICAppManager sharedInstance] getCustomerDetails:review.user_id withRequest:nil notifyTo:self forSelector:@selector(customerDetailRetrived:)];
+                    
+                }
+                
+                
+                return cell;
+                
+            }
+
             
         }
-        
-        [cell.textLabel setText:@"No reviews"];
-        
-        [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
-        
-        return cell;
-
+            break;
+        default:
+        case 0:{
+            ICIncubeeLikeTbCell *likeCell = [tableView dequeueReusableCellWithIdentifier:@"LikeCellID"];
+            if(!likeCell){
+                likeCell = [[ICIncubeeLikeTbCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LikeCellID"];
+            }            
+            [likeCell configureCell:likeValue];
+            
+            return likeCell;
+        }
+            break;
     }
-    else
-    {
-        
-        ICReviewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REVIEWCELLID];
-        
-        if(!cell)
-        {
-            cell = [[ICReviewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:REVIEWCELLID];
-            
-        }
-
-        Review *review = [reviewArray objectAtIndex:indexPath.row];
-
-        [cell setReview:review];
-        
-        if([[ICDataManager sharedInstance] isUserAvailable:review.user_id]==NO)
-        {
-            [[ICAppManager sharedInstance] getCustomerDetails:review.user_id withRequest:nil notifyTo:self forSelector:@selector(customerDetailRetrived:)];
-            
-        }
-        
-        
-        return cell;
-
-    }
-    
-    
     
 }
 
@@ -645,8 +714,14 @@ NSString *reviewEditorId = nil;
     
     
     _starRatingView.rating = 4;
-    
+
+    likeValue = -1;
+
     [_reviewTableView reloadData];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[ICAppManager sharedInstance] getAllLikedIncubee:nil notifyTo:self forSelector:@selector(didFetchAllLikes:)];
+    });
     
     
     if(inRequest.error == nil)
@@ -662,6 +737,20 @@ NSString *reviewEditorId = nil;
     }
 
 }
+
+- (void)didFetchAllLikes:(ICRequest*)inRequest{
+    
+    NSArray *array = [inRequest.parsedResponse objectForKey:@"incubeeList"];
+    
+    NSLog(@"incubeeLikedList : %@",array);
+    
+    if (array != nil && array.count > 0){
+        likeValue = array.count;
+        [_reviewTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+    }
+}
+
+
 
 -(void)showLoadingReview:(BOOL)inShow{
 
