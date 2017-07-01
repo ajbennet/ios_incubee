@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DGActivityIndicatorView.h"
 
 @interface ICIncubeeLikeTbCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *valueLable;
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
+@property (weak, nonatomic) IBOutlet UIView *threeButtonActivity;
+@property (strong, nonatomic)  DGActivityIndicatorView *activityIndicatorView;
 -(void)configureCell:(int)numberOfLikes;
 @end

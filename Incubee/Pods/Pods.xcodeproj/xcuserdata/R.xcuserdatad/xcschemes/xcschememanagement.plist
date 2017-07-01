@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DGActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GTMOAuth2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +42,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2EDBC214686237F9151EA08803A37D5D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>39BE052A574D011EDB1EF74D5F57AB5E</key>
+		<key>310377142DE81A93D86888E6C68D74C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B12887A91C7EFA4CE882E394D6DAEA2D</key>
+		<key>72CF64196C149E27424BB9F17E07F06E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7F4392FD7EA80E82E1CC9999F43532A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>EAE45C123C22F83F258F201FDFBA835E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FBA9754FB7A82758566D360BD30C2517</key>
 		<dict>
 			<key>primary</key>
 			<true/>

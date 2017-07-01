@@ -23,41 +23,59 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryl-2A-vHD">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LikeButton" translatesAutoresizingMaskIntoConstraints="NO" id="29K-2u-NvM">
+                        <rect key="frame" x="85.5" y="12" width="40" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="lmq-wD-o74"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryl-2A-vHD">
                         <rect key="frame" x="125" y="11.5" width="70.5" height="20"/>
                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="0.027450980392156862" green="0.58039215686274503" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8W-j5-eKu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Y91-SC-NsV">
-                                <rect key="frame" x="150" y="11" width="20" height="20"/>
-                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bd4-Mg-Jgp">
+                                <rect key="frame" x="110" y="0.0" width="100" height="43.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Knj-3Z-0Bd"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Y91-SC-NsV" firstAttribute="centerY" secondItem="h8W-j5-eKu" secondAttribute="centerY" id="ahI-B2-haS"/>
-                            <constraint firstItem="Y91-SC-NsV" firstAttribute="centerX" secondItem="h8W-j5-eKu" secondAttribute="centerX" id="dN4-PR-Niu"/>
+                            <constraint firstAttribute="bottom" secondItem="bd4-Mg-Jgp" secondAttribute="bottom" id="kE1-d6-6cn"/>
+                            <constraint firstItem="bd4-Mg-Jgp" firstAttribute="centerY" secondItem="h8W-j5-eKu" secondAttribute="centerY" id="mWM-IG-9ap"/>
+                            <constraint firstItem="bd4-Mg-Jgp" firstAttribute="centerX" secondItem="h8W-j5-eKu" secondAttribute="centerX" id="sSe-FU-pxg"/>
+                            <constraint firstItem="bd4-Mg-Jgp" firstAttribute="top" secondItem="h8W-j5-eKu" secondAttribute="top" id="usS-HP-A6N"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="h8W-j5-eKu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1bH-hK-PiQ"/>
+                    <constraint firstItem="Ryl-2A-vHD" firstAttribute="leading" secondItem="29K-2u-NvM" secondAttribute="trailing" id="2T3-ts-DSe"/>
+                    <constraint firstItem="29K-2u-NvM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5Fm-b6-ZFU"/>
+                    <constraint firstItem="29K-2u-NvM" firstAttribute="bottom" secondItem="Ryl-2A-vHD" secondAttribute="bottom" id="AcN-HF-TPB"/>
                     <constraint firstItem="Ryl-2A-vHD" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="BKG-96-pgM"/>
                     <constraint firstItem="h8W-j5-eKu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="CHQ-nN-AYS"/>
                     <constraint firstAttribute="trailing" secondItem="h8W-j5-eKu" secondAttribute="trailing" id="Jcc-5f-T8d"/>
                     <constraint firstAttribute="bottom" secondItem="h8W-j5-eKu" secondAttribute="bottom" id="QX1-uW-DNs"/>
                     <constraint firstItem="Ryl-2A-vHD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="UKE-DF-5d3"/>
+                    <constraint firstItem="29K-2u-NvM" firstAttribute="top" secondItem="Ryl-2A-vHD" secondAttribute="top" id="Yoc-Or-Rp9"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="activityIndicator" destination="Y91-SC-NsV" id="4Pb-St-Vam"/>
                 <outlet property="loadingView" destination="h8W-j5-eKu" id="aLh-UA-qia"/>
+                <outlet property="threeButtonActivity" destination="bd4-Mg-Jgp" id="dWj-6j-xPL"/>
                 <outlet property="valueLable" destination="Ryl-2A-vHD" id="nfL-ia-COb"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="LikeButton" width="16" height="16"/>
+    </resources>
 </document>

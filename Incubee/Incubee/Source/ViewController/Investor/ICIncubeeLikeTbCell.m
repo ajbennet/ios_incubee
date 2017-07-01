@@ -13,6 +13,12 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    _activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeLineScalePulseOutRapid tintColor:[[ICUtilityManager sharedInstance] getColorFromRGB:@"#07947A"] size:20.0f];
+    _activityIndicatorView.frame = CGRectMake(0.0f, 0.0f, _threeButtonActivity.frame.size.width, _threeButtonActivity.frame.size.height);
+    [_threeButtonActivity addSubview:_activityIndicatorView];
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -25,12 +31,12 @@
 
     if (numberOfLikes == -1){
         _loadingView.hidden = NO;
-        [_activityIndicator startAnimating];
+        [_activityIndicatorView startAnimating];
     }
     else {
         _valueLable.text = [NSString stringWithFormat:@"%i",numberOfLikes];
         _loadingView.hidden = YES;
-        [_activityIndicator stopAnimating];
-    }    
+        [_activityIndicatorView stopAnimating];
+    }
 }
 @end
