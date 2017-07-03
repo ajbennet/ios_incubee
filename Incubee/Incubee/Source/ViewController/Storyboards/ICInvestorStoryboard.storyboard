@@ -135,16 +135,8 @@
                                             <outlet property="incubeeImage" destination="UaD-Lf-OeQ" id="tbP-1U-s27"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LikeCellID" id="GiP-oV-Qbv" customClass="ICIncubeeLikeTbCell">
-                                        <rect key="frame" x="0.0" y="108" width="375" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GiP-oV-Qbv" id="mzz-46-gNl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdhocIncubeeCellId" id="oVV-sn-WX9" userLabel="AdhocIncubee Cell" customClass="ICAdhocIncubeeTbCell">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="108" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oVV-sn-WX9" id="FPV-qb-Mzc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -781,7 +773,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCellId" id="XGF-Dh-rdx" userLabel="ReviewCell" customClass="ICReviewTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ReviewCellId" id="XGF-Dh-rdx" userLabel="ReviewCell" customClass="ICReviewTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XGF-Dh-rdx" id="cUO-6c-Qwa">
@@ -900,7 +892,7 @@
                                             <outlet property="reviewerName" destination="BFL-fc-Tio" id="gMK-EA-JVi"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyReviewCell" id="k0U-aX-X8W" userLabel="EmptyReviewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EmptyReviewCell" id="k0U-aX-X8W" userLabel="EmptyReviewCell">
                                         <rect key="frame" x="0.0" y="128" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k0U-aX-X8W" id="eUg-JO-D6i">

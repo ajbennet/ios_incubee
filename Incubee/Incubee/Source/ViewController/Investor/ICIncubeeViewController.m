@@ -31,6 +31,8 @@
     
     int likeValue;
     
+    BOOL isUserAlreadyLiked;
+    
 }
 @end
 
@@ -192,7 +194,7 @@ NSString *reviewEditorId = nil;
     
     switch (indexPath.section) {
         case 1:{
-            return 80.0f;
+            return 100.0f;
         }
             break;
         default:
@@ -509,8 +511,9 @@ NSString *reviewEditorId = nil;
             ICIncubeeLikeTbCell *likeCell = [tableView dequeueReusableCellWithIdentifier:@"LikeCellID"];
             if(!likeCell){
                 likeCell = [[ICIncubeeLikeTbCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LikeCellID"];
+                likeCell.selectionStyle = UITableViewCellEditingStyleNone;
             }            
-            [likeCell configureCell:likeValue];
+            [likeCell configureCell:likeValue selected:isUserAlreadyLiked];
             
             return likeCell;
         }
@@ -520,43 +523,53 @@ NSString *reviewEditorId = nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    Review *review = [reviewArray objectAtIndex:indexPath.row];
     
-//    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:@"Edit", nil];
-//    
-//    [actionSheet showInView:self.view];
-//    
-    
-    
-    if ([review.user_id isEqualToString:[[ICDataManager sharedInstance] getUserId]]){
-        
-        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        
-        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    switch (indexPath.section) {
+        case 1:{
             
-            // Cancel button tappped do nothing.
+            Review *review = [reviewArray objectAtIndex:indexPath.row];
             
-        }]];
-        
-        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-
-            NSLog(@"Show review editor");
-            
-            [self editReview:review];
-            
-        }]];
-        
-        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-            
-            [self deleteReview:review];
-
-        }]];
+            if ([review.user_id isEqualToString:[[ICDataManager sharedInstance] getUserId]]){
                 
-        [self presentViewController:actionSheet animated:YES completion:nil];
-        
+                UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+                
+                [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                    
+                    // Cancel button tappped do nothing.
+                    
+                }]];
+                
+                [actionSheet addAction:[UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    
+                    NSLog(@"Show review editor");
+                    
+                    [self editReview:review];
+                    
+                }]];
+                
+                [actionSheet addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+                    
+                    [self deleteReview:review];
+                    
+                }]];
+                
+                [self presentViewController:actionSheet animated:YES completion:nil];
+                
+            }
+
+        }
+            break;
+        default:
+        case 0:{
+            [tableView deselectRowAtIndexPath:indexPath animated:false];
+
+            if (isUserAlreadyLiked == false && likeValue != -1){
+            
+                [[ICAppManager sharedInstance] likeProject:nil withIncubeeId:_incubee.incubeeId notifyTo:self forSelector:@selector(reloadLike:)];
+            }
+        }
+        break;
     }
-    
 }
 
 
@@ -746,8 +759,23 @@ NSString *reviewEditorId = nil;
     
     if (array != nil && array.count > 0){
         likeValue = array.count;
+        
+        isUserAlreadyLiked = [array containsObject:self.incubee.incubeeId];
+        
         [_reviewTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
     }
+}
+
+- (void)reloadLike:(ICRequest*)inRequest{
+    
+    likeValue = -1;
+    
+    [_reviewTableView reloadData];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[ICAppManager sharedInstance] getAllLikedIncubee:nil notifyTo:self forSelector:@selector(didFetchAllLikes:)];
+    });
+    
 }
 
 

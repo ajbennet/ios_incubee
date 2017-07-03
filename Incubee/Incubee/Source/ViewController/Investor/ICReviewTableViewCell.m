@@ -60,7 +60,7 @@
     
     _reviewImageView.backgroundColor = [UIColor whiteColor];
     
-    _reviewImageView.layer.cornerRadius = _reviewImageView.frame.size.width/2;
+    _reviewImageView.layer.cornerRadius = _reviewImageView.frame.size.height/2;
     
     Customer *aCustomer = [[ICDataManager sharedInstance] getCustomer:_review.user_id];
     

@@ -27,8 +27,9 @@
     // Configure the view for the selected state
 }
 
--(void)configureCell:(int)numberOfLikes{
+-(void)configureCell:(int)numberOfLikes selected:(BOOL)isSelected{
 
+    [_likeImage setHighlighted:isSelected];
     if (numberOfLikes == -1){
         _loadingView.hidden = NO;
         [_activityIndicatorView startAnimating];
