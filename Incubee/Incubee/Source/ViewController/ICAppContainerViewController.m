@@ -24,7 +24,7 @@
     
     [self setupUIAsGuest];
     
-    [self checkForUserLogin];
+    [self initUserLogin];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,7 +34,7 @@
 
 
 #pragma mark - User -
--(void)checkForUserLogin{
+-(void)initUserLogin{
 
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ICLoginViewController" bundle:nil];
     

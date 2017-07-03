@@ -13,7 +13,7 @@
 #import "ICUtilityManager.h"
 #import "ICChatViewController.h"
 #import "ICConstants.h"
-#import "Customer.h"
+#import "Customer+CoreDataClass.h"
 #import "ICMessengerManager.h"
 
 #define PROJECT_TABLEVIEW_CELL @"ProjectTableViewCellIdentifier"

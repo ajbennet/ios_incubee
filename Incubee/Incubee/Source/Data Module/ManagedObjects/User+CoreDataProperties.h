@@ -2,27 +2,27 @@
 //  User+CoreDataProperties.h
 //  Incubee
 //
-//  Created by Rithesh Rao on 08/02/16.
-//  Copyright © 2016 Incubee. All rights reserved.
-//
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
+//  Created by Rithesh Rao on 07/06/17.
+//  Copyright © 2017 Incubee. All rights reserved.
 //
 
-#import "User.h"
+#import "User+CoreDataClass.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface User (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *email;
-@property (nullable, nonatomic, retain) NSString *founderCompanyId;
-@property (nullable, nonatomic, retain) NSString *imageURL;
-@property (nullable, nonatomic, retain) NSString *name;
-@property (nullable, nonatomic, retain) NSString *token;
-@property (nullable, nonatomic, retain) NSDate *tokenExpDate;
-@property (nullable, nonatomic, retain) NSString *userId;
-@property (nullable, nonatomic, retain) NSNumber *userLoginMode;
++ (NSFetchRequest<User *> *)fetchRequest;
+
+@property (nullable, nonatomic, copy) NSString *email;
+@property (nullable, nonatomic, copy) NSString *founderCompanyId;
+@property (nullable, nonatomic, copy) NSString *imageURL;
+@property (nullable, nonatomic, copy) NSString *name;
+@property (nullable, nonatomic, copy) NSString *token;
+@property (nullable, nonatomic, copy) NSDate *tokenExpDate;
+@property (nullable, nonatomic, copy) NSString *userId;
+@property (nullable, nonatomic, copy) NSNumber *userLoginMode;
 
 @end
 

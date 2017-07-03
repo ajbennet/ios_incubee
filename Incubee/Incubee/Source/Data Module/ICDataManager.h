@@ -10,13 +10,13 @@
 #import <CoreData/CoreData.h>
 #import <Google/SignIn.h>
 
-#import "Incubee.h"
-#import "IncubeeImage.h"
-#import "User.h"
-#import "Messages.h"
-#import "Customer.h"
-#import "Review.h"
-#import "AdhocIncubee.h"
+#import "Incubee+CoreDataClass.h"
+#import "IncubeeImage+CoreDataClass.h"
+#import "User+CoreDataClass.h"
+#import "Messages+CoreDataClass.h"
+#import "Customer+CoreDataClass.h"
+#import "Review+CoreDataClass.h"
+#import "AdhocIncubee+CoreDataClass.h"
 
 @interface ICDataManager : NSObject
 
@@ -77,6 +77,8 @@
 
 -(void)updateCustomerDetails:(NSDictionary*)inCustomer;
 
+-(Customer*)getCustomer:(NSString*)inCustomerId;
+
 -(NSString*)getCustomerName:(NSString*)inCustomerId;
 
 -(NSString*)getCustomerPic:(NSString*)inCustomerId;
@@ -91,6 +93,8 @@
 -(void)saveReviewArray:(NSArray*)inReviewArray;
 
 -(NSArray*)getReviewArray:(NSString*)inIncubeeId;
+
+-(BOOL)deleteReview:(NSString *)reviewId;
 
 -(BOOL)isReviewWritten:(NSString*)inIncubeeId;
 

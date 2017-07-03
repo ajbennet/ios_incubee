@@ -7,7 +7,7 @@
 //
 
 #import "ICChatTableViewCell.h"
-#import "Messages.h"
+#import "Messages+CoreDataClass.h"
 #import "PPDateManager.h"
 
 @implementation ICChatTableViewCell

@@ -37,6 +37,10 @@
 
 #define kSubmitReview(userId) [NSString stringWithFormat:@"rest/%@/review?uid=%@",SERVER_API_VERSION,userId]
 
+#define kEditReview(userId,review_id) [NSString stringWithFormat:@"rest/%@/review?uid=%@&review_id=%@",SERVER_API_VERSION,userId,review_id]
+
+#define kdeleteReview(userId,review_id) [NSString stringWithFormat:@"rest/%@/review?uid=%@&review_id=%@",SERVER_API_VERSION,userId,review_id]
+
 #define kInviteFounder(emailId,userId) [NSString stringWithFormat:@"rest/%@/invite/%@?uid=%@",SERVER_API_VERSION,emailId,userId]
 
 #define kGetAllFounderChatMsg(userId) [NSString stringWithFormat:@"rest/%@/msg/all?eid=%@",SERVER_API_VERSION,userId]

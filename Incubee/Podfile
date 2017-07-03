@@ -1,6 +1,8 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '6.0'
 pod 'Google/SignIn'
+pod 'DGActivityIndicatorView'
+
 
 target 'Incubee' do
 
@@ -11,5 +13,6 @@ target 'IncubeeTests' do
 end
 
 target 'Incubee QA' do
+
     
 end

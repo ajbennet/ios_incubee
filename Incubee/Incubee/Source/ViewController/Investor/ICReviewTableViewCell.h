@@ -18,5 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *dateLable;
 
 @property(nonatomic,strong)Review *review;
+@property (strong, nonatomic) IBOutlet UIImageView *editableImageView;
+@property (strong, nonatomic) IBOutlet UILabel *reviewerName;
 
 @end
