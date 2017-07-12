@@ -688,6 +688,10 @@ NSString *editor_reviewId = nil;
     
     switch (indexPath.section) {
         case 1:{
+            
+            if (reviewArray.count==0){
+                return;
+            }
     Review *review = [reviewArray objectAtIndex:indexPath.row];
     if ([review.user_id isEqualToString:[[ICDataManager sharedInstance] getUserId]]){
         

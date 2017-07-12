@@ -527,6 +527,10 @@ NSString *reviewEditorId = nil;
     switch (indexPath.section) {
         case 1:{
             
+            if (reviewArray.count == 0){
+                return;
+            }
+            
             Review *review = [reviewArray objectAtIndex:indexPath.row];
             
             if ([review.user_id isEqualToString:[[ICDataManager sharedInstance] getUserId]]){
@@ -556,7 +560,6 @@ NSString *reviewEditorId = nil;
                 [self presentViewController:actionSheet animated:YES completion:nil];
                 
             }
-
         }
             break;
         default:
