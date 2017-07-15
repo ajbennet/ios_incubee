@@ -170,7 +170,6 @@
 		607A2AE61EC0E2E9006C0C2A /* libGoogleToolboxForMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE21EC0E2E9006C0C2A /* libGoogleToolboxForMac.a */; };
 		607A2AE71EC0E2E9006C0C2A /* libGTMOAuth2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE31EC0E2E9006C0C2A /* libGTMOAuth2.a */; };
 		607A2AE81EC0E2E9006C0C2A /* libGTMSessionFetcher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 607A2AE41EC0E2E9006C0C2A /* libGTMSessionFetcher.a */; };
-		724A07961261F7225C6952EF /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		797E81101C69F1FB00362B4E /* ICAdhocIncubeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E810F1C69F1FB00362B4E /* ICAdhocIncubeeViewController.m */; };
 		797E81131C69FD2100362B4E /* ICReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E81121C69FD2100362B4E /* ICReviewTableViewCell.m */; };
 		797E81161C69FD8200362B4E /* ICRatingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E81151C69FD8200362B4E /* ICRatingProgressView.m */; };
@@ -804,6 +803,7 @@
 					570388DA1B31E67300BB9D40 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = FHXW64JJEE;
+						ProvisioningStyle = Manual;
 					};
 					570388F61B31E67300BB9D40 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -1288,7 +1288,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = FHXW64JJEE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Incubee/PrefixHeader.pch;
@@ -1308,7 +1308,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ee.incub.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "68e7471f-fb03-47bf-a22a-38031fce7145";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS Distribution New";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1318,8 +1319,8 @@
 			baseConfigurationReference = F570B9EB603495B80BD31F27 /* Pods-Incubee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Incubee LLC (FHXW64JJEE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Incubee LLC (FHXW64JJEE)";
 				DEVELOPMENT_TEAM = FHXW64JJEE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Incubee/PrefixHeader.pch;
@@ -1339,7 +1340,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ee.incub.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "68e7471f-fb03-47bf-a22a-38031fce7145";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS Distribution New";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
