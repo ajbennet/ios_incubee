@@ -37,42 +37,37 @@
             case IC_GET_ALL_CHAT:
             case IC_GET_FOUNDER_CHAT_ALL:
             {
-            
-                NSArray *array = [inRequest.parsedResponse objectForKey:@"messages"];
-                
-                [self saveChatArray:array];
-                
+                NSArray *array = NULL_TO_NIL([inRequest.parsedResponse objectForKey:@"messages"]);
+                if (array != nil && array.count > 0){
+                    [self saveChatArray:array];
+                }
             }
                 break;
             case IC_GET_ALL_LIKED_INCUBEES:
             {
-                NSArray *array = [inRequest.parsedResponse objectForKey:@"incubeeList"];
-                
-                NSLog(@"incubeeLikedList : %@",array);
-                
-                [self saveLikedArray:array];
-
+                NSArray *array = NULL_TO_NIL([inRequest.parsedResponse objectForKey:@"incubeeList"]);
+                if (array != nil && array.count > 0){
+                    [self saveLikedArray:array];
+                }
             }
                 break;
             
             case IC_GET_ALL_CUSTOMER_INCUBEES:
             {
-                NSArray *array = [inRequest.parsedResponse objectForKey:@"incubeeList"];
+                NSArray *array = NULL_TO_NIL([inRequest.parsedResponse objectForKey:@"incubeeList"]);
                 
-                NSLog(@"CustomerList : %@",array);
-                
+                if (array != nil){
                 [self saveCustomerArray:array];
-                
+                }
             }
                 break;
                 
             case IC_GET_CUSTOMER_DETAILES:
             {
-                NSArray *array = [inRequest.parsedResponse objectForKey:@"customerList"];
+                NSArray *array = NULL_TO_NIL([inRequest.parsedResponse objectForKey:@"customerList"]);
                 
-                NSLog(@"IC_GET_CUSTOMER_DETAILES : %@",array);
                 // This should be always 1
-                if(array.count == 1)
+                if(array != nil && array.count == 1)
                 {
                     [self updateCustomerDetails:(NSDictionary*)[array objectAtIndex:0]];
                 }
@@ -81,21 +76,19 @@
                 break;
             case IC_GET_INCUBEE_REVIEW:
             {
-                NSArray *array = [inRequest.parsedResponse objectForKey:@"reviews"];
+                NSArray *array = NULL_TO_NIL([inRequest.parsedResponse objectForKey:@"reviews"]);
                 
+                if(array != nil){
                 [self saveReviewArray:array];
-
+                }
             }
                 break;
             case IC_GET_ALL_ADHOC_INCUBEE:
-            {
-            
-                NSArray *adhocInvubeeListArray = [inRequest.parsedResponse objectForKey:@"incubeeList"];
-                
-                NSLog(@"adhocInvubeeListArray : %@",adhocInvubeeListArray);
-                
-                [self saveAdHocIncubees:adhocInvubeeListArray];
-
+            {                
+                NSArray *adhocInvubeeListArray = NULL_TO_NIL([inRequest.parsedResponse objectForKey:@"incubeeList"]);
+                if(adhocInvubeeListArray != nil){
+                    [self saveAdHocIncubees:adhocInvubeeListArray];
+                }
             }
                 break;
                 

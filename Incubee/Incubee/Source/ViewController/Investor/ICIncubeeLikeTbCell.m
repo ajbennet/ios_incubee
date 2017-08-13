@@ -35,9 +35,15 @@
         [_activityIndicatorView startAnimating];
     }
     else {
+        if (numberOfLikes == 0){
+            _valueLable.text = @"Be first person to Like";
+        }
+        else {
         _valueLable.text = [NSString stringWithFormat:@"%i",numberOfLikes];
+        }
         _loadingView.hidden = YES;
         [_activityIndicatorView stopAnimating];
+
     }
 }
 @end

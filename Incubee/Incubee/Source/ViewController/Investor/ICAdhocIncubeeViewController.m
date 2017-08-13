@@ -186,13 +186,16 @@ NSString *editor_reviewId = nil;
     
     NSLog(@"incubeeLikedList : %@",array);
     
-    if (array != nil && array.count > 0){
-        likeValue = array.count;
-        
+    if (array != nil){
+        likeValue = (int)array.count;        
         isUserAlreadyLiked = [array containsObject:_adhocIncubee.adhocIncubeeId];
-        
-        [_adhocTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
     }
+    else {
+        likeValue = -1;
+    }
+    
+    [_adhocTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+
 }
 
 - (void)reloadLike:(ICRequest*)inRequest{

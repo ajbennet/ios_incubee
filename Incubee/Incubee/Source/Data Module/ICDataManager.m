@@ -185,111 +185,111 @@ static ICDataManager *sharedDataManagerInstance = nil;
 }
 -(void)saveProjectList:(NSArray*)inArray{
     
-    NSLog(@"%@ : %@",NSStringFromSelector(_cmd),inArray);
-
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    if(context)
-    {
-        for(NSDictionary *aDic in inArray)
+        NSLog(@"%@ : %@",NSStringFromSelector(_cmd),inArray);
+        
+        NSManagedObjectContext *context = [self managedObjectContext];
+        
+        if(context)
         {
-            NSFetchRequest *request = [[NSFetchRequest alloc] init];
-            
-            [request setEntity:[NSEntityDescription entityForName:@"Incubee" inManagedObjectContext:context]];
-            
-            NSError *errorDb = nil;
-            
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"incubeeId LIKE %@",[aDic objectForKey:@"id"]];
-            
-            [request setPredicate:predicate];
-            
-            NSArray *results = [context executeFetchRequest:request error:&errorDb];
-            
-            Incubee *aIncubee;
-            
-            if (results && [results count] > 0)
+            for(NSDictionary *aDic in inArray)
             {
-                aIncubee = [results objectAtIndex:0];
-            }
-            else
-            {
-                aIncubee = [NSEntityDescription
-                            insertNewObjectForEntityForName:@"Incubee"
-                            inManagedObjectContext:context];
-            }
-
-            aIncubee.companyDescription = NULL_TO_NIL([aDic objectForKey:@"description"]);
-            aIncubee.companyName =  NULL_TO_NIL([aDic objectForKey:@"company_name"]);
-            aIncubee.companyUrl = NULL_TO_NIL([aDic objectForKey:@"company_url"]);
-            aIncubee.contactEmail = NULL_TO_NIL([aDic objectForKey:@"contact_email"]);
-            aIncubee.field = NULL_TO_NIL([aDic objectForKey:@"field"]);
-            aIncubee.founder = NULL_TO_NIL([aDic objectForKey:@"founder"]);
-            aIncubee.funding = [NSNumber numberWithBool:((BOOL)[aDic objectForKey:@"funding"])];
-            aIncubee.highConcept = NULL_TO_NIL([aDic objectForKey:@"high_concept"]);
-            aIncubee.incubeeId = NULL_TO_NIL([aDic objectForKey:@"id"]);
-            aIncubee.location = NULL_TO_NIL([aDic objectForKey:@"location"]);
-            aIncubee.logoUrl = NULL_TO_NIL([aDic objectForKey:@"logo_url"]);
-            aIncubee.projectStatus = NULL_TO_NIL([aDic objectForKey:@"project_status"]);
-            aIncubee.twitterUrl= NULL_TO_NIL([aDic objectForKey:@"twitter_url"]);
-            aIncubee.video= NULL_TO_NIL([aDic objectForKey:@"video"]);
-            aIncubee.videoUrl=NULL_TO_NIL([aDic objectForKey:@"video_url"]);
-//            aProject.projectFollowing =[NSNumber numberWithBool:NO];
-            
-            if(NULL_TO_NIL([aDic valueForKey:@"images"]) != nil)
-            {
-                // Delete all Images belong to this projectID
+                NSFetchRequest *request = [[NSFetchRequest alloc] init];
                 
-                NSFetchRequest * fetchRequest = [[NSFetchRequest alloc] init];
+                [request setEntity:[NSEntityDescription entityForName:@"Incubee" inManagedObjectContext:context]];
                 
-                NSEntityDescription *entity = [NSEntityDescription entityForName:@"IncubeeImage" inManagedObjectContext:context];
-
-                [fetchRequest setEntity:entity];
+                NSError *errorDb = nil;
                 
-                NSPredicate *prd = [NSPredicate predicateWithFormat:@"(incubeeId LIKE %@)",aIncubee.incubeeId];
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"incubeeId LIKE %@",[aDic objectForKey:@"id"]];
                 
-                [fetchRequest setPredicate:prd];
+                NSLog(@"predicate : %@",predicate);
                 
-                NSArray * fetchResults = [context executeFetchRequest:fetchRequest error:nil];
+                [request setPredicate:predicate];
                 
-                for(IncubeeImage *pImage in fetchResults)
+                NSArray *results = [context executeFetchRequest:request error:&errorDb];
+                
+                Incubee *aIncubee;
+                
+                if (results && [results count] > 0)
                 {
-                    [context deleteObject:pImage];
+                    NSLog(@"aIncubee : EXISTING");
+                    aIncubee = [results objectAtIndex:0];
+                }
+                else
+                {
+                    NSLog(@"aIncubee : NEW");
+                    aIncubee = [NSEntityDescription
+                                insertNewObjectForEntityForName:@"Incubee"
+                                inManagedObjectContext:context];
                 }
                 
-                // All Clear - InsertAll new Objects Here.
+                aIncubee.companyDescription = NULL_TO_NIL([aDic objectForKey:@"description"]);
+                aIncubee.companyName =  NULL_TO_NIL([aDic objectForKey:@"company_name"]);
+                aIncubee.companyUrl = NULL_TO_NIL([aDic objectForKey:@"company_url"]);
+                aIncubee.contactEmail = NULL_TO_NIL([aDic objectForKey:@"contact_email"]);
+                aIncubee.field = NULL_TO_NIL([aDic objectForKey:@"field"]);
+                aIncubee.founder = NULL_TO_NIL([aDic objectForKey:@"founder"]);
+                aIncubee.funding = [NSNumber numberWithBool:((BOOL)[aDic objectForKey:@"funding"])];
+                aIncubee.highConcept = NULL_TO_NIL([aDic objectForKey:@"high_concept"]);
+                aIncubee.incubeeId = NULL_TO_NIL([aDic objectForKey:@"id"]);
+                aIncubee.location = NULL_TO_NIL([aDic objectForKey:@"location"]);
+                aIncubee.logoUrl = NULL_TO_NIL([aDic objectForKey:@"logo_url"]);
+                aIncubee.projectStatus = NULL_TO_NIL([aDic objectForKey:@"project_status"]);
+                aIncubee.twitterUrl= NULL_TO_NIL([aDic objectForKey:@"twitter_url"]);
+                aIncubee.video= NULL_TO_NIL([aDic objectForKey:@"video"]);
+                aIncubee.videoUrl=NULL_TO_NIL([aDic objectForKey:@"video_url"]);
+                //            aProject.projectFollowing =[NSNumber numberWithBool:NO];
                 
-                NSArray *imArray = [aDic valueForKey:@"images"];
-                
-                for(NSString *imStringURL in imArray)
+                if(NULL_TO_NIL([aDic valueForKey:@"images"]) != nil)
                 {
-                    IncubeeImage *aIncubeeImage = [NSEntityDescription
-                                                                   insertNewObjectForEntityForName:@"IncubeeImage"
-                                                                   inManagedObjectContext:context];
+                    // Delete all Images belong to this projectID
                     
-                    aIncubeeImage.imageUrl = imStringURL;
+                    NSFetchRequest * fetchRequest = [[NSFetchRequest alloc] init];
                     
-                    aIncubeeImage.incubeeId = aIncubee.incubeeId;
+                    NSEntityDescription *entity = [NSEntityDescription entityForName:@"IncubeeImage" inManagedObjectContext:context];
                     
-                    aIncubeeImage.incubee = aIncubee;
+                    [fetchRequest setEntity:entity];
+                    
+                    NSPredicate *prd = [NSPredicate predicateWithFormat:@"(incubeeId LIKE %@)",aIncubee.incubeeId];
+                    
+                    [fetchRequest setPredicate:prd];
+                    
+                    NSArray * fetchResults = [context executeFetchRequest:fetchRequest error:nil];
+                    
+                    for(IncubeeImage *pImage in fetchResults)
+                    {
+                        [context deleteObject:pImage];
+                    }
+                    
+                    // All Clear - InsertAll new Objects Here.
+                    
+                    NSArray *imArray = [aDic valueForKey:@"images"];
+                    
+                    for(NSString *imStringURL in imArray)
+                    {
+                        IncubeeImage *aIncubeeImage = [NSEntityDescription
+                                                       insertNewObjectForEntityForName:@"IncubeeImage"
+                                                       inManagedObjectContext:context];
+                        
+                        aIncubeeImage.imageUrl = imStringURL;
+                        
+                        aIncubeeImage.incubeeId = aIncubee.incubeeId;
+                        
+                        aIncubeeImage.incubee = aIncubee;
+                    }
+                }
+                
+                NSError *dbError = nil;
+                [context save:&dbError];
+                if(dbError==nil)
+                {
+                    NSLog(@"Projects Saved!");
+                }
+                else{
+                    NSLog(@"Unable to save project : %@",dbError.localizedDescription);
                 }
             }
-            
-        }
-        NSError *dbError = nil;
-        
-        [context save:&dbError];
-        
-        if(dbError==nil)
-        {
-            NSLog(@"All Projects Saved!");
-        }
-        else
-        {
-            NSLog(@"Unable to save project : %@",dbError.localizedDescription);
         }
     }
-    
-}
 
 -(NSArray*)getAllIncubees{
 
